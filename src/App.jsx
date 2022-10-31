@@ -1,8 +1,11 @@
 import "./App.scss";
+import TopNav from "./containers/TopNav/TopNav";
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <TopNav />
+    </div>
   )
 }
 

@@ -1,0 +1,15 @@
+.topnav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    &__centerlinks, &__signin{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        *{
+            padding: 20px;
+        }
+    }
+}
