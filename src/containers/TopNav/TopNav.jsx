@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from "react";
 import "./TopNav.scss";
-import NavMenu from "../NavMenu/NavMenu";
+import NavMenu from "../../components/NavMenu/NavMenu";
 
 const TopNav = () => {
   const [showNav, setShowNav] = useState(true);
@@ -11,19 +11,24 @@ const TopNav = () => {
   };
 
   return (
-    <div className="topnav">
-      {showNav && <NavMenu title="Synergy" toggleNav={toggleNav} />}
-
-      <div className="topnav__centerlinks">
-        <p>Home</p>
-        <p>Features</p>
-        <p>About</p>
-        <p>Contact Us</p>
+    <div className="nav">
+      <div className="topnav">
+        <div className="topnav__menu"> 
+          <img className="topnav__appicon" src="" alt="Synergy-icon" onClick={toggleNav} />
+          <a href="#" onClick={toggleNav}>Synergy</a>
+        </div>
+        <div className="topnav__centerlinks">
+          <p>Home</p>
+          <p>Features</p>
+          <p>About</p>
+          <p>Contact Us</p>
+        </div>
+        <div className="topnav__signin">
+          <p>Sign In</p>
+          <p>SignUp</p>
+        </div>
       </div>
-      <div className="topnav__signin">
-        <p>Sign In</p>
-        <p>SignUp</p>
-      </div>
+      {showNav && <NavMenu title="Synergy"/>}
     </div>
   );
 };

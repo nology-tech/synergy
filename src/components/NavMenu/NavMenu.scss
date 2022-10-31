@@ -1,0 +1,30 @@
+.sidemenu{
+    border: 1px ridge gray;
+    box-shadow: 4px 4px  gray;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    height:87vh;
+    width:10%;
+    padding-left: 20px;
+    margin: 20px;
+    font-weight: bold;
+    &__items, &__signout {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: left;
+        margin: 20px 0 20px 0;
+        *{
+            padding: 10px;
+            text-decoration: none;
+        }
+    }
+    &__signout {
+        text-align: center;
+        justify-content: flex-end;
+        position:absolute;
+        bottom:0;
+    }
+}
