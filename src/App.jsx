@@ -1,8 +1,9 @@
 import "./App.scss";
+import SignIn from "./components/SignIn/SignIn";
 
 const App = () => {
   return (
-    <div>App</div>
+    <SignIn />
   )
 }
 

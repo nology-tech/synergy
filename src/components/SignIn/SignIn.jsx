@@ -1,17 +1,20 @@
 import React from 'react'
+import "./SignIn.scss"
 
-const LoginFlow = () => {
+const SignIn = () => {
   return (
-    <div>
-        <div>
+    <div className="signIn">
+        <div className="signIn__synergyIcon">
             <img src="" alt="Synergy icon" />
             <h1>Synergy</h1>    
         </div>
-        <div>
+        <div className="signIn__main">
+            <div className="signIn__main__header">
             <h1>Welcome Back!</h1>
             <img src="" alt="Handwave" />
-            
-            <div>
+            </div>
+
+            <div className="signIn__credentials">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu leo urna.</p>
             <h2>Email</h2>
             <input type="text" placeholder="enter your email"/>
@@ -19,7 +22,7 @@ const LoginFlow = () => {
             <input type="text" placeholder="enter your psw"/>
             </div>
 
-            <div>
+            <div className="signIn__links">
                 <p>Don't have an account?<a href="#sugnup">Sign Up</a></p>
                 <p>Forgotten Password?</p>
             </div>
@@ -31,4 +34,4 @@ const LoginFlow = () => {
   )
 }
 
-export default LoginFlow
+export default SignIn
