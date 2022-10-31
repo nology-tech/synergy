@@ -1,8 +1,11 @@
 import "./App.scss";
+import "./containers/ContactContainer/ContactContainer"
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <ContactContainer />
+    </div>
   )
 }
 
