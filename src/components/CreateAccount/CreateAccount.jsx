@@ -4,7 +4,8 @@ const CreateAccount = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  return (
+  const [confirmedPassword, setConfirmedPassword] = useState("");
+  
     // States for checking the errors
   const [submitted, setSubmitted] = useState(false);
   //comment
@@ -27,6 +28,45 @@ const CreateAccount = () => {
     setPassword(e.target.value);
     setSubmitted(false);
   };
+
+  const handleConfirmedPassword = (e) => {
+    setConfirmedPassword(e.target.value);
+    setSubmitted(false);
+  };
+
+  return (
+    <div className='signup-form'>
+      <div className='signup-header'>
+        <h3>Synergy logo goes here</h3>
+      </div>
+      <div>
+        <h1>Create an Account</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <form>
+          {/* Labels and inputs for form data */}
+          <label className="label">Email</label>
+          <input onChange={handleEmail} className="input"
+            value={email} type="text" />
+  
+          <label className="label">Password</label>
+          <input onChange={handlePassword} className="input"
+            value={password} type="email" />
+  
+          <label className="label">Confirm Password</label>
+          <input onChange={handleConfirmedPassword} className="input"
+            value={confirmedPassword} type="password" />
+
+          <p>Already have an account?<p>
+  
+          <button onClick={handleSubmit} className="btn" type="submit">
+            Continue
+          </button>
+      </form>
+      </div>
+  
+    </div>
+
+  )
   )
 }
 
