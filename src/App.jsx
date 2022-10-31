@@ -3,7 +3,7 @@ import "./containers/ContactContainer/ContactContainer"
 
 const App = () => {
   return (
-    <div>
+    <div className="App">
       <ContactContainer />
     </div>
   )
