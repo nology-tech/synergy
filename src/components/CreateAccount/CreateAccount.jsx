@@ -7,6 +7,7 @@ const CreateAccount = () => {
   return (
     // States for checking the errors
   const [submitted, setSubmitted] = useState(false);
+  //comment
   const [error, setError] = useState(false);
  
   // Handling the name change
