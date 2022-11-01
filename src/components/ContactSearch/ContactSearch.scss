@@ -1,8 +1,15 @@
+*{
+    margin: 5px;
+    padding: 2px;
+}
 
 .contactSearch {
     display: flex;
     flex-direction: row;
     border: 3px solid red;
+    width: 80vw;
+    justify-content: space-between;
+   
 
 &__Text {
     display: flex;
@@ -11,29 +18,37 @@
    
 }
 
+// div has all the search stuff included.
+.searchStuff{
+    display: flex;
+    flex-direction: row;
+}
 
 &__box {
+    display: flex;
+    flex-direction: row;
     border: 1.5px solid black;
-
-    &__spyGlass {   
-    height: 20px;
-    width: 20px;
-    object-fit: cover;
-
-        }
+    
     &__button {
         background: transparent;
         border: none;
         outline: none;
-        margin-left: -33px;
-    
+        // margin-left: -33px;
+
+        &__spyGlass {   
+            height: 20px;
+            width: 20px;
+            object-fit: cover;
+        
+                }    
 
 
     }
 
     &__inputBox {
-    border: none;
-    // background-image: url("./../../assets/images/spyglass.png");
+        border: none;
+        outline: none;
+        // background-image: url("./../../assets/images/spyglass.png");
     // position: relative;
 
     }
