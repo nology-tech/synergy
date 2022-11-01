@@ -1,21 +1,19 @@
-import React from 'react'
+import React from "react";
 
 const Header = () => {
-
-  // const text = "Check out the brews we're pouring \n all-freakin'-yearlong";
-  // let newText = text.split("\n").map((i) => {
-  //   return <p>{i}</p>;
-  // });
-
+  const text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut id fringila augue \n feugiat. Volutpat tortor ornare lectus praesent amet.";
+  let smallText = text.split("\n").map((i) => {
+    return <p>{i}</p>;
+  });
 
   return (
-    <div><header>Lorem ipsum dolor sit,
-        amet consectetur adipisicing elit. 
-        Odit quidem ipsam iusto possimus pariatur
-         incidunt doloribus obcaecati sit similique aliquam, 
-         distinctio ipsum itaque velit fugiat? Ratione enim 
-         porro maiores officia.</header></div>
-  )
-}
+    <div>
+      <header>
+        <h1 className="header">Lorem ipsum dolor sit amet, consectetur <span className="header__highlight">adipisicing elit. </span></h1>
+        <h5 className="header__subline">{smallText}</h5>
+      </header>
+    </div>
+  );
+};
 
-export default Header
+export default Header;

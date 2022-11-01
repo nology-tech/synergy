@@ -1,0 +1,19 @@
+@use "../../assets/sass/_variables.scss"as *;
+
+
+.header {
+  padding: 30px;
+  align-content: center;
+  margin: 10px;
+  background-color: $color-background;
+  
+  &__highlight{
+    color: $color-lightblue;
+  }
+
+  &__subline {
+    color: $color-light-gray;
+  }
+
+}
+

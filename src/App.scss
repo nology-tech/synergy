@@ -1,0 +1,48 @@
+@use "./assets/sass/_variables.scss"as *;
+
+* {
+  align-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: $color-background;
+}
+
+.navbar__image {
+  background-color: $color-background;
+}
+
+.landing__image {
+  background-color: $color-background;
+  border-radius: 15px;
+  overflow: visible;
+  box-shadow: 0px 10px 10px rgba($color-background, 0.25);
+  padding: 10px;
+  width: 40%;
+
+}
+.bankLogosImg {
+  background-color: transparent;
+  justify-content: space-evenly;
+}
+.convertionFXRate {
+  // display: flex;
+  // flex-direction: row;
+  // align-content: center;
+  // width: 50%;
+  background-color: $color-lightblue;  
+  overflow: visible;
+  height: 300px;
+    width: auto;
+}
+
+.latestRates {
+  overflow: visible;
+  background-color: $color-white;  
+
+}
+
+
+.footer {
+  background-color: $color-black;
+  
+}
