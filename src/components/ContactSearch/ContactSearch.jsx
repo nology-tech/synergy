@@ -24,10 +24,9 @@ const ContactSearch = (props) => {
       />
     </form>
     
-    <button>
-        label="+ Add"
+    <button
         className="add-button"
-        onClick={addContact}
+        onClick={addContact}>+ Add
     </button>
 
     

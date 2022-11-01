@@ -1,5 +1,5 @@
 import "./App.scss";
-import "./containers/ContactContainer/ContactContainer"
+import ContactContainer from "./containers/ContactContainer/ContactContainer";
 
 const App = () => {
   return (
