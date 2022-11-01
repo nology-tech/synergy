@@ -10,16 +10,26 @@ const CreateAccount = () => {
   const [submitted, setSubmitted] = useState(false);
   //comment
   const [error, setError] = useState(false);
- 
+  
   // Handling the name change
   const handleName = (e) => {
-    setName(e.target.value);
+    e.preventDefault();
+    const email = e.target.elements[0].value;
+    setEmail(email);
+    //setEmail(e.target.value);
     setSubmitted(false);
   };
  
+  const validateEmail = (email) => {
+    return email.includes("@") 
+  }
+
   // Handling the email change
   const handleEmail = (e) => {
-    setEmail(e.target.value);
+    e.preventDefault();
+    const email = e.target.elements[0].value;
+    setEmail(email);
+    //setEmail(e.target.value);
     setSubmitted(false);
   };
  
@@ -47,6 +57,7 @@ const CreateAccount = () => {
           <label className="label">Email</label>
           <input onChange={handleEmail} className="input"
             value={email} type="text" />
+            if {validateEmail} <p>test</p>
   
           <label className="label">Password</label>
           <input onChange={handlePassword} className="input"
@@ -56,18 +67,18 @@ const CreateAccount = () => {
           <input onChange={handleConfirmedPassword} className="input"
             value={confirmedPassword} type="password" />
 
-          <p>Already have an account?<p>
+          <p>Already have an account?</p>
   
-          <button onClick={handleSubmit} className="btn" type="submit">
+          {/* <button onClick={handleSubmit} className="btn" type="submit">
             Continue
-          </button>
+          </button> */}
       </form>
       </div>
   
     </div>
 
   )
-  )
+  //)
 }
 
 export default CreateAccount

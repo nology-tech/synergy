@@ -1,0 +1,73 @@
+* {
+    font-family: 'Outfit' ;
+}
+.signup-form {
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+}
+h1 {
+    margin: 0;
+    padding-bottom: 0;
+}
+.ipsum {
+   color: #8896A3; 
+   margin-top: 0;
+   
+}
+
+.input {
+    background:#FBFBFC;
+    border: 1px solid #E2E2E2;
+    border-radius: 6px;
+    height: 40px;
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 20px;
+    color:#A6AFBD;
+}
+// .password {
+//     width: 100%;
+// }
+.fontAwesome_icon {
+    //width: 100px;
+    margin-left: -30px; 
+}
+.SignUpForm {
+    display:flex;
+    flex-direction: column;
+    
+
+    &__div {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+        color:#5B6D7D;
+        
+    }
+    
+    &__hasAccount {
+        &__question {
+            color: #8896A3;
+        }
+        &__login {
+            color:#00CED4;
+        }
+    }
+    
+    &__btn {
+        background: rgba(0, 206, 212, 0.4);
+        border: none;
+        border-radius: 6px;
+        color: #FFFFFF;
+        width: 90px;
+        height: 40px;
+        margin-right: 0;
+        margin-left: auto;
+        font-weight: bold;
+    }
+    
+    // &__hasAccount {
+        
+    // }
+}
