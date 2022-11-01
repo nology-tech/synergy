@@ -10,18 +10,23 @@ const SignUp = () => {
   const [confirmedPassword, setConfirmedPassword] = useState("");
   const [passwordType, setPasswordType] = useState("password");
 
+  const [validEmail, setValidEmail] = useState(false);
+  const [validPassword, setValidPassword] = useState(false);
+  const [validConfirmedPassword, setValidConfirmedPassword] = useState(false);
+
     // Handling the email change
   const handleEmail = (e) => {
     e.preventDefault();
     const tempEmail = e.target.value;
     setEmail(tempEmail);
-    console.log(email);    
+    validateEmail(email)?setValidEmail(true):setValidEmail(false);      
   };
 
   // Handling the password change
   const handlePassword = (e) => {
     e.preventDefault();
     setPassword(e.target.value);
+    validatePassword(password)?setValidPassword(true):setValidPassword(false);
     console.log(password);
     
   };
@@ -34,8 +39,14 @@ const SignUp = () => {
   };
 
   const validateEmail = (email) => {
-    email.includes("@");
-    console.log(email);
+    return email.toString().includes("@");
+    
+  }
+
+  const validatePassword = (password) => {
+    const uppercaseRegExp   = /(?=.*?[A-Z])/
+    console.log(uppercaseRegExp.test(password));
+    return password.toString().length>=8 && uppercaseRegExp.test(password);      
   }
 
   const togglePassword = (e) => {
@@ -54,17 +65,19 @@ const SignUp = () => {
           {/* Labels and inputs for form data */}
           <div className="SignUpForm__email SignUpForm__div">
             <label className="label">Email</label>
-            <input onChange={handleEmail} className="input" value={email} type="text" />
+            <input onChange={handleEmail} className="input" value={email} type="text" /> 
+            {validEmail?<p>Successful email entered</p>:<p>Error - Your email must contain an @ symbol</p>}             
           </div>
           
-          {/* {!validateEmail?<p>true</p>:<p>false</p>}   */}
+          {/* {validEmail?<p>true</p>:<p>false</p>}   */}
+          
           <div className="SignUpForm__password SignUpForm__div">
             <label className="label">Password</label>
             <div className="password">
                 <input onChange={handlePassword} className="input" value={password} type={passwordType} />
                 <FontAwesomeIcon icon={faEye} className="fontAwesome_icon" onClick = {togglePassword}/>
             </div>
-            
+            {validPassword?<p>Password meets requirements</p>:<p>Error - password must contain at least 8 characters & one uppercase letter</p>} 
           </div>
           
           <div className="SignUpForm__confirmedPassword SignUpForm__div">
