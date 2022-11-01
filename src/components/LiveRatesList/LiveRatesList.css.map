@@ -1,1 +1,1 @@
-{"version":3,"sources":["LiveRatesList.scss","LiveRatesList.css"],"names":[],"mappings":"AAEA;EACI,aAAA;EACA,mBAAA;ACDJ","file":"LiveRatesList.css"}
+{"version":3,"sources":["LiveRatesList.scss","../../assets/sass/_variables.scss","LiveRatesList.css"],"names":[],"mappings":"AAEA;EACI,aAAA;EACA,mBAAA;EACA,yBCWwB;ACZ5B;;AFSA;EACI,cCFc;ACJlB;;AFSA;EACA,oBCGoB;EDFpB,cCNuB;ACAvB","file":"LiveRatesList.css"}

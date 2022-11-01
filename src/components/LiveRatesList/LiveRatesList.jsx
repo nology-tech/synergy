@@ -9,6 +9,7 @@ const LiveRatesList = (props) => {
       <div className="currency-list__name">{currency.name}</div>
       <div className="currency-list__amount">{currency.amount}</div>
       <div className="currency-list__rate">{currency.rate}</div>
+      <button className="button primary">Edit</button>
     </div>
   ));
   return (
@@ -19,6 +20,7 @@ const LiveRatesList = (props) => {
         <div className="currency-list__rate">Rate</div>
       </div>
       <div>{currencyJSX}</div>
+
     </>
   )
 };

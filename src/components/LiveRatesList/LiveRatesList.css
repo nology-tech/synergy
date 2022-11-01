@@ -1,4 +1,14 @@
 .currency-row {
   display: flex;
   flex-direction: row;
+  background-color: #FBFBFC;
+}
+
+.currency-list__heading {
+  color: #5B6D7D;
+}
+
+.currency-list_font {
+  font-family: "Inter";
+  color: #8896A3;
 }/*# sourceMappingURL=LiveRatesList.css.map */

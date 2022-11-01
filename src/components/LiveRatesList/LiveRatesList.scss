@@ -3,8 +3,19 @@
 .currency-row {
     display: flex;
     flex-direction: row;
+    background-color: $color-light-gray-info-bar;
+    
     // .currency-list__img {
     //     width: 50px;
     //     height: auto;
     // }
+}
+
+.currency-list__heading{
+    color:$color-font-gray;
+}
+
+.currency-list_font{
+font-family: $third-font-family;
+color: $color-font-lightgray;
 }
