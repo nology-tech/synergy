@@ -20,29 +20,59 @@
   width: 40%;
 
 }
+.bankClients{
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+  padding-bottom: 150px;
+  background-color: $color-white;
+
+  .bankClients__title{
+    background-color: $color-white;
+  }
+
 .bankLogosImg {
-  background-color: transparent;
-  justify-content: space-evenly;
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: space-evenly;
+  background-color: $color-white;
+  &__one {
+    background-color: $color-white;
+    box-sizing: inherit;
+  }
+  &__two {
+    background-color: $color-white;
+  }
 }
+
+
+}
+.features {
+  padding-top: 80px;
+}
+
 .convertionFXRate {
   // display: flex;
   // flex-direction: row;
   // align-content: center;
   // width: 50%;
-  background-color: $color-lightblue;  
+  background-color: $color-lightblue;
   overflow: visible;
   height: 300px;
-    width: auto;
+  width: auto;
 }
 
 .latestRates {
   overflow: visible;
-  background-color: $color-white;  
+  background-color: $color-white;
 
 }
 
 
 .footer {
+// display: flex;
+// flex-direction: column;
+align-items: left;
   background-color: $color-black;
-  
+  overflow-y: auto;
 }

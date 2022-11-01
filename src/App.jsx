@@ -1,6 +1,8 @@
 import "./App.scss";
 // import LandingMain from "./components/LandingMain/LandingMain";
 import Header from "./components/Header/Header";
+import features from "./data/feature.js";
+import FeaturesTile from "./components/FeaturesTile/FeaturesTile";
 
 const App = () => {
   return (
@@ -25,31 +27,32 @@ const App = () => {
 
         <section>
           <div className="bankClients">
-            <h1>Trusted by over 3,000 banks worldwide</h1>
+            <h1 className="bankClients__title">Trusted by over 3,000 banks worldwide</h1>
             <div className="bankLogosImg">
-            <img
-            className="bankClients_one"
-            // scr={landingImage}
-            src={require("./assets/images/logoipsum.png")}
-            alt="main page image"
-          />
-          <img
-            className="bankClients_two"
-            // scr={landingImage}
-            src={require("./assets/images/logoipsum2.png")}
-            alt="main page image"
-          />
-<img
-            className="bankClients_three"
-            // scr={landingImage}
-            src={require("./assets/images/logoipsum3.png")}
-            alt="main page image"
-          />
+              <img
+                className="bankLogosImg_one"
+                // scr={landingImage}
+                src={require("./assets/images/logoipsum.png")}
+                alt="main page image"
+              />
+              <img
+                className="bankLogosImg_two"
+                // scr={landingImage}
+                src={require("./assets/images/logoipsum2.png")}
+                alt="main page image"
+              />
+              <img
+                className="bankLogosImg_three"
+                // scr={landingImage}
+                src={require("./assets/images/logoipsum3.png")}
+                alt="main page image"
+              />
             </div>
           </div>
 
-          <div>
+          <div className="features">
             <h2>Our Award-Winning Features</h2>
+            <FeaturesTile features= {features} />
           </div>
         </section>
 
@@ -62,12 +65,12 @@ const App = () => {
           />
         </div>
         <div>
-        <img
-          className="latestRates"
-          // scr={landingImage}
-          src={require("./assets/images/latestRates.png")}
-          alt="latest FX rates"
-        />
+          <img
+            className="latestRates"
+            // scr={landingImage}
+            src={require("./assets/images/latestRates.png")}
+            alt="latest FX rates"
+          />
         </div>
       </body>
       <section>
