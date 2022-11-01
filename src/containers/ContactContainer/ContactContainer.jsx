@@ -1,5 +1,6 @@
 import React from 'react'
 import ContactSearch from '../../components/ContactSearch/ContactSearch'
+import "./ContactContainer.scss"
 
 const ContactContainer = () => {
   return ( 

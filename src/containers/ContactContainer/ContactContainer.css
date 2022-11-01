@@ -1,0 +1,14 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  border: 3px solid yellow;
+}
+.contact .contact__Header {
+  text-align: left;
+  border: 3px solid blue;
+}
+.contact .contact__Title {
+  text-align: left;
+  border: 3px solid green;
+}/*# sourceMappingURL=ContactContainer.css.map */

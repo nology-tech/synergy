@@ -1,16 +1,18 @@
 
 .contact {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-align: left;
+    border: 3px solid yellow;
 
 .contact__Header {
     text-align: left;
-  
+    border: 3px solid blue;
 }
 
 .contact__Title {
     text-align: left;
+   border: 3px solid green;
    
 }
 }

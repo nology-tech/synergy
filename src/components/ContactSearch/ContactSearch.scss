@@ -1,0 +1,29 @@
+
+
+.contactSearch {
+    display: flex;
+    flex-direction: row;
+    border: 3px solid red;
+
+&__Text {
+    display: flex;
+    flex-wrap: wrap;
+    width: 480px;
+   
+}
+
+
+&__box {
+    border: 1.5px solid black;
+
+    &__spyGlass {   
+    height: 20px;
+    width: 20px;
+        }
+
+    &__inputBox {
+    border: none;
+    }
+    }   
+   
+}

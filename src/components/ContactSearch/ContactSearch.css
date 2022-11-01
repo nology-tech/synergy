@@ -1,0 +1,20 @@
+.contactSearch {
+  display: flex;
+  flex-direction: row;
+  border: 3px solid red;
+}
+.contactSearch__Text {
+  display: flex;
+  flex-wrap: wrap;
+  width: 480px;
+}
+.contactSearch__box {
+  border: 1.5px solid black;
+}
+.contactSearch__box__spyGlass {
+  height: 20px;
+  width: 20px;
+}
+.contactSearch__box__inputBox {
+  border: none;
+}/*# sourceMappingURL=ContactSearch.css.map */
