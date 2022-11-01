@@ -1,8 +1,15 @@
+
+@use "../../assets/sass/variables.scss" as *;
+
 .topnav{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    *{
+        text-decoration: none;
+        padding: 10px;
+    }
     &__centerlinks, &__signin{
         display: flex;
         flex-direction: row;
@@ -10,6 +17,22 @@
         align-items: center;
         *{
             padding: 20px;
+            color: $link-color;
+            font-size: 16px;
         }
+        *:hover, *:active{
+            color: $top-link-hover-color;
+        }
+        .signin{
+            text-decoration:underline;
+            text-decoration-style: dotted;
+            text-underline-position: under;
+        }
+        .signup{
+            background-color: $button-background-color;
+            color:$color-white;
+            border-radius: 6px;
+        }
+
     }
 }
