@@ -7,7 +7,6 @@ import FeaturesTile from "./components/FeaturesTile/FeaturesTile";
 const App = () => {
   return (
     <>
-      <body>
         <img
           className="navbar__image"
           // scr={landingImage}
@@ -72,7 +71,6 @@ const App = () => {
             alt="latest FX rates"
           />
         </div>
-      </body>
       <section>
         <img
           className="footer"

@@ -4,11 +4,14 @@
   align-content: center;
   text-align: center;
   align-items: center;
-  background-color: $color-background;
+  padding: 0;
+  margin: 0;
+  
 }
 
 .navbar__image {
   background-color: $color-background;
+  width: 100%;
 }
 
 .landing__image {
@@ -29,6 +32,14 @@
 
   .bankClients__title{
     background-color: $color-white;
+    font-family: $title-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 110%;
+
+/* or 35px */
+text-align: center;
   }
 
 .bankLogosImg {
@@ -49,6 +60,15 @@
 }
 .features {
   padding-top: 80px;
+  font-family: $title-font-family;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 110%;
+
+  /* identical to box height, or 31px */
+  text-align: center
+
 }
 
 .convertionFXRate {

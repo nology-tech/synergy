@@ -1,19 +1,28 @@
-@use "../../assets/sass/_variables.scss"as *;
+@use "../../assets/sass/_variables.scss" as *;
 
 
 .header {
   padding: 30px;
   align-content: center;
-  margin: 10px;
   background-color: $color-background;
-  
-  &__highlight{
+  font-family: $title-font-family;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 110%;
+
+  &__highlight {
     color: $color-lightblue;
   }
 
   &__subline {
     color: $color-light-gray;
+    font-family: $secondary-font-family;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
   }
 
 }
-
