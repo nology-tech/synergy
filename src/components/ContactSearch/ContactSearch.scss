@@ -1,5 +1,4 @@
 
-
 .contactSearch {
     display: flex;
     flex-direction: row;
@@ -19,10 +18,24 @@
     &__spyGlass {   
     height: 20px;
     width: 20px;
+    object-fit: cover;
+
         }
+    &__button {
+        background: transparent;
+        border: none;
+        outline: none;
+        margin-left: -33px;
+    
+
+
+    }
 
     &__inputBox {
     border: none;
+    // background-image: url("./../../assets/images/spyglass.png");
+    // position: relative;
+
     }
     }   
    

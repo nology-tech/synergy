@@ -10,13 +10,14 @@ const ContactSearch = (props) => {
     <p className='contactSearch__Text'>All your friends and family financial details in one place. Easily transfer currency internationally at the best possible rates.</p>
     
     <form className="contactSearch__box">
+      <button type="Submit" className='contactSearch__box__button' onClick={searchFunction}>
     <img
         src={spyglass}
-        alt="Close menu"
+        alt="Magnifying Glass"
         className="contactSearch__box__spyGlass"
         onClick={searchFunction}
       />
-
+  </button>
       <input 
         type="text"
         value={searchTerm}
@@ -25,6 +26,7 @@ const ContactSearch = (props) => {
         placeholder="search here ..."
           
       />
+      
     </form>
     
     <button
