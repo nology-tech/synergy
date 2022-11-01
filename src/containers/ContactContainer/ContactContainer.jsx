@@ -4,9 +4,11 @@ import ContactSearch from '../../components/ContactSearch/ContactSearch'
 const ContactContainer = () => {
   return ( 
     <>
-      <p className='contactTitle'>Contacts</p>
-      <h2 className='contactHeading'>Contact List</h2>
+    <div className='contact'>
+      <div className='contact__Title'>Contacts</div>
+      <h2 className='contact__Heading'>Contact List</h2>
       <ContactSearch />
+      </div>
     </>
   )
 }
