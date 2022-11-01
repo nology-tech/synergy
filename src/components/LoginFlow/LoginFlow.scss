@@ -1,0 +1,74 @@
+@use "../../assets/sass/variables" as *;
+@use "../../assets/sass/loginFlow.scss" as *;
+
+* {
+    box-sizing: border-box;
+}
+
+.background {
+    background-color: $color-background;
+    border: 2px solid red;
+
+    .loginFlow {
+        border: 2px solid blue;
+        display: flex;
+        flex-direction: column;
+        width:600px;
+        height:589px;
+        border: none;
+        position: absolute;
+        left: 564px;
+        top:232px;
+    
+        &__synergyIcon{
+            display: flex;
+            align-content: center;
+    
+            h1 {
+                font-size: 20px;
+                font-weight: 500;
+            }
+        }
+    
+        .loginFlow__main{
+            .loginFlow__main__header{
+                display: flex;
+                align-content: center;
+
+                h1{
+                font-size: 32px;
+                }
+
+                .loginFlow__main__img{
+                    padding: 30px;
+                }
+            }
+
+          
+
+            .loginFlow__credentials{
+    
+                .loginFlow__credentials__header{
+                    color: $color-light-gray;
+                    font-size: 16px;
+                    font-weight: none;
+            
+                }
+                .loginFlow__inputbox{
+
+                    font-size: 16px; 
+                    padding: 10px;
+                }
+               }
+    
+        }
+    
+     
+       &__links{
+        display: flex;
+        justify-content: space-between;
+       }
+    }   
+}
+
+ 

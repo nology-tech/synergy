@@ -1,9 +1,10 @@
 import "./App.scss";
-import SignIn from "./components/SignIn/SignIn";
+import LoginFlow from "./components/LoginFlow/LoginFlow";
+
 
 const App = () => {
   return (
-    <SignIn />
+    <LoginFlow />
   )
 }
 
