@@ -1,24 +1,15 @@
-import { useState } from "react";
 import React from "react";
-import "./TopNav.scss";
-import NavMenu from "../../components/NavMenu/NavMenu";
+import "./HeaderNav.scss";
 import logo from "../../assets/images/Main_Logo.png"
 
-const TopNav = () => {
-  const [showNav, setShowNav] = useState(true);
-
-  const toggleNav = () => {
-    setShowNav(!showNav);
-  };
-
+const HeaderNav = (props) => {
+  const {handleLogin} = props;
   let mainLogo= logo;
-
   return (
     <div className="nav">
       <div className="topnav">
         <div className="topnav__menu"> 
-          <img className="topnav__appicon" src={mainLogo} alt="Synergy-icon" onClick={toggleNav} />
-  
+          <img className="topnav__appicon" src={mainLogo} alt="Synergy-icon"/>
         </div>
         <div className="topnav__centerlinks">
           <a href="#" className="topnav__link navHome">Home</a>
@@ -27,13 +18,13 @@ const TopNav = () => {
           <a href="#" className="topnav__link navContact">Contact Us</a>
         </div>
         <div className="topnav__signin">
-          <a href ="#" className="signin">Sign In</a>
+          <a href ="#" className="signin" onClick={handleLogin}>Sign In</a>
           <a href ="#" className="signup">SignUp</a>
         </div>
       </div>
-      {showNav && <NavMenu title="Synergy"/>}
+      
     </div>
   );
 };
 
-export default TopNav;
+export default HeaderNav;

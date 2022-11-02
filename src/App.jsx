@@ -1,10 +1,10 @@
 import "./App.scss";
-import TopNav from "./containers/TopNav/TopNav";
+import Main from "./containers/Main/Main";
 
 const App = () => {
   return (
     <div>
-      <TopNav />
+      <Main />
     </div>
   )
 }

@@ -7,7 +7,8 @@ import contacts from '../../assets/images/fluent_people-16-regular.png';
 import signout from '../../assets/images/Group 66.png';
 import transfer from '../../assets/images/carbon_send-alt.png';
 
-const NavMenu = () => {
+const NavMenu = (props) => {
+  const {handleLogin}=props;
 
   const walletImg = wallet;
   const ratesImg = liverates;
@@ -42,7 +43,7 @@ const NavMenu = () => {
         
       </div>
       <div className="sidemenu__signout">
-        <img className="sidemenu__logout" src={signoutImg} alt="Contacts" />
+        <img className="sidemenu__logout" src={signoutImg} alt="Contacts" onClick={handleLogin}/>
       </div>
     </div>
     

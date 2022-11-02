@@ -1,11 +1,10 @@
 @use "../../assets/sass/variables.scss" as *;
 
 .sidemenu{
-    border-right: 3px ridge lightgray;
     display: flex;
     flex-direction: column;
     height:87vh;
-    width:12%;
+    //width:12%;
     padding-left: 20px;
     margin: 20px;
     min-width: 230px;
@@ -38,6 +37,9 @@
                 opacity:0.4;
                 filter:alpha(opacity=40);
             }
+        }
+        .sidemenu__item:active, .sidemenu__item:hover{
+            border-right: 10px ridge $color-button-background;
         }
     }
     &__signout {
