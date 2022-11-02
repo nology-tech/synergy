@@ -15,7 +15,7 @@ const ContactSearch = (props) => {
               src={spyglass}
               alt="Magnifying Glass"
               className="contactSearch__box__button__spyGlass"
-              onClick={searchFunction}
+              // onClick={searchFunction}
             />
         </button>
           <input 
