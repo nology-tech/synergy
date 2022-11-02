@@ -78,6 +78,9 @@ a:visited {
                     background-color: $color-loginFlow-white;
                     width: 100%;
                 }
+                .fontAwesome_icon {
+                    margin-left: -30px; 
+                }
                }
     
         }
@@ -117,6 +120,7 @@ a:visited {
         }
        
     }
+   
     }   
 }
 

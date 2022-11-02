@@ -2,6 +2,8 @@ import React from "react";
 import "./LoginFlow.scss";
 import emojihand from "../../assets/images/Emojihand.png";
 import synergy from "../../assets/images/synergy.png";
+import { faEye} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const LoginFlow = () => {
   return (
@@ -36,6 +38,7 @@ const LoginFlow = () => {
               <input className="loginFlow__inputbox" type="text" />
               <h2 className="loginFlow__credentials__header">Password</h2>
               <input className="loginFlow__inputbox" type="text" />
+              <FontAwesomeIcon icon={faEye} className="fontAwesome_icon"/>
             </div>
 
             <div className="loginFlow__links">
