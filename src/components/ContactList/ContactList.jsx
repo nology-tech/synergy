@@ -3,11 +3,14 @@ import ContactRow from "../ContactRow/ContactRow";
 
 // import contacts from "../../assets/data/Contacts"
 
-const ContactList = (contactsArray, onClick, onDelete) => {
+const ContactList = ({contactsArray, onClick, onDelete}) => {
   console.log("ContactList");
   console.log(contactsArray);
   const contactJSX = contactsArray.map((contact) => (
-    <ContactRow contact={contact} onClick={onClick} onDelete={onDelete} />
+    <div key={contact.account}>
+      <ContactRow contact={contact} onClick={onClick} onDelete={onDelete} />
+    </div>
+
   ) );
 
   return <div className="contact__allDetails">{contactJSX}</div>;

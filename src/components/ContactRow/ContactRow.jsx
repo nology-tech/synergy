@@ -1,8 +1,8 @@
 import garbage from "./../../assets/images/garbage.png";
 
-const ContactRow = (contact, onClick, onDelete) => {
+const ContactRow = ({contact, onClick, onDelete}) => {
   return (
-    <div className="contact" key={contact.account}>
+    <div className="contact" >
       <div className="contact__bankIcon">
         <img
           className="contact__bankIcon__img"
@@ -23,7 +23,7 @@ const ContactRow = (contact, onClick, onDelete) => {
           className="contact__deleteIcon"
           src={garbage}
           alt="delete"
-          onClick={onDelete(contact.account)}
+          onClick={() => onDelete(contact.account)}
         />
       </div>
     </div>

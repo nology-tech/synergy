@@ -24,12 +24,12 @@ const ContactContainer = () => {
     console.log(`SearchQuery = ${searchQuery}`)
     const contactfirstName = contact.firstName.toLowerCase();
     const contactLastName = contact.lastName.toLowerCase();
-    const contactAccount = contact.account;
+    // const contactAccount = contact.account;
     const contactBank = contact.bankName.toLowerCase();
     return (
       contactfirstName.includes(searchQuery) ||
       contactLastName.includes(searchQuery) ||
-      isNaN(searchQuery)?true:contactAccount.includes(searchQuery) ||
+      // isNaN(searchQuery)?true:contactAccount.includes(searchQuery) ||
       contactBank.includes(searchQuery)
     );
   });
@@ -37,7 +37,6 @@ const ContactContainer = () => {
   // useEffect(() => filteredContactsArray(), [onClick])
 
     return (
-      <>
         <div className="contact">
           <div className="contact__Title">Contacts</div>
           <h2 className="contact__Heading">Contact List</h2>
@@ -51,7 +50,6 @@ const ContactContainer = () => {
             onDelete={onDelete}
           />
         </div>
-      </>
     );
   };
 
