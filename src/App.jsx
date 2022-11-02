@@ -14,7 +14,7 @@ const App = () => {
           alt="navbar page image"
         />
         <Header />
-
+        <div className="backgound__image">
         <section>
           <img
             className="landing__image"
@@ -23,25 +23,26 @@ const App = () => {
             alt="main page image"
           />
         </section>
+        </div>
 
         <section>
           <div className="bankClients">
             <h1 className="bankClients__title">Trusted by over 3,000 banks worldwide</h1>
             <div className="bankLogosImg">
               <img
-                className="bankLogosImg_one"
+                className="bankLogosImg__one"
                 // scr={landingImage}
                 src={require("./assets/images/logoipsum.png")}
                 alt="main page image"
               />
               <img
-                className="bankLogosImg_two"
+                className="bankLogosImg__two"
                 // scr={landingImage}
                 src={require("./assets/images/logoipsum2.png")}
                 alt="main page image"
               />
               <img
-                className="bankLogosImg_three"
+                className="bankLogosImg__three"
                 // scr={landingImage}
                 src={require("./assets/images/logoipsum3.png")}
                 alt="main page image"

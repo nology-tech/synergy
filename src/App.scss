@@ -15,9 +15,12 @@
   width: 100%;
 
 }
-
+.backgound__image{
+  background-image: url(../src/assets/images/background.png);
+}
 .landing__image {
-  background-color: $color-background;
+  //background-image: url(../src/assets/images/background.png);
+  // background-color: $color-background;
   border-radius: 15px;
   overflow: visible;
   box-shadow: 0px 10px 10px rgba($color-background, 0.25);
@@ -58,22 +61,25 @@
 
   .bankLogosImg {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+   
     background-color: $color-white;
-
-
+    
     &__one {
       // background-color: $color-white;
-
+      margin-right: 50px;
+      margin-left: 30px;
     }
 
     &__two {
       // background-color: $color-white;
+      margin-right: 50px;
+      margin-left: 30px;
     }
 
     &__three {
       // background-color: $color-white;
+      margin-right: 50px;
+      margin-left: 30px;
     }
   }
 
@@ -131,7 +137,7 @@
 }
 .converter__image {
 // background-color: $color-white;
-box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.06);
+// box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.06);
 border-radius: 8px;
 width: 1079px;
 padding: 30px;
