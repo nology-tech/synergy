@@ -1,32 +1,31 @@
 import garbage from "./../../assets/images/garbage.png";
+import "./ContactRow.scss";
 
 const ContactRow = ({contact, onClick, onDelete}) => {
   return (
-    <div className="contact" >
-      <div className="contact__bankIcon">
-        <img
-          className="contact__bankIcon__img"
-          src={contact.bankIcon}
-          alt={contact.name}
-          onClick={onClick}
-        />
-      </div>
-      <div className="contact__name">
-        {contact.firstName + " " + contact.lastName}
-      </div>
-      <div className="contact__sortCode">{contact.sortCode}</div>
-      <div className="contact__account">{contact.account}</div>
-      <div className="contact__bankName">{contact.bankName}</div>
-      <div className="contact__iban">{contact.iban}</div>
-      <div>
-        <img
-          className="contact__deleteIcon"
-          src={garbage}
-          alt="delete"
-          onClick={() => onDelete(contact.account)}
-        />
-      </div>
-    </div>
+        <tr className="contact"  >
+            <td className="contact__bankIcon">
+                <img
+                className="contact__bankIcon__img"
+                src={contact.bankIcon}
+                alt={contact.name}
+                onClick={onClick}
+                />
+            </td>
+            <td className="contact__name">{contact.firstName + " " + contact.lastName}</td>
+            <td className="contact__sortCode">{contact.sortCode}</td>
+            <td className="contact__account">{contact.account}</td>
+            <td className="contact__bankName">{contact.bankName}</td>
+            <td className="contact__iban">{contact.iban}</td>
+            <td>
+                <img
+                className="contact__deleteIcon"
+                src={garbage}
+                alt="delete"
+                onClick={() => onDelete(contact.account)}
+                />
+            </td>
+        </tr>
   );
 };
 
