@@ -4,10 +4,10 @@ import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import FooterNav from "../../components/FooterNav/FooterNav";
 
 const LandingNav = (props) => {
-    const {handleLogin} = props;
+    const {handleLogin, handleSelection} = props;
   return (
     <div>
-        <HeaderNav handleLogin ={handleLogin}/>
+        <HeaderNav handleLogin ={handleLogin} handleSelection={handleSelection}/>
         <FooterNav />
     </div>
   )

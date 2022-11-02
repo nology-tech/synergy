@@ -8,7 +8,7 @@ import signout from '../../assets/images/Group 66.png';
 import transfer from '../../assets/images/carbon_send-alt.png';
 
 const NavMenu = (props) => {
-  const {handleLogin}=props;
+  const {handleLogout}=props;
 
   const walletImg = wallet;
   const ratesImg = liverates;
@@ -43,7 +43,7 @@ const NavMenu = (props) => {
         
       </div>
       <div className="sidemenu__signout">
-        <img className="sidemenu__logout" src={signoutImg} alt="Contacts" onClick={handleLogin}/>
+        <img className="sidemenu__logout" src={signoutImg} alt="Contacts" onClick={handleLogout}/>
       </div>
     </div>
     
