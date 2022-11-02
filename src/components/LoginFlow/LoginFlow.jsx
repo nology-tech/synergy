@@ -1,11 +1,19 @@
-import React from "react";
+import React,{useState} from "react";
 import "./LoginFlow.scss";
 import emojihand from "../../assets/images/Emojihand.png";
 import synergy from "../../assets/images/synergy.png";
 import { faEye} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { useState } from "react";
 
 const LoginFlow = () => {
+  const [passwordType, setPasswordType] = useState("password");
+
+  const togglePassword = (e) => {
+    passwordType ==="password"?setPasswordType("text"):setPasswordType("password"); 
+  }
+
+
   return (
     <>
       <nav>Navbar placeholder</nav>
@@ -37,8 +45,8 @@ const LoginFlow = () => {
               <h2 className="loginFlow__credentials__header">Email</h2>
               <input className="loginFlow__inputbox" type="text" />
               <h2 className="loginFlow__credentials__header">Password</h2>
-              <input className="loginFlow__inputbox" type="text" />
-              <FontAwesomeIcon icon={faEye} className="fontAwesome_icon"/>
+              <input className="loginFlow__inputbox" type={passwordType} />
+              <FontAwesomeIcon icon={faEye} className="fontAwesome_icon" onClick={togglePassword}/>
             </div>
 
             <div className="loginFlow__links">
