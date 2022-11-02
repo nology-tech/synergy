@@ -1,28 +1,48 @@
 @use "../../assets/sass/_variables.scss" as *;
 
+* {
+  margin: 0;
+  padding: 0; 
+}
 
 .header {
+
   padding: 30px;
+  text-align: center;
   align-content: center;
   background-color: $color-background;
   font-family: $title-font-family;
   font-style: normal;
   font-weight: 600;
   font-size: 48px;
-  line-height: 110%;
+  // line-height: 110%;
+  width: 100%;
+
+// Height: 106px;
+// Top:166px;
+// Left:506px;
+//   position: absolute;
+// width: 744px;
+// height: 106px;
+// left: 506px;
+// top: 166px;
 
   &__highlight {
     color: $color-lightblue;
   }
 
-  &__subline {
-    color: $color-light-gray;
-    font-family: $secondary-font-family;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 150%;
-    text-align: center;
-  }
-
+}
+.header__subline {
+  color: $color-light-gray;
+  font-family: $secondary-font-family;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  text-align: center;
+//   position: absolute;
+// width: 611px;
+// height: 54px;
+// left: 572px;
+// top: 307px;
 }

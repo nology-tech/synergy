@@ -19,7 +19,7 @@ const App = () => {
           <img
             className="landing__image"
             // scr={landingImage}
-            src={require("./assets/images/imageMain.png")}
+            src={require("./assets/images/transfer.png")}
             alt="main page image"
           />
         </section>
@@ -50,24 +50,34 @@ const App = () => {
           </div>
 
           <div className="features">
-            <h2>Our Award-Winning Features</h2>
+            <h2 className="features__title">Our Award-Winning Features</h2>
             <FeaturesTile features= {features} />
+            <button>Find Out More</button>
           </div>
         </section>
 
-        <div className="convertionFXRate">
+        <div className="converter">
+          <h1 className="converter__title">Make A Conversation </h1>
+          <h5 className="converter__subline">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut id fringila
+        augue <br /> feugiat. Volutpat tortor ornare lectus praesent amet.
+      </h5>
           <img
-            className="fxConvertion"
+            className="converter__image"
             // scr={landingImage}
-            src={require("./assets/images/fxConvertion.png")}
+            src={require("./assets/images/converter.png")}
             alt="FX Convertion"
           />
         </div>
-        <div>
+        <div className="currencies">
+        <h1 className="currencies__title">View Latest Rates </h1>
+          <h5 className="currencies__subline">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut id fringila
+        augue <br /> feugiat. Volutpat tortor ornare lectus praesent amet.
+      </h5>
           <img
-            className="latestRates"
-            // scr={landingImage}
-            src={require("./assets/images/latestRates.png")}
+            className="currencies__img"
+            src={require("./assets/images/currencies.png")}
             alt="latest FX rates"
           />
         </div>
