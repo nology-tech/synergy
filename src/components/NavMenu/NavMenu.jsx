@@ -16,7 +16,7 @@ const NavMenu = () => {
   const transferImg = transfer;
   const signoutImg = signout;
   return (
-    <div className="sidemenu">
+    <div className="sidemenu wrapper" id="slide">
       <div className="sidemenu__items">Menu
         <div className="sidemenu__item">
           <img className="sidemenu__icon" src={walletImg} alt="Wallet" />

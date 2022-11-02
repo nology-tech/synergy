@@ -5,11 +5,27 @@ import NavMenu from "../../components/NavMenu/NavMenu";
 import logo from "../../assets/images/Main_Logo.png"
 
 const TopNav = () => {
-  const [showNav, setShowNav] = useState(true);
+  const [showTopNav, setShowTopNav] = useState(true);
+  const [showSignIn, setShowSignIn] = useState(true);
+  const [showSideNav, setShowSideNav] = useState(false);
+  
+
+  const toggleSideNav = () => {
+    setShowSideNav(!showSideNav);
+  };
+
+  const toggleTopNav = () => {
+    setShowTopNav(!showTopNav);
+  };
+
+  const toggleCenterLinks = () => {
+    setShowNav(!showNav);
+  };
 
   const toggleNav = () => {
     setShowNav(!showNav);
   };
+
 
   let mainLogo= logo;
 
@@ -17,7 +33,7 @@ const TopNav = () => {
     <div className="nav">
       <div className="topnav">
         <div className="topnav__menu"> 
-          <img className="topnav__appicon" src={mainLogo} alt="Synergy-icon" onClick={toggleNav} />
+          <img className="topnav__appicon" src={mainLogo} alt="Synergy-icon" onClick={toggleSideNav} />
   
         </div>
         <div className="topnav__centerlinks">
@@ -28,10 +44,10 @@ const TopNav = () => {
         </div>
         <div className="topnav__signin">
           <a href ="#" className="signin">Sign In</a>
-          <a href ="#" className="signup">SignUp</a>
+          <a href ="#" className="signup">Sign Up</a>
         </div>
       </div>
-      {showNav && <NavMenu title="Synergy"/>}
+      {showSideNav && <NavMenu title="Synergy"/>}
     </div>
   );
 };
