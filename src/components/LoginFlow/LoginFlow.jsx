@@ -22,16 +22,16 @@ const LoginFlow = () => {
                 <div className="loginFlow__credentials">
                 <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu leo urna.</p>
                 <h2 className="loginFlow__credentials__header">Email</h2>
-                <input className="loginFlow__inputbox" type="text" placeholder="enter your email"/>
+                <input className="loginFlow__inputbox" type="text" />
                 <h2 className="loginFlow__credentials__header">Password</h2>
-                <input className="loginFlow__inputbox" type="text" placeholder="enter your psw"/>
+                <input className="loginFlow__inputbox" type="text" />
                 </div>
 
                 <div className="loginFlow__links">
-                    <p>Don't have an account?<a href="#sugnup">Sign Up</a></p>
-                    <p>Forgotten Password?</p>
+                    <p className="grey">Don't have an account? <a href="#sugnup" className="blue">Sign Up</a></p>
+                    <p><a href="#forgottenpsw" className="blue">Forgotten Password?</a></p>
                 </div>
-                <div>
+                <div className="loginFlow__button">
                     <button>Login</button>
                 </div>
             </div>
