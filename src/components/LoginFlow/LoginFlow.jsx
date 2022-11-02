@@ -1,18 +1,25 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./LoginFlow.scss";
 import emojihand from "../../assets/images/Emojihand.png";
 import synergy from "../../assets/images/synergy.png";
-import { faEye} from "@fortawesome/free-solid-svg-icons";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { useState } from "react";
 
-const LoginFlow = () => {
+const LoginFlow = (props) => {
+  const {
+    loginFlow_header,
+    inputBox_email,
+    inputBox_psw,
+    inputBox_confirmpsw,
+  } = props;
+
   const [passwordType, setPasswordType] = useState("password");
 
   const togglePassword = (e) => {
-    passwordType ==="password"?setPasswordType("text"):setPasswordType("password"); 
-  }
-
+    passwordType === "password"
+      ? setPasswordType("text")
+      : setPasswordType("password");
+  };
 
   return (
     <>
@@ -29,12 +36,16 @@ const LoginFlow = () => {
           </div>
           <div className="loginFlow__main">
             <div className="loginFlow__main__header">
-              <h1>Welcome Back!</h1>
-              <img
-                src={emojihand}
-                alt="Handwave"
-                className="loginFlow__main__img"
-              />
+              <h1>{loginFlow_header}</h1>
+              {loginFlow_header === "Welcome Back!" ? (
+                <img
+                  src={emojihand}
+                  alt="Handwave"
+                  className="loginFlow__main__img"
+                />
+              ) : (
+                <></>
+              )}
             </div>
 
             <div className="loginFlow__credentials">
@@ -42,11 +53,34 @@ const LoginFlow = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu
                 leo urna.
               </p>
-              <h2 className="loginFlow__credentials__header">Email</h2>
-              <input className="loginFlow__inputbox" type="text" />
-              <h2 className="loginFlow__credentials__header">Password</h2>
+              {loginFlow_header === "Welcome Back!" ? (
+                <div>
+                  <h2 className="loginFlow__credentials__header">
+                    {inputBox_email}
+                  </h2>
+                  <input className="loginFlow__inputbox" type="text"></input>
+                </div>
+              ) : (
+                <></>
+              )}
+              <h2 className="loginFlow__credentials__header">{inputBox_psw}</h2>
               <input className="loginFlow__inputbox" type={passwordType} />
-              <FontAwesomeIcon icon={faEye} className="fontAwesome_icon" onClick={togglePassword}/>
+              <FontAwesomeIcon
+                icon={faEye}
+                className="fontAwesome_icon"
+                onClick={togglePassword}
+              />
+
+              {loginFlow_header === "Welcome Back!" ? (
+                <></>
+              ) : (
+                <div>
+                  <h2 className="loginFlow__credentials__header">
+                    {inputBox_confirmpsw}
+                  </h2>
+                  <input className="loginFlow__inputbox" type={passwordType} />
+                </div>
+              )}
             </div>
 
             <div className="loginFlow__links">

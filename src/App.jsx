@@ -1,14 +1,14 @@
 import "./App.scss";
-// import ForgottenPassword from "./components/ForgottenPassword/ForgottenPassword";
-import LoginFlow from "./components/LoginFlow/LoginFlow";
-
-
+import ForgottenPassword from "./components/ForgottenPassword/ForgottenPassword";
+import LoginFlowChangePsw from "./components/LoginFlowChangePsw/LoginFlowChangePsw";
+import LoginFlowWelcome from "./components/LoginFlowWelcome/LoginFlowWelcome";
 
 const App = () => {
   return (
     // <ForgottenPassword />
-    <LoginFlow />
-  )
-}
+    <LoginFlowWelcome />
+    // <LoginFlowChangePsw />
+  );
+};
 
-export default App
+export default App;
