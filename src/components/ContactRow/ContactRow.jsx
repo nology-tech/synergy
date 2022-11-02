@@ -3,7 +3,7 @@ import "./ContactRow.scss";
 
 const ContactRow = ({contact, onClick, onDelete}) => {
   return (
-        <tr className="contact"  >
+        <tr className="contact" key={contact.account} >
             <td className="contact__bankIcon">
                 <img
                 className="contact__bankIcon__img"
