@@ -37,7 +37,7 @@
     &__items {
         
         *:active, *:hover {
-            border-right: 2px ridge $color-button-background;
+            border-right: 2px ridge $color-middle-blue;
         }
 
         .sidemenu__a:active, .sidemenu__a:hover {
@@ -57,27 +57,27 @@
             * {
                 text-decoration: none;
                 font-size: 16px;
-                color: $color-link;
+                color: $color-light-gray;
                 padding: 4px;                
             }
             
             *:hover +.sidemenu__a, *:active +.sidemenu__a{
-                color: $color-button-background;            
+                color: $color-middle-blue;            
             }
 
             *:hover, *:active{
-                color: $color-button-background;    
+                color: $color-middle-blue;    
             }
 
             .sidemenu__icon:hover,.sidemenu__icon:active{
-                background-color: $color-button-background;
+                background-color: $color-middle-blue;
                 border-radius:50%;
                 opacity:0.4;
                 filter:alpha(opacity=40);
             }
         }
         .sidemenu__item:active, .sidemenu__item:hover{
-            border-right: 10px ridge $color-button-background;
+            border-right: 10px ridge $color-middle-blue;
         }
     }
     &__signout {

@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 .footernav{
-    background-color: $color-top-link-hover;
+    background-color: $color-black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -24,14 +24,14 @@
         align-items: center;
         *{
             padding: 10px;
-            color: $color-link;
+            color: $color-light-gray;
             font-size: 16px;
         }
         *:hover, *:active{
             color: $color-white;
         }
         .signup{
-            background-color: $color-button-background;
+            background-color: $color-middle-blue;
             color:$color-white;
             border-radius: 6px;
         }
