@@ -23,7 +23,7 @@ const ForgottenPassword = () => {
 
             <div className="loginFlow__credentials">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-              <h2 className="loginFlow__credentials__header">Email</h2>
+              <h2 className="loginFlow__credentials__header">Email Address</h2>
               <input className="loginFlow__inputbox" type="text" />
             </div>
 
