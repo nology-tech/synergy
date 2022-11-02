@@ -84,7 +84,7 @@ const contacts = [
       bankIcon: "https://avatars.githubusercontent.com/u/43138473?s=280&v=4",
       sortCode: "050059",
       IBAN: "GB56HLFX11005310840466",
-      Account: 13964514869,
+      account: 13964514869,
       numberOfTransaction: 1054,
       lastTransaction: 1645548734321
     },
