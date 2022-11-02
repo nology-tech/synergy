@@ -19,6 +19,7 @@ const SignUp = () => {
     e.preventDefault();
     const tempEmail = e.target.value;
     setEmail(tempEmail);
+    console.log("Email: " + email);
     validateEmail(email)?setValidEmail(true):setValidEmail(false);      
   };
 
@@ -35,7 +36,8 @@ const SignUp = () => {
   const handleConfirmedPassword = (e) => {
     e.preventDefault();
     setConfirmedPassword(e.target.value);
-    console.log(confirmedPassword);
+    validateConfirmedPassword(confirmedPassword)?setValidConfirmedPassword(true):setValidConfirmedPassword(false);      
+    console.log("Confirmed passwords match: " + validConfirmedPassword);
   };
 
   const validateEmail = (email) => {
@@ -47,6 +49,10 @@ const SignUp = () => {
     const uppercaseRegExp   = /(?=.*?[A-Z])/
     console.log(uppercaseRegExp.test(password));
     return password.toString().length>=8 && uppercaseRegExp.test(password);      
+  }
+
+  const validateConfirmedPassword = (confirmedPassword) => {
+    return confirmedPassword == password;      
   }
 
   const togglePassword = (e) => {
@@ -65,7 +71,7 @@ const SignUp = () => {
           {/* Labels and inputs for form data */}
           <div className="SignUpForm__email SignUpForm__div">
             <label className="label">Email</label>
-            <input onChange={handleEmail} className="input" value={email} type="text" /> 
+            <input onInput={handleEmail} className="input" value={email} type="text" /> 
             {validEmail?<p>Successful email entered</p>:<p>Error - Your email must contain an @ symbol</p>}             
           </div>
           
@@ -74,7 +80,7 @@ const SignUp = () => {
           <div className="SignUpForm__password SignUpForm__div">
             <label className="label">Password</label>
             <div className="password">
-                <input onChange={handlePassword} className="input" value={password} type={passwordType} />
+                <input onInput={handlePassword} className="input" value={password} type={passwordType} />
                 <FontAwesomeIcon icon={faEye} className="fontAwesome_icon" onClick = {togglePassword}/>
             </div>
             {validPassword?<p>Password meets requirements</p>:<p>Error - password must contain at least 8 characters & one uppercase letter</p>} 
@@ -83,6 +89,8 @@ const SignUp = () => {
           <div className="SignUpForm__confirmedPassword SignUpForm__div">
             <label className="label">Confirm Password</label>
             <input onChange={handleConfirmedPassword} className="input" value={confirmedPassword} type="password" />
+            <FontAwesomeIcon icon={faEye} className="fontAwesome_icon" onClick = {togglePassword}/>
+            {validConfirmedPassword?<p>Passwords match</p>:<p>Error - passwords do not match!</p>}
           </div>  
           
           <div className='SignUpForm__hasAccount'>
