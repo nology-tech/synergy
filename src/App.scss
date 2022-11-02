@@ -17,6 +17,10 @@
 }
 .backgound__image{
   background-image: url(../src/assets/images/background.png);
+  height: 1000px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .landing__image {
   //background-image: url(../src/assets/images/background.png);
