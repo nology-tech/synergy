@@ -1,5 +1,29 @@
+$color-black: #06020A;
+$color-blue: #0B2251;
+$color-white: #FFFFFF;
+$color-lightblue: #0AF8FF;
+$color-middle-blue: #00CED4;
+$color-light-gray: #839AAF;
+
+
+$color-button-primary: #00CED4;
+
+$color-font-gray: #5B6D7D;
+$color-font-lightgray: #8896A3;
+$color-nav-font-light-gray: #A6AFBD;
+$color-nav-font-dark-gray: #343C49;
+
+
+$color-light-gray-info-bar: #FBFBFC;
+$color-background: #F1FFFF;
+
+$title-font-family: 'Outfit';
+$secondary-font-family: 'Lato';
+$nav-font-family: 'Roboto';
+$third-font-family: 'Inter';
+
 * {
-    font-family: 'Outfit' ;
+    font-family: $title-font-family ;
 }
 .signup-form {
     width: 30%;
@@ -11,20 +35,20 @@ h1 {
     padding-bottom: 0;
 }
 .ipsum {
-   color: #8896A3; 
+   color: $color-font-lightgray; 
    margin-top: 0;
    
 }
 
 .input {
-    background:#FBFBFC;
+    background:$color-light-gray-info-bar;
     border: 1px solid #E2E2E2;
     border-radius: 6px;
     height: 40px;
     margin-top: 10px;
     font-size: 16px;
     line-height: 20px;
-    color:#A6AFBD;
+    color:$color-nav-font-light-gray;
 }
 // .password {
 //     width: 100%;
@@ -42,16 +66,16 @@ h1 {
         display: flex;
         flex-direction: column;
         padding-bottom: 20px;
-        color:#5B6D7D;
+        color:$color-font-gray;
         
     }
     
     &__hasAccount {
         &__question {
-            color: #8896A3;
+            color:$color-font-lightgray;
         }
         &__login {
-            color:#00CED4;
+            color:$color-middle-blue;
         }
     }
     
@@ -59,7 +83,7 @@ h1 {
         background: rgba(0, 206, 212, 0.4);
         border: none;
         border-radius: 6px;
-        color: #FFFFFF;
+        color: $color-white;
         width: 90px;
         height: 40px;
         margin-right: 0;
@@ -70,4 +94,14 @@ h1 {
     // &__hasAccount {
         
     // }
+}
+
+.valid {
+    color: #57E141;
+    font-size: 10px;
+}
+
+.invalid {
+    color: #DF1C1C;
+    font-size: 10px;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import "./SignUp.scss"
-import { faEye, faHome } from "@fortawesome/free-solid-svg-icons";
+import { faEye} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SignUp = () => {
@@ -9,6 +9,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
   const [passwordType, setPasswordType] = useState("password");
+  const [ConfirmedPasswordType, setConfirmedPasswordType] = useState("password");
 
   const [validEmail, setValidEmail] = useState(false);
   const [validPassword, setValidPassword] = useState(false);
@@ -17,40 +18,51 @@ const SignUp = () => {
     // Handling the email change
   const handleEmail = (e) => {
     e.preventDefault();
-    const tempEmail = e.target.value;
+    const tempEmail = e.target.value.toString();
+    console.log(tempEmail);
     setEmail(tempEmail);
-    validateEmail(email)?setValidEmail(true):setValidEmail(false);      
+    validateEmail(tempEmail)?setValidEmail(true):setValidEmail(false);      
   };
 
   // Handling the password change
   const handlePassword = (e) => {
     e.preventDefault();
-    setPassword(e.target.value);
-    validatePassword(password)?setValidPassword(true):setValidPassword(false);
-    console.log(password);
+    const pass = e.target.value.toString();
+    setPassword(pass);
+    validatePassword(pass)?setValidPassword(true):setValidPassword(false);
+    console.log(pass);
     
   };
 
   // Handling the confirmed password change
   const handleConfirmedPassword = (e) => {
     e.preventDefault();
-    setConfirmedPassword(e.target.value);
-    console.log(confirmedPassword);
+    const confPass = e.target.value.toString();
+    setConfirmedPassword(confPass);
+    validateConfirmedPassword(confPass)?setValidConfirmedPassword(true):setValidConfirmedPassword(false);
+    console.log(confPass);
   };
 
   const validateEmail = (email) => {
     return email.toString().includes("@");
     
   }
-
   const validatePassword = (password) => {
     const uppercaseRegExp   = /(?=.*?[A-Z])/
     console.log(uppercaseRegExp.test(password));
-    return password.toString().length>=8 && uppercaseRegExp.test(password);      
+    return password.length>=8 && uppercaseRegExp.test(password);      
+  }
+
+  const validateConfirmedPassword = (pass) => {
+    return pass === password;      
   }
 
   const togglePassword = (e) => {
     passwordType =="password"?setPasswordType("text"):setPasswordType("password"); 
+  }
+
+  const toggleConfirmedPassword = (e) => {
+    ConfirmedPasswordType =="password"?setConfirmedPasswordType("text"):setConfirmedPasswordType("password"); 
   }
 
   return (
@@ -66,23 +78,26 @@ const SignUp = () => {
           <div className="SignUpForm__email SignUpForm__div">
             <label className="label">Email</label>
             <input onChange={handleEmail} className="input" value={email} type="text" /> 
-            {validEmail?<p>Successful email entered</p>:<p>Error - Your email must contain an @ symbol</p>}             
+            {validEmail?<p className='valid'>Successful email entered</p>:<p className='invalid'>Error - Your email must contain an @ symbol</p>}             
           </div>
           
-          {/* {validEmail?<p>true</p>:<p>false</p>}   */}
-          
+             
           <div className="SignUpForm__password SignUpForm__div">
             <label className="label">Password</label>
             <div className="password">
                 <input onChange={handlePassword} className="input" value={password} type={passwordType} />
                 <FontAwesomeIcon icon={faEye} className="fontAwesome_icon" onClick = {togglePassword}/>
             </div>
-            {validPassword?<p>Password meets requirements</p>:<p>Error - password must contain at least 8 characters & one uppercase letter</p>} 
+            {validPassword?<p className='valid'>Password meets requirements</p>:<p className='invalid'>Error - password must contain at least 8 characters & one uppercase letter</p>} 
           </div>
           
           <div className="SignUpForm__confirmedPassword SignUpForm__div">
             <label className="label">Confirm Password</label>
-            <input onChange={handleConfirmedPassword} className="input" value={confirmedPassword} type="password" />
+            <div className="password">
+                <input onChange={handleConfirmedPassword} className="input" value={confirmedPassword} type={ConfirmedPasswordType} />
+                <FontAwesomeIcon icon={faEye} className="fontAwesome_icon" onClick = {toggleConfirmedPassword}/>
+            </div>            
+            {validConfirmedPassword?<p className='valid'>Passwords match</p>:<p className='invalid'>Error - passwords do not match!</p>} 
           </div>  
           
           <div className='SignUpForm__hasAccount'>
