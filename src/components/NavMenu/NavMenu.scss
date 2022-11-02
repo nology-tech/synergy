@@ -1,5 +1,28 @@
 @use "../../assets/sass/variables.scss" as *;
 
+    // .wrapper {
+    //     position: relative;
+    //     overflow: hidden;
+    //     width: 100px;
+    //     height: 100px; 
+    //     border: 1px solid black;
+    // }
+    
+    // #slide {
+    //     position: absolute;
+    //     left: -100px;
+    //     width: 100px;
+    //     height: 100px;
+    //     background: blue;
+    //     transition: 1s;
+    // }
+    
+    // .wrapper:hover #slide {
+    //     transition: 1s;
+    //     left: 0;
+    // }
+
+
 .sidemenu{
     display: flex;
     flex-direction: column;
@@ -7,28 +30,43 @@
     //width:12%;
     padding-left: 20px;
     margin: 20px;
-    min-width: 230px;
+    min-width: 220px;
+    // transform: translateX(0%);
+    // transition: transform 0.5s ease-in-out;
+
+    &__items {
+        
+        *:active, *:hover {
+            border-right: 2px ridge $color-button-background;
+        }
+
+        .sidemenu__a:active, .sidemenu__a:hover {
+            border-right: none;
+        }
+    }
+
     &__items, &__signout {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+
         .sidemenu__item{
             padding: 10px;
             display: flex;
             flex-direction: row;
-            *{
+            * {
                 text-decoration: none;
                 font-size: 16px;
                 color: $color-link;
-                padding: 5px;                
+                padding: 4px;                
             }
             
             *:hover +.sidemenu__a, *:active +.sidemenu__a{
-                color: $color-button-background;
+                color: $color-button-background;            
             }
 
             *:hover, *:active{
-                color: $color-button-background;
+                color: $color-button-background;    
             }
 
             .sidemenu__icon:hover,.sidemenu__icon:active{
