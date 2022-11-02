@@ -16,7 +16,7 @@ const ContactRow = ({contact, onClick, onDelete}) => {
             <td className="contact__sortCode">{contact.sortCode}</td>
             <td className="contact__account">{contact.account}</td>
             <td className="contact__bankName">{contact.bankName}</td>
-            <td className="contact__iban">{contact.iban}</td>
+            <td className="contact__iban">{contact.IBAN}</td>
             <td>
                 <img
                 className="contact__deleteIcon"

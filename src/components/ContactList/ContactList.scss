@@ -2,4 +2,27 @@
     // display: flex;
     // flex-direction: column;
     border: 2px solid goldenrod;
+    table-layout: fixed;
+    width:100%;
+    border-collapse: collapse;
+    thead th:nth-child(1) {width: 10%}
+    thead th:nth-child(2) {width: 20%}
+    thead th:nth-child(3) {width: 15%}
+    thead th:nth-child(4) {width: 12%}
+    thead th:nth-child(5) {width: 15%}
+    thead th:nth-child(6) {width: 20%}
+    thead th:nth-child(7) {width: 8%}
+
+
+    tbody th:nth-child(1) {width: 10%}
+    tbody th:nth-child(2) {width: 20%}
+    tbody th:nth-child(3) {width: 15%}
+    tbody th:nth-child(4) {width: 12%}
+    tbody th:nth-child(5) {width: 15%}
+    tbody th:nth-child(6) {width: 20%}
+    tbody th:nth-child(7) {width: 8%}
+
+    th, td {padding: 5px;}
+
+    
 }
