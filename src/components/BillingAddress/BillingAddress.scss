@@ -35,7 +35,7 @@ h1 {
     //width: 100px;
     margin-left: -30px; 
 }
-.SignUpForm {
+.bankDetailsForm {
     display:flex;
     flex-direction: column;
     
@@ -48,15 +48,7 @@ h1 {
         
     }
     
-    &__hasAccount {
-        &__question {
-            color:$color-font-lightgray;
-        }
-        &__login {
-            color:$color-middle-blue;
-        }
-    }
-    
+
     &__btn {
         background: rgba(0, 206, 212, 0.4);
         border: none;
@@ -69,9 +61,6 @@ h1 {
         font-weight: bold;
     }
     
-    // &__hasAccount {
-        
-    // }
 }
 
 .valid {

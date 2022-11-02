@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom'
+
 import "./SignUp.scss"
 import { faEye} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -58,15 +60,15 @@ const SignUp = () => {
   }
 
   const togglePassword = (e) => {
-    passwordType =="password"?setPasswordType("text"):setPasswordType("password"); 
+    passwordType ==="password"?setPasswordType("text"):setPasswordType("password"); 
   }
 
   const toggleConfirmedPassword = (e) => {
-    ConfirmedPasswordType =="password"?setConfirmedPasswordType("text"):setConfirmedPasswordType("password"); 
+    ConfirmedPasswordType ==="password"?setConfirmedPasswordType("text"):setConfirmedPasswordType("password"); 
   }
 
   return (
-    <div className='signup-form'>
+    <div className='form'>
       <div className='signup-header'>
         <h3>Synergy logo goes here</h3>
       </div>
@@ -106,9 +108,12 @@ const SignUp = () => {
             </p>
           </div>
           
-          <button onSubmit={validateEmail} className="SignUpForm__btn" type="submit">
+          
+        <Link to="/bankdetails">
+          <button className="SignUpForm__btn" type="submit" >
             Continue
           </button>
+        </Link>
       </form>
       </div>
   
