@@ -1,6 +1,7 @@
 import React from 'react'
 import "./LoginFlow.scss"
 import emojihand from "../../assets/images/Emojihand.png"
+import synergy from "../../assets/images/synergy.png"
 
 const LoginFlow = () => {
   return (
@@ -9,7 +10,7 @@ const LoginFlow = () => {
         <main className="background">
              <div className="loginFlow">
             <div className="loginFlow__synergyIcon">
-                <img src="" alt="Synergy icon" />
+                <img src={synergy} alt="Synergy icon" className="loginFlow__synergyImg"/>
                 <h1 >Synergy</h1>    
             </div>
             <div className="loginFlow__main">
@@ -19,7 +20,7 @@ const LoginFlow = () => {
                 </div>
 
                 <div className="loginFlow__credentials">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu leo urna.</p>
+                <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu leo urna.</p>
                 <h2 className="loginFlow__credentials__header">Email</h2>
                 <input className="loginFlow__inputbox" type="text" placeholder="enter your email"/>
                 <h2 className="loginFlow__credentials__header">Password</h2>

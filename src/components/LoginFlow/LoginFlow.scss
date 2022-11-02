@@ -28,6 +28,9 @@
                 font-size: 20px;
                 font-weight: 500;
             }
+            .loginFlow__synergyImg{
+                padding: 5px;
+            }
         }
     
         .loginFlow__main{
@@ -37,6 +40,7 @@
 
                 h1{
                 font-size: 32px;
+                
                 }
 
                 .loginFlow__main__img{
@@ -51,8 +55,11 @@
                 .loginFlow__credentials__header{
                     color: $color-light-gray;
                     font-size: 16px;
-                    font-weight: none;
-            
+                    font-weight: 400px;
+                                
+                }
+                p{
+                    color: $color-loginFlow-gray;
                 }
                 .loginFlow__inputbox{
 
