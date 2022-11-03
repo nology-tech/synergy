@@ -1,7 +1,7 @@
 import "./App.scss";
 import LiveRates from "./components/LiveRates/LiveRates";
 import sidebar from "./assets/images/sidebar3.jpg";
-import navbar from "./assets/images/navbar.png";
+import navbar from "./assets/images/topnav.png";
 
 const App = () => {
   return (
