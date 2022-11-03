@@ -2,11 +2,22 @@
 
 * {
     font-family: $title-font-family ;
+    box-sizing: border-box;
+}
+.form-container {
+    background: $color-background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 .form {
-    width: 30%;
-    margin: 10px;
-    padding: 10px;
+    min-width: 600px;
+    min-height: 710px;
+
+    margin: 100px;
+    padding: 50px;
+    background: $color-white;
 }
 h1 {
     margin: 0;
@@ -72,6 +83,10 @@ h1 {
     // &__hasAccount {
         
     // }
+}
+
+.password-div{
+    display: flex;
 }
 
 .valid {

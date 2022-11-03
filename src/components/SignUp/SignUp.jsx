@@ -68,6 +68,7 @@ const SignUp = () => {
   }
 
   return (
+    <div className='form-container'>
     <div className='form'>
       <div className='signup-header'>
         <h3>Synergy logo goes here</h3>
@@ -77,7 +78,7 @@ const SignUp = () => {
         <p className="ipsum">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         <form className="SignUpForm">
           {/* Labels and inputs for form data */}
-          <div className="SignUpForm__email SignUpForm__div">
+          <div className="SignUpForm__div">
             <label className="label">Email</label>
             <input onChange={handleEmail} className="input" value={email} type="text" /> 
             {validEmail?<p className='valid'>Successful email entered</p>:<p className='invalid'>Error - Your email must contain an @ symbol</p>}             
@@ -117,6 +118,7 @@ const SignUp = () => {
       </form>
       </div>
   
+    </div>
     </div>
   )
 }
