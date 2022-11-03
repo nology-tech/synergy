@@ -1,15 +1,14 @@
-
+@use "./../../assets/sass/_variables.scss" as *;
 * {
     margin: 5px;
     padding: 2px;
 }
-.contactList{
-    // display: flex;
-    // flex-direction: column;
+table {
     border: 2px solid goldenrod;
     table-layout: fixed;
     width:100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0 10px;
     thead th:nth-child(1) {width: 10%}
     thead th:nth-child(2) {width: 20%}
     thead th:nth-child(3) {width: 15%}
@@ -19,13 +18,22 @@
     thead th:nth-child(7) {width: 8%}
 
 
-    tbody th:nth-child(1) {width: 10%}
-    tbody th:nth-child(2) {width: 20%}
-    tbody th:nth-child(3) {width: 15%}
-    tbody th:nth-child(4) {width: 12%}
-    tbody th:nth-child(5) {width: 15%}
-    tbody th:nth-child(6) {width: 20%}
-    tbody th:nth-child(7) {width: 8%}
+    // tbody th:nth-child(1) {width: 10%}
+    // tbody th:nth-child(2) {width: 20%}
+    // tbody th:nth-child(3) {width: 15%}
+    // tbody th:nth-child(4) {width: 12%}
+    // tbody th:nth-child(5) {width: 15%}
+    // tbody th:nth-child(6) {width: 20%}
+    // tbody th:nth-child(7) {width: 8%}
+
+    tbody tr {
+        background-color:  $color-light-gray-info-bar;
+        color: $color-medium-gray;
+        height: 58px;
+        font-family:$title-font-family ;
+        font-size: 16px;
+    }
+
 
     th, td {padding: 5px;}
 

@@ -1,51 +1,43 @@
-.contactList {
+* {
+  margin: 5px;
+  padding: 2px;
+}
+
+table {
   border: 2px solid goldenrod;
   table-layout: fixed;
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0 10px;
 }
-.contactList thead th:nth-child(1) {
+table thead th:nth-child(1) {
   width: 10%;
 }
-.contactList thead th:nth-child(2) {
+table thead th:nth-child(2) {
   width: 20%;
 }
-.contactList thead th:nth-child(3) {
+table thead th:nth-child(3) {
   width: 15%;
 }
-.contactList thead th:nth-child(4) {
+table thead th:nth-child(4) {
   width: 12%;
 }
-.contactList thead th:nth-child(5) {
+table thead th:nth-child(5) {
   width: 15%;
 }
-.contactList thead th:nth-child(6) {
+table thead th:nth-child(6) {
   width: 20%;
 }
-.contactList thead th:nth-child(7) {
+table thead th:nth-child(7) {
   width: 8%;
 }
-.contactList tbody th:nth-child(1) {
-  width: 10%;
+table tbody tr {
+  background-color: #FBFBFC;
+  color: #8896A3;
+  height: 58px;
+  font-family: "Outfit";
+  font-size: 16px;
 }
-.contactList tbody th:nth-child(2) {
-  width: 20%;
-}
-.contactList tbody th:nth-child(3) {
-  width: 15%;
-}
-.contactList tbody th:nth-child(4) {
-  width: 12%;
-}
-.contactList tbody th:nth-child(5) {
-  width: 15%;
-}
-.contactList tbody th:nth-child(6) {
-  width: 20%;
-}
-.contactList tbody th:nth-child(7) {
-  width: 8%;
-}
-.contactList th, .contactList td {
+table th, table td {
   padding: 5px;
 }/*# sourceMappingURL=ContactList.css.map */

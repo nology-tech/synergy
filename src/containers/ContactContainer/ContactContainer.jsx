@@ -55,7 +55,7 @@ const ContactContainer = () => {
             searchTerm={searchQuery}
             handleInput={handleInput}
             onSearchClick={onSearchClick}
-            label="+ Add"
+            label="+  Add"
           />
           <ContactList
             contactsArray={filteredContactsArray}

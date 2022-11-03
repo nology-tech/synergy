@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit');
+@import url('https://fonts.googleapis.com/css?family=Inter');
 .App {
     text-align: center;
     display: flex;
-    margin: 10px;
+    flex-direction: row;
+    // margin: 10px;
+    .right-side {
+      display: flex;
+      flex-direction: column;
+    }
   }
