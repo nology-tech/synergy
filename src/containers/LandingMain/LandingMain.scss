@@ -1,17 +1,30 @@
 @use "../../assets/sass/_variables.scss"as *;
 
-
 * {
   align-content: center;
   text-align: center;
   align-items: center;
   padding: 0;
   margin: 0;
+  background-color: $color-background;
 }
 
 .navbar__image {
   background-color: $color-background;
   width: 100%;
+}
+
+.backgound__image {
+  background-image: url(../../assets/images/background.png);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:contain;
+  .landing__image {
+    border-radius: 15px;
+    width: 812px;
+    z-index: 1;
+  }
 }
 
 .bankClients {
@@ -33,25 +46,26 @@
 
   .bankLogosImg {
     display: flex;
-   
     background-color: $color-white;
     
     &__one {
       margin-right: 50px;
       margin-left: 30px;
+      background-color: $color-white;
     }
 
     &__two {
       margin-right: 50px;
       margin-left: 30px;
+      background-color: $color-white;
     }
 
     &__three {
       margin-right: 50px;
       margin-left: 30px;
+      background-color: $color-white;
     }
   }
-
 
 }
 
@@ -87,6 +101,7 @@
     font-weight: 500;
     font-size: 40px;
     line-height: 110%;
+    background-color: $color-middle-blue;
   }
 
   &__subline {
@@ -96,6 +111,7 @@
   font-size: 18px;
   line-height: 150%;
   padding: 20px;
+  background-color: $color-middle-blue;
   }
 }
 
@@ -103,9 +119,9 @@
 border-radius: 8px;
 width: 1079px;
 padding: 30px;
+box-shadow: 5px 10px 10px #d5cece;
+background-color: $color-white;
 }
-
-
 
 .currencies {
   font-style: normal;
@@ -135,8 +151,6 @@ padding: 30px;
       border-radius: 8px;
     }
 }
-
-
 
 .footer {
   background-color: $color-black;

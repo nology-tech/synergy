@@ -1,5 +1,5 @@
 import React from 'react'
-import LandingMain from './components/LandingMain/LandingMain'
+import LandingMain from './containers/LandingMain/LandingMain'
 
 const App = () => {
   return (

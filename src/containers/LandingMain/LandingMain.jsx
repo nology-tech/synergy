@@ -1,8 +1,7 @@
 import React from "react";
-import Header from "../Header/Header";
-import MainImage from "../MainImage/MainImage";
+import Header from "../../components/Header/Header";
 import features from "../../data/feature.js";
-import FeaturesTile from "../FeaturesTile/FeaturesTile";
+import FeaturesTile from "../../components/FeaturesTile/FeaturesTile";
 import "./LandingMain.scss";
 
 const LandingMain = () => {
@@ -15,15 +14,14 @@ const LandingMain = () => {
       />
       <Header />
       <div>
-      <MainImage />
       </div>
-      {/* <div className="backgound__image">
+      <div className="backgound__image">
         <img
           className="landing__image"
           src={require("../../assets/images/transfer.png")}
           alt="main page image"
         />
-      </div> */}
+      </div>
 
       <section>
         <div className="bankClients">
@@ -60,6 +58,7 @@ const LandingMain = () => {
       </section>
 
       <div className="converter">
+        
         <h1 className="converter__title">Make A Conversation </h1>
         <h5 className="converter__subline">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut id
