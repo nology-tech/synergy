@@ -1,10 +1,10 @@
 import React from "react";
 import "./SignInNav.scss";
 import logo from "../../assets/images/Main_Logo.png";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const SignInNav = (props) => {
-  const { title, handleLogin} = props;
+  const { title } = props;
   let mainLogo = logo;
   return (
     <div>
@@ -18,9 +18,16 @@ const SignInNav = (props) => {
             />
           </div>
           <div className="topnav__signin">
-            <Link to="/dashboard" className="signup" onClick={handleLogin}>
-              {title}
-            </Link>
+            {title === "Sign Up" && (
+              <Link to="/dashboard" className="signup">
+                {title}
+              </Link>
+            )}
+            {title === "Login" && (
+              <Link to="/signin" className="signup">
+                {title}
+              </Link>
+            )}
           </div>
         </div>
       </div>

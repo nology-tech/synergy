@@ -1,12 +1,9 @@
-import { useState } from "react";
 import React from "react";
 import "./FooterNav.scss";
-import NavMenu from "../NavMenu/NavMenu";
 import logo from "../../assets/images/Main_Logo.png";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-const FooterNav = (props) => {
-  const { title, handleLogin, handleSelection } = props;
+const FooterNav = () => {
   let mainLogo = logo;
 
   return (
@@ -35,12 +32,7 @@ const FooterNav = (props) => {
         </div>
         <div className="footernav__signin">
           {/* <a href ="#" className="signup">SignUp</a> */}
-          <Link
-            to="/signup"
-            className="signup"
-            onClick={handleSelection}
-            value="Sign Up"
-          >
+          <Link to="/signup" className="signup" value="Sign Up">
             Sign Up
           </Link>
         </div>

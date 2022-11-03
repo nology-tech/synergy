@@ -3,12 +3,11 @@ import "./LandingNav.scss";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import FooterNav from "../../components/FooterNav/FooterNav";
 
-const LandingNav = (props) => {
-  const { handleSelection } = props;
+const LandingNav = () => {
   return (
     <div>
-      <HeaderNav handleSelection={handleSelection} />
-      <FooterNav handleSelection={handleSelection} />
+      <HeaderNav />
+      <FooterNav />
     </div>
   );
 };

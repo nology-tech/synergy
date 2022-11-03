@@ -3,14 +3,13 @@ import "./UserDashboard.scss";
 import logo from "../../assets/images/Main_Logo.png";
 import NavMenu from "../../components/NavMenu/NavMenu";
 
-const UserDashboard = (props) => {
-  const { handleLogout } = props;
+const UserDashboard = () => {
   let mainLogo = logo;
   return (
     <div className="userdashboard">
       <div className="userdashboard_menu">
         <img src={mainLogo} alt="Synergy-icon" />
-        <NavMenu handleLogout={handleLogout} />
+        <NavMenu />
       </div>
       <div className="userdashboard_main">
         <div className="userdashboard_main_top">

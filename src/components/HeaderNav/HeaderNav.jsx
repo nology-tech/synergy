@@ -1,10 +1,9 @@
 import React from "react";
 import "./HeaderNav.scss";
 import logo from "../../assets/images/Main_Logo.png";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-const HeaderNav = (props) => {
-  const { title, handleLogin, handleSelection } = props;
+const HeaderNav = () => {
   let mainLogo = logo;
   return (
     <div className="nav">
@@ -27,19 +26,10 @@ const HeaderNav = (props) => {
           </a>
         </div>
         <div className="topnav__signin">
-          <Link            to="/signin"
-            className="signin"
-            onClick={handleSelection}
-            value="Sign In"
-          >
+          <Link to="/signin" className="signin" value="Sign In">
             Sign In
           </Link>
-          <Link
-            to="/signup"
-            className="signup"
-            onClick={handleSelection}
-            value="Sign Up"
-          >
+          <Link to="/signup" className="signup" value="Sign Up">
             Sign Up
           </Link>
         </div>

@@ -1,12 +1,10 @@
-import React, { useState } from "react";
 import SignInNav from "../../components/SignInNav/SignInNav";
 
-const SignUp = (props) => {
-  const { handleLogin } = props;
+const SignUp = () => {
   return (
     <div className="signin__page">
-      <SignInNav title="Login" handleLogin={handleLogin} />
-      <div>Sign Up Section</div>
+      <SignInNav title="Login" />
+      <div>Create Account Section</div>
     </div>
   );
 };

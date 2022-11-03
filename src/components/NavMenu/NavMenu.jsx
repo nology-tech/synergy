@@ -6,11 +6,9 @@ import convert from "../../assets/images/ep_refresh.svg";
 import contacts from "../../assets/images/fluent_people-16-regular.png";
 import signout from "../../assets/images/Group 66.png";
 import transfer from "../../assets/images/carbon_send-alt.png";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-const NavMenu = (props) => {
-  const { handleLogout } = props;
-
+const NavMenu = () => {
   const walletImg = wallet;
   const ratesImg = liverates;
   const convertImg = convert;
@@ -54,12 +52,7 @@ const NavMenu = (props) => {
       </div>
       <div className="sidemenu__signout">
         <Link to="/home">
-          <img
-            className="sidemenu__logout"
-            src={signoutImg}
-            alt="Contacts"
-            onClick={handleLogout}
-          />
+          <img className="sidemenu__logout" src={signoutImg} alt="Contacts" />
         </Link>
       </div>
     </div>
