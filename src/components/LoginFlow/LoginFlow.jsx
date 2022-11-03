@@ -20,7 +20,7 @@ const LoginFlow = (props) => {
       ? setPasswordType("text")
       : setPasswordType("password");
   };
-
+  
   return (
     <>
       <nav>Navbar placeholder</nav>
@@ -37,6 +37,7 @@ const LoginFlow = (props) => {
           <div className="loginFlow__main">
             <div className="loginFlow__main__header">
               <h1>{loginFlow_header}</h1>
+              {/* Hide/Show HandWave emoji based on Header Check  */}
               {loginFlow_header === "Welcome Back!" ? (
                 <img
                   src={emojihand}
@@ -53,7 +54,27 @@ const LoginFlow = (props) => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu
                 leo urna.
               </p>
-              {loginFlow_header === "Welcome Back!" ? (
+
+              {/* Rendering based on Header=Welcome Back */}
+              {loginFlow_header === "Welcome Back!"  ?(
+                <>
+                <h2 className="loginFlow__credentials__header">
+                    {inputBox_email}
+                  </h2>
+                  <input className="loginFlow__inputbox" type="text"></input>
+                  </>                
+              ) : (
+                // Rendering based on Header=Change your Password 
+                <div className="">
+                  <h2 className="loginFlow__credentials__header">{inputBox_email}</h2>
+                  <input className="loginFlow__inputbox" type="text"></input>
+                </div>
+                )}
+
+
+
+              {/* Original - Header is Welcome Back */}
+              {/* {loginFlow_header === "Welcome Back!" ? (
                 <div>
                   <h2 className="loginFlow__credentials__header">
                     {inputBox_email}
@@ -61,8 +82,10 @@ const LoginFlow = (props) => {
                   <input className="loginFlow__inputbox" type="text"></input>
                 </div>
               ) : (
+
                 <></>
-              )}
+              )} */}
+
               <h2 className="loginFlow__credentials__header">{inputBox_psw}</h2>
               <input className="loginFlow__inputbox" type={passwordType} />
               <FontAwesomeIcon
@@ -71,7 +94,21 @@ const LoginFlow = (props) => {
                 onClick={togglePassword}
               />
 
-              {loginFlow_header === "Welcome Back!" ? (
+              {/* Prapti Sandbox */}
+              {/* {loginFlow_header === "Welcome Back!" ? (
+                <> </>
+              ) : (
+                <div>
+                  <h2 className="loginFlow__credentials__header">
+                    {inputBox_confirmpsw}
+                  </h2>
+                  <input className="loginFlow__inputbox" type={passwordType} />
+                </div>
+              )} */}
+
+
+              {/* Original */}
+              {/* {loginFlow_header === "Welcome Back!" ? (
                 <></>
               ) : (
                 <div>
@@ -80,11 +117,20 @@ const LoginFlow = (props) => {
                   </h2>
                   <input className="loginFlow__inputbox" type={passwordType} />
                 </div>
-              )}
-            </div>
+              )} */}
 
+
+
+
+
+
+
+
+
+            </div>
+            {loginFlow_header === "Welcome Back!" ? (  
             <div className="loginFlow__links">
-              <p className="grey">
+               <p className="grey">
                 Don't have an account?{" "}
                 <a href="#sugnup" className="blue">
                   Sign Up
@@ -96,8 +142,13 @@ const LoginFlow = (props) => {
                 </a>
               </p>
             </div>
+            ):(
+              <></>
+            )}
+
             <div className="loginFlow__button">
               <button>Login</button>
+              
             </div>
           </div>
         </div>
