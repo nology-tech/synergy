@@ -6,7 +6,7 @@ const SignIn = (props) => {
   return (
     <div className='signin__page'>
         <SignInNav title="Sign Up" handleLogin = {handleLogin}/>
-        <div>Sign In Man Section</div>
+        <div>Sign In Section</div>
     </div>
   )
 }

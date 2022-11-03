@@ -27,7 +27,9 @@ const Main = () => {
     <div>
         {signUp=="Home"  && <LandingNav  handleSelection={updateSignIn}/>}
         {(!logged && signUp=="Sign In") && <SignIn handleLogin={toggleLogin}/>}
-        {(!logged && signUp=="SignUp") && <SignUp handleLogin={toggleLogin}/>}
+        {(!logged && signUp=="Sign Up") && <SignUp handleLogin={toggleLogin}/>}
+        {signUp=="Login"  && <LandingNav  handleSelection={updateSignIn}/>}
+
         {logged && <UserDashboard handleLogout={logOut}/>}
     </div>
   )

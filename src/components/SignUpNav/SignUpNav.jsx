@@ -1,8 +1,8 @@
 import React from 'react'
-import './SignInNav.scss'
+import './SignUpNav.scss'
 import logo from "../../assets/images/Main_Logo.png"
 
-const SignInNav = (props) => {
+const SignUpNav = (props) => {
     const {title, handleLogin, handleSelection}=props
     let mainLogo=logo;
   return (
@@ -13,7 +13,9 @@ const SignInNav = (props) => {
             <img className="topnav__appicon" src={mainLogo} alt="Synergy-icon"/>
           </div>
           <div className="topnav__signin">
-            <a href ="#" className="signup" onClick={handleLogin}>{title}</a>
+            {/* <a href ="#" className="signup" onClick={handleLogin}>{title}</a> */}
+            <a href ="#" className="signup" onClick={handleSelection} value="Sign Up">Login</a>
+            {console.log (handleSelection)}
             {console.log (handleLogin)}
             {console.log (title)}
           </div>
@@ -24,4 +26,4 @@ const SignInNav = (props) => {
   )
 }
 
-export default SignInNav
+export default SignUpNav

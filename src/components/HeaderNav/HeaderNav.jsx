@@ -3,7 +3,7 @@ import "./HeaderNav.scss";
 import logo from "../../assets/images/Main_Logo.png"
 
 const HeaderNav = (props) => {
-  const {handleLogin, handleSelection} = props;
+  const {title,handleLogin, handleSelection} = props;
   let mainLogo= logo;
   return (
     <div className="nav">
@@ -19,7 +19,7 @@ const HeaderNav = (props) => {
         </div>
         <div className="topnav__signin">
           <a href ="#" className="signin" onClick={handleSelection} value="Sign In">Sign In</a>
-          <a href ="#" className="signup" onClick={handleSelection} value="SignUp">SignUp</a>
+          <a href ="#" className="signup" onClick={handleSelection} value="Sign Up">Sign Up</a>
         </div>
       </div>
       
