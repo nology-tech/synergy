@@ -1,17 +1,16 @@
-import React from 'react'
+import React from "react";
 import "./LandingNav.scss";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import FooterNav from "../../components/FooterNav/FooterNav";
-import {Link} from 'react-router-dom';
 
 const LandingNav = (props) => {
-    const {handleLogin, handleSelection} = props;
+  const { handleSelection } = props;
   return (
     <div>
-        <HeaderNav handleLogin ={handleLogin} handleSelection={handleSelection}/>
-        <FooterNav handleLogin ={handleLogin} handleSelection={handleSelection}/>
+      <HeaderNav handleSelection={handleSelection} />
+      <FooterNav handleSelection={handleSelection} />
     </div>
-  )
-}
+  );
+};
 
-export default LandingNav
+export default LandingNav;
