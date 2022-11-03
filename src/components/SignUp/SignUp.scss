@@ -65,15 +65,16 @@ h1 {
         width: 90px;
         height: 40px;
         margin-right: 0;
-        margin-left: auto;
-        font-weight: bold;
+        // margin-left: auto;
+        // font-weight: bold;
     }
     
-    // &__hasAccount {
-        
-    // }
+   
 }
-
+a {
+    margin-right: 0;
+    margin-left: auto;
+}
 .valid {
     color: #57E141;
     font-size: 10px;
