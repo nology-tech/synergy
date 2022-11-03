@@ -19,12 +19,12 @@ const SignInNav = (props) => {
           </div>
           <div className="topnav__signin">
             {title === "Sign Up" && (
-              <Link to="/dashboard" className="signup">
+              <Link to="/signup" className="signup">
                 {title}
               </Link>
             )}
             {title === "Login" && (
-              <Link to="/signin" className="signup">
+              <Link to="/dashboard" className="signup">
                 {title}
               </Link>
             )}

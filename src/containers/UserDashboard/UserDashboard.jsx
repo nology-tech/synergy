@@ -14,9 +14,11 @@ const UserDashboard = () => {
       <div className="userdashboard_main">
         <div className="userdashboard_main_top">
           <input type="text" name="test" id="" value="Search" />
-          <a href="#" className="signin">
-            Samanth Brooks
-          </a>
+          <div className="user">
+            <a href="#" className="signin">
+              Samanth Brooks
+            </a>
+          </div>
         </div>
         <div>Main Section</div>
       </div>

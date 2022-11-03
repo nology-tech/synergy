@@ -1,39 +1,12 @@
 @use "../../assets/sass/variables.scss" as *;
 
-    // .wrapper {
-    //     position: relative;
-    //     overflow: hidden;
-    //     width: 100px;
-    //     height: 100px; 
-    //     border: 1px solid black;
-    // }
-    
-    // #slide {
-    //     position: absolute;
-    //     left: -100px;
-    //     width: 100px;
-    //     height: 100px;
-    //     background: blue;
-    //     transition: 1s;
-    // }
-    
-    // .wrapper:hover #slide {
-    //     transition: 1s;
-    //     left: 0;
-    // }
-
-
 .sidemenu{
     display: flex;
     flex-direction: column;
-    height:87vh;
-    //width:12%;
+    height:95vh;
     padding-left: 20px;
-    margin: 20px;
-    min-width: 220px;
-    // transform: translateX(0%);
-    // transition: transform 0.5s ease-in-out;
-
+    //margin: 20px;
+    min-width: 200px;
     &__items {
         
         *:active, *:hover {
@@ -77,7 +50,7 @@
             }
         }
         .sidemenu__item:active, .sidemenu__item:hover{
-            border-right: 5px ridge $color-middle-blue;
+            border-right: 7px solid $color-middle-blue;
         }
     }
     &__signout {
