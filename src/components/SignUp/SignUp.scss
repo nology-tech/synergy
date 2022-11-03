@@ -14,6 +14,7 @@
 
 .signup-header {
     padding-left: 30px;
+    padding-top: 10px;
 }
 .form {
     min-width: 600px;
@@ -71,7 +72,7 @@ h1 {
     }
     
     &__btn {
-        background: rgba(0, 206, 212, 0.4);
+        background: rgba(0, 206, 212);
         border: none;
         border-radius: 6px;
         color: $color-white;
@@ -83,13 +84,11 @@ h1 {
         font-family: $third-font-family;
         font-size: 16px;
     }
-
-    .continue-button {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
+    &__btn[disabled] {
+        background: rgba(0, 206, 212, 0.4);
     }
+
+    
 }
 
 a {

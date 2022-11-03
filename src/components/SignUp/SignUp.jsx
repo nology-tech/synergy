@@ -99,8 +99,7 @@ const SignUp = () => {
               {validEmail ? (
                 <p className="valid">Successful email entered</p>
               ) : (
-                <p className="invalid">
-                  Error - Your email must contain an @ symbol
+                <p className="invalid"> &#128712; Error - Your email must contain an @ symbol
                 </p>
               )}
             </div>
@@ -124,8 +123,7 @@ const SignUp = () => {
                 <p className="valid">Password meets requirements</p>
               ) : (
                 <p className="invalid">
-                  {/* <FontAwesomeIcon icon={faCircleExclamation} className="fontAwesome_icon"/> */}
-                  Error - password must contain at least 8 characters & one
+                  &#128712; Error - password must contain at least 8 characters & one
                   uppercase letter
                 </p>
               )}
@@ -149,13 +147,13 @@ const SignUp = () => {
               {validConfirmedPassword ? (
                 <p className="valid">Passwords match</p>
               ) : (
-                <p className="invalid">Error - passwords do not match!</p>
+                <p className="invalid">&#128712; Error - passwords do not match!</p>
               )}
             </div>
 
             <div className="SignUpForm__hasAccount">
               <p className="SignUpForm__hasAccount__question">
-                Already have an account?
+                Already have an account?&nbsp;
                 <span>
                   <a className="SignUpForm__hasAccount__login" href="#">
                     Login
@@ -172,10 +170,7 @@ const SignUp = () => {
                   !(validEmail && validPassword && validConfirmedPassword)
                 }
               >
-                <div className="continue-button">
-                  Continue
-                  <FontAwesomeIcon icon={faPlay} className="fontAwesome_icon" />
-                </div>
+                  Continue &#9654;
               </button>
             </Link>
           </form>
