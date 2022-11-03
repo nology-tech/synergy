@@ -1,14 +1,55 @@
 .currency-row {
   display: flex;
   flex-direction: row;
-  background-color: #FBFBFC;
+  width: 90%;
+  height: 10%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.currency-list__img {
+  width: 20px;
+  height: 12px;
+  justify-content: left;
 }
 
 .currency-list__heading {
   color: #5B6D7D;
+  font-family: "Outfit";
+  font-size: 16px;
+  font-weight: 500px;
+  margin: 20px;
+  justify-content: space-around;
+  text-align: left;
+  width: 80%;
 }
 
-.currency-list_font {
+.currency-list__items {
+  display: flex;
+  justify-content: space-around;
   font-family: "Inter";
   color: #8896A3;
+  background-color: #FBFBFC;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: space-around;
+}
+
+.currency-list__name {
+  text-align: left;
+  width: 25%;
+}
+
+.currency-list__amount {
+  text-align: left;
+  width: 25%;
+}
+
+.currency-list__rate {
+  text-align: left;
+  width: 25%;
+}
+
+.button {
+  justify-content: center;
 }/*# sourceMappingURL=LiveRatesList.css.map */

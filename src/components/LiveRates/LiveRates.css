@@ -1,9 +1,14 @@
 .live-rates {
-  margin-left: 25%;
+  margin-left: 5%;
 }
 
 .live-rates__h4 {
   color: #00CED4;
+}
+
+.live-rates__para {
+  width: 500px;
+  margin-bottom: 30px;
 }
 
 .button {
