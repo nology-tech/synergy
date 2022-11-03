@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import "./BillingAddress.scss"
+import synergyLogo from "../../Assets/images/synergy_logo.png";
 
 
 const BillingAddress = () => {
@@ -35,9 +36,10 @@ const BillingAddress = () => {
     };
 
   return (
+    <div className='form-container'>
     <div className='form'>
       <div className='signup-header'>
-        <h3>Synergy logo goes here</h3>
+        <img src={synergyLogo} />
       </div>
       <div>
         <h1 className="createAccount">Add Billing Address</h1>
@@ -45,7 +47,7 @@ const BillingAddress = () => {
         <form className="bankDetailsForm">
          {/* Labels and inputs for form data */}
           <div className="bankDetailsForm__div">
-            <label className="label"></label>
+            <label className="label">House Number</label>
             <input onChange={handleHouseNum} className="input" value={houseNum} type="text" />
           </div>
                   
@@ -78,6 +80,7 @@ const BillingAddress = () => {
           </div>
        </form>
       </div>
+</div>
 </div>
   )
 }

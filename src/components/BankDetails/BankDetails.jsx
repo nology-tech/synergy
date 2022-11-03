@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import "./BankDetails.scss"
+import synergyLogo from "../../Assets/images/synergy_logo.png";
 
 
 const BankDetails = () => {
@@ -28,9 +29,10 @@ const BankDetails = () => {
     };
 
   return (
+    <div className="form-container">
     <div className='form'>
       <div className='signup-header'>
-        <h3>Synergy logo goes here</h3>
+      <img src={synergyLogo} />
       </div>
       <div>
         <h1 className="createAccount">Add Bank Details</h1>
@@ -68,6 +70,8 @@ const BankDetails = () => {
        </form>
       </div>
 </div>
+</div>
+
   )
 }
 
