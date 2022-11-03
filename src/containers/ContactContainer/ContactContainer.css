@@ -2,13 +2,17 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  border: 3px solid yellow;
-}
-.contact .contact__Header {
-  text-align: left;
-  border: 3px solid blue;
+  font-family: "Outfit";
 }
 .contact .contact__Title {
-  text-align: left;
-  border: 3px solid green;
+  font-weight: 500;
+  color: #00CED4;
+  font-size: 12px;
+  font-style: Medium;
+}
+.contact .contact__Heading {
+  font-weight: 400;
+  color: #06020A;
+  font-size: 32px;
+  font-style: Regular;
 }/*# sourceMappingURL=ContactContainer.css.map */

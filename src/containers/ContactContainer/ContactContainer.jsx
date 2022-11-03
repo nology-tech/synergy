@@ -50,11 +50,12 @@ const ContactContainer = () => {
     return (
         <div className="contact">
           <div className="contact__Title">Contacts</div>
-          <h2 className="contact__Heading">Contact List</h2>
+          <div className="contact__Heading">Contact List</div>
           <ContactSearch
             searchTerm={searchQuery}
             handleInput={handleInput}
             onSearchClick={onSearchClick}
+            label="+ Add"
           />
           <ContactList
             contactsArray={filteredContactsArray}
