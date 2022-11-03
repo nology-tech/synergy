@@ -11,6 +11,7 @@ const LoginFlow = (props) => {
     inputBox_email,
     inputBox_psw,
     inputBox_confirmpsw,
+    buttonText
   } = props;
 
   const [passwordType, setPasswordType] = useState("password");
@@ -56,7 +57,7 @@ const LoginFlow = (props) => {
               </p>
 
               {/* Rendering based on Header=Welcome Back */}
-              {loginFlow_header === "Welcome Back!"  ?(
+              {loginFlow_header === ("Welcome Back!" || "Forgotten your password")  ?(
                 <>
                 <h2 className="loginFlow__credentials__header">
                     {inputBox_email}
@@ -64,11 +65,8 @@ const LoginFlow = (props) => {
                   <input className="loginFlow__inputbox" type="text"></input>
                   </>                
               ) : (
-                // Rendering based on Header=Change your Password 
-                <div className="">
-                  <h2 className="loginFlow__credentials__header">{inputBox_email}</h2>
-                  <input className="loginFlow__inputbox" type="text"></input>
-                </div>
+                
+                <></>
                 )}
 
 
@@ -86,29 +84,21 @@ const LoginFlow = (props) => {
                 <></>
               )} */}
 
-              <h2 className="loginFlow__credentials__header">{inputBox_psw}</h2>
+              
+              {loginFlow_header === "Forgotten your password" ?(
+              <></>):(
+              <div>
+                <h2 className="loginFlow__credentials__header">{inputBox_psw}</h2>
               <input className="loginFlow__inputbox" type={passwordType} />
               <FontAwesomeIcon
                 icon={faEye}
                 className="fontAwesome_icon"
                 onClick={togglePassword}
               />
+              </div>)}
 
-              {/* Prapti Sandbox */}
-              {/* {loginFlow_header === "Welcome Back!" ? (
-                <> </>
-              ) : (
-                <div>
-                  <h2 className="loginFlow__credentials__header">
-                    {inputBox_confirmpsw}
-                  </h2>
-                  <input className="loginFlow__inputbox" type={passwordType} />
-                </div>
-              )} */}
-
-
-              {/* Original */}
-              {/* {loginFlow_header === "Welcome Back!" ? (
+          
+               {loginFlow_header === ("Welcome Back!" || "Forgotten your password")? (
                 <></>
               ) : (
                 <div>
@@ -117,13 +107,7 @@ const LoginFlow = (props) => {
                   </h2>
                   <input className="loginFlow__inputbox" type={passwordType} />
                 </div>
-              )} */}
-
-
-
-
-
-
+              )}
 
 
 
@@ -147,7 +131,7 @@ const LoginFlow = (props) => {
             )}
 
             <div className="loginFlow__button">
-              <button>Login</button>
+              <button>{buttonText}</button>
               
             </div>
           </div>

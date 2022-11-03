@@ -8,6 +8,7 @@ const LoginFlowChangePsw = () => {
       inputBox_psw="New Password"
       inputBox_email="Email"
       inputBox_confirmpsw="Confirm Password"
+      buttonText="Reset"
     />
   );
 };

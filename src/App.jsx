@@ -6,8 +6,8 @@ import LoginFlowWelcome from "./components/LoginFlowWelcome/LoginFlowWelcome";
 const App = () => {
   return (
     // <ForgottenPassword />
-    <LoginFlowWelcome />
-    // <LoginFlowChangePsw />
+    // <LoginFlowWelcome />
+    <LoginFlowChangePsw />
   );
 };
 
