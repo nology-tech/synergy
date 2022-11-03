@@ -4,7 +4,8 @@ import "./FooterNav.scss";
 import NavMenu from "../NavMenu/NavMenu";
 import logo from "../../assets/images/Main_Logo.png"
 
-const FooterNav = () => {
+const FooterNav = (props) => {
+  const {title,handleLogin, handleSelection} = props;
   let mainLogo= logo;
 
   return (
@@ -21,7 +22,10 @@ const FooterNav = () => {
           <a href="#" className="footernav__link navContact">Contact Us</a>
         </div>
         <div className="footernav__signin">
-          <a href ="#" className="signup">SignUp</a>
+          {/* <a href ="#" className="signup">SignUp</a> */}
+          <a href ="#" className="signup" onClick={handleSelection} value="Sign Up">Sign Up</a>
+          
+
         </div>
       </div>
     </div>

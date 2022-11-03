@@ -14,7 +14,7 @@
     align-items: center;
     *{
         text-decoration: none;
-        padding: 5px;
+        padding: 0 45px 10px 20px;
         margin: 5px;
     }
     &__centerlinks, &__signin{
@@ -23,6 +23,7 @@
         justify-content: space-between;
         align-items: center;
         *{
+            margin-left:30px;
             padding: 10px;
             color: $color-light-gray;
             font-size: 16px;
