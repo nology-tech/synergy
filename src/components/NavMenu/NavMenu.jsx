@@ -6,6 +6,7 @@ import convert from "../../assets/images/ep_refresh.svg";
 import contacts from "../../assets/images/fluent_people-16-regular.png";
 import signout from "../../assets/images/Group 66.png";
 import transfer from "../../assets/images/carbon_send-alt.png";
+import {Link} from 'react-router-dom';
 
 const NavMenu = (props) => {
   const { handleLogout } = props;
@@ -52,12 +53,14 @@ const NavMenu = (props) => {
         </div>
       </div>
       <div className="sidemenu__signout">
-        <img
-          className="sidemenu__logout"
-          src={signoutImg}
-          alt="Contacts"
-          onClick={handleLogout}
-        />
+        <Link to="/home">
+          <img
+            className="sidemenu__logout"
+            src={signoutImg}
+            alt="Contacts"
+            onClick={handleLogout}
+          />
+        </Link>
       </div>
     </div>
   );

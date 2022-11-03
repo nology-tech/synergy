@@ -41,6 +41,18 @@ const App = () => {
             element={<UserDashboard handleLogout={logOut} />}
           ></Route>
           <Route
+            path="/home"
+            element={
+              <Main
+                signUp={signUp}
+                logged={logged}
+                handleSelection={updateSignIn}
+                handleLogin={toggleLogin}
+                handleLogout={logOut}
+              />
+            }
+          ></Route>
+          <Route
             path="/"
             element={
               <Main

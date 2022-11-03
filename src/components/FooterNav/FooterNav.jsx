@@ -3,6 +3,7 @@ import React from "react";
 import "./FooterNav.scss";
 import NavMenu from "../NavMenu/NavMenu";
 import logo from "../../assets/images/Main_Logo.png";
+import {Link} from 'react-router-dom';
 
 const FooterNav = (props) => {
   const { title, handleLogin, handleSelection } = props;
@@ -34,14 +35,14 @@ const FooterNav = (props) => {
         </div>
         <div className="footernav__signin">
           {/* <a href ="#" className="signup">SignUp</a> */}
-          <a
-            href="#"
+          <Link
+            to="/signup"
             className="signup"
             onClick={handleSelection}
             value="Sign Up"
           >
             Sign Up
-          </a>
+          </Link>
         </div>
       </div>
     </div>

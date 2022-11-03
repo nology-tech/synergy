@@ -1,6 +1,7 @@
 import React from "react";
 import "./HeaderNav.scss";
 import logo from "../../assets/images/Main_Logo.png";
+import {Link} from 'react-router-dom';
 
 const HeaderNav = (props) => {
   const { title, handleLogin, handleSelection } = props;
@@ -26,22 +27,21 @@ const HeaderNav = (props) => {
           </a>
         </div>
         <div className="topnav__signin">
-          <a
-            href="#"
+          <Link            to="/signin"
             className="signin"
             onClick={handleSelection}
             value="Sign In"
           >
             Sign In
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/signup"
             className="signup"
             onClick={handleSelection}
             value="Sign Up"
           >
             Sign Up
-          </a>
+          </Link>
         </div>
       </div>
     </div>
