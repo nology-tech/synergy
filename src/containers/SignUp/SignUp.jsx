@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
-import SignUpNav from "../../components/SignUpNav/SignUpNav";
-import Main from '../Main/Main';
+import SignInNav from '../../components/SignInNav/SignInNav'
 
 const SignUp = (props) => {
-  const {title, handleLogin, handleSelection}= props;
+  const {handleLogin}= props;
   return (
-    <div className='signup__page'>
-        <SignUpNav title="Login" handleLogin = {handleLogin} handleSelction = {handleSelection}/>
+    <div className='signin__page'>
+        <SignInNav title="Login" handleLogin = {handleLogin}/>
         <div>Sign Up Section</div>
     </div>
   )
