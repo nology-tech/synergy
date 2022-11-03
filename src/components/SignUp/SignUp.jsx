@@ -111,7 +111,7 @@ const SignUp = () => {
           
           
         <Link to="/bankdetails">
-          <button className="SignUpForm__btn" type="submit" >
+          <button className="SignUpForm__btn" type="submit" disabled={!(validEmail && validPassword && validConfirmedPassword)}>
             Continue
           </button>
         </Link>
