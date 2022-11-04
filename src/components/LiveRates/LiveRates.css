@@ -1,7 +1,6 @@
 .live-rates {
   margin-left: 5%;
 }
-
 .live-rates__h4 {
   color: #00CED4;
   font-family: "Outfit";
@@ -11,7 +10,6 @@
   line-height: 15px;
   margin-bottom: 0px;
 }
-
 .live-rates__h2 {
   font-family: "Outfit";
   font-style: normal;
@@ -19,7 +17,6 @@
   font-size: 32px;
   line-height: 40px;
 }
-
 .live-rates__para {
   font-family: "Inter";
   width: 514px;
