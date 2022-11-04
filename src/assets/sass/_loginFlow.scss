@@ -86,6 +86,16 @@ a:visited {
                 .fontAwesome_icon {
                     margin-left: -30px; 
                 }
+                
+                .valid {
+                    color: $color-green;
+                    font-size: 10px;
+                }
+                
+                .invalid {
+                    color: $color-red;
+                    font-size: 10px;
+                }
                }
     
         }
@@ -128,5 +138,7 @@ a:visited {
    
     }   
 }
+
+
 
  

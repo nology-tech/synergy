@@ -6,7 +6,7 @@ const ForgottenPassword = () => {
 
        <LoginFlow
       loginFlow_header="Forgotten your password"
-      inputBox_email="Email"
+      inputBox_email="Email Address"
       buttonText="Send"
       
     />
