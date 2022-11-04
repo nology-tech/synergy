@@ -6,7 +6,6 @@ import Button from "../Button/Button";
 import "./SignUp.scss";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
-import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import synergyLogo from "../../Assets/images/synergy_logo.png";
 
@@ -15,32 +14,31 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
   const [passwordType, setPasswordType] = useState("password");
-  const [ConfirmedPasswordType, setConfirmedPasswordType] =
-    useState("password");
+  const [ConfirmedPasswordType, setConfirmedPasswordType] = useState("password");
 
   const [validEmail, setValidEmail] = useState(false);
   const [validPassword, setValidPassword] = useState(false);
   const [validConfirmedPassword, setValidConfirmedPassword] = useState(false);
 
-  // Handling the email change
+  // Handling the email input field change
   const handleEmail = (e) => {
     e.preventDefault();
     const tempEmail = e.target.value.toString();
-    console.log(tempEmail);
     setEmail(tempEmail);
+    // calls the validateEmail function and sets the boolean flag
     validateEmail(tempEmail) ? setValidEmail(true) : setValidEmail(false);
   };
 
-  // Handling the password change
+  // Handling the password input field change
   const handlePassword = (e) => {
     e.preventDefault();
     const pass = e.target.value.toString();
     setPassword(pass);
+    // calls the validatePassword function and sets the boolean flag
     validatePassword(pass) ? setValidPassword(true) : setValidPassword(false);
-    console.log(pass);
   };
 
-  // Handling the confirmed password change
+  // Handling the confirmed password input field change
   const handleConfirmedPassword = (e) => {
     e.preventDefault();
     const confPass = e.target.value.toString();
@@ -48,28 +46,33 @@ const SignUp = () => {
     validateConfirmedPassword(confPass)
       ? setValidConfirmedPassword(true)
       : setValidConfirmedPassword(false);
-    console.log(confPass);
   };
 
+  // validates whether the email address contains @
   const validateEmail = (email) => {
     return email.toString().includes("@");
   };
+
+  // validates whether the password contains 8 chars and 1 uppercase letter
   const validatePassword = (password) => {
     const uppercaseRegExp = /(?=.*?[A-Z])/;
-    console.log(uppercaseRegExp.test(password));
+    // .test tests to see if the regex is in the password
     return password.length >= 8 && uppercaseRegExp.test(password);
   };
 
+  // validates the confirmed password field is equal to the previous password
   const validateConfirmedPassword = (pass) => {
     return pass === password;
   };
 
+  // toggles whether or not the password is hidden (password) or visible (text)
   const togglePassword = (e) => {
     passwordType === "password"
       ? setPasswordType("text")
       : setPasswordType("password");
   };
 
+  // toggles whether or not the password is hidden (password) or visible (text)
   const toggleConfirmedPassword = (e) => {
     ConfirmedPasswordType === "password"
       ? setConfirmedPasswordType("text")
@@ -83,14 +86,14 @@ const SignUp = () => {
           <img src={synergyLogo} />
         </div>
         <div>
-          <h1 className="createAccount">Create an Account</h1>
+          <h1>Create an Account</h1>
           <p className="ipsum">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </p>
           <form className="SignUpForm">
             {/* Labels and inputs for form data */}
             <div className="SignUpForm__div">
-              <label className="label">Email</label>
+              <label>Email</label>
               <input
                 onChange={handleEmail}
                 className="input"
@@ -106,8 +109,8 @@ const SignUp = () => {
             </div>
 
             <div className="SignUpForm__div">
-              <label className="label">Password</label>
-              <div className="password">
+              <label>Password</label>
+              <div>
                 <input
                   onInput={handlePassword}
                   className="input"
@@ -131,8 +134,8 @@ const SignUp = () => {
             </div>
 
             <div className="SignUpForm__div">
-              <label className="label">Confirm Password</label>
-              <div className="password">
+              <label>Confirm Password</label>
+              <div>
                 <input
                   onChange={handleConfirmedPassword}
                   className="input"
@@ -163,13 +166,10 @@ const SignUp = () => {
               </p>
             </div>
 
+            <div className="SignUpForm__separator">
+            </div>
+
             <Link to="/bankdetails">
-              {/* <Button 
-                text = {"Continue &#9654;"}
-                className ={"SignUpForm__btn btn"}
-                type = {"submit"}
-                disabled = {!(validEmail && validPassword && validConfirmedPassword)}              
-              /> */}
               <button
                 className="SignUpForm__btn"
                 type="submit"

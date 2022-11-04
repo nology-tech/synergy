@@ -10,19 +10,19 @@ const BankDetails = () => {
   const [accountNum, setAccountNum] = useState();
   const [sortCode, setSortCode] = useState("");
 
-    // Handling the account name change
+    // Handling the account name input field change
     const handleAccountName = (e) => {
       e.preventDefault();
       setAccountName(e.target.value.toString());
     };
 
-    // Handling the account number change
+    // Handling the account number input field change
     const handleAccountNum = (e) => {
       e.preventDefault();
       setAccountNum(e.target.value);
     };
 
-    // Handling the sort code change
+    // Handling the sort code input field change
     const handleSortCode = (e) => {
       e.preventDefault();
       setSortCode(e.target.value.toString());
@@ -35,23 +35,23 @@ const BankDetails = () => {
       <img src={synergyLogo} />
       </div>
       <div>
-        <h1 className="createAccount">Add Bank Details</h1>
+        <h1>Add Bank Details</h1>
         <p className="ipsum">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         <form className="bankDetailsForm">
          {/* Labels and inputs for form data */}
-          <div className="bankDetailsForm__account-name bankDetailsForm__div">
-            <label className="label">Account Name</label>
+          <div className="bankDetailsForm__div">
+            <label>Account Name</label>
             <input onChange={handleAccountName} className="input" value={accountName} type="text" />
           </div>
           
              
-          <div className="bankDetailsForm__accountnum bankDetailsForm__div">
-            <label className="label">Account Number</label>
+          <div className="bankDetailsForm__div">
+            <label>Account Number</label>
             <input onInput={handleAccountNum} className="input" value={accountNum} />
           </div>
           
-          <div className="bankDetailsForm__sort-code bankDetailsForm__div">
-            <label className="label">Sort Code</label>
+          <div className="bankDetailsForm__div">
+            <label>Sort Code</label>
             <input onChange={handleSortCode} className="input" value={sortCode} />
           </div>  
           <div className='billingAddressForm__separator'>
