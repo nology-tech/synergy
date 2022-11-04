@@ -6,7 +6,7 @@ import "./LandingMain.scss";
 
 const LandingMain = () => {
   return (
-    <>
+    <div className="LandingMain">
       <img
         className="navbar__image"
         src={require("../../assets/images/navbar.png")}
@@ -86,7 +86,7 @@ const LandingMain = () => {
           alt="latest FX rates"
         />
       </section>
-    </>
+    </div>
   );
 };
 
