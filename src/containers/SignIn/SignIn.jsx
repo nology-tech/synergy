@@ -6,7 +6,7 @@ const SignIn = () => {
   return (
     <div className="signin__page">
       <SignInNav title="Sign Up" />
-      <div className="signin__container">Sign In Section</div>
+      <div className="signin__container">Sign In Section goes here...</div>
     </div>
   );
 };

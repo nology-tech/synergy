@@ -22,7 +22,7 @@ const UserDashboard = () => {
       <div className="userdashboard_main">
         <div className="userdashboard_main_top">
           <div className = "searchbox"><img src={searchImg} alt="Search" />
-            <input type="text" name="test"  id="" value="Search..." />
+            <input type="text" name="test"  id="search" value="Search..." />
           </div>
           <div className="user">
             <a href="#" className="signin">
@@ -32,7 +32,7 @@ const UserDashboard = () => {
             <img src={downImg} alt="Drop-down Image" />
           </div>
         </div>
-        <div className="signin__container">Main Section</div>
+        <div className="signin__container">Main Contents go here based on menu selection...</div>
       </div>
     </div>
   );
