@@ -3,9 +3,10 @@ import "./LoginFlow.scss";
 import emojihand from "../../assets/images/Emojihand.png";
 import synergy from "../../assets/images/synergy.png";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 
 const LoginFlow = (props) => {
   const {
@@ -25,6 +26,8 @@ const LoginFlow = (props) => {
 
   const [validPassword, setValidPassword] = useState(false); //validation of psw length and uppercase
   const [validConfirmedPassword, setValidConfirmedPassword] = useState(false); //validation of confirmed psw length and uppercase
+
+  const [resetToggle, setResetToggle] = useState(true); //disabling of Reset button for Change password when password is not entered
 
   // displays stars or text for the passwords on eye toggle
   const togglePassword = (e) => {
@@ -55,9 +58,12 @@ const LoginFlow = (props) => {
     e.preventDefault();
     const confPass = e.target.value.toString();
     setConfirmedPassword(confPass);
-    validateConfirmedPassword(confPass)
-      ? setValidConfirmedPassword(true)
-      : setValidConfirmedPassword(false);
+    if (validateConfirmedPassword(confPass)) {
+      setValidConfirmedPassword(true);
+      setResetToggle(false);
+    } else {
+      setValidConfirmedPassword(false);
+    }
   };
 
   const validateConfirmedPassword = (pass) => {
@@ -126,11 +132,21 @@ const LoginFlow = (props) => {
                     value={password}
                     type={passwordType}
                   />
-                  <FontAwesomeIcon
-                    icon={faEye}
-                    className="fontAwesome_icon"
-                    onClick={togglePassword}
-                  />
+
+                  {/* Displaying eye when stars are displayed and slashed eye when text is displayed  */}
+                  {passwordType === "password" ? (
+                    <FontAwesomeIcon
+                      icon={faEye}
+                      className="fontAwesome_icon"
+                      onClick={togglePassword}
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      icon={faEyeSlash}
+                      className="fontAwesome_icon"
+                      onClick={togglePassword}
+                    />
+                  )}
                   {/* Validation is not performed on Welcome Back and done for Change Password*/}
                   {loginFlow_header === "Welcome Back!" || password === "" ? (
                     <p></p>
@@ -191,7 +207,11 @@ const LoginFlow = (props) => {
             )}
 
             <div className="loginFlow__button">
-              <button>{buttonText}</button>
+              {loginFlow_header === "Change Password" ? (
+                <Button buttonText={buttonText} disabled={resetToggle} />
+              ) : (
+                <Button buttonText={buttonText} disabled={false} />
+              )}
             </div>
           </div>
         </div>
