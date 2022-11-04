@@ -13,17 +13,16 @@ const LandingMain = () => {
         alt="navbar page image"
       />
       <Header />
-      <div>
-      </div>
+
       <div className="backgound__image">
         <img
           className="landing__image"
-          src={require("../../assets/images/transfer.png")}
+          src={require("../../assets/images/landing-main.png")}
           alt="main page image"
         />
       </div>
 
-      <section>
+    
         <div className="bankClients">
           <h1 className="bankClients__title">
             Trusted by over 3,000 banks worldwide
@@ -31,19 +30,16 @@ const LandingMain = () => {
           <div className="bankLogosImg">
             <img
               className="bankLogosImg__one"
-              // scr={landingImage}
               src={require("../../assets/images/logoipsum.png")}
               alt="main page image"
             />
             <img
               className="bankLogosImg__two"
-              // scr={landingImage}
               src={require("../../assets/images/logoipsum2.png")}
               alt="main page image"
             />
             <img
               className="bankLogosImg__three"
-              // scr={landingImage}
               src={require("../../assets/images/logoipsum3.png")}
               alt="main page image"
             />
@@ -55,10 +51,9 @@ const LandingMain = () => {
           <FeaturesTile features={features} />
           <button>Find Out More</button>
         </div>
-      </section>
+     
 
       <div className="converter">
-        
         <h1 className="converter__title">Make A Conversation </h1>
         <h5 className="converter__subline">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut id
@@ -67,7 +62,6 @@ const LandingMain = () => {
         </h5>
         <img
           className="converter__image"
-          // scr={landingImage}
           src={require("../../assets/images/converter.png")}
           alt="FX Convertion"
         />
@@ -88,7 +82,6 @@ const LandingMain = () => {
       <section>
         <img
           className="footer"
-          // scr={landingImage}
           src={require("../../assets/images/footer.png")}
           alt="latest FX rates"
         />

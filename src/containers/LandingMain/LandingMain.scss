@@ -15,18 +15,13 @@
 }
 
 .backgound__image {
-  background-image: url(../../assets/images/background.png);
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size:contain;
-  .landing__image {
-    border-radius: 15px;
-    width: 812px;
-    z-index: 1;
-  }
-}
+  background-color: $color-white;
 
+  .landing__image {
+   padding-top: 20px;
+    width: 100%;
+}
+}
 .bankClients {
   display: flex;
   flex-direction: column;
