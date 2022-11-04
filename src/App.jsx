@@ -6,6 +6,7 @@ import "./components/SignUp/SignUp"
 import SignUp from './components/SignUp/SignUp';
 import BankDetails from './components/BankDetails/BankDetails';
 import BillingAddress from './components/BillingAddress/BillingAddress';
+import LandingMain from './containers/LandingMain/LandingMain'
 
 const App = () => {
 
@@ -15,6 +16,12 @@ const App = () => {
       <Routes>
         <Route
           path="/"
+          element={
+            <LandingMain />
+          }
+        />
+        <Route
+          path="/signup"
           element={
             <SignUp />
           }
@@ -34,7 +41,6 @@ const App = () => {
       </Routes>
       </div>
     </Router>
-  
   )
 }
 

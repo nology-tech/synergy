@@ -1,10 +1,8 @@
 @use "../../Assets/variables" as *;
 
-* {
+.SignUp {
     font-family: $title-font-family ;
     box-sizing: border-box;
-}
-.form-container {
     background: $color-background;
     display: flex;
     justify-content: center;
@@ -15,96 +13,97 @@
 .form {
     min-width: 600px;
     min-height: 710px;
-    // border: 5px solid red;
     background: $color-white;
-}
-.signup-header {
-    padding: 30px 0px 0px 30px;
-}
-h1 {
-    margin: 0;
-    padding-left: 40px;
-}
-.ipsum {
-   color: $color-font-lightgray; 
-   margin-top: 0;
-   padding-left: 40px;
-}
 
-.input {
-    background:$color-light-gray-info-bar;
-    border: 1px solid $color-input-border-light-gray;
-    border-radius: 6px;
-    width: 505px;
-    min-height: 55px;
-    margin-top: 5px;
-    font-size: 16px;
-    line-height: 20px;
-    color:$color-nav-font-light-gray;
-}
-
-.fontAwesome_icon {
-    margin-left: -30px; 
-}
-
-.SignUpForm {
-    display:flex;
-    flex-direction: column;
-    padding: 10px 40px 40px 40px;
-    
-
-    &__div {
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 20px;
-        color:$color-font-gray;
-        
+    .signup-header {
+        padding: 30px 0px 20px 30px;
+    }
+    h1 {
+        margin: 0;
+        padding-left: 40px;
+    }
+    .ipsum {
+       color: $color-font-lightgray; 
+       margin-top: 0;
+       padding-left: 40px;
     }
     
-    &__separator {
-        border: 1px solid $color-separator-light-gray;
-        height: 1px;
-        width: 505px;
-        margin-top: 10px;
-    }
-
-    &__hasAccount {
-        &__question {
-            color:$color-font-lightgray;
-        }
-        &__login {
-            color:$color-middle-blue;
-        }
-    }
-    
-    &__btn {
-        background: $color-button-primary;
-        border: none;
+    .input {
+        background:$color-light-gray-info-bar;
+        border: 1px solid $color-input-border-light-gray;
         border-radius: 6px;
-        color: $color-white;
-        width: 115px;
-        height: 50px;
-        margin-right: 0;
-        margin-top: 25px;
-        font-weight: bold;
-        font-family: $third-font-family;
+        width: 505px;
+        min-height: 55px;
+        margin-top: 5px;
         font-size: 16px;
+        line-height: 20px;
+        color:$color-nav-font-light-gray;
     }
-    &__btn[disabled] {
-        background: $color-button-primary-lighter;
+    
+    .fontAwesome_icon {
+        margin-left: -30px; 
+    }
+    
+    .SignUpForm {
+        display:flex;
+        flex-direction: column;
+        padding: 10px 40px 40px 40px;
+        
+    
+        &__div {
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 20px;
+            color:$color-font-gray;
+            
+        }
+        
+        &__separator {
+            border: 1px solid $color-separator-light-gray;
+            height: 1px;
+            width: 505px;
+            margin-top: 30px;
+        }
+    
+        &__hasAccount {
+            &__question {
+                color:$color-font-lightgray;
+            }
+            &__login {
+                color:$color-middle-blue;
+            }
+        }
+        
+        &__btn {
+            background: $color-button-primary;
+            border: none;
+            border-radius: 6px;
+            color: $color-white;
+            width: 115px;
+            height: 50px;
+            margin-right: 0;
+            margin-top: 25px;
+            font-weight: bold;
+            font-family: $third-font-family;
+            font-size: 16px;
+        }
+        &__btn[disabled] {
+            background: $color-button-primary-lighter;
+        }
+    }
+    
+    a {
+        margin-right: 0;
+        margin-left: auto;
+    }
+    .valid {
+        color: $color-msg-valid;
+        font-size: 10px;
+    }
+    
+    .invalid {
+        color: $color-msg-invalid;
+        font-size: 10px;
     }
 }
 
-a {
-    margin-right: 0;
-    margin-left: auto;
-}
-.valid {
-    color: $color-msg-valid;
-    font-size: 10px;
-}
-
-.invalid {
-    color: $color-msg-invalid;
-    font-size: 10px;
-}

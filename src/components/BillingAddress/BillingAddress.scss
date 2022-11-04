@@ -1,11 +1,8 @@
 @use "../../Assets/variables" as *;
 
-* {
+.BillingAddress {
     font-family: $title-font-family ;
     box-sizing: border-box;
-}
-
-.form-container {
     background: $color-background;
     display: flex;
     justify-content: center;
@@ -13,113 +10,112 @@
     height: 100vh;
 }
 
-.billing-header {
-    padding: 30px 0px 0px 30px;
-}
-
-.form {
+.form-box {
     min-width: 600px;
     min-height: 725px;
     background: $color-white;
-}
-h1 {
-    margin: 0;
-    padding-left: 40px;
-}
-.ipsum {
-   color: $color-font-lightgray; 
-   margin-top: 0;
-   padding-left: 40px;  
-}
 
-.input {
-    background:$color-light-gray-info-bar;
-    border: 1px solid $color-input-border-light-gray;
-    border-radius: 6px;
-    width: 505px;
-    min-height: 55px;
-    margin-top: 5px;
-    font-size: 16px;
-    line-height: 20px;
-    color:$color-nav-font-light-gray;
-}
-
-.fontAwesome_icon {
-    margin-left: -30px; 
-}
-
-.billingAddressForm {
-    display:flex;
-    flex-direction: column;
-    padding: 10px 40px 40px 40px;
-    
-
-    &__div {
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 20px;
-        color:$color-font-gray;
-        
+    .billing-header {
+        padding: 30px 0px 20px 30px;
+    }
+    h1 {
+        margin: 0;
+        padding-left: 40px;
+    }
+    .ipsum {
+       color: $color-font-lightgray; 
+       margin-top: 0;
+       padding-left: 40px;  
     }
     
-    &__separator {
-        border: 1px solid $color-separator-light-gray;
-        height: 1px;
-        width: 505px;
-        margin-top: 10px;
-    }
-
-    &__btn {
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16px;
-        background: $color-button-primary;
-        border: none;
+    .input {
+        background:$color-light-gray-info-bar;
+        border: 1px solid $color-input-border-light-gray;
         border-radius: 6px;
-        color: $color-white;
-        width: 150px;
-        height: 50px;
-        margin-right: 0;
-        margin-left: auto;
-        font-family: $third-font-family;
-        
-    }
-
-    &__goBackBtn {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 600;
+        width: 505px;
+        min-height: 55px;
+        margin-top: 5px;
         font-size: 16px;
-        line-height: 19px;
-        text-align: center;
-        color: $color-font-lightgray; 
-        width: 115px;
-        height: 50px;
-        margin-right: 0;
-        margin-left: auto;
-        border:none;
-        background-color: $color-white;
-        text-decoration-line: underline;
-        text-decoration-style:dotted;
+        line-height: 20px;
+        color:$color-nav-font-light-gray;
     }
-}
-
-.buttons-group {
-    text-align: right;
-    margin-right: 15px;
-    padding-top: 30px;
-}
-
-a {
-    margin-right: 0;
-    margin-left: auto;
-}
-.valid {
-    color: $color-msg-valid;
-    font-size: 10px;
-}
-
-.invalid {
-    color: $color-msg-invalid;
-    font-size: 10px;
+    
+    .fontAwesome_icon {
+        margin-left: -30px; 
+    }
+    
+    .billingAddressForm {
+        display:flex;
+        flex-direction: column;
+        padding: 10px 40px 40px 40px;
+        
+    
+        &__div {
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 20px;
+            color:$color-font-gray;
+            
+        }
+        
+        &__separator {
+            border: 1px solid $color-separator-light-gray;
+            height: 1px;
+            width: 505px;
+            margin-top: 10px;
+        }
+    
+        &__btn {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            background: $color-button-primary;
+            border: none;
+            border-radius: 6px;
+            color: $color-white;
+            width: 150px;
+            height: 50px;
+            margin-right: 0;
+            margin-left: auto;
+            font-family: $third-font-family;
+            
+        }
+    
+        &__goBackBtn {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 19px;
+            text-align: center;
+            color: $color-font-lightgray; 
+            width: 115px;
+            height: 50px;
+            margin-right: 0;
+            margin-left: auto;
+            border:none;
+            background-color: $color-white;
+            text-decoration-line: underline;
+            text-decoration-style:dotted;
+        }
+        .buttons-group {
+            text-align: right;
+            margin-right: 15px;
+            padding-top: 30px;
+        }
+        
+        a {
+            margin-right: 0;
+            margin-left: auto;
+        }
+        .valid {
+            color: $color-msg-valid;
+            font-size: 10px;
+        }
+        
+        .invalid {
+            color: $color-msg-invalid;
+            font-size: 10px;
+        }
+    }        
 }

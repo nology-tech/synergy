@@ -1,0 +1,35 @@
+@use "../../assets/sass/_variables.scss"as *;
+
+
+.feature-card {
+  align-items: center;
+  text-align: center;
+  font-style: normal;
+  width: 301px;
+  
+  &__img {
+   
+    align-items: center;
+  }
+
+  &__heading {
+    font-family: $title-font-family;
+    // font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 110%;
+    color: $color-black;
+    // text-align: center;
+
+  }
+
+  &__desc {
+    font-family: $third-font-family;
+    // font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    // text-align: center;
+    color: $color-light-gray;
+  }
+}

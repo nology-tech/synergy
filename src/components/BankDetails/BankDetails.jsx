@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import "./BankDetails.scss"
-import synergyLogo from "../../Assets/images/synergy_logo.png";
+import synergyLogo from "../../assets/images/synergy_logo.png";
 
 
 const BankDetails = () => {
@@ -29,8 +29,8 @@ const BankDetails = () => {
     };
 
   return (
-    <div className="form-container">
-    <div className='form-box'>
+    <div className="BankDetails">
+    <div className='bank-form-box'>
       <div className='bank-details-header'>
       <img src={synergyLogo} />
       </div>
@@ -56,7 +56,7 @@ const BankDetails = () => {
           </div>
           
           <div className='buttons-group'>
-            <Link to="/">
+            <Link to="/signup">
               <button className="bankDetailsForm__goBackBtn" type="submit">
                 Go Back
               </button>

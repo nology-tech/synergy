@@ -7,7 +7,7 @@ import "./SignUp.scss";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import synergyLogo from "../../Assets/images/synergy_logo.png";
+import synergyLogo from "../../assets/images/synergy_logo.png";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -80,7 +80,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="SignUp">
       <div className="form">
         <div className="signup-header">
           <img src={synergyLogo} />

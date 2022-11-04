@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./BillingAddress.scss";
-import synergyLogo from "../../Assets/images/synergy_logo.png";
+import synergyLogo from "../../assets/images/synergy_logo.png";
 
 const BillingAddress = () => {
   const [houseNum, setHouseNum] = useState();
@@ -35,8 +35,8 @@ const BillingAddress = () => {
   };
 
   return (
-    <div className="form-container">
-      <div className="form">
+    <div className="BillingAddress">
+      <div className="form-box">
         <div className="billing-header">
           <img src={synergyLogo} />
         </div>
