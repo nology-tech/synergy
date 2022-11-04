@@ -11,7 +11,7 @@
     // border: 3px solid red;
     width: 100%;
     justify-content: space-between;
-    height: 75px;
+    height: 70px;
     font-family: $third-font-family;
 
     &__addButton {
@@ -20,7 +20,9 @@
         border-radius: 6px;
         border: 1px solid $color-button-primary;
         height: 50px;
-        background-color: $color-white;
+        padding-left: 20px;
+        background: $color-white url("./../../assets/images/add.png") no-repeat 20% 50%;
+        font-weight: bold;
     }
 
     &__Text {
@@ -40,6 +42,7 @@
         background-color: $color-light-gray-info-bar;
         border-radius: 8px;
         width: 221px;
+        height: 51px;
 
         &__button {
             background: transparent;
@@ -58,6 +61,7 @@
         &__inputBox {
             border: none;
             outline: none;
+            background: $color-light-gray-info-bar;
             width: 64px;
             font-family: $title-font-family;
             // background-image: url("./../../assets/images/spyglass.png");

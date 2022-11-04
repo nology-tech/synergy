@@ -28,6 +28,10 @@ const ContactContainer = () => {
     console.log("delete clicked for " + accountId);
   };
 
+  const addContact = (event) => {
+    console.log("Add Contact button clicked");
+  }
+
 
   // Filter contact using search
   const filteredContactsArray = contacts.filter((contact) => {
@@ -56,6 +60,7 @@ const ContactContainer = () => {
             handleInput={handleInput}
             onSearchClick={onSearchClick}
             label="+  Add"
+            addContact={addContact}
           />
           <ContactList
             contactsArray={filteredContactsArray}

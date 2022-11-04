@@ -34,7 +34,8 @@ const ContactSearch = (props) => {
             />
           </form>
 
-          <button className="contactSearch__addButton" onClick={addContact}>{label}</button>
+          {/* <button className="contactSearch__addButton" onClick={addContact}>{label}</button> */}
+          <input type="submit" className="contactSearch__addButton" onClick={addContact} value="Add"></input>
         </div>
       </div>
   );
