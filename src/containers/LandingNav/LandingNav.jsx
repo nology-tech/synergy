@@ -7,6 +7,7 @@ const LandingNav = () => {
   return (
     <div>
       <HeaderNav />
+      <div className = "signin__container">Landing Nav</div>
       <FooterNav />
     </div>
   );

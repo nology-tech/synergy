@@ -2,7 +2,7 @@ import React from "react";
 import "./NavMenu.scss";
 import wallet from "../../assets/images/clarity_wallet-line.png";
 import liverates from "../../assets/images/bi_graph-up-arrow.png";
-import convert from "../../assets/images/ep_refresh.svg";
+import convert from "../../assets/images/ep_refresh.png";
 import contacts from "../../assets/images/fluent_people-16-regular.png";
 import signout from "../../assets/images/Group 66.png";
 import transfer from "../../assets/images/carbon_send-alt.png";

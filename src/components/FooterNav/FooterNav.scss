@@ -6,7 +6,8 @@
     padding:0;
     box-sizing: border-box;
 }
-.footernav{
+
+.footernav{  
     background-color: $color-black;
     display: flex;
     flex-direction: row;
@@ -36,6 +37,5 @@
             color:$color-white;
             border-radius: 6px;
         }
-
     }
 }
