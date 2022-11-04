@@ -34,9 +34,9 @@
                 color: $color-light-gray;
                 padding: 4px;                
             }
-            .sidemenu__icon {
-                width: 30px;
-            }
+            // .sidemenu__icon {
+            //     width: 30px;
+            // }
             
             *:hover +.sidemenu__a, *:active +.sidemenu__a{
                 color: $color-middle-blue;            
