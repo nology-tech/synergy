@@ -17,18 +17,18 @@ const FooterNav = () => {
           />
         </div>
         <div className="footernav__centerlinks">
-          <a href="#" className="footernav__link navHome">
+          <Link to="/home" className="footernav__link navHome">
             Home
-          </a>
-          <a href="#" className="footernav__link navFeatures">
+          </Link>
+          <Link to="/home" className="footernav__link navFeatures">
             Features
-          </a>
-          <a href="#" className="footernav__link navAbout">
+          </Link>
+          <Link to="/home" className="footernav__link navAbout">
             About
-          </a>
-          <a href="#" className="footernav__link navContact">
+          </Link>
+          <Link to="/home" className="footernav__link navContact">
             Contact Us
-          </a>
+          </Link>
         </div>
         <div className="footernav__signin">
           {/* <a href ="#" className="signup">SignUp</a> */}

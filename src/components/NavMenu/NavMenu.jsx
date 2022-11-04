@@ -21,33 +21,33 @@ const NavMenu = () => {
         Menu
         <div className="sidemenu__item">
           <img className="sidemenu__icon" src={walletImg} alt="Wallet" />
-          <a className="sidemenu__a" href="#">
+          <a className="sidemenu__a" to="/dashboard">
             Wallet
           </a>
         </div>
         <div className="sidemenu__item">
           <img className="sidemenu__icon" src={ratesImg} alt="Live Rates" />
-          <a className="sidemenu__a" href="#">
+          <Link className="sidemenu__a" to="/dashboard">
             Live Rates
-          </a>
+          </Link>
         </div>
         <div className="sidemenu__item">
           <img className="sidemenu__icon" src={convertImg} alt="Convert" />
-          <a className="sidemenu__a" href="#">
+          <Link className="sidemenu__a" to="/dashboard">
             Convert
-          </a>
+          </Link>
         </div>
         <div className="sidemenu__item">
           <img className="sidemenu__icon" src={transferImg} alt="Transfer" />
-          <a className="sidemenu__a" href="#">
+          <Link className="sidemenu__a" to="/dashboard">
             Transfer
-          </a>
+          </Link>
         </div>
         <div className="sidemenu__item">
           <img className="sidemenu__icon" src={contactsImg} alt="Contacts" />
-          <a className="sidemenu__a" href="#">
+          <Link className="sidemenu__a" to="/dashboard">
             Contacts
-          </a>
+          </Link>
         </div>
       </div>
       <div className="sidemenu__signout">
