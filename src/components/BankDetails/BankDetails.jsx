@@ -30,8 +30,8 @@ const BankDetails = () => {
 
   return (
     <div className="form-container">
-    <div className='form'>
-      <div className='signup-header'>
+    <div className='form-box'>
+      <div className='bank-details-header'>
       <img src={synergyLogo} />
       </div>
       <div>
@@ -54,6 +54,8 @@ const BankDetails = () => {
             <label className="label">Sort Code</label>
             <input onChange={handleSortCode} className="input" value={sortCode} />
           </div>  
+          <div className='billingAddressForm__separator'>
+          </div>
           
           <div className='buttons-group'>
             <Link to="/">
@@ -62,10 +64,13 @@ const BankDetails = () => {
               </button>
             </Link>
             <Link to="/billingaddress">
-              <button className="bankDetailsForm__continueBtn" type="submit">
+              <button
+                className="bankDetailsForm__continueBtn"
+                type="submit"
+              >
                 Continue &#9654;
               </button>
-            </Link>
+              </Link>
           </div>
        </form>
       </div>

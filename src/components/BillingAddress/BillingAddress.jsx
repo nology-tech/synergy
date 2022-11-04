@@ -38,7 +38,7 @@
     return (
       <div className='form-container'>
       <div className='form'>
-        <div className='signup-header'>
+        <div className='billing-header'>
           <img src={synergyLogo} />
         </div>
         <div>
@@ -65,6 +65,8 @@
               <label className="label">Post Code</label>
               <input onChange={handlePostCode} className="input" value={postcode} />
             </div>  
+            <div className='billingAddressForm__separator'>
+            </div>
             
             <div className='buttons-group'>
               <Link to="/bankdetails">
