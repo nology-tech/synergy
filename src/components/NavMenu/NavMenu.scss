@@ -6,7 +6,6 @@
     height:95vh;
     padding-top: 20px;
     padding-left: 20px;
-    // margin: 10px;
     min-width: 200px;
     &__items {
         
@@ -34,9 +33,6 @@
                 color: $color-light-gray;
                 padding: 4px;                
             }
-            // .sidemenu__icon {
-            //     width: 30px;
-            // }
             
             *:hover +.sidemenu__a, *:active +.sidemenu__a{
                 color: $color-middle-blue;            

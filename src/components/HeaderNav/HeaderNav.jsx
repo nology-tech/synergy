@@ -1,7 +1,6 @@
 import React from "react";
 import "./HeaderNav.scss";
 import logo from "../../assets/images/Main_Logo.png";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const HeaderNav = () => {

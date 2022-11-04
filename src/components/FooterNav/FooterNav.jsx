@@ -31,7 +31,6 @@ const FooterNav = () => {
           </Link>
         </div>
         <div className="footernav__signin">
-          {/* <a href ="#" className="signup">SignUp</a> */}
           <Link to="/signup" className="signup" value="Sign Up">
             Sign Up
           </Link>
