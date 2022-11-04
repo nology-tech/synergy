@@ -1,4 +1,17 @@
 @use "./../../assets/sass/_variables.scss" as *;
+
+
+.contactPage {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+
+.placeholders__right {
+        display: flex;
+        flex-direction: column;
+      }
+}
+
 .contact {
     display: flex;
     flex-direction: column;
@@ -18,5 +31,4 @@
     }
     
 }
-
 

@@ -3,7 +3,8 @@ import ContactSearch from "../../components/ContactSearch/ContactSearch";
 import "./ContactContainer.scss";
 import ContactList from "../../components/ContactList/ContactList";
 import contacts from "../../assets/data/Contacts";
-
+import NavBar from "../../assets/images/navbar.png";
+import SideBar from "../../assets/images/sidebar.jpg";
 
 const ContactContainer = () => {
   // Setting up the search box
@@ -13,16 +14,15 @@ const ContactContainer = () => {
   const handleInput = (event) => {
     setSearchQuery(event.target.value);
   };
-// for the spyglass when clicked
+  // for the spyglass when clicked
   const onSearchClick = (event) => {
     event.preventDefault();
     setSearchTerm(searchQuery.toLowerCase());
   };
 
- 
   // Filter contact using search
   const filteredContactsArray = contacts.filter((contact) => {
-    console.log(`SearchTerm = ${searchTerm}`)
+    console.log(`SearchTerm = ${searchTerm}`);
     const contactfirstName = contact.firstName.toLowerCase();
     const contactLastName = contact.lastName.toLowerCase();
     // const contactAccount = contact.account;
@@ -35,8 +35,8 @@ const ContactContainer = () => {
     );
   });
 
-   // these items are place holders for future work; currently not in use for onclick on contact details
-   const onContactClick = (accountId) => {
+  // these items are place holders for future work; currently not in use for onclick on contact details
+  const onContactClick = (accountId) => {
     console.log("Contact clicked for " + accountId);
   };
 
@@ -46,29 +46,38 @@ const ContactContainer = () => {
 
   const addContact = (event) => {
     console.log("Add Contact button clicked");
-  }
-// see above statement
- 
-    
-
-    return (
-        <div className="contact">
-          <div className="contact__Title">Contacts</div>
-          <div className="contact__Heading">Contact List</div>
-          <ContactSearch
-            searchTerm={searchQuery}
-            handleInput={handleInput}
-            onSearchClick={onSearchClick}
-            addContact={addContact}
-          />
-          <ContactList
-            contactsArray={filteredContactsArray}
-            onClick={onContactClick}
-            onDelete={onContactDelete}
-          />
-        </div>
-    );
   };
+  // see above statement
 
+  return (
+    <>
+      <div className="contactPage">
+        <div className="placeHolders__left">
+          <img src={SideBar} alt="SideBar" />
+        </div>
+        <div className="placeHolders__right">
+          <div className="placeHolders__Navbar">
+            <img src={NavBar} alt="NavBar" />
+          </div>
+          <div className="contact">
+            <div className="contact__Title">Contacts</div>
+            <div className="contact__Heading">Contact List</div>
+            <ContactSearch
+              searchTerm={searchQuery}
+              handleInput={handleInput}
+              onSearchClick={onSearchClick}
+              addContact={addContact}
+            />
+            <ContactList
+              contactsArray={filteredContactsArray}
+              onClick={onContactClick}
+              onDelete={onContactDelete}
+            />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default ContactContainer;

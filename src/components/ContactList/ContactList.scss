@@ -1,14 +1,19 @@
 @use "./../../assets/sass/_variables.scss" as *;
-* {
+
+ 
+.contactList {
     margin: 0 5px;
     padding: 0 5px;
-}
-table {
+  
+
+.contactTable {
 
     table-layout: fixed;
     width:100%;
     border-collapse: separate;
     border-spacing: 0 10px;
+    
+
 
     thead tr {
         color: $color-font-gray;
@@ -37,3 +42,5 @@ table {
 
     
 }
+
+} 

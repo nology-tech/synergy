@@ -1,9 +1,6 @@
 @use "./../../assets/sass/_variables.scss" as *;
 
-* {
-    margin: 5px;
-    padding: 2px;
-}
+
 
 .contactSearch {
     display: flex;
@@ -11,7 +8,8 @@
     width: 100%;
     justify-content: space-between;
     font-family: $third-font-family;
-
+    margin: 5px;
+    padding: 2px;
     
     &__text {
         display: flex;
