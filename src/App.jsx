@@ -1,28 +1,36 @@
 import "./App.scss";
+import React from "react";
 import LiveRates from "./components/LiveRates/LiveRates";
 import sidebar from "./assets/images/sidebar3.jpg";
 import navbar from "./assets/images/topnav.png";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
-  return (
-    <div className="liveRates">
+  return ( 
+    <Router>
+    
+    <div className="app">
       {/* <h1>Synergy</h1> */}
-      <img 
-        className="liveRates__sidebar" 
+      <img  
         src={sidebar} 
         alt="Synergy" 
       />
     
 
-      <div className="liveRates__section">
+      <div>
         <img 
-          className="liveRates__navbar" 
           src={navbar} 
           alt="" 
         />
-        <LiveRates className="liveRates__main" />
+        <Routes>
+        <Route path="/liverates" element={<LiveRates />} />
+
+        {/* <Route path="/albums/:albumId" element={<AlbumInfo albumsArr={filteredAlbums} />} /> */}
+        </Routes>
       </div>
+     
     </div>
+    </Router>
   )
 }
 

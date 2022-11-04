@@ -11,43 +11,58 @@
   width: 20px;
   height: 12px;
   justify-content: left;
+  padding-top: 9px;
 }
 
 .currency-list__heading {
   color: #5B6D7D;
   font-family: "Outfit";
   font-size: 16px;
-  font-weight: 500px;
-  margin: 20px;
-  justify-content: space-around;
+  font-weight: 500;
+  margin: 10px 0px 20px 0px;
+  justify-content: space-between;
   text-align: left;
-  width: 80%;
+  width: 76%;
+}
+
+.row-blue {
+  background-color: #00CED4;
+  color: #FFFFFF;
+}
+
+.row-grey {
+  background-color: #FBFBFC;
+  color: #8896A3;
 }
 
 .currency-list__items {
   display: flex;
   justify-content: space-around;
   font-family: "Inter";
-  color: #8896A3;
-  background-color: #FBFBFC;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 10px 0 5px 10px;
   justify-content: space-around;
 }
 
 .currency-list__name {
   text-align: left;
   width: 25%;
+  padding-top: 7px;
 }
 
 .currency-list__amount {
   text-align: left;
   width: 25%;
+  padding-top: 7px;
 }
 
 .currency-list__rate {
   text-align: left;
   width: 25%;
+  padding-top: 7px;
 }
 
 .button {
