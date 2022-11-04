@@ -7,7 +7,7 @@ import "./LiveRates.scss"
 
 
 const LiveRates = () => {
-    console.log(currency[1].name);
+    
   return (
     <div className='live-rates'>
         <h4 className='live-rates__h4'>Transfer</h4>
