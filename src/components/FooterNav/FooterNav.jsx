@@ -20,13 +20,13 @@ const FooterNav = () => {
           <Link to="/home" className="footernav__link navHome">
             Home
           </Link>
-          <Link to="/home" className="footernav__link navFeatures">
+          <Link to="/features" className="footernav__link navFeatures">
             Features
           </Link>
-          <Link to="/home" className="footernav__link navAbout">
+          <Link to="/about" className="footernav__link navAbout">
             About
           </Link>
-          <Link to="/home" className="footernav__link navContact">
+          <Link to="/contact" className="footernav__link navContact">
             Contact Us
           </Link>
         </div>

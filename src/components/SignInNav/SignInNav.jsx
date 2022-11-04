@@ -24,7 +24,7 @@ const SignInNav = (props) => {
               </Link>
             )}
             {title === "Login" && (
-              <Link to="/dashboard" className="signup">
+              <Link to="/signin" className="signup">
                 {title}
               </Link>
             )}

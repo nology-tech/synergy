@@ -16,13 +16,13 @@ const HeaderNav = () => {
           <Link to="/home" className="topnav__link navHome">
             Home
           </Link>
-          <Link to="/home" className="topnav__link navFeatures">
+          <Link to="/features" className="topnav__link navFeatures">
             Features
           </Link>
-          <Link to="/home" className="topnav__link navAbout">
+          <Link to="/about" className="topnav__link navAbout">
             About
           </Link>
-          <Link to="/home" className="topnav__link navContact">
+          <Link to="/contact" className="topnav__link navContact">
             Contact Us
           </Link>
         </div>
