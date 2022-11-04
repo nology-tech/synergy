@@ -1,8 +1,11 @@
-import "./App.scss";
+import React from 'react'
+import LandingMain from './containers/LandingMain/LandingMain'
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <LandingMain/>
+    </div>
   )
 }
 
