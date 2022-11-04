@@ -2,40 +2,40 @@ import React from "react";
 import spyglass from "./../../assets/images/spyglass.png";
 import "./ContactSearch.scss";
 
+// this contains all details in the search row below the contact List heading
 const ContactSearch = (props) => {
-  const { searchTerm, handleInput, onSearchClick, addContact, label } = props;
+  const { searchTerm, handleInput, onSearchClick, addContact } = props;
   return (
       <div className="contactSearch">
-        <div className="contactSearch__Text">
+        <div className="contactSearch__text">
           All your friends and family financial details in one place. Easily
           transfer currency internationally at the best possible rates.
         </div>
-        <div className="searchStuff">
-          <form className="contactSearch__box">
+        {/* includes the search box, spyglass */}
+        <div className="contactSearch__area">
+          <form className="contactSearch__area__box">
             <button
               type="Submit"
-              className="contactSearch__box__button"
+              className="contactSearch__area__box__button"
               onClick={onSearchClick}
             >
               <img
                 src={spyglass}
                 alt="Magnifying Glass"
-                className="contactSearch__box__button__spyGlass"
-                // onClick={searchFunction}
-                // onClick={(event) => onSearchClick(event)}
+                className="contactSearch__area__box__button__spyGlass"
               />
             </button>
+            {/* search input box */}
             <input
               type="text"
               value={searchTerm}
               onInput={handleInput}
-              className="contactSearch__box__inputBox"
+              className="contactSearch__area__box__inputBox"
               placeholder="Search..."
             />
           </form>
-
-          {/* <button className="contactSearch__addButton" onClick={addContact}>{label}</button> */}
-          <input type="submit" className="contactSearch__addButton" onClick={addContact} value="Add"></input>
+          {/* Contact Add button */}
+          <input type="submit" className="contactSearch__area__addButton" onClick={addContact} value="Add"></input>
         </div>
       </div>
   );

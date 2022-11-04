@@ -4,7 +4,7 @@
     padding: 0 5px;
 }
 table {
-    // border: 2px solid goldenrod;
+
     table-layout: fixed;
     width:100%;
     border-collapse: separate;
@@ -13,15 +13,16 @@ table {
     thead tr {
         color: $color-font-gray;
         font-size: 15px;
-        // height: 20px;
+      
     }
-    thead th:nth-child(1) {width: 10%}
-    thead th:nth-child(2) {width: 20%}
-    thead th:nth-child(3) {width: 15%}
-    thead th:nth-child(4) {width: 12%}
-    thead th:nth-child(5) {width: 15%}
-    thead th:nth-child(6) {width: 20%}
-    thead th:nth-child(7) {width: 8%}
+    // code below is assigning the spacing in the table columns
+    thead th:nth-child(1) {width: 10%};
+    thead th:nth-child(2) {width: 20%};
+    thead th:nth-child(3) {width: 15%};
+    thead th:nth-child(4) {width: 12%};
+    thead th:nth-child(5) {width: 15%};
+    thead th:nth-child(6) {width: 20%};
+    thead th:nth-child(7) {width: 8%};
 
     tbody tr {
         background-color:  $color-light-gray-info-bar;
@@ -31,8 +32,8 @@ table {
         font-size: 15px;
     }
 
-
-    th, td {padding: 5px;}
+// th = table heading; td= table details
+    th, td {padding: 5px;};
 
     
 }

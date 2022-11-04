@@ -1,39 +1,25 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useState } from "react";
 import ContactSearch from "../../components/ContactSearch/ContactSearch";
 import "./ContactContainer.scss";
 import ContactList from "../../components/ContactList/ContactList";
 import contacts from "../../assets/data/Contacts";
-import {Link} from "react-router-dom";
+
 
 const ContactContainer = () => {
   // Setting up the search box
   const [searchQuery, setSearchQuery] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  // this handle reads the search text
   const handleInput = (event) => {
     setSearchQuery(event.target.value);
-    console.log(`Search Query = ${searchQuery}`)    
   };
-
+// for the spyglass when clicked
   const onSearchClick = (event) => {
-    console.log("Search button clicked")
     event.preventDefault();
     setSearchTerm(searchQuery.toLowerCase());
-    console.log(`Search Term = ${searchTerm}`)
   };
 
-  const onContactClick = (accountId) => {
-    console.log("Contact clicked for " + accountId);
-  };
-
-  const onContactDelete = (accountId) => {
-    console.log("delete clicked for " + accountId);
-  };
-
-  const addContact = (event) => {
-    console.log("Add Contact button clicked");
-  }
-
-
+ 
   // Filter contact using search
   const filteredContactsArray = contacts.filter((contact) => {
     console.log(`SearchTerm = ${searchTerm}`)
@@ -49,7 +35,20 @@ const ContactContainer = () => {
     );
   });
 
-  // useEffect(() => filteredContactsArray(), [searchTerm]);
+   // these items are place holders for future work; currently not in use for onclick on contact details
+   const onContactClick = (accountId) => {
+    console.log("Contact clicked for " + accountId);
+  };
+
+  const onContactDelete = (accountId) => {
+    console.log("delete clicked for " + accountId);
+  };
+
+  const addContact = (event) => {
+    console.log("Add Contact button clicked");
+  }
+// see above statement
+ 
     
 
     return (
@@ -60,7 +59,6 @@ const ContactContainer = () => {
             searchTerm={searchQuery}
             handleInput={handleInput}
             onSearchClick={onSearchClick}
-            label="+  Add"
             addContact={addContact}
           />
           <ContactList

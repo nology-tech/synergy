@@ -8,24 +8,12 @@
 .contactSearch {
     display: flex;
     flex-direction: row;
-    // border: 3px solid red;
     width: 100%;
     justify-content: space-between;
-    height: 70px;
     font-family: $third-font-family;
 
-    &__addButton {
-        color: $color-button-primary;
-        width: 106px;
-        border-radius: 6px;
-        border: 1px solid $color-button-primary;
-        height: 50px;
-        padding-left: 20px;
-        background: $color-white url("./../../assets/images/add.png") no-repeat 20% 50%;
-        font-weight: bold;
-    }
-
-    &__Text {
+    
+    &__text {
         display: flex;
         flex-wrap: wrap;
         max-width: 480px;
@@ -35,44 +23,55 @@
         color: $color-medium-gray;
     }
 
-    &__box {
+        // div has all the search content included.
+    &__area {
         display: flex;
         flex-direction: row;
-        // border: 1.5px solid black;
-        background-color: $color-light-gray-info-bar;
-        border-radius: 8px;
-        width: 221px;
-        height: 51px;
 
-        &__button {
-            background: transparent;
-            border: none;
-            outline: none;
+            // Includes the button with a spyglass as a button, and the search input box.
+        &__box {
+            display: flex;
+            flex-direction: row;
+            background-color: $color-light-gray-info-bar;
+            border-radius: 8px;
+            width: 221px;
+            height: 51px;
+
+            &__button {
+                background: transparent;
+                border: none;
+                outline: none;
 
 
-            &__spyGlass {
-                height: 20px;
-                width: 20px;
-                object-fit: cover;
-                color: $color-spyglass-gray;
+                &__spyGlass {
+                    height: 20px;
+                    width: 20px;
+                    object-fit: cover;
+                    color: $color-spyglass-gray;
+                }
+            }
+
+            &__inputBox {
+                border: none;
+                outline: none;
+                background: $color-light-gray-info-bar;
+                width: 64px;
+                font-family: $title-font-family;
+                
             }
         }
-
-        &__inputBox {
-            border: none;
-            outline: none;
-            background: $color-light-gray-info-bar;
-            width: 64px;
-            font-family: $title-font-family;
-            // background-image: url("./../../assets/images/spyglass.png");
-            // position: relative;
+        // add button not currenlty functioning for contacts
+        &__addButton {
+            color: $color-button-primary;
+            width: 106px;
+            border-radius: 6px;
+            border: 1px solid $color-button-primary;
+            height: 50px;
+            padding-left: 20px;
+            background: $color-white url("./../../assets/images/add.png") no-repeat 20% 50%;
+            font-weight: bold;
+        
         }
-    }
-    // div has all the search stuff included.
-    .searchStuff {
-        display: flex;
-        flex-direction: row;
-    }
-    
 
-}
+    }
+} 

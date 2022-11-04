@@ -1,14 +1,12 @@
 @use "./../../assets/sass/_variables.scss" as *;
 .contact {
-    // display: grid;
-    // border: 2px solid black;
     width: 100%;
     display: table-row;
 
     &__bankIcon__img {
         width:40px;
     }
-    &__deleteIcon {
+    &__delete__icon {
         width: 20px;
     }
 }

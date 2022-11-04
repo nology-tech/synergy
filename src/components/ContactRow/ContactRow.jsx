@@ -2,7 +2,8 @@ import garbage from "./../../assets/images/garbage.png";
 import "./ContactRow.scss";
 
 const ContactRow = ({contact, onClick, onDelete}) => {
-  return (
+   // Table of contacts tr = table row; td = table details
+    return (
         <tr className="contact" key={contact.account} >
             <td className="contact__bankIcon">
                 <img
@@ -17,9 +18,9 @@ const ContactRow = ({contact, onClick, onDelete}) => {
             <td className="contact__account">{contact.account}</td>
             <td className="contact__bankName">{contact.bankName}</td>
             <td className="contact__iban">{contact.IBAN}</td>
-            <td>
+            <td className="contact__delete">
                 <img
-                className="contact__deleteIcon"
+                className="contact__delete__icon"
                 src={garbage}
                 alt="delete"
                 onClick={() => onDelete(contact.account)}

@@ -3,17 +3,16 @@ import ContactRow from "../ContactRow/ContactRow";
 import garbage from "./../../assets/images/garbage.png";
 import "./ContactList.scss";
 
-// import contacts from "../../assets/data/Contacts"
+
 
 const ContactList = ({contactsArray, onClick, onDelete}) => {
-  console.log("ContactList");
-  console.log(contactsArray);
+// Map each element of the array
   const contactJSX = contactsArray.map((contact) => (
       <ContactRow contact={contact} onClick={onClick} onDelete={onDelete} key={contact.account}/>
 )
 );
 
-
+// Contact table: tr = table row; th = table heading;
   
   return (
     <table className="contactList">
