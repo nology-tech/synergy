@@ -33,7 +33,7 @@ h1 {
 
 .input {
     background:$color-light-gray-info-bar;
-    border: 1px solid #E2E2E2;
+    border: 1px solid $color-input-border-light-gray;
     border-radius: 6px;
     width: 505px;
     min-height: 55px;
@@ -62,7 +62,7 @@ h1 {
     }
     
     &__separator {
-        border: 1px solid rgba(241, 241, 241, 1);
+        border: 1px solid $color-separator-light-gray;
         height: 1px;
         width: 505px;
         margin-top: 10px;
@@ -78,7 +78,7 @@ h1 {
     }
     
     &__btn {
-        background: rgba(0, 206, 212);
+        background: $color-button-primary;
         border: none;
         border-radius: 6px;
         color: $color-white;
@@ -91,10 +91,8 @@ h1 {
         font-size: 16px;
     }
     &__btn[disabled] {
-        background: rgba(0, 206, 212, 0.4);
+        background: $color-button-primary-lighter;
     }
-
-    
 }
 
 a {
@@ -102,11 +100,11 @@ a {
     margin-left: auto;
 }
 .valid {
-    color: #57E141;
+    color: $color-msg-valid;
     font-size: 10px;
 }
 
 .invalid {
-    color: #DF1C1C;
+    color: $color-msg-invalid;
     font-size: 10px;
 }
