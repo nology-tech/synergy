@@ -43,8 +43,6 @@ const BankDetails = () => {
             <label>Account Name</label>
             <input onChange={handleAccountName} className="input" value={accountName} type="text" />
           </div>
-          
-             
           <div className="bankDetailsForm__div">
             <label>Account Number</label>
             <input onInput={handleAccountNum} className="input" value={accountNum} />

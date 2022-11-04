@@ -101,7 +101,7 @@ const SignUp = () => {
                 type="text"
               />
              {email === ""?<p></p>:validEmail ? (
-                <p className="valid">Successful email entered</p>
+                <p className="valid"> &#x1F5F9; Successful email entered</p>
               ) : (
                 <p className="invalid"> &#128712; Error - Your email must contain an @ symbol
                 </p>
@@ -124,7 +124,7 @@ const SignUp = () => {
                 />
               </div>
               {password === ""?<p></p>:validPassword ? (
-                <p className="valid">Password meets requirements</p>
+                <p className="valid">&#x1F5F9; Password meets requirements</p>
               ) : (
                 <p className="invalid">
                   &#128712; Error - password must contain at least 8 characters & one
@@ -148,14 +148,16 @@ const SignUp = () => {
                   onClick={toggleConfirmedPassword}
                 />
               </div>
+              {/* #128712 is Unicode for the circle with exclamation mark */}
               {confirmedPassword===""?<p></p>:validConfirmedPassword ? (
-                <p className="valid">Passwords match</p>
+                <p className="valid">&#x1F5F9; Passwords match</p>
               ) : (
                 <p className="invalid">&#128712; Error - passwords do not match!</p>
               )}
             </div>
 
             <div className="SignUpForm__hasAccount">
+              {/* nbsp is Unicode for a space */}
               <p className="SignUpForm__hasAccount__question">
                 Already have an account?&nbsp;
                 <span>
