@@ -4,6 +4,8 @@ import emojihand from "../../assets/images/Emojihand.png";
 import synergy from "../../assets/images/synergy.png";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from 'react-router-dom';
+
 
 const LoginFlow = (props) => {
   const {
@@ -179,9 +181,9 @@ const LoginFlow = (props) => {
                   </a>
                 </p>
                 <p>
-                  <a href="#forgottenpsw" className="blue">
+                  <Link to="/forgotten-password" className="blue">
                     Forgotten Password?
-                  </a>
+                  </Link>
                 </p>
               </div>
             ) : (
