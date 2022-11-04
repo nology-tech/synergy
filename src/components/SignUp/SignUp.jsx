@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 
 import "./SignUp.scss";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
@@ -96,7 +97,7 @@ const SignUp = () => {
                 value={email}
                 type="text"
               />
-              {validEmail ? (
+             {email === ""?<p></p>:validEmail ? (
                 <p className="valid">Successful email entered</p>
               ) : (
                 <p className="invalid"> &#128712; Error - Your email must contain an @ symbol
@@ -119,7 +120,7 @@ const SignUp = () => {
                   onClick={togglePassword}
                 />
               </div>
-              {validPassword ? (
+              {password === ""?<p></p>:validPassword ? (
                 <p className="valid">Password meets requirements</p>
               ) : (
                 <p className="invalid">
@@ -144,7 +145,7 @@ const SignUp = () => {
                   onClick={toggleConfirmedPassword}
                 />
               </div>
-              {validConfirmedPassword ? (
+              {confirmedPassword===""?<p></p>:validConfirmedPassword ? (
                 <p className="valid">Passwords match</p>
               ) : (
                 <p className="invalid">&#128712; Error - passwords do not match!</p>
@@ -163,6 +164,12 @@ const SignUp = () => {
             </div>
 
             <Link to="/bankdetails">
+              {/* <Button 
+                text = {"Continue &#9654;"}
+                className ={"SignUpForm__btn btn"}
+                type = {"submit"}
+                disabled = {!(validEmail && validPassword && validConfirmedPassword)}              
+              /> */}
               <button
                 className="SignUpForm__btn"
                 type="submit"

@@ -57,13 +57,13 @@ const BankDetails = () => {
           
           <div className='buttons-group'>
             <Link to="/">
-              <button className="bankDetailsForm__btn" type="submit">
+              <button className="bankDetailsForm__goBackBtn" type="submit">
                 Go Back
               </button>
             </Link>
             <Link to="/billingaddress">
-              <button className="bankDetailsForm__btn" type="submit">
-                Continue
+              <button className="bankDetailsForm__continueBtn" type="submit">
+                Continue &#9654;
               </button>
             </Link>
           </div>

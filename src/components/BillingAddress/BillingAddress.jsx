@@ -68,7 +68,7 @@
             
             <div className='buttons-group'>
               <Link to="/bankdetails">
-                <button className="billingAddressForm__btn" type="submit">
+                <button className="billingAddressForm__goBackBtn" type="submit">
                   Go Back
                 </button>
               </Link>

@@ -65,6 +65,10 @@ h1 {
     
 
     &__btn {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
         background: rgba(0, 206, 212, 0.4);
         border: none;
         border-radius: 6px;
@@ -73,17 +77,27 @@ h1 {
         height: 50px;
         margin-right: 0;
         margin-left: auto;
-        font-weight: bold;
         font-family: $third-font-family;
-        font-size: 16px;
+        
     }
 
-    .continue-button {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-    }  
+    &__goBackBtn {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        color: #8896A3; 
+        width: 115px;
+        height: 50px;
+        margin-right: 0;
+        margin-left: auto;
+        border:none;
+        background-color: $color-white;
+        text-decoration-line: underline;
+        text-decoration-style:dotted;
+    }
 }
 
 a {

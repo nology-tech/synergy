@@ -63,32 +63,48 @@ h1 {
         
     }
     
+    &__goBackBtn {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        color: #8896A3; 
+        width: 115px;
+        height: 50px;
+        margin-right: 0;
+        margin-left: auto;
+        border:none;
+        background-color: $color-white;
+        text-decoration-line: underline;
+        text-decoration-style:dotted;
+    }
 
-    &__btn {
+    &__continueBtn {
+        font-family: 'Inter';
         background: rgba(0, 206, 212, 0.4);
         border: none;
         border-radius: 6px;
         color: $color-white;
         width: 115px;
         height: 50px;
-        margin-right: 0;
-        // margin-left: auto;
-        font-weight: bold;
+        font-weight: normal;
         font-family: $third-font-family;
         font-size: 16px;
+        
     }
 
-    .continue-button {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-    }  
+}
+.buttons-group {
+    display: flex;
+    margin-right: 15px;
+   // grid-template-columns: 300px, 100px;
 }
 
 a {
-    margin-right: 0;
-    margin-left: auto;
+    width: 116px;
+    height: 50px;
 }
 .valid {
     color: #57E141;
