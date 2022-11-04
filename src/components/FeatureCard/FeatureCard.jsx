@@ -6,7 +6,7 @@ const FeatureCard = (props) => {
     feature_id,
     feature_name,
     feature_description,
-    feature_image,
+    // feature_image, -- this will needed when get to the API
     feature_tagline,
   } = props;
 
@@ -16,7 +16,6 @@ const FeatureCard = (props) => {
       <div className="feature-card__img">
      
         <img
-        //  src={require({image_src})}
           src={require("../../assets/images/feature.png")}
           alt={feature_tagline}
         />
