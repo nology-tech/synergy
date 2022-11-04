@@ -3,6 +3,7 @@ import ContactSearch from "../../components/ContactSearch/ContactSearch";
 import "./ContactContainer.scss";
 import ContactList from "../../components/ContactList/ContactList";
 import contacts from "../../assets/data/Contacts";
+import {Link} from "react-router-dom";
 
 const ContactContainer = () => {
   // Setting up the search box
