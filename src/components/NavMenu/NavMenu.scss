@@ -1,0 +1,60 @@
+@use "../../assets/sass/variables.scss" as *;
+
+.sidemenu{
+    display: flex;
+    flex-direction: column;
+    height:95vh;
+    padding-top: 20px;
+    padding-left: 20px;
+    min-width: 200px;
+    &__items {
+        
+        *:active, *:hover {
+            border-right: 2px ridge $color-middle-blue;
+        }
+
+        .sidemenu__a:active, .sidemenu__a:hover {
+            border-right: none;
+        }
+    }
+
+    &__items, &__signout {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        .sidemenu__item{
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            * {
+                text-decoration: none;
+                font-size: 16px;
+                color: $color-light-gray;
+                padding: 4px;                
+            }
+            
+            *:hover +.sidemenu__a, *:active +.sidemenu__a{
+                color: $color-middle-blue;            
+            }
+
+            *:hover, *:active{
+                color: $color-middle-blue;    
+            }
+
+            .sidemenu__icon:hover,.sidemenu__icon:active{
+                background-color: $color-middle-blue;
+                border-radius:50%;
+                opacity:0.4;
+                filter:alpha(opacity=40);
+            }
+        }
+        .sidemenu__item:active, .sidemenu__item:hover{
+            border-right: 7px solid $color-middle-blue;
+        }
+    }
+    &__signout {
+        position:absolute;
+        bottom: 2%;
+    }
+}
