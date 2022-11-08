@@ -1,21 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Roboto&display=swap');
+$color-medium-gray: #8896A3;
+$color-font-lightgray: #8896A3;
 
-$color-black: #06020A;
-$color-blue: #0B2251;
-$color-white: #FFFFFF;
-$color-lightblue: #0AF8FF;
-$color-middle-blue: #00CED4;
-$color-light-gray: #839AAF;
-
+$color-middle-blue: #00ced4;
 $color-button-primary: #00CED4;
 
+$color-loginFlow-lightGray: #e2e2e2;
+$color-input-border-light-gray: #e2e2e2;
+
+$color-msg-valid: #57E141;
+$color-green: #57e141;
+
+$color-msg-invalid: #DF1C1C;
+$color-red: #df1c1c;
+
+
+$color-separator-light-gray: #F1F1F1;
+$color-button-primary-lighter: rgba(0, 206, 212, 0.4);
+
 $color-font-gray: #5B6D7D;
-$color-font-lightgray: #8896A3;
+$color-light-gray-info-bar: #FBFBFC;
+
+
+$color-background: #F1FFFF;
 $color-nav-font-light-gray: #A6AFBD;
 $color-nav-font-dark-gray: #343C49;
+$color-spyglass-gray: #A6AFBD;
 
-$color-light-gray-info-bar: #FBFBFC;
-$color-background: #F1FFFF;
+$color-background-clear: #E5E5E5;
+
+$color-black: #06020A;
+$color-white: #ffffff;
+$color-blue: #0B2251;
+$color-lightblue: #0AF8FF;
+
+
+$color-light-gray: #839aaf;
+
 
 $title-font-family: 'Outfit';
 $secondary-font-family: 'Lato';

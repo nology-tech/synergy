@@ -1,0 +1,9 @@
+.contactRow {
+  display: table-row;
+}
+.contactRow__bankIcon__img {
+  width: 40px;
+}
+.contactRow__delete__icon {
+  width: 20px;
+}/*# sourceMappingURL=ContactRow.css.map */
