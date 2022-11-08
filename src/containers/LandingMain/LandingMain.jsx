@@ -49,7 +49,7 @@ const LandingMain = () => {
         <div className="features">
           <h2 className="features__title">Our Award-Winning Features</h2>
           <FeaturesTile features={features} />
-          <button>Find Out More</button>
+          <button className="features__button">Find Out More</button>
         </div>
      
 
