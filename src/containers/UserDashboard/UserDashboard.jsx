@@ -31,7 +31,7 @@ const UserDashboard = (props) => {
               id="search"
               value={searchTerm}
               onInput={handleInput}
-              defaultValue="Search.."
+              placeHolder="Search..."
             />
           </div>
           <div className="user">
