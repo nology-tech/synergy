@@ -14,12 +14,13 @@
   align-content: center;
   text-align: center;
   align-items: center;
-  background-color: $color-white;
+  background-color: $color-background;
 
   .landing__image {
    padding-top: 20px;
     width: 100%;
 }
+
 }
 .bankClients {
   align-content: center;
@@ -84,6 +85,18 @@
     font-size: 28px;
     line-height: 110%;
 
+  }
+  &__button {
+    background: $color-background;
+              border: 2px solid $color-middle-blue;
+              border-radius: 6px;
+              color: $color-button-primary;
+              width: 214px;
+              height: 64px;
+              padding: 23px 50px 23px 50px;
+              font-family: $third-font-family;
+              font-size: 16px;
+              text-align: center;
   }
 }
 

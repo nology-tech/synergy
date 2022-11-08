@@ -1,4 +1,4 @@
-@use "../../Assets/variables" as *;
+@use "../../assets/sass/_variables.scss" as *;
 
 .BillingAddress {
     font-family: $title-font-family ;
@@ -32,6 +32,7 @@
         background:$color-light-gray-info-bar;
         border: 1px solid $color-input-border-light-gray;
         border-radius: 6px;
+        padding-left: 10px;
         width: 505px;
         min-height: 55px;
         margin-top: 5px;
