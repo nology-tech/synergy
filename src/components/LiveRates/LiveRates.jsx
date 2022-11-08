@@ -6,11 +6,6 @@ import "./LiveRates.scss"
 
 
 
-{/* <Link className="nav-menu__item"  to="/albums" onClick={toggleNav}>
-          All Albums
-        </Link> */}
-
-
 const LiveRates = () => {
     const {liverates} = useParams();
   return (
