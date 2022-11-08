@@ -1,0 +1,11 @@
+.contactPage {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  padding: 10px;
+}
+.contactPage .placeholders__right {
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=ContactListPage.css.map */

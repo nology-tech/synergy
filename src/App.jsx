@@ -8,6 +8,7 @@ import SignUp from './components/SignUp/SignUp';
 import BankDetails from './components/BankDetails/BankDetails';
 import BillingAddress from './components/BillingAddress/BillingAddress';
 import LandingMain from './containers/LandingMain/LandingMain'
+import ContactListPage from './components/ContactListPage/ContactListPage';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/welcome" element={<LoginFlowWelcome />} />
         <Route path="/forgotten-password" element={<ForgottenPassword />} />
         <Route path="/change-password" element={<LoginFlowChangePsw />} />
+        <Route path="/contacts" element={<ContactListPage />} />
       </Routes>
       </Router>
       </div>

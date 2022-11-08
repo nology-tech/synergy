@@ -64,27 +64,27 @@
 
       .loginFlow__credentials {
         .loginFlow__credentials__header {
-          color: $color-loginFlow-darkGray;
+          color: $color-font-gray;
           font-size: 16px;
           font-weight: 400;
           padding: 10px;
         }
         p {
           padding: 10px;
-          color: $color-loginFlow-gray;
+          color: $color-medium-gray;
         }
         .loginFlow__inputbox {
           font-size: 16px;
           padding: 10px;
           border-radius: 5px;
-          border: 2px solid $color-loginFlow-lightGray;
-          background-color: $color-loginFlow-white;
-          color: $color-loginFlow-gray;
+          border: 2px solid $color-medium-gray;
+          background-color: $color-light-gray-info-bar;
+          color: $color-font-lightgray;
           width: 100%;
         }
         .fontAwesome_icon {
           margin-left: -30px;
-          color: $color-loginFlow-gray;
+          color: $color-font-lightgray;
         }
 
         .valid {
@@ -116,7 +116,7 @@
       }
 
       .grey {
-        color: $color-loginFlow-gray;
+        color: $color-font-lightgray;
       }
 
       .blue {
