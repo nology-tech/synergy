@@ -1,15 +1,19 @@
 @use "./_variables" as *;
 
-* {
-  box-sizing: border-box;
-}
 
-a:link,
-a:visited {
-  text-decoration: none;
-}
 
-.background {
+.loginFlow__background {
+  font-family: "Outfit";
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  a:link,
+  a:visited {
+    text-decoration: none;
+  }
+
   background-color: $color-background;
   height: 100vw;
   width: 100vw;
@@ -63,8 +67,10 @@ a:visited {
           color: $color-loginFlow-darkGray;
           font-size: 16px;
           font-weight: 400;
+          padding: 10px;
         }
         p {
+          padding: 10px;
           color: $color-loginFlow-gray;
         }
         .loginFlow__inputbox {
@@ -97,8 +103,8 @@ a:visited {
       display: flex;
       justify-content: space-between;
       align-content: center;
-      padding-bottom: 10px;
-      padding-top: 10px;
+      padding-bottom: 20px;
+      padding-top: 20px;
       border-bottom: 1px solid $color-loginFlow-lightGray;
 
       p {

@@ -73,7 +73,7 @@ const LoginFlow = (props) => {
   return (
     <>
       <nav>Navbar placeholder</nav>
-      <main className="background">
+      <main className="loginFlow__background">
         <div className="loginFlow">
           <div className="loginFlow__synergyIcon">
             <img
