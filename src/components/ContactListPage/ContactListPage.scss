@@ -1,0 +1,14 @@
+@use "./../../assets/sass/_variables.scss" as *;
+
+.contactPage {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    padding: 10px;
+
+    .placeholders__right {
+        display: flex;
+        flex-direction: column;
+    }
+}

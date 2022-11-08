@@ -1,10 +1,9 @@
-.contact {
-  width: 100%;
+.contactRow {
   display: table-row;
 }
-.contact__bankIcon__img {
+.contactRow__bankIcon__img {
   width: 40px;
 }
-.contact__deleteIcon {
+.contactRow__delete__icon {
   width: 20px;
 }/*# sourceMappingURL=ContactRow.css.map */

@@ -4,10 +4,10 @@ import "./ContactRow.scss";
 const ContactRow = ({contact, onClick, onDelete}) => {
    // Table of contacts tr = table row; td = table details
     return (
-        <tr className="contact" key={contact.account} >
-            <td className="contact__bankIcon">
+        <tr className="contactRow" key={contact.account} >
+            <td className="contactRow__bankIcon">
                 <img
-                className="contact__bankIcon__img"
+                className="contactRow__bankIcon__img"
                 src={contact.bankIcon}
                 alt={contact.name}
                 onClick={onClick}
@@ -20,7 +20,7 @@ const ContactRow = ({contact, onClick, onDelete}) => {
             <td className="contact__iban">{contact.IBAN}</td>
             <td className="contact__delete">
                 <img
-                className="contact__delete__icon"
+                className="contactRow__delete__icon"
                 src={garbage}
                 alt="delete"
                 onClick={() => onDelete(contact.account)}

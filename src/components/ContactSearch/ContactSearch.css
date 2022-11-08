@@ -1,17 +1,52 @@
-* {
-  margin: 5px;
-  padding: 2px;
-}
-
 .contactSearch {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 95%;
   justify-content: space-between;
-  height: 70px;
   font-family: "Inter";
+  margin: 5px;
+  padding: 2px;
 }
-.contactSearch__addButton {
+.contactSearch__text {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 480px;
+  align-content: center;
+  font-size: 16px;
+  color: #8896A3;
+}
+.contactSearch__area {
+  display: flex;
+  flex-direction: row;
+}
+.contactSearch__area__box {
+  display: flex;
+  flex-direction: row;
+  background-color: #FBFBFC;
+  border-radius: 8px;
+  width: 221px;
+  height: 51px;
+}
+.contactSearch__area__box__button {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.contactSearch__area__box__button__spyGlass {
+  height: 20px;
+  width: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  color: #A6AFBD;
+}
+.contactSearch__area__box__inputBox {
+  border: none;
+  outline: none;
+  background: #FBFBFC;
+  width: 64px;
+  font-family: "Outfit";
+}
+.contactSearch__area__addButton {
   color: #00CED4;
   width: 106px;
   border-radius: 6px;
@@ -20,43 +55,4 @@
   padding-left: 20px;
   background: #FFFFFF url("./../../assets/images/add.png") no-repeat 20% 50%;
   font-weight: bold;
-}
-.contactSearch__Text {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 480px;
-  align-content: center;
-  font-size: 16px;
-  color: #8896A3;
-}
-.contactSearch__box {
-  display: flex;
-  flex-direction: row;
-  background-color: #FBFBFC;
-  border-radius: 8px;
-  width: 221px;
-  height: 51px;
-}
-.contactSearch__box__button {
-  background: transparent;
-  border: none;
-  outline: none;
-}
-.contactSearch__box__button__spyGlass {
-  height: 20px;
-  width: 20px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  color: #A6AFBD;
-}
-.contactSearch__box__inputBox {
-  border: none;
-  outline: none;
-  background: #FBFBFC;
-  width: 64px;
-  font-family: "Outfit";
-}
-.contactSearch .searchStuff {
-  display: flex;
-  flex-direction: row;
 }/*# sourceMappingURL=ContactSearch.css.map */

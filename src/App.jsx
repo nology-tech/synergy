@@ -1,5 +1,6 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.scss";
-import ContactContainer from "./containers/ContactContainer/ContactContainer";
+import ContactListPage from "./components/ContactListPage/ContactListPage";
 
 
 
@@ -7,9 +8,14 @@ import ContactContainer from "./containers/ContactContainer/ContactContainer";
 const App = () => {
   return (
       <div className="App">
-        <ContactContainer />
+        <Router>
+          <Routes>
+            <Route path="/contacts" element={<ContactListPage />}/>
+          </Routes>
+        </Router>
+
       </div>
-    
+
   );
 };
 

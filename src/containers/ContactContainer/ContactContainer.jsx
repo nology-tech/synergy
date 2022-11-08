@@ -3,8 +3,6 @@ import ContactSearch from "../../components/ContactSearch/ContactSearch";
 import "./ContactContainer.scss";
 import ContactList from "../../components/ContactList/ContactList";
 import contacts from "../../assets/data/Contacts";
-import NavBar from "../../assets/images/navbar.png";
-import SideBar from "../../assets/images/sidebar.jpg";
 
 const ContactContainer = () => {
   // Setting up the search box
@@ -50,33 +48,21 @@ const ContactContainer = () => {
   // see above statement
 
   return (
-    <>
-      <div className="contactPage">
-        <div className="placeHolders__left">
-          <img src={SideBar} alt="SideBar" />
-        </div>
-        <div className="placeHolders__right">
-          <div className="placeHolders__Navbar">
-            <img src={NavBar} alt="NavBar" />
-          </div>
-          <div className="contact">
-            <div className="contact__Title">Contacts</div>
-            <div className="contact__Heading">Contact List</div>
-            <ContactSearch
-              searchTerm={searchQuery}
-              handleInput={handleInput}
-              onSearchClick={onSearchClick}
-              addContact={addContact}
-            />
-            <ContactList
-              contactsArray={filteredContactsArray}
-              onClick={onContactClick}
-              onDelete={onContactDelete}
-            />
-          </div>
-        </div>
-      </div>
-    </>
+    <div className="contact">
+      <div className="contact__Title">Contacts</div>
+      <div className="contact__Heading">Contact List</div>
+      <ContactSearch
+        searchTerm={searchQuery}
+        handleInput={handleInput}
+        onSearchClick={onSearchClick}
+        addContact={addContact}
+      />
+      <ContactList
+        contactsArray={filteredContactsArray}
+        onClick={onContactClick}
+        onDelete={onContactDelete}
+      />
+    </div>
   );
 };
 

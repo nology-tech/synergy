@@ -1,11 +1,2 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit");
-@import url("https://fonts.googleapis.com/css?family=Inter");
-.App {
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-}
-.App .right-side {
-  display: flex;
-  flex-direction: column;
-}/*# sourceMappingURL=App.css.map */
+@import url("https://fonts.googleapis.com/css?family=Inter");/*# sourceMappingURL=App.css.map */

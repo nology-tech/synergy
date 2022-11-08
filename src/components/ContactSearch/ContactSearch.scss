@@ -1,11 +1,9 @@
 @use "./../../assets/sass/_variables.scss" as *;
 
-
-
 .contactSearch {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 95%;
     justify-content: space-between;
     font-family: $third-font-family;
     margin: 5px;
