@@ -1,0 +1,73 @@
+@use "../../assets/sass/_variables.scss" as *;
+
+.currency-row {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+ }
+
+ .currency-list__img {
+    width: 20px;
+    height: 12px;
+    justify-content:left;
+    padding-top: 9px;
+}
+
+.currency-list__heading{
+    color:$color-font-gray;
+    font-family: $title-font-family;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 10px 0px 20px 0px;
+    justify-content: space-between;
+    text-align:left;
+    width: 76%;
+}
+
+.row-blue {
+    background-color: $color-middle-blue;
+    color: $color-white;
+}
+.row-grey {
+    background-color:$color-light-gray-info-bar;
+    color: $color-font-lightgray;
+}
+
+
+.currency-list__items {
+    display: flex;
+    justify-content:space-around;
+    font-family: $third-font-family;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 10px 0 5px 10px;
+    justify-content: space-around;
+ }
+
+.currency-list__name {
+    text-align:left;
+    width: 25%;
+    padding-top: 7px;
+}
+
+.currency-list__amount {
+    text-align:left;
+    width: 25%;
+    padding-top: 7px;
+}
+
+.currency-list__rate {
+    text-align:left;
+    width: 25%;
+    padding-top: 7px;
+}
+
+.button {
+    justify-content: center;
+}
+

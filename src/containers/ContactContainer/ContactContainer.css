@@ -3,6 +3,7 @@
   flex-direction: column;
   text-align: left;
   font-family: "Outfit";
+  padding: 20px;
 }
 .contact .contact__Title {
   font-weight: 500;

@@ -5,7 +5,7 @@ import "./App.scss";
 import Main from "./containers/Main/Main";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignIn from "./containers/SignIn/SignIn";
-import SignUp from "./containers/SignUp/SignUp";
+// import SignUp from "./containers/SignUp/SignUp";
 import UserDashboard from "./containers/UserDashboard/UserDashboard";
 import ForgottenPassword from "./components/ForgottenPassword/ForgottenPassword";
 import LoginFlowChangePsw from "./components/LoginFlowChangePsw/LoginFlowChangePsw";
@@ -15,6 +15,7 @@ import BankDetails from "./components/BankDetails/BankDetails";
 import BillingAddress from "./components/BillingAddress/BillingAddress";
 import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
+import LiveRates from "./components/LiveRates/LiveRates";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -36,9 +37,13 @@ const App = () => {
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
           <Route path="/contacts" element={<ContactListPage />} />
-
+          <Route path="/liverates" element={<LiveRates />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />}></Route>
+
+
+
+
           <Route
             path="/userprofile"
             element={
