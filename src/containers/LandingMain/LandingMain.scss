@@ -1,0 +1,184 @@
+@use "../../assets/sass/_variables.scss"as *;
+
+.LandingMain{
+  background-color: $color-background;
+}
+
+
+.navbar__image {
+  background-color: $color-background;
+  width: 100%;
+}
+
+.backgound__image {
+  align-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: $color-background;
+
+  .landing__image {
+   padding-top: 20px;
+    width: 100%;
+}
+
+}
+.bankClients {
+  align-content: center;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+  padding-bottom: 50px;
+  background-color: $color-white;
+
+  .bankClients__title {
+    background-color: $color-white;
+    font-family: $title-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 110%;
+    text-align: center;
+  }
+
+  .bankLogosImg {
+    display: flex;
+    background-color: $color-white;
+    
+    &__one {
+      margin-right: 50px;
+      margin-left: 30px;
+      background-color: $color-white;
+    }
+
+    &__two {
+      margin-right: 50px;
+      margin-left: 30px;
+      background-color: $color-white;
+    }
+
+    &__three {
+      margin-right: 50px;
+      margin-left: 30px;
+      background-color: $color-white;
+    }
+  }
+
+}
+
+.features {
+  align-content: center;
+  text-align: center;
+  align-items: center;
+  padding-top: 80px;
+  font-family: $title-font-family;
+  font-style: normal;
+  padding-bottom: 80px;
+  background-color: $color-background;
+  text-align: center;
+
+  &__title {
+    font-family: $title-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 110%;
+
+  }
+  &__button {
+    background: $color-background;
+              border: 2px solid $color-middle-blue;
+              border-radius: 6px;
+              color: $color-button-primary;
+              width: 214px;
+              height: 64px;
+              padding: 23px 50px 23px 50px;
+              font-family: $third-font-family;
+              font-size: 16px;
+              text-align: center;
+  }
+}
+
+.converter {
+  align-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: $color-middle-blue;
+  overflow: visible;
+  height: 300px;
+  text-align: center;
+  color: $color-white;
+  padding: 20px;
+
+  &__title {
+    font-family: $title-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 110%;
+    background-color: $color-middle-blue;
+  }
+
+  &__subline {
+  font-family: $secondary-font-family;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  padding: 20px;
+  background-color: $color-middle-blue;
+  }
+}
+
+.converter__image {
+  align-content: center;
+  text-align: center;
+  align-items: center;
+  // above may not be required, please check
+  border-radius: 8px;
+  width: 1079px;
+  padding: 30px;
+  box-shadow: 5px 10px 10px #d5cece;
+  background-color: $color-white;
+}
+
+.currencies {
+  align-content: center;
+  text-align: center;
+  align-items: center;
+  font-style: normal;
+  padding: 250px;
+  overflow: visible;
+  text-align: center;
+  background-color: $color-white;
+
+  &__title {
+    font-family: $title-font-family;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    color: $color-black;
+    background-color: $color-white;
+  }
+  &__subline {
+    font-family: $secondary-font-family;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    padding: 20px;
+    color: $color-light-gray;
+    background-color: $color-white;
+    }
+    &__img{
+      background: $color-white;
+      box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.06);
+      border-radius: 8px;
+    }
+}
+
+.footer {
+  background-color: $color-black;
+  overflow-y: auto;
+  width: 100%;
+}

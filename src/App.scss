@@ -1,6 +1,13 @@
 @use "./assets/sass/_variables.scss" as *;
 
+@import url('https://fonts.googleapis.com/css2?family=Outfit');
+@import url('https://fonts.googleapis.com/css?family=Inter');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
 .app {
     display: flex;
     
+}
+* {
+    font-family: $title-font-family;
 }
