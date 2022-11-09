@@ -15,6 +15,7 @@ import BillingAddress from "./components/BillingAddress/BillingAddress";
 import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
+import TransferSelectCurrency from "./components/TransferSelectCurrency/TransferSelectCurrency";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -113,6 +114,7 @@ const App = () => {
           <Route path="/about" element={<LandingMain />}></Route>
           <Route path="/contact" element={<LandingMain />}></Route>
           <Route path="/" element={<LandingMain />}></Route>
+          <Route path="/transfer" element={<TransferSelectCurrency/>} />
         </Routes>
       </div>
     </Router>
