@@ -2,10 +2,9 @@ import { useState } from "react";
 import React from "react";
 
 import "./App.scss";
-import Main from "./containers/Main/Main";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignIn from "./containers/SignIn/SignIn";
-// import SignUp from "./containers/SignUp/SignUp";
+import SignUpMain from "./containers/SignUp/SignUpMain";
 import UserDashboard from "./containers/UserDashboard/UserDashboard";
 import ForgottenPassword from "./components/ForgottenPassword/ForgottenPassword";
 import LoginFlowChangePsw from "./components/LoginFlowChangePsw/LoginFlowChangePsw";
@@ -30,7 +29,7 @@ const App = () => {
       <div className="app">
         <Routes>
           <Route path="/" element={<LandingMain />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signup" element={<SignUpMain />} />
           <Route path="/bankdetails" element={<BankDetails />} />
           <Route path="/billingaddress" element={<BillingAddress />} />
           <Route path="/welcome" element={<LoginFlowWelcome />} />
@@ -39,11 +38,6 @@ const App = () => {
           <Route path="/contacts" element={<ContactListPage />} />
           <Route path="/liverates" element={<LiveRates />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />}></Route>
-
-
-
-
           <Route
             path="/userprofile"
             element={
@@ -114,11 +108,11 @@ const App = () => {
               />
             }
           ></Route>
-          <Route path="/home" element={<Main />}></Route>
-          <Route path="/features" element={<Main />}></Route>
-          <Route path="/about" element={<Main />}></Route>
-          <Route path="/contact" element={<Main />}></Route>
-          <Route path="/" element={<Main />}></Route>
+          <Route path="/home" element={<LandingMain />}></Route>
+          <Route path="/features" element={<LandingMain />}></Route>
+          <Route path="/about" element={<LandingMain />}></Route>
+          <Route path="/contact" element={<LandingMain />}></Route>
+          <Route path="/" element={<LandingMain />}></Route>
         </Routes>
       </div>
     </Router>
