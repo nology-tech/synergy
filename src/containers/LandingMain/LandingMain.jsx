@@ -2,16 +2,14 @@ import React from "react";
 import Header from "../../components/Header/Header";
 import features from "../../data/feature.js";
 import FeaturesTile from "../../components/FeaturesTile/FeaturesTile";
+import HeaderNav from "../../components/HeaderNav/HeaderNav";
+import FooterNav from "../../components/FooterNav/FooterNav";
 import "./LandingMain.scss";
 
 const LandingMain = () => {
   return (
     <div className="LandingMain">
-      <img
-        className="navbar__image"
-        src={require("../../assets/images/navbar.png")}
-        alt="navbar page image"
-      />
+      <HeaderNav />
       <Header />
 
       <div className="backgound__image">
@@ -79,13 +77,7 @@ const LandingMain = () => {
           alt="latest FX rates"
         />
       </div>
-      <section>
-        <img
-          className="footer"
-          src={require("../../assets/images/footer.png")}
-          alt="latest FX rates"
-        />
-      </section>
+      <FooterNav />
     </div>
   );
 };
