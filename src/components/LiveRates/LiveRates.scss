@@ -1,5 +1,8 @@
 @use "../../assets/sass/_variables.scss" as *;
 
+.live-rates-page {
+  display: flex;
+
 .live-rates {
   margin-left: 5%;
 
@@ -32,6 +35,7 @@
     margin-bottom: 30px;
     color: $color-font-lightgray;
   }
+}
 }
 
 
