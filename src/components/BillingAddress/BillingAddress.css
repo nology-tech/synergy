@@ -1,0 +1,109 @@
+.BillingAddress {
+  font-family: "Outfit";
+  box-sizing: border-box;
+  background: #F1FFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-box {
+  min-width: 600px;
+  min-height: 725px;
+  background: #FFFFFF;
+}
+.form-box .billing-header {
+  padding: 30px 0px 20px 30px;
+}
+.form-box h1 {
+  margin: 0;
+  padding-left: 40px;
+}
+.form-box .ipsum {
+  color: #8896A3;
+  margin-top: 0;
+  padding-left: 40px;
+}
+.form-box .input {
+  background: #FBFBFC;
+  border: 1px solid #e2e2e2;
+  border-radius: 6px;
+  padding-left: 10px;
+  width: 505px;
+  min-height: 55px;
+  margin-top: 5px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #A6AFBD;
+}
+.form-box .fontAwesome_icon {
+  margin-left: -30px;
+}
+.form-box .billingAddressForm {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 40px 40px 40px;
+}
+.form-box .billingAddressForm__div {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  color: #5B6D7D;
+}
+.form-box .billingAddressForm__separator {
+  border: 1px solid #F1F1F1;
+  height: 1px;
+  width: 505px;
+  margin-top: 10px;
+}
+.form-box .billingAddressForm__btn {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  background: #00CED4;
+  border: none;
+  border-radius: 6px;
+  color: #FFFFFF;
+  width: 150px;
+  height: 50px;
+  margin-right: 0;
+  margin-left: auto;
+  font-family: "Inter";
+}
+.form-box .billingAddressForm__goBackBtn {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #8896A3;
+  width: 115px;
+  height: 50px;
+  margin-right: 0;
+  margin-left: auto;
+  border: none;
+  background-color: #FFFFFF;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  -webkit-text-decoration-style: dotted;
+          text-decoration-style: dotted;
+}
+.form-box .billingAddressForm .buttons-group {
+  text-align: right;
+  margin-right: 15px;
+  padding-top: 30px;
+}
+.form-box .billingAddressForm a {
+  margin-right: 0;
+  margin-left: auto;
+}
+.form-box .billingAddressForm .valid {
+  color: #57E141;
+  font-size: 10px;
+}
+.form-box .billingAddressForm .invalid {
+  color: #DF1C1C;
+  font-size: 10px;
+}/*# sourceMappingURL=BillingAddress.css.map */

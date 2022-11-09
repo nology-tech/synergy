@@ -1,0 +1,23 @@
+.feature-card {
+  align-items: center;
+  text-align: center;
+  font-style: normal;
+  width: 301px;
+}
+.feature-card__img {
+  align-items: center;
+}
+.feature-card__heading {
+  font-family: "Outfit";
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 110%;
+  color: #06020A;
+}
+.feature-card__desc {
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #839AAF;
+}/*# sourceMappingURL=FeatureCard.css.map */

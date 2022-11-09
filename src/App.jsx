@@ -14,6 +14,7 @@ import BankDetails from "./components/BankDetails/BankDetails";
 import BillingAddress from "./components/BillingAddress/BillingAddress";
 import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
+import LiveRates from "./components/LiveRates/LiveRates";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -35,9 +36,8 @@ const App = () => {
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
           <Route path="/contacts" element={<ContactListPage />} />
-
+          <Route path="/liverates" element={<LiveRates />} />
           <Route path="/signin" element={<SignIn />} />
-
           <Route
             path="/userprofile"
             element={

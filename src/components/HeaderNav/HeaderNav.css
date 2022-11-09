@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.topnav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.topnav * {
+  text-decoration: none;
+  padding: 0 45px 10px 20px;
+  margin: 5px;
+}
+.topnav__centerlinks, .topnav__signin, .topnav__signup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.topnav__centerlinks *, .topnav__signin *, .topnav__signup * {
+  margin-left: 30px;
+  padding: 10px;
+  color: #839AAF;
+  font-size: 16px;
+}
+.topnav__centerlinks *:hover, .topnav__centerlinks *:active, .topnav__signin *:hover, .topnav__signin *:active, .topnav__signup *:hover, .topnav__signup *:active {
+  color: #06020A;
+}
+.topnav__centerlinks .signin, .topnav__signin .signin, .topnav__signup .signin {
+  text-decoration: underline;
+  -webkit-text-decoration-style: dotted;
+          text-decoration-style: dotted;
+  text-underline-position: under;
+}
+.topnav__centerlinks .signup, .topnav__signin .signup, .topnav__signup .signup {
+  background-color: #00CED4;
+  color: #FFFFFF;
+  border-radius: 6px;
+}/*# sourceMappingURL=HeaderNav.css.map */
