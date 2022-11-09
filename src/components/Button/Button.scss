@@ -1,5 +1,7 @@
+@use "../../assets/sass/variables.scss";
+
 btn {
-    background: rgba(0, 206, 212, 0.4);
+    background: $color-middle-blue;
     border: none;
     border-radius: 6px;
     color: $color-white;
