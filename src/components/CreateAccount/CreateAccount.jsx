@@ -161,9 +161,9 @@ const CreateAccount = () => {
               <p className="CreateAccountForm__hasAccount__question">
                 Already have an account?&nbsp;
                 <span>
-                  <a className="CreateAccountForm__hasAccount__login" href="#">
+                  <Link className="CreateAccountForm__hasAccount__login" to="/signin">
                     Login
-                  </a>
+                  </Link>
                 </span>
               </p>
             </div>
