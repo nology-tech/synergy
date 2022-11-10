@@ -1,5 +1,20 @@
 @use "../../assets/sass/_variables.scss" as *;
 .currencyConverter{
-    min-height: 690px;    
+    min-height: 500px;    
     margin-left: 5%;
+    &__main {
+        display: grid;
+        grid-template-columns: 280px 1200px;
+        &__walletTemp {
+            width: 263px;
+            height: 252px;
+            border: 3px solid $color-border-light-gray;
+        }
+        &__converter {
+            border: 3px solid $color-border-light-gray;
+            min-height: 252px;
+            max-height: 410px;
+        }
+    }
+    
 }
