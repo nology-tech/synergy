@@ -24,6 +24,14 @@ const App = () => {
     setSearchTerm(cleanInput);
   };
 
+  // hardcoded values for transfer, shall be replaced from currency converter
+  const currencyBaseCode = "USD";
+  const currencyRecepientCode = "GBP";
+  const amountBase = 1000;
+  const amountReceived = 1359.5;
+  const fxRate = 1.3595;
+  //---------------------------------
+
   return (
     <Router>
       <div>
@@ -32,12 +40,11 @@ const App = () => {
           <Route path="/signup" element={<SignUpMain />} />
           <Route path="/bankdetails" element={<BankDetails />} />
           <Route path="/billingaddress" element={<BillingAddress />} />
-          <Route path="/welcome" element={<LoginFlowWelcome />} />
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
           <Route path="/contacts" element={<ContactListPage />} />
           <Route path="/liverates" element={<LiveRates />} />
-          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signin" element={<LoginFlowWelcome />} />
           <Route
             path="/userprofile"
             element={
@@ -65,16 +72,6 @@ const App = () => {
                 handleInput={handleInput}
                 value={searchTerm}
                 navigateTo="Wallet"
-              />
-            }
-          ></Route>
-          <Route
-            path="/dashboard/liveRates"
-            element={
-              <UserDashboard
-                handleInput={handleInput}
-                value={searchTerm}
-                navigateTo="LiveRates"
               />
             }
           ></Route>
@@ -113,7 +110,18 @@ const App = () => {
           <Route path="/about" element={<LandingMain />}></Route>
           <Route path="/contact" element={<LandingMain />}></Route>
           <Route path="/" element={<LandingMain />}></Route>
-          <Route path="/transfer" element={<TransferSelectCurrency/>} />
+          <Route
+            path="/transfer"
+            element={
+              <TransferSelectCurrency
+                currencyBaseCode={currencyBaseCode}
+                currencyRecepientCode={currencyRecepientCode}
+                amountBase={amountBase}
+                amountReceived={amountReceived}
+                fxRate={fxRate}
+              />
+            }
+          />
         </Routes>
       </div>
     </Router>
