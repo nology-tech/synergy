@@ -1,0 +1,27 @@
+.walletPage{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin: 20px;
+    padding: 15px;
+
+    &__placeHolder{
+        border: 5px solid red;
+        &__Navbar {
+         border: 5px solid red;
+        }
+
+        &__NavMenu {
+         border: 5px solid green;
+        }
+}
+
+
+
+   
+
+
+   
+}
+
