@@ -6,7 +6,7 @@ import convert from "../../assets/images/ep_refresh.png";
 import contacts from "../../assets/images/fluent_people-16-regular.png";
 import signout from "../../assets/images/Group 66.png";
 import transfer from "../../assets/images/transfer-icon.png";
-import mainLogo from "../../assets/images/main_logo.png";
+import mainLogo from "../../assets/images/synergy_main_logo.png";
 import { Link } from "react-router-dom";
 
 const NavMenu = () => {

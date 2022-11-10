@@ -7,7 +7,7 @@ import "./CreateAccount.scss";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import synergyLogo from "../../assets/images/main_logo.png";
+import synergyLogo from "../../assets/images/synergy_main_logo.png";
 
 const CreateAccount = () => {
   const [email, setEmail] = useState("");

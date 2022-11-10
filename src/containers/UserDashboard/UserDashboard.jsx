@@ -1,7 +1,7 @@
 import React from "react";
 import "./UserDashboard.scss";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/main_logo.png";
+import logo from "../../assets/images/synergy_main_logo.png";
 import NavMenu from "../../components/NavMenu/NavMenu";
 import clarity from "../../assets/images/clarity_search-line.png";
 import profile from "../../assets/images/Ellipse.png";
