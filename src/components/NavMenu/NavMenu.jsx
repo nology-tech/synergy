@@ -27,7 +27,7 @@ const NavMenu = () => {
         </div>
         <div className="sidemenu__item">
           <img className="sidemenu__icon" src={ratesImg} alt="Live Rates" />
-          <Link className="sidemenu__a" to="/dashboard/liveRates">
+          <Link className="sidemenu__a" to="/liveRates">
             Live Rates
           </Link>
         </div>

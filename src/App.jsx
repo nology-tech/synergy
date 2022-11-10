@@ -66,17 +66,7 @@ const App = () => {
               />
             }
           ></Route>
-          <Route
-            path="/dashboard/liveRates"
-            element={
-              <UserDashboard
-                handleInput={handleInput}
-                value={searchTerm}
-                navigateTo="LiveRates"
-              />
-            }
-          ></Route>
-          <Route
+            <Route
             path="/dashboard/convert"
             element={
               <UserDashboard
