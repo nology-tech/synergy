@@ -14,6 +14,7 @@ import BillingAddress from "./components/BillingAddress/BillingAddress";
 import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
+import Button from "./components/Button/Button";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -22,10 +23,32 @@ const App = () => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
   };
+  let buttonText =
+    "<i class='fa-solid fa-arrows-rotate'></i> Convert";
 
   return (
     <Router>
       <div>
+        <Button
+          buttonStyle={"button-light-blue"}
+          buttonInitialStyle={""}
+          isDisabled={false}
+          buttonType={""}
+          buttonText={"Find out more"}
+        />
+
+        <Button buttonStyle={"button-blue"} buttonInitialStyle={""} isDisabled={false} buttonType={""} buttonText={buttonText} />
+
+        <Button buttonStyle={"button-blue-disabled"} buttonInitialStyle={""} isDisabled={false} buttonType={"submit"} buttonText={"Continue &#9654"} />
+
+        <Button
+          buttonStyle={"button-blue-white-border"}
+          buttonInitialStyle={""}
+          isDisabled={false}
+          buttonType={""}
+          buttonText={"Edit"}
+        />
+
         <Routes>
           <Route path="/" element={<LandingMain />} />
           <Route path="/signup" element={<SignUpMain />} />
