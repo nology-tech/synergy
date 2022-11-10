@@ -3,6 +3,7 @@ const currency = [
         "id": 1,
         "img": "https://flagcdn.com/16x12/us.png",
         "name": "US Dollar",
+        "code": "USD",
         "amount": "1.00",
         "rate": ""
     },
@@ -10,6 +11,7 @@ const currency = [
         "id": 2,
         "img": "https://flagcdn.com/16x12/eu.png",
         "name": "Euro",
+        "code": "EUR",
         "amount": "1.0118",
         "rate": "0.9882"
     },
@@ -17,6 +19,7 @@ const currency = [
         "id": 3,
         "img": "https://flagcdn.com/16x12/gb.png",
         "name": "British Pound",
+        "code": "GBP",
         "amount": "0.8720",
         "rate": "1.1466"
     },
@@ -24,6 +27,7 @@ const currency = [
         "id": 4,
         "img": "https://flagcdn.com/16x12/in.png",
         "name": "Indian Rupee",
+        "code": "IND",
         "amount": "82.7545",
         "rate": "0.0120"
     },
