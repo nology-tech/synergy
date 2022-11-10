@@ -32,7 +32,6 @@ const TransferSelectCurrency = (props) => {
               magna in lacus.
             </p>
           </div>
-          <div>
             <FxTransaction
               currencyBaseCode={currencyBaseCode}
               currencyRecepientCode={currencyRecepientCode}
@@ -40,7 +39,6 @@ const TransferSelectCurrency = (props) => {
               amountReceived={amountReceived}
               fxRate={fxRate}
             />
-          </div>
         </div>
       </main>
     </div>

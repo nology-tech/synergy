@@ -24,11 +24,13 @@ const App = () => {
     setSearchTerm(cleanInput);
   };
 
+  // hardcoded values for transfer, shall be replaced from currency converter
   const currencyBaseCode = "USD";
   const currencyRecepientCode = "GBP";
   const amountBase = 1000;
-  const amountReceived=1359.50;
-  const fxRate=1.3595;
+  const amountReceived = 1359.5;
+  const fxRate = 1.3595;
+  //---------------------------------
 
   return (
     <Router>
@@ -73,7 +75,7 @@ const App = () => {
               />
             }
           ></Route>
-            <Route
+          <Route
             path="/dashboard/convert"
             element={
               <UserDashboard

@@ -15,7 +15,7 @@ const currency = [
         "code": "EUR",
         "amount": "1.0118",
         "rate": "0.9882",
-        "symbol": "$"
+        "symbol": "€"
     },
     {
         "id": 3,
@@ -76,7 +76,8 @@ const currency = [
         "name": "Japanese Yen",
         "code": "JPY",
         "amount": "148.6933",
-        "rate": "0.0067"
+        "rate": "0.0067",
+        "symbol": "¥"
     },
     // {    
     //     "id": 11,
