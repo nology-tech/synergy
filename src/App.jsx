@@ -24,6 +24,12 @@ const App = () => {
     setSearchTerm(cleanInput);
   };
 
+  const currencyBaseCode = "USD";
+  const currencyRecepientCode = "GBP";
+  const amountBase = 1000;
+  const amountReceived=1359.50;
+  const fxRate=1.3595;
+
   return (
     <Router>
       <div>
@@ -113,7 +119,18 @@ const App = () => {
           <Route path="/about" element={<LandingMain />}></Route>
           <Route path="/contact" element={<LandingMain />}></Route>
           <Route path="/" element={<LandingMain />}></Route>
-          <Route path="/transfer" element={<TransferSelectCurrency/>} />
+          <Route
+            path="/transfer"
+            element={
+              <TransferSelectCurrency
+                currencyBaseCode={currencyBaseCode}
+                currencyRecepientCode={currencyRecepientCode}
+                amountBase={amountBase}
+                amountReceived={amountReceived}
+                fxRate={fxRate}
+              />
+            }
+          />
         </Routes>
       </div>
     </Router>

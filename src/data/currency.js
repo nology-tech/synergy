@@ -5,7 +5,8 @@ const currency = [
         "name": "US Dollars",
         "code": "USD",
         "amount": "1.00",
-        "rate": ""
+        "rate": "",
+        "symbol": "$"
     },
     {    
         "id": 2,
@@ -13,7 +14,8 @@ const currency = [
         "name": "Euro",
         "code": "EUR",
         "amount": "1.0118",
-        "rate": "0.9882"
+        "rate": "0.9882",
+        "symbol": "$"
     },
     {
         "id": 3,
@@ -21,7 +23,8 @@ const currency = [
         "name": "British Pounds",
         "code": "GBP",
         "amount": "0.8720",
-        "rate": "1.1466"
+        "rate": "1.1466",
+        "symbol": "£"
     },
     {    
         "id": 4,
@@ -29,7 +32,8 @@ const currency = [
         "name": "Indian Rupees",
         "code": "INR",
         "amount": "82.7545",
-        "rate": "0.0120"
+        "rate": "0.0120",
+        "symbol": "₹"
     },
     // {
     //     "id": 5,

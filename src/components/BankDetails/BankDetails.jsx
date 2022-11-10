@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./BankDetails.scss";
-import synergyLogo from "../../assets/images/synergy_logo.png";
+import synergyLogo from "../../assets/images/Main_Logo.png";
 import SignInNav from "../SignInNav/SignInNav";
 
 const BankDetails = () => {
