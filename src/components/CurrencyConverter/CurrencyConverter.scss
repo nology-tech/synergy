@@ -2,9 +2,42 @@
 .currencyConverter{
     min-height: 500px;    
     margin-left: 5%;
+
+    &__title1 {
+        font-family: $title-font-family;
+        color: $color-middle-blue;
+        margin: 5px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    &__title2 {
+        font-family: $title-font-family;
+        color: $color-black;
+        margin: 5px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    &__description {
+        font-family: 'Inter';
+        color: $color-font-light-gray;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%
+    }
+
     &__main {
         display: grid;
         grid-template-columns: 280px 1200px;
+
+        
+
         &__walletTemp {
             width: 263px;
             height: 252px;
@@ -14,6 +47,16 @@
             border: 3px solid $color-border-light-gray;
             min-height: 252px;
             max-height: 410px;
+
+            &__label {
+                font-family: $title-font-family;
+                color: $color-black;
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 30px;
+                text-align: center;
+
+            }
         }
     }
     
