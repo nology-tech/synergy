@@ -33,8 +33,8 @@ const App = () => {
           <Route path="/billingaddress" element={<BillingAddress />} />
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
-          <Route path="/contacts" element={<ContactListPage />} />
-          <Route path="/liverates" element={<LiveRates />} />
+          <Route path="/contacts" element={<ContactListPage searchTerm={searchTerm} handleInput={handleInput}/>} />
+          <Route path="/liverates" element={<LiveRates searchTerm={searchTerm} handleInput={handleInput}/>} />
           <Route path="/signin" element={<LoginFlowWelcome />} />
           <Route
             path="/userprofile"
@@ -108,3 +108,8 @@ const App = () => {
 };
 
 export default App;
+
+
+
+
+

@@ -5,23 +5,24 @@ import LiveRatesList from "../LiveRatesList/LiveRatesList.jsx";
 import "./LiveRates.scss";
 import NavMenu from "../NavMenu/NavMenu.jsx";
 import NavBar from "../../assets/images/navbar.png";
+import DashboardHeader from "../DashboardHeader/DashboardHeader.jsx";
 
-const LiveRates = () => {
+const LiveRates = (props) => {
   const { liverates } = useParams();
+  const {searchTerm, handleInput} = props;
   return (
     <div className="live-rates-page">
       <NavMenu />
 
       <div className="live-rates-right">
         <div className="placeHolders__Navbar">
-          <img src={NavBar} alt="NavBar" />
+          <DashboardHeader searchTerm={searchTerm} handleInput={handleInput}/>
         </div>
-
         <div className="live-rates">
           <h4 className="live-rates__h4">Transfer</h4>
           <h2 className="live-rates__h2">View Latest Rates</h2>
           <p className="live-rates__para">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam,
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam,
             voluptatem quidem? Corporis, odio vero sequi vitae deleniti sit quod
             quae! Autem unde reiciendis sunt porro obcaecati alias fugiat quod
             aliquid!
