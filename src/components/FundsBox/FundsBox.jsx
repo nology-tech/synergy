@@ -1,13 +1,17 @@
-import React from 'react'
+import React from "react";
+import "./FundsBox.scss";
 
 const FundsBox = (props) => {
-    const { fundsAmount, forConverter } = props;
+  const { fundsAmount, forConverter, name } = props;
   return (
-    <div className='fundsBox'>
+    <>
+      <div className="fundsbox__firstName">{"Hey " + name}</div>
+      <div className="fundsBox">
         <h3>Your Fund</h3>
-        <
-    </div>
-  )
-}
+      </div>
+      <div className="fundsBox__amount">{fundsAmount}</div>
+    </>
+  );
+};
 
-export default FundsBox
+export default FundsBox;
