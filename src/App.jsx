@@ -15,6 +15,8 @@ import BillingAddress from "./components/BillingAddress/BillingAddress";
 import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
+import CurrencyConverter from "./components/CurrencyConverter/CurrencyConverter";
+import CurrencyConverterContainer from "./containers/CurrencyConverterContainer/CurrencyConverterContainer";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -38,6 +40,8 @@ const App = () => {
           <Route path="/contacts" element={<ContactListPage />} />
           <Route path="/liverates" element={<LiveRates />} />
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/currencyconverter" element={<CurrencyConverterContainer />} />
+          
           <Route
             path="/userprofile"
             element={
