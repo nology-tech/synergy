@@ -38,12 +38,11 @@ const App = () => {
           <Route path="/signup" element={<SignUpMain />} />
           <Route path="/bankdetails" element={<BankDetails />} />
           <Route path="/billingaddress" element={<BillingAddress />} />
-          <Route path="/welcome" element={<LoginFlowWelcome />} />
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
           <Route path="/contacts" element={<ContactListPage />} />
           <Route path="/liverates" element={<LiveRates />} />
-          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signin" element={<LoginFlowWelcome />} />
           <Route
             path="/userprofile"
             element={
@@ -74,17 +73,7 @@ const App = () => {
               />
             }
           ></Route>
-          <Route
-            path="/dashboard/liveRates"
-            element={
-              <UserDashboard
-                handleInput={handleInput}
-                value={searchTerm}
-                navigateTo="LiveRates"
-              />
-            }
-          ></Route>
-          <Route
+            <Route
             path="/dashboard/convert"
             element={
               <UserDashboard

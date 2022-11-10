@@ -1,7 +1,7 @@
 import React from "react";
 import "./UserDashboard.scss";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/Main_Logo.png";
+import logo from "../../assets/images/synergy_main_logo.png";
 import NavMenu from "../../components/NavMenu/NavMenu";
 import clarity from "../../assets/images/clarity_search-line.png";
 import profile from "../../assets/images/Ellipse.png";
@@ -18,7 +18,7 @@ const UserDashboard = (props) => {
   return (
     <div className="userdashboard">
       <div className="userdashboard_menu">
-        <img src={mainLogo} alt="Synergy-icon" />
+        {/* <img src={mainLogo} alt="Synergy-icon" /> */}
         <NavMenu />
       </div>
       <div className="userdashboard_main">

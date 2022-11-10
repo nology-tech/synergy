@@ -2,40 +2,42 @@
 
 .live-rates-page {
   display: flex;
+  margin-top: 20px;
 
-.live-rates {
-  margin-left: 5%;
+  .live-rates {
+    margin-left: 5%;
 
-  &__h4 {
-    color: $color-middle-blue;
-    font-family: $title-font-family;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 15px;
-    margin-bottom: 0px;
-  
-  }
+    &__h4 {
+      color: $color-middle-blue;
+      font-family: $title-font-family;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 15px;
+      margin-bottom: 0px;
 
-  &__h2{
-    font-family: $title-font-family;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 40px;
+    }
+
+    &__h2 {
+      font-family: $title-font-family;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    &__para {
+      font-family: $third-font-family;
+      width: 514px;
+      height: 72px;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 150%;
+      margin-top: 0px;
+      margin-bottom: 30px;
+      color: $color-font-light-gray;
+    }
   }
-  &__para {
-    font-family: $third-font-family;
-    width: 514px;
-    height: 72px;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 150%;
-    margin-top: 0px;
-    margin-bottom: 30px;
-    color: $color-font-light-gray;
-  }
-}
 }
 
 
@@ -52,7 +54,7 @@
 }
 
 .primary {
-//   background-color: transparent;
+  //   background-color: transparent;
   background-color: $color-middle-blue;
 
 }
