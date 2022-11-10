@@ -18,9 +18,8 @@ import CurrencyConverterContainer from "./containers/CurrencyConverterContainer/
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [fxRate, setfxRate] = useState();
-  
-  
+  //const [fxRate, setfxRate] = useState();
+    
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
