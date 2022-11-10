@@ -1,9 +1,7 @@
 import React from 'react'
 import ContactContainer from '../../containers/ContactContainer/ContactContainer';
 import NavBar from "../../assets/images/navbar.png";
-import SideBar from "../../assets/images/sidebar.jpg";
 import  "./ContactListPage.scss";
-import SignInNav from '../SignInNav/SignInNav';
 import NavMenu from '../NavMenu/NavMenu';
 import DashboardHeader from '../DashboardHeader/DashboardHeader';
 const ContactListPage = (props) => {
