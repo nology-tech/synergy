@@ -26,10 +26,12 @@ import React from "react";
  */}
 
 const Button = (props) => {
-  const { buttonStyle, buttonInitialStyle, isDisabled, buttonType, buttonText} = props;
-  if (buttonInitialStyle!="") {
-    buttonStyle = buttonStyle + "-" + buttonInitialStyle;
-  };
-  return <button className={buttonStyle} type={buttonType} disabled={isDisabled}> {buttonText} </button>;
+  const { buttonImg, buttonStyle, 
+    // buttonInitialStyle, 
+    isDisabled, buttonType, buttonText} = props;
+  // if (buttonInitialStyle!="") {
+    // buttonStyle = buttonStyle + "-" + buttonInitialStyle;
+  // };
+  return <button className={buttonStyle} type={buttonType} disabled={isDisabled}> {buttonImg}   {buttonText} </button>;
 };
 export default Button;

@@ -17,11 +17,12 @@
     width: 114px;
     height: 40px;
     background: $color-middle-blue;
+    border: $color-middle-blue;
     border-radius: 6px;
     font-family: $third-font-family;
     font-style: normal;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 22px;
     text-align: center;
     color: $color-white;
@@ -31,11 +32,12 @@
     width: 116px;
     height: 48px;
     background: rgba(0, 206, 212, 0.4);
+    border: $color-middle-blue;
     border-radius: 6px;
     font-family: $third-font-family;
     font-style: normal;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 22px;
     text-align: center;
     color:$color-white;
@@ -51,7 +53,7 @@
     font-family: $third-font-family;
     font-style: normal;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 22px; /* identical to box height */
     text-align: center;
     color: $color-white;
@@ -74,4 +76,38 @@
     text-align: center;
     color: $color-middle-blue;
 
+}
+
+.button-white {
+    width: 121px;
+    height: 58px;
+    background: $color-white;
+    border-radius: 6px;
+    font-family: $third-font-family;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: $color-middle-blue;
+    border: $color-white;
+}
+
+.button-dashed {
+    box-sizing: border-box;
+    width: 108px;
+    height: 32px;
+    border: 1px dashed $color-font-light-gray;
+    border-radius: 8px;
+    font-family: $third-font-family;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    color: color-font-light-gray;
+}
+.button-test {
+    display: flex;
+    margin: 50px;
+    background: #F1FFFF;
 }

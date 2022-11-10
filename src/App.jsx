@@ -15,6 +15,7 @@ import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
 import Button from "./components/Button/Button";
+import {SlRefresh} from 'react-icons/sl';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -23,31 +24,53 @@ const App = () => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
   };
-  let buttonText =
-    "<i class='fa-solid fa-arrows-rotate'></i> Convert";
+  const buttonImg = <SlRefresh />;
+  const buttonText = "Convert";
+
 
   return (
     <Router>
       <div>
+      <div className="button-test" >
+        {/* remove after button testing */}
         <Button
           buttonStyle={"button-light-blue"}
-          buttonInitialStyle={""}
+          // buttonInitialStyle={""}
           isDisabled={false}
           buttonType={""}
           buttonText={"Find out more"}
         />
 
-        <Button buttonStyle={"button-blue"} buttonInitialStyle={""} isDisabled={false} buttonType={""} buttonText={buttonText} />
+        <Button buttonStyle={"button-blue"} 
+        // buttonInitialStyle={""} 
+        isDisabled={false} buttonType={""} buttonText={buttonText} buttonImg={buttonImg}/>
 
-        <Button buttonStyle={"button-blue-disabled"} buttonInitialStyle={""} isDisabled={false} buttonType={"submit"} buttonText={"Continue &#9654"} />
+        <Button buttonStyle={"button-blue-disabled"} 
+        // buttonInitialStyle={""} 
+        isDisabled={false} buttonType={"submit"} buttonText={`Continue ▶`} />
 
         <Button
           buttonStyle={"button-blue-white-border"}
-          buttonInitialStyle={""}
+          // buttonInitialStyle={""}
           isDisabled={false}
           buttonType={""}
           buttonText={"Edit"}
         />
+
+        <Button
+          buttonStyle={"button-dashed"}
+          isDisabled={false}
+          buttonType={""}
+          buttonText={"Add Currency"}
+        />
+
+        <Button
+          buttonStyle={"button-white"}
+          isDisabled={false}
+          buttonType={""}
+          buttonText={"Manage"}
+        />
+        </div>
 
         <Routes>
           <Route path="/" element={<LandingMain />} />
