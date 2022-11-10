@@ -86,16 +86,6 @@ const App = () => {
               />
             }
           ></Route>
-          <Route
-            path="/dashboard/contacts"
-            element={
-              <UserDashboard
-                handleInput={handleInput}
-                value={searchTerm}
-                navigateTo="Contacts"
-              />
-            }
-          ></Route>
           <Route path="/home" element={<LandingMain />}></Route>
           <Route path="/features" element={<LandingMain />}></Route>
           <Route path="/about" element={<LandingMain />}></Route>
