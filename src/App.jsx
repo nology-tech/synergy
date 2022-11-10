@@ -14,12 +14,13 @@ import BillingAddress from "./components/BillingAddress/BillingAddress";
 import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
-import CurrencyConverter from "./components/CurrencyConverter/CurrencyConverter";
 import CurrencyConverterContainer from "./containers/CurrencyConverterContainer/CurrencyConverterContainer";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [fxRate, setfxRate] = useState();
+  
+  
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);

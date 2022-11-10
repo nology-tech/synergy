@@ -5,14 +5,28 @@ import currency from '../../data/currency';
 
 
 const CurrencyConverter = () => {
-    const [amount, setAmount] = useState("");
+    //const {fxRate}=props;
+    const [amount, setAmount] = useState();
+    const [convertedAmount, setConvertedAmount] = useState();
     const [from, setFrom] = useState(currency[0].code);
     const [to, setTo] = useState(currency[1].code);
+    //const [fxRate, setfxRate] = useState(currency[1].rate);
+
+    const fxRate = currency[1].rate;
+    const currencyFromName = currency[0].name;
+    const currencyToName = currency[1].name;
+    const message = `${amount} ${currencyFromName} = ${convertedAmount} ${currencyToName}`
 
     const flip = () => {
       var temp = from;
       setFrom(to);
-      setTo(temp);
+      setTo(temp);     
+      
+    }
+
+    const convertAmount = () => {
+      setConvertedAmount(amount*fxRate);
+      console.log(convertedAmount)
       
       
     }
@@ -21,7 +35,7 @@ const CurrencyConverter = () => {
     const handleAmount = (e) => {
         e.preventDefault();
         setAmount(e.target.value.toString());
-        console.log(amount*1.5);
+        console.log(amount*fxRate);
       };
   return (
     <div className='currencyConverter'>
@@ -45,7 +59,8 @@ const CurrencyConverter = () => {
                  value={from}
                 //   className="input"
                 
-                  type="text"
+                  type="text" 
+                  disabled
                 />
                 <button onClick={flip}>reverse</button>
                 <label>To</label>
@@ -56,8 +71,10 @@ const CurrencyConverter = () => {
                 value={to}
                   type="text"
                 />
-                <button>Convert</button>
+                <button onClick={convertAmount}>Convert</button>
                 {/* will display conversion */}
+                <p>{message}</p>
+
           </div>
        </div>
        

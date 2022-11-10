@@ -4,14 +4,15 @@ import NavMenu from "../../components/NavMenu/NavMenu"
 import LiveRatesList from '../../components/LiveRatesList/LiveRatesList';
 import LiveRates from '../../components/LiveRates/LiveRates';
 import CurrencyConverter from '../../components/CurrencyConverter/CurrencyConverter';
-import currency from '../../data/currency.js'
+// import currency from '../../data/currency.js'
 
 const CurrencyConverterContainer = () => {
+  //const {fxRate}=props;
   return (
     <div className='currencyConverterPage'>
       <NavMenu />
       <div className='currencyConverterPage__right'>
-        <div className="currencyConverterPage__right-topNavBar">Top Nav Bar placeholder</div>      
+        <div className="currencyConverterPage__right-topNavBar">Top Nav Bar placeholder</div>    
         <CurrencyConverter />
         <LiveRates />
         {/* <LiveRatesList className="live-rates__list" currency={currency}/> */}
