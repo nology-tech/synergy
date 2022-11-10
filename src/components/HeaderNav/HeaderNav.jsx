@@ -1,6 +1,6 @@
 import React from "react";
 import "./HeaderNav.scss";
-import logo from "../../assets/images/main_logo.png";
+import logo from "../../assets/images/synergy_main_logo.png";
 import { Link } from "react-router-dom";
 
 const HeaderNav = () => {
