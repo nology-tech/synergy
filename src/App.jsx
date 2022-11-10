@@ -93,6 +93,7 @@ const App = () => {
           <Route path="/about" element={<LandingMain />}></Route>
           <Route path="/contact" element={<LandingMain />}></Route>
           <Route path="/" element={<LandingMain />}></Route>
+          <Route path="/currencyconverter" element={<CurrencyConverterContainer />}></Route>
         </Routes>
       </div>
     </Router>
