@@ -33,7 +33,7 @@
     line-height: 150%;
     margin-top: 0px;
     margin-bottom: 30px;
-    color: $color-font-lightgray;
+    color: $color-font-light-gray;
   }
 }
 }
@@ -53,7 +53,7 @@
 
 .primary {
 //   background-color: transparent;
-  background-color: $color-button-primary;
+  background-color: $color-middle-blue;
 
 }
 
@@ -61,9 +61,9 @@
   width: 108px;
   height: 32px;
   background-color: $color-white;
-  border: 1px dashed $color-font-lightgray;
+  border: 1px dashed $color-font-light-gray;
   border-radius: 8px;
-  color: $color-font-lightgray;
+  color: $color-font-light-gray;
   font-family: $third-font-family;
   font-style: normal;
   font-size: 12px;

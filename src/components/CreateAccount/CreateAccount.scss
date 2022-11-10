@@ -23,14 +23,14 @@
         padding-left: 40px;
     }
     .ipsum {
-       color: $color-font-lightgray; 
+       color: $color-font-light-gray; 
        margin-top: 0;
        padding-left: 40px;
     }
     
     .input {
         background:$color-light-gray-info-bar;
-        border: 1px solid $color-input-border-light-gray;
+        border: 1px solid $color-border-light-gray;
         border-radius: 6px;
         width: 505px;
         padding-left: 10px;
@@ -38,7 +38,7 @@
         margin-top: 5px;
         font-size: 16px;
         line-height: 20px;
-        color:$color-nav-font-light-gray;
+        color:$color-light-gray2;
     }
     
     .fontAwesome_icon {
@@ -68,7 +68,7 @@
     
         &__hasAccount {
             &__question {
-                color:$color-font-lightgray;
+                color:$color-font-light-gray;
             }
             &__login {
                 color:$color-middle-blue;
@@ -76,7 +76,7 @@
         }
         
         &__btn {
-            background: $color-button-primary;
+            background: $color-middle-blue;
             border: none;
             border-radius: 6px;
             color: $color-white;
@@ -98,12 +98,12 @@
         margin-left: auto;
     }
     .valid {
-        color: $color-msg-valid;
+        color: $color-green;
         font-size: 10px;
     }
     
     .invalid {
-        color: $color-msg-invalid;
+        color: $color-red;
         font-size: 10px;
     }
 }

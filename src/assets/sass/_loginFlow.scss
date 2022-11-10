@@ -74,20 +74,20 @@
         }
         p {
           padding: 10px 0px;
-          color: $color-medium-gray;
+          color: $color-font-light-gray;
         }
         .loginFlow__inputbox {
           font-size: 16px;
           padding: 10px;
           border-radius: 5px;
-          border: 2px solid $color-medium-gray;
+          border: 2px solid $color-font-light-gray;
           background-color: $color-light-gray-info-bar;
-          color: $color-font-lightgray;
+          color: $color-font-light-gray;
           width: 100%;
         }
         .fontAwesome_icon {
           margin-left: -30px;
-          color: $color-font-lightgray;
+          color: $color-font-light-gray;
         }
 
         .valid {
@@ -107,7 +107,7 @@
       justify-content: space-between;
       align-content: center;
       padding: 20px 0px;
-      border-bottom: 1px solid $color-loginFlow-lightGray;
+      border-bottom: 1px solid $color-border-light-gray;
 
       p {
         font-size: 16px;
@@ -118,7 +118,7 @@
       }
 
       .grey {
-        color: $color-font-lightgray;
+        color: $color-font-light-gray;
       }
 
       .blue {
