@@ -9,7 +9,6 @@ import UserDashboard from "./containers/UserDashboard/UserDashboard";
 import ForgottenPassword from "./components/ForgottenPassword/ForgottenPassword";
 import LoginFlowChangePsw from "./components/LoginFlowChangePsw/LoginFlowChangePsw";
 import LoginFlowWelcome from "./components/LoginFlowWelcome/LoginFlowWelcome";
-import SignUp from "./components/SignUp/SignUp";
 import BankDetails from "./components/BankDetails/BankDetails";
 import BillingAddress from "./components/BillingAddress/BillingAddress";
 import LandingMain from "./containers/LandingMain/LandingMain";
@@ -27,7 +26,7 @@ const App = () => {
 
   return (
     <Router>
-      <div className="app">
+      <div>
         <Routes>
           <Route path="/" element={<LandingMain />} />
           <Route path="/signup" element={<SignUpMain />} />
