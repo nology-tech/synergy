@@ -1,1 +1,5 @@
-/*# sourceMappingURL=FundsBox.css.map */
+.fundsBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}/*# sourceMappingURL=FundsBox.css.map */
