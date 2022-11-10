@@ -1,5 +1,22 @@
+@use "./assets/sass/_variables.scss" as *;
+
 .fundsBox{
     display: flex;
     justify-content: center;
     margin-top: 40px;
+
+    &__background {
+        background-color: white;
+
+    }
+    &__round {
+        background-color: #37D8DD;
+        
+    }
+
+    &__blue {
+        background-color: $color-middle-blue; 
+        
+    }
+
 }
