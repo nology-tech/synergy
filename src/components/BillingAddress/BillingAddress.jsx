@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./BillingAddress.scss";
 import synergyLogo from "../../assets/images/synergy_logo.png";
+import SignInNav from "../SignInNav/SignInNav";
 
 const BillingAddress = () => {
   const [houseNum, setHouseNum] = useState();
@@ -35,68 +36,74 @@ const BillingAddress = () => {
   };
 
   return (
-    <div className="BillingAddress">
-      <div className="form-box">
-        <div className="billing-header">
-          <img src={synergyLogo} />
-        </div>
-        <div>
-          <h1>Add Billing Address</h1>
-          <p className="ipsum">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </p>
-          <form className="billingAddressForm">
-            {/* Labels and inputs for form data */}
-            <div className="billingAddressForm__div">
-              <label>House Number</label>
-              <input
-                onChange={handleHouseNum}
-                className="input"
-                value={houseNum}
-                type="text"
-              />
-            </div>
+    <>
+      <SignInNav title="Login" />
+      <div className="BillingAddress">
+        <div className="form-box">
+          <div className="billing-header">
+            <img src={synergyLogo} />
+          </div>
+          <div>
+            <h1>Add Billing Address</h1>
+            <p className="ipsum">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+            <form className="billingAddressForm">
+              {/* Labels and inputs for form data */}
+              <div className="billingAddressForm__div">
+                <label>House Number</label>
+                <input
+                  onChange={handleHouseNum}
+                  className="input"
+                  value={houseNum}
+                  type="text"
+                />
+              </div>
 
-            <div className="billingAddressForm__div">
-              <label>Street Name</label>
-              <input
-                onInput={handleStreetName}
-                className="input"
-                value={streetName}
-              />
-            </div>
+              <div className="billingAddressForm__div">
+                <label>Street Name</label>
+                <input
+                  onInput={handleStreetName}
+                  className="input"
+                  value={streetName}
+                />
+              </div>
 
-            <div className="billingAddressForm__div">
-              <label>City</label>
-              <input onChange={handleCity} className="input" value={city} />
-            </div>
+              <div className="billingAddressForm__div">
+                <label>City</label>
+                <input onChange={handleCity} className="input" value={city} />
+              </div>
 
-            <div className="billingAddressForm__div">
-              <label>Post Code</label>
-              <input
-                onChange={handlePostCode}
-                className="input"
-                value={postcode}
-              />
-            </div>
-            
-            <div className="billingAddressForm__separator"></div>
+              <div className="billingAddressForm__div">
+                <label>Post Code</label>
+                <input
+                  onChange={handlePostCode}
+                  className="input"
+                  value={postcode}
+                />
+              </div>
 
-            <div className="buttons-group">
-              <Link to="/bankdetails">
-                <button className="billingAddressForm__goBackBtn" type="submit">
-                  Go Back
+              <div className="billingAddressForm__separator"></div>
+
+              <div className="buttons-group">
+                <Link to="/bankdetails">
+                  <button
+                    className="billingAddressForm__goBackBtn"
+                    type="submit"
+                  >
+                    Go Back
+                  </button>
+                </Link>
+                <button className="billingAddressForm__btn" type="submit">
+                  Create Account
                 </button>
-              </Link>
-              <button className="billingAddressForm__btn" type="submit">
-                Create Account
-              </button>
-            </div>
-          </form>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    );
+    </>
+  );
 };
 
 export default BillingAddress;
