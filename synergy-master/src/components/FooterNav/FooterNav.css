@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.footernav {
+  background-color: #06020A;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.footernav * {
+  text-decoration: none;
+  padding: 0 45px 10px 20px;
+  margin: 5px;
+}
+.footernav__centerlinks, .footernav__signin {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.footernav__centerlinks *, .footernav__signin * {
+  margin-left: 30px;
+  padding: 10px;
+  color: #839AAF;
+  font-size: 16px;
+}
+.footernav__centerlinks *:hover, .footernav__centerlinks *:active, .footernav__signin *:hover, .footernav__signin *:active {
+  color: #FFFFFF;
+}
+.footernav__centerlinks .signup, .footernav__signin .signup {
+  background-color: #00CED4;
+  color: #FFFFFF;
+  border-radius: 6px;
+}/*# sourceMappingURL=FooterNav.css.map */
