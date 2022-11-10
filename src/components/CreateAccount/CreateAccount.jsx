@@ -7,7 +7,7 @@ import "./CreateAccount.scss";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import synergyLogo from "../../assets/images/Main_Logo.png";
+import synergyLogo from "../../assets/images/synergy_main_logo.png";
 
 const CreateAccount = () => {
   const [email, setEmail] = useState("");
@@ -161,9 +161,9 @@ const CreateAccount = () => {
               <p className="CreateAccountForm__hasAccount__question">
                 Already have an account?&nbsp;
                 <span>
-                  <a className="CreateAccountForm__hasAccount__login" href="#">
+                  <Link className="CreateAccountForm__hasAccount__login" to="/signin">
                     Login
-                  </a>
+                  </Link>
                 </span>
               </p>
             </div>

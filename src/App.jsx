@@ -33,14 +33,11 @@ const App = () => {
           <Route path="/signup" element={<SignUpMain />} />
           <Route path="/bankdetails" element={<BankDetails />} />
           <Route path="/billingaddress" element={<BillingAddress />} />
-          <Route path="/welcome" element={<LoginFlowWelcome />} />
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
-          <Route path="/contacts" element={<ContactListPage />} />
-          <Route path="/liverates" element={<LiveRates />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/currencyconverter" element={<CurrencyConverterContainer />} />
-          
+          <Route path="/contacts" element={<ContactListPage searchTerm={searchTerm} handleInput={handleInput}/>} />
+          <Route path="/liverates" element={<LiveRates searchTerm={searchTerm} handleInput={handleInput}/>} />
+          <Route path="/signin" element={<LoginFlowWelcome />} />
           <Route
             path="/userprofile"
             element={
@@ -71,17 +68,7 @@ const App = () => {
               />
             }
           ></Route>
-          <Route
-            path="/dashboard/liveRates"
-            element={
-              <UserDashboard
-                handleInput={handleInput}
-                value={searchTerm}
-                navigateTo="LiveRates"
-              />
-            }
-          ></Route>
-          <Route
+            <Route
             path="/dashboard/convert"
             element={
               <UserDashboard
@@ -101,16 +88,6 @@ const App = () => {
               />
             }
           ></Route>
-          <Route
-            path="/dashboard/contacts"
-            element={
-              <UserDashboard
-                handleInput={handleInput}
-                value={searchTerm}
-                navigateTo="Contacts"
-              />
-            }
-          ></Route>
           <Route path="/home" element={<LandingMain />}></Route>
           <Route path="/features" element={<LandingMain />}></Route>
           <Route path="/about" element={<LandingMain />}></Route>
@@ -123,3 +100,8 @@ const App = () => {
 };
 
 export default App;
+
+
+
+
+
