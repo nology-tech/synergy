@@ -48,7 +48,7 @@ const NavMenu = () => {
           </div>
           <div className="sidemenu__item">
             <img className="sidemenu__icon" src={contactsImg} alt="Contacts" />
-            <Link className="sidemenu__a" to="/dashboard/contacts">
+            <Link className="sidemenu__a" to="/contacts">
               Contacts
             </Link>
           </div>
