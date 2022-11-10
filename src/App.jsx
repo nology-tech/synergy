@@ -14,8 +14,9 @@ import BillingAddress from "./components/BillingAddress/BillingAddress";
 import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
-import Button from "./components/Button/Button";
-import {SlRefresh} from 'react-icons/sl';
+
+// import Button from "./components/Button/Button"; // to be removed
+// import {SlRefresh} from 'react-icons/sl';  // to be removed
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -24,53 +25,53 @@ const App = () => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
   };
-  const buttonImg = <SlRefresh />;
-  const buttonText = "Convert";
+
+
+  // const buttonImg = <SlRefresh />;  // to be removed
+  // const buttonText = "Convert";  // to be removed
 
 
   return (
     <Router>
       <div>
-      <div className="button-test" >
-        {/* remove after button testing */}
-        <Button
-          buttonStyle={"button-light-blue"}
-          // buttonInitialStyle={""}
-          isDisabled={false}
-          buttonType={""}
-          buttonText={"Find out more"}
-        />
+                    {/* ===================================================================================================== */}
+                              {/* <div className="button-test" text = "FOR BUTTON TESTING ONLY - TO BE REMOVED AFTER TESTING" >
+                                  <Button
+                                    buttonStyle={"button-light-blue"}
+                                    isDisabled={false}
+                                    buttonType={""}
+                                    buttonText={"Find out more"}
+                                  />
 
-        <Button buttonStyle={"button-blue"} 
-        // buttonInitialStyle={""} 
-        isDisabled={false} buttonType={""} buttonText={buttonText} buttonImg={buttonImg}/>
+                                  <Button buttonStyle={"button-blue"} 
+                                  isDisabled={false} buttonType={""} buttonText={buttonText} buttonImg={buttonImg}/>
 
-        <Button buttonStyle={"button-blue-disabled"} 
-        // buttonInitialStyle={""} 
-        isDisabled={false} buttonType={"submit"} buttonText={`Continue ▶`} />
+                                  <Button buttonStyle={"button-blue-disabled"} 
+                                  isDisabled={false} buttonType={"submit"} buttonText={`Continue ▶`} />
 
-        <Button
-          buttonStyle={"button-blue-white-border"}
-          // buttonInitialStyle={""}
-          isDisabled={false}
-          buttonType={""}
-          buttonText={"Edit"}
-        />
+                                  <Button
+                                    buttonStyle={"button-blue-white-border"}
+                                    isDisabled={false}
+                                    buttonType={""}
+                                    buttonText={"Edit"}
+                                  />
 
-        <Button
-          buttonStyle={"button-dashed"}
-          isDisabled={false}
-          buttonType={""}
-          buttonText={"Add Currency"}
-        />
+                                  <Button
+                                    buttonStyle={"button-dashed"}
+                                    isDisabled={false}
+                                    buttonType={""}
+                                    buttonText={"Add Currency"}
+                                  />
 
-        <Button
-          buttonStyle={"button-white"}
-          isDisabled={false}
-          buttonType={""}
-          buttonText={"Manage"}
-        />
-        </div>
+                                  <Button
+                                    buttonStyle={"button-white"}
+                                    isDisabled={false}
+                                    buttonType={""}
+                                    buttonText={"Manage"}
+                                  />
+                              </div> */}
+                    {/* ===================================================================================================== */}
+
 
         <Routes>
           <Route path="/" element={<LandingMain />} />
