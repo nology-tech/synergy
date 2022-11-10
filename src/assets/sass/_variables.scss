@@ -4,40 +4,29 @@
 $color-black: #06020A;
 $color-white: #FFFFFF;
 $color-blue: #0B2251;
-$color-middle-blue: #00CED4;
-$color-lightblue: #0AF8FF;
-$color-medium-gray: #8896A3;
+$color-middle-blue: #00CED4;    // Also used for Primary button colors
+$color-light-blue: #0AF8FF;
 $color-light-gray: #839AAF;
+$color-light-gray2: #A6AFBD;
 $color-green: #57e141;
 $color-red: #df1c1c;
 
 //FONT COLORS
-$color-font-lightgray: #8896A3;
+$color-font-light-gray: #8896A3;
 $color-font-gray: #5B6D7D;
-$color-nav-font-light-gray: #A6AFBD;
 $color-nav-font-dark-gray: #343C49;
 
 //BACKGROUND COLORS
-$color-background: #F1FFFF;
+$color-background: #EFFFFF;
 $color-background-clear: #E5E5E5;
 
-
 //COMPONENT & CONTAINER COLORS
-$color-nav-font-light-gray: #A6AFBD;
-$color-nav-font-dark-gray: #343C49;
-$color-loginFlow-lightGray: #e2e2e2;
-$color-input-border-light-gray: #e2e2e2;
-$color-msg-valid: #57E141;
-$color-msg-invalid: #DF1C1C;
+$color-border-light-gray: #e2e2e2;
 $color-separator-light-gray: #F1F1F1;
 $color-light-gray-info-bar: #FBFBFC;
-$color-spyglass-gray: #A6AFBD;
-
 
 //BUTTON COLORS
-$color-button-primary: #00CED4;
 $color-button-primary-lighter: rgba(0, 206, 212, 0.4);
-
 
 //FONTS
 $title-font-family: 'Outfit';
