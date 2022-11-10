@@ -3,20 +3,15 @@
 .fundsBox{
     display: flex;
     justify-content: center;
-    margin-top: 40px;
-
-    &__background {
-        background-color: white;
-
-    }
-    &__round {
-        background-color: #37D8DD;
-        
-    }
-
-    &__blue {
-        background-color: $color-middle-blue; 
-        
-    }
-
+    margin-top: 20px;
+}
+.fundsbox__firstName{
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+}
+.fundsBox__amount{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
