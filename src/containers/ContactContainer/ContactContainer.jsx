@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ContactSearch from "../../components/ContactSearch/ContactSearch";
 import "./ContactContainer.scss";
 import ContactList from "../../components/ContactList/ContactList";
-import contacts from "../../assets/data/Contacts";
+import contacts from "../../data/Contacts";
 
 const ContactContainer = () => {
   // Setting up the search box
