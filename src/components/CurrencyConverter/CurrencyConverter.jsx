@@ -6,6 +6,17 @@ import currency from '../../data/currency';
 
 const CurrencyConverter = () => {
     const [amount, setAmount] = useState("");
+    const [from, setFrom] = useState(currency[0].code);
+    const [to, setTo] = useState(currency[1].code);
+
+    const flip = () => {
+      var temp = from;
+      setFrom(to);
+      setTo(temp);
+      
+      
+    }
+   
 
     const handleAmount = (e) => {
         e.preventDefault();
@@ -22,7 +33,7 @@ const CurrencyConverter = () => {
           <div className='currencyConverter__main__converter'>Converter
           <label>Amount</label>
                 <input
-                  onInput={handleAmount}
+                  onChange={handleAmount}
                   className="input"
                   value={amount}
                   type="text"
@@ -31,18 +42,18 @@ const CurrencyConverter = () => {
                 {/* From: Base Currency in Wallet/Live Rates -- assuming Base Currency = USD */}
                 <input
                
-                 value={currency[0].code}
+                 value={from}
                 //   className="input"
                 
                   type="text"
                 />
-                <button>reverse</button>
+                <button onClick={flip}>reverse</button>
                 <label>To</label>
                 {/* To: Desired currency selected via Live Rates */}
                 <input
                 //   onChange={handleAccountName}
                 //   className="input"
-                value={currency[1].code}
+                value={to}
                   type="text"
                 />
                 <button>Convert</button>
