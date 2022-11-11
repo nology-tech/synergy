@@ -2,6 +2,7 @@ import React from "react";
 import "./FooterNav.scss";
 import logo from "../../assets/images/Main_Logo.png";
 import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 
 const FooterNav = () => {
   let mainLogo = logo;
@@ -32,7 +33,7 @@ const FooterNav = () => {
         </div>
         <div className="footernav__signin">
           <Link to="/signup" className="signup" value="Sign Up">
-            Sign Up
+            <Button buttonStyle={"btn button-blue"} buttonText={"Sign Up"} />
           </Link>
         </div>
       </div>

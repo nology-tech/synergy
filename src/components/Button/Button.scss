@@ -1,7 +1,7 @@
 @use "./../../assets/sass/_variables.scss" as *;
 
 .button-blue {
-    width: 114px;
+    width: 116px;
     height: 40px;
     background: $color-middle-blue;
     border: $color-middle-blue;
@@ -16,7 +16,7 @@
 }
 .button-blue-disabled {
     width: 116px;
-    height: 48px;
+    height: 40px;
     background: rgba(0, 206, 212, 0.4);
     border: rgba(0, 206, 212, 0.4);
     border-radius: 6px;

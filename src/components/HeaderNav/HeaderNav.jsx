@@ -2,6 +2,7 @@ import React from "react";
 import "./HeaderNav.scss";
 import logo from "../../assets/images/Main_Logo.png";
 import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 
 const HeaderNav = () => {
   let mainLogo = logo;
@@ -29,8 +30,9 @@ const HeaderNav = () => {
           <Link to="/signin" className="signin" value="Sign In">
             Sign In
           </Link>
+          
           <Link to="/signup" className="signup" value="Sign Up">
-            Sign Up
+            <Button buttonStyle={"btn button-blue"} buttonText={"Sign Up"} />
           </Link>
         </div>
       </div>
