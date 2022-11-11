@@ -4,14 +4,11 @@ import "./CurrencyConverter.scss"
 import currency from '../../data/currency';
 
 
-const CurrencyConverter = () => {
-    //const {fxRate}=props;
-    const [amount, setAmount] = useState();
-    const [convertedAmount, setConvertedAmount] = useState();
+const CurrencyConverter = (props) => {
+    const {amount, handleAmount, convertedAmount, convertAmount}=props;
     const [from, setFrom] = useState(currency[0].code);
     const [to, setTo] = useState(currency[1].code);
-    //const [fxRate, setfxRate] = useState(currency[1].rate);
-
+    
     const fxRate = currency[1].rate;
     const currencyFromName = currency[0].name;
     const currencyToName = currency[1].name;
@@ -25,19 +22,6 @@ const CurrencyConverter = () => {
       
     }
 
-    const convertAmount = () => {
-      setConvertedAmount(amount*fxRate);
-      console.log(convertedAmount)
-      
-      
-    }
-   
-
-    const handleAmount = (e) => {
-        e.preventDefault();
-        setAmount(e.target.value.toString());
-        console.log(amount*fxRate);
-      };
   return (
     <div className='currencyConverter'>
        <h4 className="currencyConverter__title1">Convert</h4>

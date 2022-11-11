@@ -15,15 +15,30 @@ import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
 import CurrencyConverterContainer from "./containers/CurrencyConverterContainer/CurrencyConverterContainer";
+import currency from './data/currency';
+
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  //const [fxRate, setfxRate] = useState();
-    
+  const [amount, setAmount] = useState();
+  const [convertedAmount, setConvertedAmount] = useState();
+  // fx should come from Live rates on Send button click, temporary setting to EUR rate from data file
+  const [fxRate, setFxRate] = useState(currency[1].rate);
+      
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
   };
+
+  const handleAmount = (e) => {
+    e.preventDefault();
+    const amount = e.target.value.toLowerCase();
+    setAmount(amount);    
+  };
+
+  const convertAmount = () => {
+    setConvertedAmount(amount*fxRate);  
+  }
 
   return (
     <Router>
@@ -93,7 +108,14 @@ const App = () => {
           <Route path="/about" element={<LandingMain />}></Route>
           <Route path="/contact" element={<LandingMain />}></Route>
           <Route path="/" element={<LandingMain />}></Route>
-          <Route path="/currencyconverter" element={<CurrencyConverterContainer />}></Route>
+          <Route path="/currencyconverter" 
+                 element={
+                  <CurrencyConverterContainer 
+                  amount={amount} 
+                  handleAmount={handleAmount} 
+                  convertedAmount={convertedAmount}
+                  convertAmount={convertAmount}/>}></Route>
+          
         </Routes>
       </div>
     </Router>
