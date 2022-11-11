@@ -31,6 +31,7 @@
 .button-blue-white-border {
     box-sizing: border-box;
     background: $color-middle-blue;
+    border-radius: 6px;
     width: 114px;
     height: 41px;
     border: 2px solid $color-white;
@@ -86,7 +87,9 @@
     text-align: center;
     color: $color-font-light-gray;
 }
-
+.btn {
+    margin: 10px;
+}
 // btn {
 //     background: $color-middle-blue;
 //     border: none;
