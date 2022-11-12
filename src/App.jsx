@@ -16,8 +16,8 @@ import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
 import Button from "./components/Button/Button";
 
-import {SlRefresh} from 'react-icons/sl';
-import {IoExitOutline} from "react-icons/io5";
+// import {SlRefresh} from 'react-icons/sl';
+// import {IoExitOutline} from "react-icons/io5";
 
 
 const App = () => {
@@ -29,14 +29,14 @@ const App = () => {
   };
 
   // Button Icons
-  const buttonConvert = <SlRefresh />; 
-  const buttonSignOut = <IoExitOutline />; 
+  // const buttonConvert = <SlRefresh />; 
+  // const buttonSignOut = <IoExitOutline />; 
 
   return (
     <Router>
       <div>
         {/* Button Test */}
-        <div className="button-test">
+        {/* <div className="button-test">
           <Button
             buttonStyle={"btn button-transparent"}
             buttonText={"Find Out More"}
@@ -79,7 +79,7 @@ const App = () => {
             isDisabled={false}
             buttonText={"Manage"}
           />
-        </div>
+        </div> */}
 
         <Routes>
           <Route path="/" element={<LandingMain />} />
