@@ -7,6 +7,8 @@ import contacts from "../../assets/images/fluent_people-16-regular.png";
 import signout from "../../assets/images/Group 66.png";
 import transfer from "../../assets/images/transfer-icon.png";
 import { Link } from "react-router-dom";
+import Button from "../Button/Button";
+import {FiLogOut} from "react-icons/fi";
 
 const NavMenu = () => {
   const walletImg = wallet;
@@ -15,6 +17,8 @@ const NavMenu = () => {
   const contactsImg = contacts;
   const transferImg = transfer;
   const signoutImg = signout;
+  const buttonSignOut = <FiLogOut />; 
+
   return (
     <div className="sidemenu wrapper" id="slide">
       <div className="sidemenu__items">
@@ -52,7 +56,12 @@ const NavMenu = () => {
       </div>
       <div className="sidemenu__signout">
         <Link to="/home">
-          <img className="sidemenu__logout" src={signoutImg} alt="Contacts" />
+          {/* <img className="sidemenu__logout" src={signoutImg} alt="Sign Out" /> */}
+          <Button 
+            buttonStyle={"btn button-blue sidemenu__logout"}
+            buttonText={"Sign Out"} 
+            buttonImg={buttonSignOut}
+          />
         </Link>
       </div>
     </div>
