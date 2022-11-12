@@ -8,15 +8,18 @@ import CurrencyConverter from '../../components/CurrencyConverter/CurrencyConver
 // import currency from '../../data/currency.js'
 
 const CurrencyConverterContainer = (props) => {
-  const {amount, handleAmount, convertedAmount, convertAmount}=props;
+  const {amount,setAmount, convertedAmount, setConvertedAmount, fxRate}=props;
   
   return (
     <div className='currencyConverterPage'>
       <NavMenu />
       <div className='currencyConverterPage__right'>
         <HeaderNav />    
-        <CurrencyConverter amount={amount} handleAmount={handleAmount} convertedAmount={convertedAmount}
-                  convertAmount={convertAmount}/>
+        <CurrencyConverter amount={amount} 
+                  setAmount={setAmount} 
+                  convertedAmount={convertedAmount}
+                  setConvertedAmount={setConvertedAmount}
+                  fxRate={fxRate}/>
         <LiveRates />
         {/* <LiveRatesList className="live-rates__list" currency={currency}/> */}
       </div>

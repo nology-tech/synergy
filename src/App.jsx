@@ -30,15 +30,7 @@ const App = () => {
     setSearchTerm(cleanInput);
   };
 
-  const handleAmount = (e) => {
-    e.preventDefault();
-    const amount = e.target.value.toLowerCase();
-    setAmount(amount);    
-  };
-
-  const convertAmount = () => {
-    setConvertedAmount(amount*fxRate);  
-  }
+ 
 
   return (
     <Router>
@@ -112,9 +104,10 @@ const App = () => {
                  element={
                   <CurrencyConverterContainer 
                   amount={amount} 
-                  handleAmount={handleAmount} 
+                  setAmount={setAmount} 
                   convertedAmount={convertedAmount}
-                  convertAmount={convertAmount}/>}></Route>
+                  setConvertedAmount={setConvertedAmount}
+                  fxRate={fxRate}/>}></Route>
           
         </Routes>
       </div>
