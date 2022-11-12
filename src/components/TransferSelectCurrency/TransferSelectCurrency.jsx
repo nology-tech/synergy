@@ -3,6 +3,8 @@ import UserDashboard from "../../containers/UserDashboard/UserDashboard";
 import HeaderNav from "../HeaderNav/HeaderNav";
 import NavMenu from "../NavMenu/NavMenu";
 import FxTransaction from "../FxTransaction/FxTransaction";
+import AccountForm from "../AccountForm/AccountForm";
+import Button from "../Button/Button";
 import "./TransferSelectCurrency.scss";
 
 const TransferSelectCurrency = (props) => {
@@ -12,7 +14,13 @@ const TransferSelectCurrency = (props) => {
     amountBase,
     amountReceived,
     fxRate,
+    username,
+    accountBalance,
+    accountNum,
+    sortCode,
   } = props;
+
+  const accountFormTypes = true;
 
   return (
     <div>
@@ -32,13 +40,38 @@ const TransferSelectCurrency = (props) => {
               magna in lacus.
             </p>
           </div>
-            <FxTransaction
+          <FxTransaction
+            currencyBaseCode={currencyBaseCode}
+            currencyRecepientCode={currencyRecepientCode}
+            amountBase={amountBase}
+            amountReceived={amountReceived}
+            fxRate={fxRate}
+          />
+          --press continue: Send From form--
+          <div className="transfer-currency__main__send-form">
+            <h2>Send From</h2>
+            <AccountForm
               currencyBaseCode={currencyBaseCode}
-              currencyRecepientCode={currencyRecepientCode}
+              accountBalance={accountBalance}
               amountBase={amountBase}
-              amountReceived={amountReceived}
-              fxRate={fxRate}
+              accountFormTypes={accountFormTypes}
+              username={username}
+              accountNum={accountNum}
+              sortCode={sortCode}
             />
+            <div className="transfer-currency__main__send-form__to">
+              <h2>To</h2>
+              <div className="transfer-currency__main__send-form__to__button">
+                <Button buttonText="Select Recipient" />
+                <div className="transfer-currency__main__send-form__to__button--newPayee">
+                  <a>+</a>
+                  <p>Pay Someone New </p> 
+                </div>
+              </div>
+            </div>
+          </div>
+
+          ---
         </div>
       </main>
     </div>

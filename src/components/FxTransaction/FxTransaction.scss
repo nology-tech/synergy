@@ -14,7 +14,7 @@
 
     &__amount { 
         width: 100%;
-
+       
         h2 {
             color: $color-black;
             font-size: 24px;
@@ -29,10 +29,12 @@
             justify-content: space-between;
             padding: 10px 20px;
             box-sizing: border-box;
+          
 
             &__currency{
                 display: flex;
                 justify-items: flex-start;
+                filter: drop-shadow(0px 16.7658px 44.7087px $color-black);
 
                 .fx-transaction__amount__name{
                     font-size: 18px;
@@ -67,8 +69,8 @@
 
         h3 {
             font-weight: 400;
-                color: $color-black;
-                font-family: $title-font-family;
+            color: $color-black;
+            font-family: $title-font-family;
         }
 
         &__details{

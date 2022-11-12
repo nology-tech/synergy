@@ -24,12 +24,19 @@ const App = () => {
     setSearchTerm(cleanInput);
   };
 
-  // hardcoded values for transfer, shall be replaced from currency converter
+  // hardcoded values for transfer:
+  // list below shall be replaced from currency converter
   const currencyBaseCode = "USD";
   const currencyRecepientCode = "GBP";
   const amountBase = 1000;
   const amountReceived = 1359.5;
   const fxRate = 1.3595;
+  // list below shall be replaced from create account database
+  const username = "Smantha Brooks";
+  const accountNum = "10840366";
+  const sortCode = "110053";
+  // list below shall be replaced from wallet
+  const accountBalance = 15210;
   //---------------------------------
 
   return (
@@ -42,8 +49,21 @@ const App = () => {
           <Route path="/billingaddress" element={<BillingAddress />} />
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
-          <Route path="/contacts" element={<ContactListPage searchTerm={searchTerm} handleInput={handleInput}/>} />
-          <Route path="/liverates" element={<LiveRates searchTerm={searchTerm} handleInput={handleInput}/>} />
+          <Route
+            path="/contacts"
+            element={
+              <ContactListPage
+                searchTerm={searchTerm}
+                handleInput={handleInput}
+              />
+            }
+          />
+          <Route
+            path="/liverates"
+            element={
+              <LiveRates searchTerm={searchTerm} handleInput={handleInput} />
+            }
+          />
           <Route path="/signin" element={<LoginFlowWelcome />} />
           <Route
             path="/userprofile"
@@ -109,6 +129,10 @@ const App = () => {
                 amountBase={amountBase}
                 amountReceived={amountReceived}
                 fxRate={fxRate}
+                username={username}
+                accountBalance={accountBalance}
+                accountNum={accountNum}
+                sortCode={sortCode}
               />
             }
           />
@@ -119,8 +143,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-
-
