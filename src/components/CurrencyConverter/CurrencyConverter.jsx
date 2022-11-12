@@ -19,18 +19,19 @@ const CurrencyConverter = (props) => {
     const currencyToName = currency[1].name;
     const messageFrom = `${amount} ${currencyFromName} =`;
     const messageTo =  `${convertedAmount} ${currencyToName}`;
-    const message1From = `${baseCurrency.amount} ${baseCurrency.code} = ${toCurrency.amount} ${toCurrency.code}`;
+    const message1From = `${baseCurrency.amount} ${baseCurrency.code} = ${baseCurrency.amount * fxRate} ${toCurrency.code}`;
     const message1To = `1 ${toCurrency.code} = ${inverseFXRate} ${baseCurrency.code}`;
 
     const handleAmount = (e) => {
       e.preventDefault();
       const amount = e.target.value.toLowerCase();
-      setAmount(amount);    
+      setAmount(amount); 
+      setConvertedAmount (amount * fxRate);   
     };
   
     const convertAmount = () => {
       setConvertedAmount(amount*fxRate); 
-      setShouldHide(false); 
+      if (amount != null) setShouldHide(false); 
     }
 
     const flip = () => {
@@ -77,7 +78,8 @@ const CurrencyConverter = (props) => {
                 </div>               
               </div>  
               <button onClick={convertAmount}>Convert</button>
-              <div className={shouldHide? 'currencyConverter__main__hidden' : 'currencyConverter__main__bottom'}>
+              <div className=
+                {shouldHide ? 'currencyConverter__main__hidden' : 'currencyConverter__main__bottom'}>
                 <div className="separator"></div>
                 {/* will display conversion */}
                 <p className="currencyConverter__message-from">{messageFrom}</p>
