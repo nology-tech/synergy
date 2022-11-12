@@ -3,12 +3,14 @@ import { useState } from 'react';
 import "./CurrencyConverter.scss";
 import { Link } from "react-router-dom";
 import currency from '../../data/currency';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 
 const CurrencyConverter = (props) => {
     const {amount,setAmount, convertedAmount, setConvertedAmount, fxRate}=props;
     const [from, setFrom] = useState(currency[0].code);
     const [to, setTo] = useState(currency[1].code);
+    const [shouldHide, setShouldHide] = useState(true);
     
     const baseCurrency = currency[0];
     const toCurrency = currency[1];
@@ -27,13 +29,14 @@ const CurrencyConverter = (props) => {
     };
   
     const convertAmount = () => {
-      setConvertedAmount(amount*fxRate);  
+      setConvertedAmount(amount*fxRate); 
+      setShouldHide(false); 
     }
+
     const flip = () => {
       var temp = from;
       setFrom(to);
-      setTo(temp);    
-      
+      setTo(temp); 
     }
 
   return (
@@ -43,39 +46,51 @@ const CurrencyConverter = (props) => {
        <p className="currencyConverter__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea dolorem nihil neque laudantium assumenda totam amet alias, sequi fuga officiis asperiores beatae provident iste. Quis ducimus nobis a officia earum.</p>   
        <div className='currencyConverter__main'>
           <div className='currencyConverter__main__walletTemp'>Wallet Placeholder</div>
-          <div className='currencyConverter__main__converter'>
-            <div>
-              <label className="currencyConverter__main__converter__label">Amount</label>
-              <input
-                  onChange={handleAmount}
-                  className="input"
-                  value={amount}
-                  type="text"
-              />
-            </div>
-            <div>
-              <label className="currencyConverter__main__converter__label">From</label>
-              {/* From: Base Currency in Wallet/Live Rates -- assuming Base Currency = USD */}
-              <input value={from} className="input" type="text"/>
-            </div>
-            <button  className="currencyConverter__main__converter__button" onClick={flip}>reverse</button>
-            <div>
-              <label className="currencyConverter__main__converter__label">To</label>
-              {/* To: Desired currency selected via Live Rates */}
-              <input value={to} className="input" type="text" />
-            </div>               
-            <button onClick={convertAmount}>Convert</button>
-            {/* will display conversion */}
-            <p className="currencyConverter__message-from">{messageFrom}</p>
-            <p className="currencyConverter__message-to">{messageTo}</p>
-            <p>{message1From}</p>
-            <p>{message1To}</p>
-            <Link>
-                <button to="/transfer">
-                    Make Transfer
-                </button>
-            </Link>
-          </div>
+          
+          <div className='currencyConverter__main__convertercontainer'>
+              <div className='currencyConverter__main__converter'>
+                <div className = "currencyConverter__main__converter__input">
+                  <label className="currencyConverter__main__converter__input__label">Amount</label>
+                  <input
+                      onChange={handleAmount}
+                      className="currencyConverter__main__converter__input__box"
+                      value={amount}
+                      type="text"/>
+                </div>
+                <div className = "currencyConverter__main__converter__input">
+                  <label className="currencyConverter__main__converter__input__label">From</label>
+                  {/* From: Base Currency in Wallet/Live Rates -- assuming Base Currency = USD */}
+                  <div className='input-container'>
+                    <input value={from} type="text" className="currencyConverter__main__converter__input__box"/>
+                    <img src={toCurrency.img} className='flag_from'/>
+                  </div>                  
+                </div>
+                {/* I think this should be an image not a button, we shoudl clarify with Steph but I don't think we need a flip function*/}
+                {/* <button  className="currencyConverter__main__converter__button" onClick={flip}>reverse</button> */}
+                <div className = "currencyConverter__main__converter__input">
+                <label className="currencyConverter__main__converter__input__label">To</label>
+                  {/* To: Desired currency selected via Live Rates */}
+                  <div className='input-container'>
+                    <input value={to} type="text" className="currencyConverter__main__converter__input__box" />
+                    <img src={baseCurrency.img} className='flag_to'/>
+                  </div>
+                </div>               
+              </div>  
+              <button onClick={convertAmount}>Convert</button>
+              <div className={shouldHide? 'currencyConverter__main__hidden' : 'currencyConverter__main__bottom'}>
+                <div className="separator"></div>
+                {/* will display conversion */}
+                <p className="currencyConverter__message-from">{messageFrom}</p>
+                <p className="currencyConverter__message-to">{messageTo}</p>
+                <p>{message1From}</p>
+                <p>{message1To}</p>
+                <Link>
+                    <button to="/transfer">
+                        Make Transfer
+                    </button>
+                </Link>
+              </div>            
+          </div>   
        </div>
     </div>
     

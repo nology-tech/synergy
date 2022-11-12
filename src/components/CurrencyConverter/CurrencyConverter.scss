@@ -1,4 +1,27 @@
 @use "../../assets/sass/_variables.scss" as *;
+.separator {
+    border: 1px solid $color-separator-light-gray;
+    background-color: $color-separator-light-gray;
+    height: 1px;
+    width: 805px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.input-container {
+    position: relative;
+}
+
+.input-container > img {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    width: 20px;
+    height: 17px;
+}  
+.input-container > input {
+    padding-left: 50px;
+}
+
 .currencyConverter{
     min-height: 500px;    
     margin-left: 5%;
@@ -34,30 +57,57 @@
 
     &__main {
         display: grid;
-        grid-template-columns: 280px 1200px;
-
-        
+        grid-template-columns: 280px 1200px;        
 
         &__walletTemp {
             width: 263px;
             height: 252px;
             border: 3px solid $color-border-light-gray;
         }
-        &__converter {
+        &__convertercontainer {
             border: 3px solid $color-border-light-gray;
             min-height: 252px;
             max-height: 410px;
 
-            &__label {
-                font-family: $title-font-family;
-                color: $color-black;
-                font-weight: 400;
-                font-size: 24px;
-                line-height: 30px;
-                text-align: center;
-
-            }
         }
+        &__converter {            
+            display: flex;
+            margin-left: 10px;
+            &__input {
+                display: flex;
+                flex-direction: column;
+                margin-right: 20px;
+                &__label {
+                    font-family: $title-font-family;
+                    color: $color-black;
+                    font-weight: 400;
+                    font-size: 24px;
+                    line-height: 30px;
+                    text-align: left;
+    
+                }
+                &__box {
+                    background:$color-light-gray-info-bar;
+                    border: 1px solid $color-border-light-gray;
+                    border-radius: 6px;
+                    width: 250px;
+                    padding-left: 10px;
+                    min-height: 55px;
+                    margin-top: 5px;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color:$color-light-gray2;
+                }
+            }
+            
+        }
+        &__bottom {
+            color: red;
+        }
+        &__hidden {
+            display: none;
+        }
+
     }
     
 }
