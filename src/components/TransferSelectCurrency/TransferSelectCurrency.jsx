@@ -4,6 +4,7 @@ import HeaderNav from "../HeaderNav/HeaderNav";
 import NavMenu from "../NavMenu/NavMenu";
 import FxTransaction from "../FxTransaction/FxTransaction";
 import AccountForm from "../AccountForm/AccountForm";
+import AddRecipient from "../AddRecipient/AddRecipient";
 import Button from "../Button/Button";
 import "./TransferSelectCurrency.scss";
 
@@ -47,7 +48,7 @@ const TransferSelectCurrency = (props) => {
             amountReceived={amountReceived}
             fxRate={fxRate}
           />
-          --press continue: Send From form--
+          -----  press continue: Send From form  -------
           <div className="transfer-currency__main__send-form">
             <h2>Send From</h2>
             <AccountForm
@@ -70,8 +71,8 @@ const TransferSelectCurrency = (props) => {
               </div>
             </div>
           </div>
-
-          ---
+          -----  Add Recipient  ------ 
+          <AddRecipient />
         </div>
       </main>
     </div>
