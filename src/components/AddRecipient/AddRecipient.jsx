@@ -51,7 +51,7 @@ const AddRecipient = () => {
                 type="text"
               />
             </div>
-            <div className="addRecipient__form__div">
+            <div className="addRecipient-box__form__div">
               <label>Account Type</label>
               <input
                 onInput={handleAccountType}
@@ -59,7 +59,7 @@ const AddRecipient = () => {
                 value={accountType}
               />
             </div>
-            <div className="addRecipient__form__div">
+            <div className="addRecipient-box__form__div">
               <label>Account Number</label>
               <div></div>
               <input
@@ -68,7 +68,7 @@ const AddRecipient = () => {
                 value={accountNum}
               />
             </div>
-            <div className="addRecipient__form__div">
+            <div className="addRecipient-box__form__div">
               <label>Sort Code</label>
               <input
                 onChange={handleSortCode}
@@ -76,16 +76,16 @@ const AddRecipient = () => {
                 value={sortCode}
               />
             </div>
-            <div className="addRecipient__form__separator"></div>
+            <div className="addRecipient-box__form__separator"></div>
 
             <div className="buttons-group">
               <Link to="/chooserecipient">
-                <button className="addRecipient__form__goBackBtn" type="submit">
+                <button className="addRecipient-box__form__goBackBtn" type="submit">
                   Cancel
                 </button>
               </Link>
               <Link to="/confirmdetails">
-                <button className="addRecipient__form__continueBtn" type="submit">
+                <button className="addRecipient-box__form__continueBtn" type="submit">
                   Continue &#9654;
                 </button>
               </Link>
