@@ -1,6 +1,6 @@
 import React from "react";
-import SignInNav from "../../components/SignInNav/SignInNav";
-import "../SignIn/SignIn.scss";
+import SignInNav from "../SignInNav/SignInNav";
+import "./SignIn.scss";
 import { Link } from "react-router-dom";
 
 const SignIn = () => {

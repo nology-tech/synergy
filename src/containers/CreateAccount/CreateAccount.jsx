@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Button from "../Button/Button";
+import Button from "../../components/Button/Button";
 
 import "./CreateAccount.scss";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
@@ -161,9 +161,9 @@ const CreateAccount = () => {
               <p className="CreateAccountForm__hasAccount__question">
                 Already have an account?&nbsp;
                 <span>
-                  <a className="CreateAccountForm__hasAccount__login" href="#">
+                  <Link className="CreateAccountForm__hasAccount__login" to="/signin">
                     Login
-                  </a>
+                  </Link>
                 </span>
               </p>
             </div>
