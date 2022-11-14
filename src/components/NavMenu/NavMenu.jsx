@@ -19,7 +19,7 @@ const NavMenu = () => {
   return (
     <div className="sidemenu-wrapper" id="slide">
       <div className="sidemenu">
-        <img src={mainLogo} alt="Synergy-icon" />
+        <img className="sidemenu__logo" src={mainLogo} alt="Synergy-icon" />
         <div className="sidemenu__items">
           Menu
           <div className="sidemenu__item">
