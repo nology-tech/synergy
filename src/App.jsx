@@ -3,18 +3,21 @@ import React from "react";
 
 import "./App.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SignIn from "./containers/SignIn/SignIn";
-import SignUpMain from "./containers/SignUp/SignUpMain";
+import SignIn from "./components/SignIn/SignIn";
+import SignUpMain from "./components/SignUp/SignUpMain";
 import UserDashboard from "./containers/UserDashboard/UserDashboard";
 import ForgottenPassword from "./components/ForgottenPassword/ForgottenPassword";
 import LoginFlowChangePsw from "./components/LoginFlowChangePsw/LoginFlowChangePsw";
 import LoginFlowWelcome from "./components/LoginFlowWelcome/LoginFlowWelcome";
-import BankDetails from "./components/BankDetails/BankDetails";
-import BillingAddress from "./components/BillingAddress/BillingAddress";
+import BankDetails from "./containers/BankDetails/BankDetails";
+import BillingAddress from "./containers/BillingAddress/BillingAddress";
 import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
 import Wallet from "./containers/Wallet/Wallet";
+
+// import Button from "./components/Button/Button"; // to be removed
+// import {SlRefresh} from 'react-icons/sl';  // to be removed
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -24,21 +27,64 @@ const App = () => {
     setSearchTerm(cleanInput);
   };
 
+
+  // const buttonImg = <SlRefresh />;  // to be removed
+  // const buttonText = "Convert";  // to be removed
+
+
   return (
     <Router>
       <div>
+                    {/* ===================================================================================================== */}
+                              {/* <div className="button-test" text = "FOR BUTTON TESTING ONLY - TO BE REMOVED AFTER TESTING" >
+                                  <Button
+                                    buttonStyle={"button-light-blue"}
+                                    isDisabled={false}
+                                    buttonType={""}
+                                    buttonText={"Find out more"}
+                                  />
+
+                                  <Button buttonStyle={"button-blue"} 
+                                  isDisabled={false} buttonType={""} buttonText={buttonText} buttonImg={buttonImg}/>
+
+                                  <Button buttonStyle={"button-blue-disabled"} 
+                                  isDisabled={false} buttonType={"submit"} buttonText={`Continue ▶`} />
+
+                                  <Button
+                                    buttonStyle={"button-blue-white-border"}
+                                    isDisabled={false}
+                                    buttonType={""}
+                                    buttonText={"Edit"}
+                                  />
+
+                                  <Button
+                                    buttonStyle={"button-dashed"}
+                                    isDisabled={false}
+                                    buttonType={""}
+                                    buttonText={"Add Currency"}
+                                  />
+
+                                  <Button
+                                    buttonStyle={"button-white"}
+                                    isDisabled={false}
+                                    buttonType={""}
+                                    buttonText={"Manage"}
+                                  />
+                              </div> */}
+                    {/* ===================================================================================================== */}
+
+
         <Routes>
           <Route path="/" element={<LandingMain />} />
           <Route path="/signup" element={<SignUpMain />} />
           <Route path="/bankdetails" element={<BankDetails />} />
           <Route path="/billingaddress" element={<BillingAddress />} />
-          <Route path="/welcome" element={<LoginFlowWelcome />} />
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
-          <Route path="/contacts" element={<ContactListPage />} />
-          <Route path="/liverates" element={<LiveRates />} />
-          <Route path="/signin" element={<SignIn />} />
           <Route path="/wallet" element={<Wallet />} />
+          <Route path="/contacts" element={<ContactListPage searchTerm={searchTerm} handleInput={handleInput}/>} />
+          <Route path="/liverates" element={<LiveRates searchTerm={searchTerm} handleInput={handleInput}/>} />
+          <Route path="/signin" element={<LoginFlowWelcome />} />
           <Route
             path="/userprofile"
             element={
@@ -69,17 +115,7 @@ const App = () => {
               />
             }
           ></Route>
-          <Route
-            path="/dashboard/liveRates"
-            element={
-              <UserDashboard
-                handleInput={handleInput}
-                value={searchTerm}
-                navigateTo="LiveRates"
-              />
-            }
-          ></Route>
-          <Route
+            <Route
             path="/dashboard/convert"
             element={
               <UserDashboard
@@ -99,16 +135,6 @@ const App = () => {
               />
             }
           ></Route>
-          <Route
-            path="/dashboard/contacts"
-            element={
-              <UserDashboard
-                handleInput={handleInput}
-                value={searchTerm}
-                navigateTo="Contacts"
-              />
-            }
-          ></Route>
           <Route path="/home" element={<LandingMain />}></Route>
           <Route path="/features" element={<LandingMain />}></Route>
           <Route path="/about" element={<LandingMain />}></Route>
@@ -121,3 +147,8 @@ const App = () => {
 };
 
 export default App;
+
+
+
+
+

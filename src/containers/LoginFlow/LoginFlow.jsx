@@ -6,7 +6,8 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import Button from "../Button/Button";
+import Button from "../../components/Button/Button";
+import SignInNav from "../../components/SignInNav/SignInNav";
 
 const LoginFlow = (props) => {
   const {
@@ -72,7 +73,7 @@ const LoginFlow = (props) => {
 
   return (
     <>
-      <nav>Navbar placeholder</nav>
+      <SignInNav title="Sign Up" />
       <main className="loginFlow__background">
         <div className="loginFlow">
           <div className="loginFlow__synergyIcon">
@@ -192,9 +193,9 @@ const LoginFlow = (props) => {
               <div className="loginFlow__links">
                 <p className="grey">
                   Don't have an account?{" "}
-                  <a href="#sugnup" className="blue">
+                  <Link to="/signup" className="blue">
                     Sign Up
-                  </a>
+                  </Link>
                 </p>
                 <p>
                   <Link to="/forgotten-password" className="blue">
@@ -210,7 +211,9 @@ const LoginFlow = (props) => {
               {loginFlow_header === "Change Password" ? (
                 <Button buttonText={buttonText} disabled={resetToggle} />
               ) : (
-                <Button buttonText={buttonText} disabled={false} />
+                <Link to="/dashboard">
+                  <Button buttonText={buttonText} disabled={false} />
+                </Link>
               )}
             </div>
           </div>

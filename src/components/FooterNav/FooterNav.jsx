@@ -1,6 +1,6 @@
 import React from "react";
 import "./FooterNav.scss";
-import logo from "../../assets/images/Main_Logo.png";
+import logo from "../../assets/images/synergy_main_logo.png";
 import { Link } from "react-router-dom";
 
 const FooterNav = () => {
