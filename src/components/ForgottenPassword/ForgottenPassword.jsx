@@ -1,6 +1,5 @@
 import React from "react";
-import LoginFlow from "../LoginFlow/LoginFlow";
-
+import LoginFlow from "../../containers/LoginFlow/LoginFlow"
 
 const ForgottenPassword = () => {
   return (
