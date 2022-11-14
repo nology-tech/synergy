@@ -6,8 +6,8 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import Button from "../Button/Button";
-import SignInNav from "../SignInNav/SignInNav";
+import Button from "../../components/Button/Button";
+import SignInNav from "../../components/SignInNav/SignInNav";
 
 const LoginFlow = (props) => {
   const {
