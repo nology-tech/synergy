@@ -3,7 +3,7 @@ import "./UserDashboard.scss";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/synergy_main_logo.png";
 import NavMenu from "../../components/NavMenu/NavMenu";
-import clarity from "../../assets/images/clarity_search-line.png";
+import clarity from "../../assets/images/spyglass.png";
 import profile from "../../assets/images/Ellipse.png";
 import chevron from "../../assets/images/charm_chevron-down.png";
 

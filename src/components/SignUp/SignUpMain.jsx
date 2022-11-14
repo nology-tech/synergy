@@ -1,5 +1,5 @@
-import CreateAccount from "../../components/CreateAccount/CreateAccount";
-import SignInNav from "../../components/SignInNav/SignInNav";
+import CreateAccount from "../../containers/CreateAccount/CreateAccount";
+import SignInNav from "../SignInNav/SignInNav";
 // import SignUp from "../../components/SignUp/SignUp";
 
 const SignUpMain = () => {
