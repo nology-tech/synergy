@@ -3,14 +3,14 @@ import React from "react";
 
 import "./App.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SignIn from "./containers/SignIn/SignIn";
-import SignUpMain from "./containers/SignUp/SignUpMain";
+import SignIn from "./components/SignIn/SignIn";
+import SignUpMain from "./components/SignUp/SignUpMain";
 import UserDashboard from "./containers/UserDashboard/UserDashboard";
 import ForgottenPassword from "./components/ForgottenPassword/ForgottenPassword";
 import LoginFlowChangePsw from "./components/LoginFlowChangePsw/LoginFlowChangePsw";
 import LoginFlowWelcome from "./components/LoginFlowWelcome/LoginFlowWelcome";
-import BankDetails from "./components/BankDetails/BankDetails";
-import BillingAddress from "./components/BillingAddress/BillingAddress";
+import BankDetails from "./containers/BankDetails/BankDetails";
+import BillingAddress from "./containers/BillingAddress/BillingAddress";
 import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";

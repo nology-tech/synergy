@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./BankDetails.scss";
 import synergyLogo from "../../assets/images/synergy_main_logo.png";
-import SignInNav from "../SignInNav/SignInNav";
+import SignInNav from "../../components/SignInNav/SignInNav";
 
 const BankDetails = () => {
   const [accountName, setAccountName] = useState("");
