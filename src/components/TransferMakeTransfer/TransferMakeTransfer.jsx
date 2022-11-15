@@ -6,6 +6,7 @@ import TransferAddRecipient from "../TransferAddRecipient/TransferAddRecipient";
 import TransferSendFrom from "../TransferSendFrom/TransferSendFrom";
 import TransferConfirmRecepient from "../TransferConfirmRecepient/TransferConfirmRecepient";
 import "./TransferMakeTransfer.scss";
+import DashboardHeader from "../DashboardHeader/DashboardHeader";
 
 const TransferMakeTransfer = (props) => {
   const {
@@ -24,13 +25,12 @@ const TransferMakeTransfer = (props) => {
   const accountFormTypes = true;
 
   return (
-    <div>
-      <HeaderNav />
-      <main className="transfer-currency">
+      <div className="transfer-currency">
         <div className="transfer-currency__navMenu">
           <NavMenu />
         </div>
-        <div className="transfer-currency__main">
+        <main className="transfer-currency__main">
+        <DashboardHeader />
           <div className="transfer-currency__main__header">
             <h2>Transfer</h2>
             <h1>Make Transfer</h1>
@@ -110,7 +110,7 @@ const TransferMakeTransfer = (props) => {
           ) : (
             <></>
           )}
-        </div>
+        
       </main>
     </div>
   );
