@@ -2,11 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./TransferAddRecipient.scss";
-import blackcross from "../../assets/images/black-cross.png"
+import blackcross from "../../assets/images/black-cross.png";
 import Button from "../Button/Button";
 
 const TransferAddRecipient = (props) => {
-  
   const [recipientName, setRecipientName] = useState("");
   const [accountType, setAccountType] = useState();
   const [accountNum, setAccountNum] = useState();
@@ -40,13 +39,8 @@ const TransferAddRecipient = (props) => {
     <>
       <div className="transfer-add-recipient"></div>
       <div className="transfer-add-recipient__main">
-      <Link to="/transfer-send-from">
-      <img
-          src={blackcross}
-          alt="Close menu"
-          className="blackcross"
-          
-        />
+        <Link to="/transfer-send-from">
+          <img src={blackcross} alt="Close menu" className="blackcross" />
         </Link>
         <h1>Add Recipient</h1>
         <div className="transfer-add-recipient__main__details">

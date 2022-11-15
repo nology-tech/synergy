@@ -21,7 +21,6 @@ const TransferConfirmRecepient = (props) => {
           src={blackcross}
           alt="Close menu"
           className="blackcross"
-         
         />
         </Link>
         <h1>Confirm Details</h1>

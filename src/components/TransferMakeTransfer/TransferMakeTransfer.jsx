@@ -25,9 +25,6 @@ const TransferMakeTransfer = (props) => {
   } = props;
 
   const accountFormTypes = true;
- 
-  
-
 
   return (
       <div className="transfer-currency">
