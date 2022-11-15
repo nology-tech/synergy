@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import './TransferSendFrom.scss'
 import TransferAccountForm from "../TransferAccountForm/TransferAccountForm"
 import Button from '../Button/Button'
@@ -32,7 +33,10 @@ const TransferSendFrom = (props) => {
       <div className="transfer-send-form__to__options">
         <Button buttonText="Select Recipient" />
         <div className="transfer-send-form__to__options__newPayee">
-          <a href="#somewhere">+ Pay Someone New</a>
+          <Link to="/transfer-add-recepient">
+            + Pay Someone New
+          </Link>
+          
         </div>
       </div>
     </div>

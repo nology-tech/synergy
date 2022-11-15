@@ -6,7 +6,7 @@ import blackcross from "../../assets/images/black-cross.png"
 import Button from "../Button/Button";
 
 const TransferAddRecipient = (props) => {
-  const{toggleRecipient} = props
+  
   const [recipientName, setRecipientName] = useState("");
   const [accountType, setAccountType] = useState();
   const [accountNum, setAccountNum] = useState();
@@ -40,12 +40,14 @@ const TransferAddRecipient = (props) => {
     <>
       <div className="transfer-add-recipient"></div>
       <div className="transfer-add-recipient__main">
+      <Link to="/transfer-send-from">
       <img
           src={blackcross}
           alt="Close menu"
           className="blackcross"
-          onClick={toggleRecipient}
+          
         />
+        </Link>
         <h1>Add Recipient</h1>
         <div className="transfer-add-recipient__main__details">
           <h3>Recipient Name</h3>
@@ -73,18 +75,19 @@ const TransferAddRecipient = (props) => {
         <div className="transfer-add-recipient__main__options">
           <Link
             className="transfer-add-recipient__main__options__cancel"
-            to="/chooserecipient"
+            to="/transfer-send-from"
           >
             Cancel
           </Link>
           <Link to="/transfer-confirm-recepient">
-            <Button
+            <button>Continue</button>
+            {/* <Button
               buttomImg={""}
               buttonStyle={"button-light-blue"}
               isDisabled={false}
               buttonType={""}
               buttonText={"Continue"}
-            />
+            /> */}
           </Link>
         </div>
       </div>

@@ -25,11 +25,9 @@ const TransferMakeTransfer = (props) => {
   } = props;
 
   const accountFormTypes = true;
-  const [showRecipient, setShowRecipient] = useState(false);
+ 
   
-  const toggleRecipient = () => {
-    setShowRecipient(!showRecipient);
-  };
+
 
   return (
       <div className="transfer-currency">
@@ -89,7 +87,7 @@ const TransferMakeTransfer = (props) => {
                 accountNum={accountNum}
                 sortCode={sortCode}
               />
-              <TransferAddRecipient toggleRecipient= {toggleRecipient}/>
+              <TransferAddRecipient/>
             </>
           ) : (
             <></>
@@ -112,7 +110,7 @@ const TransferMakeTransfer = (props) => {
                 accountType="some type"
                 accountNum="12345678"
                 sortCode="101010"
-                toggleRecipient={toggleRecipient}
+                
               />
             </>
           ) : (

@@ -10,18 +10,20 @@ const TransferConfirmRecepient = (props) => {
     accountType,
     accountNum,
     sortCode,
-    toggleRecipient} = props;
+   } = props;
 
   return (
     <>
       <div className="transfer-confirm-recepient"></div>
       <div className="transfer-confirm-recepient__main">
+      <Link to="/transfer-send-from">
       <img
           src={blackcross}
           alt="Close menu"
           className="blackcross"
-          onClick={toggleRecipient}
+         
         />
+        </Link>
         <h1>Confirm Details</h1>
         <div className="transfer-confirm-recepient__main__details">
           <h3>Recipient Name</h3>
@@ -41,13 +43,14 @@ const TransferConfirmRecepient = (props) => {
             Go Back
           </Link>
           <Link to="/transfer-completed">
-            <Button
+            <button>Submit</button>
+            {/* <Button
               buttomImg={""}
               buttonStyle={"button-light-blue"}
               isDisabled={false}
               buttonType={""}
               buttonText={"Submit"}
-            />
+            /> */}
           </Link>
         </div>
       </div>
