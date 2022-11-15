@@ -1,20 +1,16 @@
 import React from 'react'
 import ContactContainer from '../../containers/ContactContainer/ContactContainer';
 import NavBar from "../../assets/images/navbar.png";
-import  "./ContactListPage.scss";
+import "../../assets/sass/_dashboard.scss"
 import NavMenu from '../NavMenu/NavMenu';
 import DashboardHeader from '../DashboardHeader/DashboardHeader';
 const ContactListPage = (props) => {
     const {searchTerm, handleInput} = props;
   return (
-        <div className="contactPage">
-            <div className="placeHolders__left">
+        <div className="dashboardPage">
                 <NavMenu />
-            </div>
-            <div className="placeHolders__right">
-                <div className="placeHolders__Navbar">
-                    <DashboardHeader searchTerm= {searchTerm} handleInput={handleInput} />
-                </div>
+            <div className='dashboardPage__right'>
+                <DashboardHeader searchTerm= {searchTerm} handleInput={handleInput} />
                 <ContactContainer />
             </div>
         </div>

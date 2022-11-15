@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import currency from "../../data/currency.js";
 import LiveRatesList from "../LiveRatesList/LiveRatesList.jsx";
 import "./LiveRates.scss";
+import "../../assets/sass/_dashboard.scss";
 import NavMenu from "../NavMenu/NavMenu.jsx";
 import NavBar from "../../assets/images/navbar.png";
 import DashboardHeader from "../DashboardHeader/DashboardHeader.jsx";
@@ -11,10 +12,10 @@ const LiveRates = (props) => {
   const { liverates } = useParams();
   const {searchTerm, handleInput} = props;
   return (
-    <div className="live-rates-page">
+    <div className="dashboardPage">
       <NavMenu />
 
-      <div className="live-rates-right">
+      <div className="dashboardPage__right">
         <div className="placeHolders__Navbar">
           <DashboardHeader searchTerm={searchTerm} handleInput={handleInput}/>
         </div>
