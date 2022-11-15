@@ -151,16 +151,6 @@ const App = () => {
               />
             }
           />
-          <Route
-            path="/dashboard/transfer"
-            element={
-              <UserDashboard
-                handleInput={handleInput}
-                value={searchTerm}
-                navigateTo="Transfer"
-              />
-            }
-          ></Route>
           <Route path="/home" element={<LandingMain />}></Route>
           <Route path="/features" element={<LandingMain />}></Route>
           <Route path="/about" element={<LandingMain />}></Route>

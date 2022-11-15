@@ -42,7 +42,7 @@ const NavMenu = () => {
           </div>
           <div className="sidemenu__item">
             <img className="sidemenu__icon" src={transferImg} alt="Transfer" />
-            <Link className="sidemenu__a" to="/dashboard/transfer">
+            <Link className="sidemenu__a" to="/liveRates">
               Transfer
             </Link>
           </div>
