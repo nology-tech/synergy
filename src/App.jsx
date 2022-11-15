@@ -14,6 +14,7 @@ import BillingAddress from "./containers/BillingAddress/BillingAddress";
 import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
+import TransferMakeTransfer from "./components/TransferMakeTransfer/TransferMakeTransfer";
 import Button from "./components/Button/Button";
 
 // import {SlRefresh} from 'react-icons/sl';
@@ -28,9 +29,10 @@ const App = () => {
     setSearchTerm(cleanInput);
   };
 
-  // Button Icons
-  // const buttonConvert = <SlRefresh />; 
-  // const buttonSignOut = <IoExitOutline />; 
+
+  // const buttonImg = <SlRefresh />;  // to be removed
+  // const buttonText = "Convert";  // to be removed
+
 
   return (
     <Router>
@@ -88,8 +90,21 @@ const App = () => {
           <Route path="/billingaddress" element={<BillingAddress />} />
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
-          <Route path="/contacts" element={<ContactListPage searchTerm={searchTerm} handleInput={handleInput}/>} />
-          <Route path="/liverates" element={<LiveRates searchTerm={searchTerm} handleInput={handleInput}/>} />
+          <Route
+            path="/contacts"
+            element={
+              <ContactListPage
+                searchTerm={searchTerm}
+                handleInput={handleInput}
+              />
+            }
+          />
+          <Route
+            path="/liverates"
+            element={
+              <LiveRates searchTerm={searchTerm} handleInput={handleInput} />
+            }
+          />
           <Route path="/signin" element={<LoginFlowWelcome />} />
           <Route
             path="/userprofile"
@@ -100,7 +115,7 @@ const App = () => {
                 navigateTo="Wallet"
               />
             }
-          ></Route>
+          />
           <Route
             path="/dashboard"
             element={
@@ -110,7 +125,7 @@ const App = () => {
                 navigateTo="Wallet"
               />
             }
-          ></Route>
+          />
           <Route
             path="/dashboard/wallet"
             element={
@@ -120,8 +135,8 @@ const App = () => {
                 navigateTo="Wallet"
               />
             }
-          ></Route>
-            <Route
+          />
+          <Route
             path="/dashboard/convert"
             element={
               <UserDashboard
@@ -130,7 +145,7 @@ const App = () => {
                 navigateTo="Convert"
               />
             }
-          ></Route>
+          />
           <Route
             path="/dashboard/transfer"
             element={
@@ -146,6 +161,74 @@ const App = () => {
           <Route path="/about" element={<LandingMain />}></Route>
           <Route path="/contact" element={<LandingMain />}></Route>
           <Route path="/" element={<LandingMain />}></Route>
+          <Route
+            path="/transfer-fx-transaction"
+            element={
+              <TransferMakeTransfer
+              transferWorkflowStage = "fxTransaction"
+                currencyBaseCode={currencyBaseCode}
+                currencyRecepientCode={currencyRecepientCode}
+                amountBase={amountBase}
+                amountReceived={amountReceived}
+                fxRate={fxRate}
+                username={username}
+                accountBalance={accountBalance}
+                accountNum={accountNum}
+                sortCode={sortCode}
+              />
+            }
+          />
+          <Route
+            path="/transfer-send-from"
+            element={
+              <TransferMakeTransfer
+              transferWorkflowStage = "transferSendFrom"
+                currencyBaseCode={currencyBaseCode}
+                currencyRecepientCode={currencyRecepientCode}
+                amountBase={amountBase}
+                amountReceived={amountReceived}
+                fxRate={fxRate}
+                username={username}
+                accountBalance={accountBalance}
+                accountNum={accountNum}
+                sortCode={sortCode}
+              />
+            }
+          />
+          <Route
+            path="/transfer-add-recepient"
+            element={
+              <TransferMakeTransfer
+              transferWorkflowStage = "transferAddRecepient" 
+                currencyBaseCode={currencyBaseCode}
+                currencyRecepientCode={currencyRecepientCode}
+                amountBase={amountBase}
+                amountReceived={amountReceived}
+                fxRate={fxRate}
+                username={username}
+                accountBalance={accountBalance}
+                accountNum={accountNum}
+                sortCode={sortCode}
+              />
+            }
+          />
+          <Route
+            path="/transfer-confirm-recepient"
+            element={
+              <TransferMakeTransfer
+              transferWorkflowStage = "transferConfirmRecepient" 
+                currencyBaseCode={currencyBaseCode}
+                currencyRecepientCode={currencyRecepientCode}
+                amountBase={amountBase}
+                amountReceived={amountReceived}
+                fxRate={fxRate}
+                username={username}
+                accountBalance={accountBalance}
+                accountNum={accountNum}
+                sortCode={sortCode}
+              />
+            }
+          />
         </Routes>
       </div>
     </Router>
@@ -153,8 +236,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-
-

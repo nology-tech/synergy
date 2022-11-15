@@ -7,13 +7,17 @@
     height: 100vh;
     min-width: 200px;
     border-right: 1px ridge $color-light-gray3;
-    align-items: center;
+    padding-left: 30px;
+    
 
     .sidemenu {
         display: flex;
         margin-top: 10px;
         flex-direction: column;
 
+        &__logo {
+            width: 120px;
+        }
         &__items {
             margin-top: 21px;
             text-align: left;
@@ -37,6 +41,7 @@
             justify-content: flex-start;
 
             .sidemenu__item {
+                width: 170px;
                 padding: 10px;
                 display: flex;
                 flex-direction: row;
