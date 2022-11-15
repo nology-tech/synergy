@@ -20,8 +20,10 @@ import currency from './data/currency';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [amount, setAmount] = useState();
-  const [convertedAmount, setConvertedAmount] = useState();
+  const [baseCurrency, setBaseCurrency] = useState(currency[0]);
+  const [toCurrency, setToCurrency] = useState(currency[1]);
+  const [amount, setAmount] = useState('');
+  const [convertedAmount, setConvertedAmount] = useState('');
   // fx should come from Live rates on Send button click, temporary setting to EUR rate from data file
   const [fxRate, setFxRate] = useState(currency[1].rate);
       
@@ -105,9 +107,15 @@ const App = () => {
                   <CurrencyConverterContainer 
                   amount={amount} 
                   setAmount={setAmount} 
+                  baseCurrency={baseCurrency}
+                  setBaseCurrency = {setBaseCurrency}
+                  toCurrency={toCurrency}
+                  setToCurrency = {setToCurrency}
                   convertedAmount={convertedAmount}
                   setConvertedAmount={setConvertedAmount}
-                  fxRate={fxRate}/>}></Route>
+                  fxRate={fxRate}
+                  setFxRate={setFxRate}/>}>
+          </Route>
           
         </Routes>
       </div>
