@@ -79,17 +79,17 @@ const BankDetails = () => {
                   </button>
                 </Link>
                 <Link to="/billingaddress">
-                  <Button 
+                  {/* <Button 
                     buttonStyle={"btn button-blue"}
                     buttonType={"submit"} 
                     buttonText={`Continue ▶`} 
-                  />
-                  {/* <button
+                  /> */}
+                  <button
                     className="bankDetailsForm__continueBtn"
                     type="submit"
                   >
                     Continue &#9654;
-                  </button> */}
+                  </button>
                 </Link>
               </div>
             </form>
