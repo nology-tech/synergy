@@ -1,5 +1,6 @@
 import React from "react";
 import "./LiveRatesList.scss";
+import Button from "../Button/Button";
 
 // LiveRates table currently sets USD as primary currency with visual bar 
 // The rest of the table shows other currencies rates compared to USD currency
@@ -13,7 +14,11 @@ const LiveRatesList = (props) => {
       <div className="currency-list__name">{currency.name}</div>
       <div className="currency-list__amount">{currency.amount}</div>
       <div className="currency-list__rate">{currency.rate}</div>
-      <button className="button primary">{index===0?"Edit":"Send"}</button>
+      <Button
+        buttonStyle={"btn button-blue-white-border"}
+        buttonText={index===0?"Edit":"Send"}
+      />
+      {/* <button className="button primary">{index===0?"Edit":"Send"}</button> */}
     </div>
   ));
   return (

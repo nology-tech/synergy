@@ -7,6 +7,7 @@ import "../../assets/sass/_dashboard.scss";
 import NavMenu from "../NavMenu/NavMenu.jsx";
 import NavBar from "../../assets/images/navbar.png";
 import DashboardHeader from "../DashboardHeader/DashboardHeader.jsx";
+import Button from "../Button/Button.jsx";
 
 const LiveRates = (props) => {
   const { liverates } = useParams();
@@ -29,7 +30,12 @@ const LiveRates = (props) => {
             aliquid!
           </p>
           <LiveRatesList className="live-rates__list" currency={currency} />
-          <button className="button secondary">Add Currency</button>
+          <Button
+            buttonStyle={"btn button-dashed  button secondary"}
+            isDisabled={false}
+            buttonText={"Add Currency"}
+          />
+          {/* <button className="button secondary">Add Currency</button> */}
         </div>
       </div>
     </div>

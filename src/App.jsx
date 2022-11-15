@@ -15,9 +15,11 @@ import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
 import TransferMakeTransfer from "./components/TransferMakeTransfer/TransferMakeTransfer";
+import Button from "./components/Button/Button";
 
-// import Button from "./components/Button/Button"; // to be removed
-// import {SlRefresh} from 'react-icons/sl';  // to be removed
+// import {SlRefresh} from 'react-icons/sl';
+// import {IoExitOutline} from "react-icons/io5";
+
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -27,20 +29,6 @@ const App = () => {
     setSearchTerm(cleanInput);
   };
 
-  // hardcoded values for transfer:
-  // list below shall be replaced from currency converter
-  const currencyBaseCode = "USD";
-  const currencyRecepientCode = "GBP";
-  const amountBase = 1000;
-  const amountReceived = 1359.5;
-  const fxRate = 1.3595;
-  // list below shall be replaced from create account database
-  const username = "Smantha Brooks";
-  const accountNum = "10840366";
-  const sortCode = "110053";
-  // list below shall be replaced from wallet
-  const accountBalance = 15210;
-  //---------------------------------
 
   // const buttonImg = <SlRefresh />;  // to be removed
   // const buttonText = "Convert";  // to be removed
@@ -49,44 +37,51 @@ const App = () => {
   return (
     <Router>
       <div>
-                    {/* ===================================================================================================== */}
-                              {/* <div className="button-test" text = "FOR BUTTON TESTING ONLY - TO BE REMOVED AFTER TESTING" >
-                                  <Button
-                                    buttonStyle={"button-light-blue"}
-                                    isDisabled={false}
-                                    buttonType={""}
-                                    buttonText={"Find out more"}
-                                  />
-
-                                  <Button buttonStyle={"button-blue"} 
-                                  isDisabled={false} buttonType={""} buttonText={buttonText} buttonImg={buttonImg}/>
-
-                                  <Button buttonStyle={"button-blue-disabled"} 
-                                  isDisabled={false} buttonType={"submit"} buttonText={`Continue ▶`} />
-
-                                  <Button
-                                    buttonStyle={"button-blue-white-border"}
-                                    isDisabled={false}
-                                    buttonType={""}
-                                    buttonText={"Edit"}
-                                  />
-
-                                  <Button
-                                    buttonStyle={"button-dashed"}
-                                    isDisabled={false}
-                                    buttonType={""}
-                                    buttonText={"Add Currency"}
-                                  />
-
-                                  <Button
-                                    buttonStyle={"button-white"}
-                                    isDisabled={false}
-                                    buttonType={""}
-                                    buttonText={"Manage"}
-                                  />
-                              </div> */}
-                    {/* ===================================================================================================== */}
-
+        {/* Button Test */}
+        {/* <div className="button-test">
+          <Button
+            buttonStyle={"btn button-transparent"}
+            buttonText={"Find Out More"}
+          />
+          <Button 
+            buttonStyle={"btn button-blue"}
+            buttonText={"Sign Up"} 
+          />
+          <Button 
+            buttonStyle={"btn button-blue"}
+            buttonText={"Sign Out"} 
+            buttonImg={buttonSignOut}
+          />
+          <Button 
+            buttonStyle={"btn button-blue"}
+            buttonText={"Convert"}
+            buttonImg={buttonConvert}
+          />
+          <Button 
+            buttonStyle={"btn button-blue"}
+            buttonType={"submit"} 
+            buttonText={`Continue ▶`} 
+          />
+          <Button 
+            buttonStyle={"btn button-blue-disabled"}
+            buttonType={"submit"} 
+            buttonText={`Continue ▶`} 
+          />
+          <Button
+            buttonStyle={"btn button-blue-white-border"}
+            buttonText={"Edit"}
+          />
+          <Button
+            buttonStyle={"btn button-dashed"}
+            isDisabled={false}
+            buttonText={"Add Currency"}
+          />
+          <Button
+            buttonStyle={"btn button-white"}
+            isDisabled={false}
+            buttonText={"Manage"}
+          />
+        </div> */}
 
         <Routes>
           <Route path="/" element={<LandingMain />} />
