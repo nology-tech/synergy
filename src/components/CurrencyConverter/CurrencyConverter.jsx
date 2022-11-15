@@ -43,7 +43,7 @@ const CurrencyConverter = (props) => {
       setToCurrency (temp);
       setBaseCurrency(toCurrency);
       setFxRate(inverseFXRate);
-      console.log("baseCurrency: " + baseCurrency.code + "toCurrency: " + toCurrency.code + "amount: " + amount + "fx rate: " + fxRate + "inverseRate: " +inverseFXRate)
+      //console.log("baseCurrency: " + baseCurrency.code + "toCurrency: " + toCurrency.code + "amount: " + amount + "fx rate: " + fxRate + "inverseRate: " +inverseFXRate)
       setConvertedAmount(Number(amount * fxRate));
       setInverseFXRate (temp1);   
       setShouldHide(true);   
