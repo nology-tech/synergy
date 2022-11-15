@@ -7,20 +7,9 @@ const TransferAccountForm = (props) => {
   const { currencyBaseCode, amountBase, accountBalance, username, accountNum,sortCode } =
     props;
 let fundsRemaining = accountBalance - amountBase
-
-console.log (fundsRemaining)
   const currencyBase = currencies.filter((currency) => {
     return currency.code == currencyBaseCode;
   });
-
-// const usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
-// const inr = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' });
-// const egp = new Intl.NumberFormat('ar-EG', { style: 'currency', currency: 'EGP' });
-// const eur = new Intl.NumberFormat('de-DE',{ style: 'currency', currency: 'EUR' });
-
-
-  console.log(currencyBase[0].symbol);
-  console.log(accountBalance);
 
   return (
     <div className="account-form">
