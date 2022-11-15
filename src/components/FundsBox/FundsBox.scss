@@ -3,6 +3,9 @@
 .greetings__wave{
     padding-left: 5px;
 }
+.greeting__firstName{
+    font-family: $title-font-family;
+}
 .fundsBox{
     display: flex;
     align-items: flex-start;
@@ -17,7 +20,9 @@
         top: 0px;
     }
     &__content{
-            
+            &__firstName{
+                
+            }
             &__title {
                 display: flex;
                 justify-content: left;
@@ -62,11 +67,11 @@
     }
 }
 
-.fundsBox__firstName{
-    display: flex;
-    justify-content: center;
-    margin-top: 36px;
-}
+// .fundsBox__firstName{
+//     display: flex;
+//     justify-content: center;
+//     margin-top: 36px;
+// }
 
 
 
