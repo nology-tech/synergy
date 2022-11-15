@@ -5,6 +5,8 @@ import NavMenu from '../../components/NavMenu/NavMenu';
 import ContactContainer from '../ContactContainer/ContactContainer';
 import NavBar from "../../assets/images/navbar.png";
 import DashboardHeader from '../../components/DashboardHeader/DashboardHeader';
+import ContactList from '../../components/ContactList/ContactList';
+
 
 const Wallet = () => {
   return (

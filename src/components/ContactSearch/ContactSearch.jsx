@@ -4,9 +4,11 @@ import "./ContactSearch.scss";
 
 // this contains all details in the search row below the contact List heading
 const ContactSearch = (props) => {
-  const { searchTerm, handleInput, onSearchClick, addContact } = props;
+  const { searchTerm, handleInput, onSearchClick, addContact, title, heading } = props;
   return (
       <div className="contactSearch">
+        <h2 className="contact__Title">{title}</h2>
+        <h1 className="contact__Heading">{heading}</h1>
         <div className="contactSearch__text">
           All your friends and family financial details in one place. Easily
           transfer currency internationally at the best possible rates.

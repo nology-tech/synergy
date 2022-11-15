@@ -49,9 +49,11 @@ const ContactContainer = () => {
 
   return (
     <div className="contact">
-      <h2 className="contact__Title">Contacts</h2>
-      <h1 className="contact__Heading">Contact List</h1>
+      {/* <h2 className="contact__Title">Contacts</h2>
+      <h1 className="contact__Heading">Contact List</h1> */}
       <ContactSearch
+        title={"Contacts"}
+        heading={"Contact List"}
         searchTerm={searchQuery}
         handleInput={handleInput}
         onSearchClick={onSearchClick}

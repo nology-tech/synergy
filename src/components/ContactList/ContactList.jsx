@@ -14,7 +14,7 @@ const ContactList = ({contactsArray, onClick, onDelete}) => {
 // Contact table: tr = table row; th = table heading;
   
   return (
-   
+    
     <div className="contactList">
         <table className="contactTable">
         <thead className="contactList__head">
