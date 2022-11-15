@@ -5,6 +5,7 @@ import FeaturesTile from "../../components/FeaturesTile/FeaturesTile";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import FooterNav from "../../components/FooterNav/FooterNav";
 import "./LandingMain.scss";
+import Button from "../../components/Button/Button";
 
 const LandingMain = () => {
   return (
@@ -47,7 +48,11 @@ const LandingMain = () => {
         <div className="features">
           <h2 className="features__title">Our Award-Winning Features</h2>
           <FeaturesTile features={features} />
-          <button className="features__button">Find Out More</button>
+          <Button
+            buttonStyle={"btn button-transparent"}
+            buttonText={"Find Out More"}
+          />
+          {/* <button className="features__button">Find Out More</button> */}
         </div>
      
 

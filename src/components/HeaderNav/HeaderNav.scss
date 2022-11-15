@@ -12,15 +12,19 @@
     align-items: center;
     *{
         text-decoration: none;
-        padding: 0 45px 10px 20px;
+        // padding: 0 45px 10px 20px;
         margin: 5px;
     }
-    &__centerlinks, &__signin, &__signup{
+    &__centerlinks, &__signin
+    // , &__signup
+    {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        *{
+        
+        // *{
+        .topnav__link, .signin {
             margin-left:30px;
             padding: 10px;
             color: $color-light-gray;
@@ -34,11 +38,11 @@
             text-decoration-style: dotted;
             text-underline-position: under;
         }
-        .signup{
-            background-color: $color-middle-blue;
-            color:$color-white;
-            border-radius: 6px;
-        }
+        // .signup{
+        //     background-color: $color-middle-blue;
+        //     color:$color-white;
+        //     border-radius: 6px;
+        // }
 
     }
 }

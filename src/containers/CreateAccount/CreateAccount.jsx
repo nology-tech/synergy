@@ -172,6 +172,15 @@ const CreateAccount = () => {
             </div>
 
             <Link to="/bankdetails">
+              {/* <Button 
+                buttonStyle={"btn button-blue-disabled button-blue CreateAccountForm__btn"}
+                type="submit"
+                buttonType={"submit"} 
+                disabled={
+                  !(validEmail && validPassword && validConfirmedPassword)
+                }
+                buttonText={`Continue ▶`} 
+              /> */}
               <button
                 className="CreateAccountForm__btn"
                 type="submit"
