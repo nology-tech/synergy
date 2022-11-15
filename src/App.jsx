@@ -20,7 +20,6 @@ import Button from "./components/Button/Button";
 // import {SlRefresh} from 'react-icons/sl';
 // import {IoExitOutline} from "react-icons/io5";
 
-
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -29,7 +28,21 @@ const App = () => {
     setSearchTerm(cleanInput);
   };
 
-
+   // hardcoded values for transfer:
+  // list below shall be replaced from currency converter
+  const currencyBaseCode = "USD";
+  const currencyRecepientCode = "GBP";
+  const amountBase = 1000;
+  const amountReceived = 1359.5;
+  const fxRate = 1.3595;
+  // list below shall be replaced from create account database
+  const username = "Smantha Brooks";
+  const accountNum = "10840366";
+  const sortCode = "110053";
+  // list below shall be replaced from wallet
+  const accountBalance = 15210;
+  //---------------------------------
+  
   // const buttonImg = <SlRefresh />;  // to be removed
   // const buttonText = "Convert";  // to be removed
 
