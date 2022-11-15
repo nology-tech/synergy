@@ -2,30 +2,38 @@ const currency = [
     {
         "id": 1,
         "img": "https://flagcdn.com/16x12/us.png",
-        "name": "US Dollar",
+        "name": "US Dollars",
+        "code": "USD",
         "amount": "1.00",
-        "rate": ""
+        "rate": "",
+        "symbol": "$"
     },
     {    
         "id": 2,
         "img": "https://flagcdn.com/16x12/eu.png",
         "name": "Euro",
+        "code": "EUR",
         "amount": "1.0118",
-        "rate": "0.9882"
+        "rate": "0.9882",
+        "symbol": "€"
     },
     {
         "id": 3,
         "img": "https://flagcdn.com/16x12/gb.png",
-        "name": "British Pound",
+        "name": "British Pounds",
+        "code": "GBP",
         "amount": "0.8720",
-        "rate": "1.1466"
+        "rate": "1.1466",
+        "symbol": "£"
     },
     {    
         "id": 4,
         "img": "https://flagcdn.com/16x12/in.png",
-        "name": "Indian Rupee",
+        "name": "Indian Rupees",
+        "code": "INR",
         "amount": "82.7545",
-        "rate": "0.0120"
+        "rate": "0.0120",
+        "symbol": "₹"
     },
     // {
     //     "id": 5,
@@ -66,8 +74,10 @@ const currency = [
         "id": 10,
         "img": "https://flagcdn.com/16x12/jp.png",
         "name": "Japanese Yen",
+        "code": "JPY",
         "amount": "148.6933",
-        "rate": "0.0067"
+        "rate": "0.0067",
+        "symbol": "¥"
     },
     // {    
     //     "id": 11,
