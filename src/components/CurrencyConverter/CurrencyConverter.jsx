@@ -18,7 +18,9 @@ const CurrencyConverter = (props) => {
     const messageTo =  `${convertedAmount} ${currencyToName}`;
     const message1From = `1 ${baseCurrency.code} = ${1 * fxRate} ${toCurrency.code}`;
     const message1To = `1 ${toCurrency.code} = ${inverseFXRate} ${baseCurrency.code}`;
-    const numericRegExp = /^[0-9]+$/;
+    // const numericRegExp = /^[0-9]+$/;
+    const numericRegExp = /^\d+\.\d{0,10}$/;
+    
     
 
     const handleAmount = (e) => {      
