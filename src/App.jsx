@@ -14,7 +14,7 @@ import BillingAddress from "./components/BillingAddress/BillingAddress";
 import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
-import TransferSelectCurrency from "./components/TransferSelectCurrency/TransferSelectCurrency";
+import TransferMakeTransfer from "./components/TransferMakeTransfer/TransferMakeTransfer";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -121,9 +121,44 @@ const App = () => {
           <Route path="/contact" element={<LandingMain />}></Route>
           <Route path="/" element={<LandingMain />}></Route>
           <Route
-            path="/transfer"
+            path="/transfer-fx-transaction"
             element={
-              <TransferSelectCurrency
+              <TransferMakeTransfer
+              transferWorkflowStage = "fxTransaction"
+                currencyBaseCode={currencyBaseCode}
+                currencyRecepientCode={currencyRecepientCode}
+                amountBase={amountBase}
+                amountReceived={amountReceived}
+                fxRate={fxRate}
+                username={username}
+                accountBalance={accountBalance}
+                accountNum={accountNum}
+                sortCode={sortCode}
+              />
+            }
+          />
+          <Route
+            path="/transfer-send-from"
+            element={
+              <TransferMakeTransfer
+              transferWorkflowStage = "transferSendFrom"
+                currencyBaseCode={currencyBaseCode}
+                currencyRecepientCode={currencyRecepientCode}
+                amountBase={amountBase}
+                amountReceived={amountReceived}
+                fxRate={fxRate}
+                username={username}
+                accountBalance={accountBalance}
+                accountNum={accountNum}
+                sortCode={sortCode}
+              />
+            }
+          />
+          <Route
+            path="/transfer-add-recepient"
+            element={
+              <TransferMakeTransfer
+              transferWorkflowStage = "transferAddRecepient" 
                 currencyBaseCode={currencyBaseCode}
                 currencyRecepientCode={currencyRecepientCode}
                 amountBase={amountBase}

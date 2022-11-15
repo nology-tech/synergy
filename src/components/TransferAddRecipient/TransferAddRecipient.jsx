@@ -1,10 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./AddRecipient.scss";
+import "./TransferAddRecipient.scss";
+import Button from "../Button/Button";
 
 
-const AddRecipient = () => {
+const TransferAddRecipient = (props) => {
+  
   const [recipientName, setRecipientName] = useState("");
   const [accountType, setAccountType] = useState();
   const [accountNum, setAccountNum] = useState();
@@ -36,65 +38,49 @@ const AddRecipient = () => {
 
   return (
     <>
-     
-        <div className="addRecipient">
-        <div className="addRecipient-box">
-          <h1>Add Recipient</h1>
-          <form className="addRecipient-box___form">
-            {/* Labels and inputs for form data */}
-            <div className="addRecipient-box__form__div">
-              <label>Recipient Name</label>
+        <div className="transfer-add-recipient">
+          </div>
+          <div className="transfer-add-recipient__main">
+        <h1>Add Recipient</h1>
+        <div className="transfer-add-recipient__main__details">
+              <h3>Recipient Name</h3>
               <input
                 onChange={handleRecipientName}
                 className="input"
                 value={recipientName}
                 type="text"
               />
-            </div>
-            <div className="addRecipient-box__form__div">
-              <label>Account Type</label>
+              <h3>Account Type</h3>
               <input
                 onInput={handleAccountType}
                 className="input"
                 value={accountType}
               />
-            </div>
-            <div className="addRecipient-box__form__div">
-              <label>Account Number</label>
+              <h3>Account Number</h3>
               <div></div>
               <input
                 onInput={handleAccountNum}
                 className="input"
                 value={accountNum}
               />
-            </div>
-            <div className="addRecipient-box__form__div">
-              <label>Sort Code</label>
+              <h3>Sort Code</h3>
               <input
                 onChange={handleSortCode}
                 className="input"
                 value={sortCode}
               />
             </div>
-            <div className="addRecipient-box__form__separator"></div>
-
-            <div className="buttons-group">
-              <Link to="/chooserecipient">
-                <button className="addRecipient-box__form__goBackBtn" type="submit">
-                  Cancel
-                </button>
+            <div className="transfer-add-recipient__main__options">
+              <Link className="transfer-add-recipient__main__options__cancel" to="/chooserecipient">
+                Cancel
               </Link>
               <Link to="/confirmdetails">
-                <button className="addRecipient-box__form__continueBtn" type="submit">
-                  Continue &#9654;
-                </button>
+                <Button buttonText="Continue &#9654;" />
               </Link>
             </div>
-          </form>
         </div>
-        </div>
-    </>
+        </>  
   );
 };
 
-export default AddRecipient;
+export default TransferAddRecipient;

@@ -1,15 +1,14 @@
 import React from "react";
-import UserDashboard from "../../containers/UserDashboard/UserDashboard";
 import HeaderNav from "../HeaderNav/HeaderNav";
 import NavMenu from "../NavMenu/NavMenu";
 import FxTransaction from "../FxTransaction/FxTransaction";
-import AccountForm from "../AccountForm/AccountForm";
-import AddRecipient from "../AddRecipient/AddRecipient";
-import Button from "../Button/Button";
-import "./TransferSelectCurrency.scss";
+import TransferAddRecipient from "../TransferAddRecipient/TransferAddRecipient";
+import TransferSendFrom from "../TransferSendFrom/TransferSendFrom";
+import "./TransferMakeTransfer.scss";
 
-const TransferSelectCurrency = (props) => {
+const TransferMakeTransfer = (props) => {
   const {
+    transferWorkflowStage,
     currencyBaseCode,
     currencyRecepientCode,
     amountBase,
@@ -41,17 +40,20 @@ const TransferSelectCurrency = (props) => {
               magna in lacus.
             </p>
           </div>
-          <FxTransaction
-            currencyBaseCode={currencyBaseCode}
-            currencyRecepientCode={currencyRecepientCode}
-            amountBase={amountBase}
-            amountReceived={amountReceived}
-            fxRate={fxRate}
-          />
-          -----  press continue: Send From form  -------
-          <div className="transfer-currency__main__send-form">
-            <h2>Send From</h2>
-            <AccountForm
+          {transferWorkflowStage == "fxTransaction" ? (
+            <FxTransaction
+              currencyBaseCode={currencyBaseCode}
+              currencyRecepientCode={currencyRecepientCode}
+              amountBase={amountBase}
+              amountReceived={amountReceived}
+              fxRate={fxRate}
+            />
+          ) : (
+            <></>
+          )}
+
+          {transferWorkflowStage == "transferSendFrom" ? (
+            <TransferSendFrom
               currencyBaseCode={currencyBaseCode}
               accountBalance={accountBalance}
               amountBase={amountBase}
@@ -60,22 +62,30 @@ const TransferSelectCurrency = (props) => {
               accountNum={accountNum}
               sortCode={sortCode}
             />
-            <div className="transfer-currency__main__send-form__to">
-              <h2>To</h2>
-              <div className="transfer-currency__main__send-form__to__options">
-                <Button buttonText="Select Recipient" />
-                <div className="transfer-currency__main__send-form__to__options__newPayee">
-                  <a href="#somewhere">+ Pay Someone New</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          -----  Add Recipient  ------ 
-          <AddRecipient />
+          ) : (
+            <></>
+          )}
+
+          {transferWorkflowStage == "transferAddRecepient" ? (
+            <>
+            <TransferSendFrom
+            currencyBaseCode={currencyBaseCode}
+            accountBalance={accountBalance}
+            amountBase={amountBase}
+            accountFormTypes={accountFormTypes}
+            username={username}
+            accountNum={accountNum}
+            sortCode={sortCode}
+          />
+            <TransferAddRecipient />
+            </>
+          ) : (
+            <></>
+          )}
         </div>
       </main>
     </div>
   );
 };
 
-export default TransferSelectCurrency;
+export default TransferMakeTransfer;

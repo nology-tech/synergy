@@ -1,9 +1,9 @@
 import React from "react";
 import currencies from "../../data/currency.js";
 import Button from "../Button/Button";
-import "./AccountForm.scss";
+import "./TransferAccountForm.scss";
 
-const AccountForm = (props) => {
+const TransferAccountForm = (props) => {
   const { currencyBaseCode, amountBase, accountBalance, username, accountNum,sortCode } =
     props;
 let fundsRemaining = accountBalance - amountBase
@@ -55,4 +55,4 @@ console.log (fundsRemaining)
   );
 };
 
-export default AccountForm;
+export default TransferAccountForm;
