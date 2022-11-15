@@ -1,6 +1,7 @@
 import React from "react";
 import spyglass from "./../../assets/images/spyglass.png";
 import "./ContactSearch.scss";
+import Button from "../Button/Button";
 
 // this contains all details in the search row below the contact List heading
 const ContactSearch = (props) => {
@@ -35,7 +36,14 @@ const ContactSearch = (props) => {
             />
           </form>
           {/* Contact Add button */}
-          <input type="submit" className="contactSearch__area__addButton" onClick={addContact} value="Add"></input>
+          <Button
+            buttonStyle={"btn button-transparent contactSearch__area__addButton"}
+            buttonText={"Add"}
+            onClick={addContact}
+            value="Add"
+            type="submit"
+          />
+          {/* <input type="submit" className="contactSearch__area__addButton" onClick={addContact} value="Add"></input> */}
         </div>
       </div>
   );
