@@ -62,11 +62,10 @@ const TransferSelectCurrency = (props) => {
             />
             <div className="transfer-currency__main__send-form__to">
               <h2>To</h2>
-              <div className="transfer-currency__main__send-form__to__button">
+              <div className="transfer-currency__main__send-form__to__options">
                 <Button buttonText="Select Recipient" />
-                <div className="transfer-currency__main__send-form__to__button--newPayee">
-                  <a>+</a>
-                  <p>Pay Someone New </p> 
+                <div className="transfer-currency__main__send-form__to__options__newPayee">
+                  <a href="#somewhere">+ Pay Someone New</a>
                 </div>
               </div>
             </div>

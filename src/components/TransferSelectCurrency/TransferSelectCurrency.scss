@@ -55,34 +55,37 @@
                 border-bottom: 1px solid $color-background-clear;
                 width: 480px;
 
-                &__button {
+                &__options {
                     display: flex;
                     justify-content: space-between;
                     padding-bottom: 20px;
+
+                    &__newPayee {
+                        display: flex;
+                        border-left: 3px solid $color-background-clear;
+                        height: 50px;
+                        color: $color-middle-blue;
+                 
+                        a {
+                            color: $color-middle-blue;
+                            font-size: 16px;
+                            height: 20px;
+                            // padding: 8px 60px 0px 10px;
+                            font-weight: 600;
+            
+                        }
+        
+                        a:link,
+                        a:visited {
+                          text-decoration: none;
+                        }
+                              
+                    }
                 }
 
-                .transfer-currency__main__send-form__to__button--newPayee {
-                    display: flex;
-                    border-left: 3px solid $color-background-clear;
-                    height: 50px;
-                    color: $color-middle-blue;
+              
+
              
-                          
-                }
-                a {
-                    height: 20px;
-                    font-size: 30px; 
-                    font-weight: 200;
-                    padding-left: 50px;
-                }
-
-                p {
-                    font-size: 16px;
-                    height: 20px;
-                    padding: 8px 60px 0px 10px;
-                    font-weight: 600;
-    
-                }
             }
 
 
