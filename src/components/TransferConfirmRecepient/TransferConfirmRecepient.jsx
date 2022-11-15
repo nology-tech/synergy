@@ -2,18 +2,26 @@ import React from "react";
 import "./TransferConfirmRecepient.scss"
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
+import blackcross from "../../assets/images/black-cross.png"
 
 const TransferConfirmRecepient = (props) => {
 
   const {recipientName,
     accountType,
     accountNum,
-    sortCode} = props;
+    sortCode,
+    toggleRecipient} = props;
 
   return (
     <>
       <div className="transfer-confirm-recepient"></div>
       <div className="transfer-confirm-recepient__main">
+      <img
+          src={blackcross}
+          alt="Close menu"
+          className="blackcross"
+          onClick={toggleRecipient}
+        />
         <h1>Confirm Details</h1>
         <div className="transfer-confirm-recepient__main__details">
           <h3>Recipient Name</h3>

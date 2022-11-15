@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import HeaderNav from "../HeaderNav/HeaderNav";
 import NavMenu from "../NavMenu/NavMenu";
 import FxTransaction from "../FxTransaction/FxTransaction";
@@ -7,6 +8,7 @@ import TransferSendFrom from "../TransferSendFrom/TransferSendFrom";
 import TransferConfirmRecepient from "../TransferConfirmRecepient/TransferConfirmRecepient";
 import "./TransferMakeTransfer.scss";
 import DashboardHeader from "../DashboardHeader/DashboardHeader";
+
 
 const TransferMakeTransfer = (props) => {
   const {
@@ -23,6 +25,11 @@ const TransferMakeTransfer = (props) => {
   } = props;
 
   const accountFormTypes = true;
+  const [showRecipient, setShowRecipient] = useState(false);
+  
+  const toggleRecipient = () => {
+    setShowRecipient(!showRecipient);
+  };
 
   return (
       <div className="transfer-currency">
@@ -82,7 +89,7 @@ const TransferMakeTransfer = (props) => {
                 accountNum={accountNum}
                 sortCode={sortCode}
               />
-              <TransferAddRecipient />
+              <TransferAddRecipient toggleRecipient= {toggleRecipient}/>
             </>
           ) : (
             <></>
@@ -105,6 +112,7 @@ const TransferMakeTransfer = (props) => {
                 accountType="some type"
                 accountNum="12345678"
                 sortCode="101010"
+                toggleRecipient={toggleRecipient}
               />
             </>
           ) : (
