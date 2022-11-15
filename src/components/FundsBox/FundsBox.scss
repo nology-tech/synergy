@@ -1,17 +1,16 @@
 @use "../../assets/sass/_variables.scss"as *;
 
 .greetings__wave{
-    padding-left: 5px;
+    padding-left: 15px;
 }
 .greeting__firstName{
     font-family: $title-font-family;
+    font-weight: normal;
 }
 .fundsBox{
     display: flex;
     align-items: flex-start;
     margin-top: 20px;
-    // background-image: url("../../assets/images/wallet_bluesquare.png");
-    // background-repeat:no-repeat;
 
     img {
         height: 252px;
@@ -20,9 +19,6 @@
         top: 0px;
     }
     &__content{
-            &__firstName{
-                
-            }
             &__title {
                 display: flex;
                 justify-content: left;
@@ -67,15 +63,3 @@
     }
 }
 
-// .fundsBox__firstName{
-//     display: flex;
-//     justify-content: center;
-//     margin-top: 36px;
-// }
-
-
-
-
-// .fundsBox__square{
-//     position: absolute;
-// }
