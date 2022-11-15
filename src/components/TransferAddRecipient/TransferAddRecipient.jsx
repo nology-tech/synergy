@@ -57,7 +57,6 @@ const TransferAddRecipient = (props) => {
                 value={accountType}
               />
               <h3>Account Number</h3>
-              <div></div>
               <input
                 onInput={handleAccountNum}
                 className="input"
@@ -74,8 +73,14 @@ const TransferAddRecipient = (props) => {
               <Link className="transfer-add-recipient__main__options__cancel" to="/chooserecipient">
                 Cancel
               </Link>
-              <Link to="/confirmdetails">
-                <Button buttonText="Continue &#9654;" />
+              <Link to="/transfer-confirm-recepient">
+              <Button
+              buttomImg={""}
+              buttonStyle={"button-light-blue"}
+              isDisabled={false}
+              buttonType={""}
+              buttonText={"Continue"}
+            />
               </Link>
             </div>
         </div>

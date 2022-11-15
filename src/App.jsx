@@ -217,6 +217,23 @@ const App = () => {
               />
             }
           />
+          <Route
+            path="/transfer-confirm-recepient"
+            element={
+              <TransferMakeTransfer
+              transferWorkflowStage = "transferConfirmRecepient" 
+                currencyBaseCode={currencyBaseCode}
+                currencyRecepientCode={currencyRecepientCode}
+                amountBase={amountBase}
+                amountReceived={amountReceived}
+                fxRate={fxRate}
+                username={username}
+                accountBalance={accountBalance}
+                accountNum={accountNum}
+                sortCode={sortCode}
+              />
+            }
+          />
         </Routes>
       </div>
     </Router>
