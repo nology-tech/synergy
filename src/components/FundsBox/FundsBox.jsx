@@ -8,10 +8,12 @@ const FundsBox = (props) => {
 
   return (
     <>
-      <h2 className="greeting__firstName">
+    <div className="greeting__firstName">
+      <h2>
         {"Hey " + name}
         <img className="greetings__wave" src={highFive} alt="highFiveWave" />
       </h2>
+      </div>
       <div className="fundsBox">
         <div className="fundsBox__content">
           <img

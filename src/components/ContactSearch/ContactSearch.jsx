@@ -1,14 +1,13 @@
 import React from "react";
 import spyglass from "./../../assets/images/spyglass.png";
 import "./ContactSearch.scss";
+import Button from "../Button/Button";
 
 // this contains all details in the search row below the contact List heading
 const ContactSearch = (props) => {
-  const { searchTerm, handleInput, onSearchClick, addContact, title, heading } = props;
+  const { searchTerm, handleInput, onSearchClick, addContact } = props;
   return (
       <div className="contactSearch">
-        <h2 className="contact__Title">{title}</h2>
-        <h1 className="contact__Heading">{heading}</h1>
         <div className="contactSearch__text">
           All your friends and family financial details in one place. Easily
           transfer currency internationally at the best possible rates.
@@ -37,7 +36,14 @@ const ContactSearch = (props) => {
             />
           </form>
           {/* Contact Add button */}
-          <input type="submit" className="contactSearch__area__addButton" onClick={addContact} value="Add"></input>
+          <Button
+            buttonStyle={"button-transparent contactSearch__area__addButton"}
+            buttonText={"Add"}
+            onClick={addContact}
+            value="Add"
+            type="submit"
+          />
+          {/* <input type="submit" className="contactSearch__area__addButton" onClick={addContact} value="Add"></input> */}
         </div>
       </div>
   );
