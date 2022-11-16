@@ -37,7 +37,7 @@ const ContactSearch = (props) => {
           </form>
           {/* Contact Add button */}
           <Button
-            buttonStyle={" button-transparent contactSearch__area__addButton"}
+            buttonStyle={"button-transparent contactSearch__area__addButton"}
             buttonText={"Add"}
             onClick={addContact}
             value="Add"
