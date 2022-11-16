@@ -2,6 +2,7 @@ import React from "react";
 import "./FundsBox.scss";
 import blueSquare from "../../assets/images/wallet_bluesquare.png"
 import highFive from "../../assets/images/Emojihand.png"
+import Button from "../Button/Button";
 
 const FundsBox = (props) => {
   const { fundsAmount, forConverter, name } = props;
@@ -25,7 +26,13 @@ const FundsBox = (props) => {
           <div className="fundsBox__content__amount">
             {"\u00A3" + fundsAmount.toLocaleString("en-US")}
           </div>
-          <button className="fundsBox__content__manage"> Manage </button>
+          {/* <button className="fundsBox__content__manage"> Manage </button> */}
+          <Button
+            buttonStyle={"btn button-white fundsBox__content__manage"}
+            //isDisabled={false}
+            buttonText={"Manage"}
+          />
+
         </div>
       </div>
     </>

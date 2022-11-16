@@ -3,18 +3,20 @@ import { useParams } from "react-router-dom";
 import currency from "../../data/currency.js";
 import LiveRatesList from "../LiveRatesList/LiveRatesList.jsx";
 import "./LiveRates.scss";
+import "../../assets/sass/_dashboard.scss";
 import NavMenu from "../NavMenu/NavMenu.jsx";
 import NavBar from "../../assets/images/navbar.png";
 import DashboardHeader from "../DashboardHeader/DashboardHeader.jsx";
+import Button from "../Button/Button.jsx";
 
 const LiveRates = (props) => {
   const { liverates } = useParams();
   const {searchTerm, handleInput} = props;
   return (
-    <div className="live-rates-page">
+    <div className="dashboardPage">
       <NavMenu />
 
-      <div className="live-rates-right">
+      <div className="dashboardPage__right">
         <div className="placeHolders__Navbar">
           <DashboardHeader searchTerm={searchTerm} handleInput={handleInput}/>
         </div>
@@ -28,7 +30,12 @@ const LiveRates = (props) => {
             aliquid!
           </p>
           <LiveRatesList className="live-rates__list" currency={currency} />
-          <button className="button secondary">Add Currency</button>
+          <Button
+            buttonStyle={"btn button-dashed  button secondary"}
+            isDisabled={false}
+            buttonText={"Add Currency"}
+          />
+          {/* <button className="button secondary">Add Currency</button> */}
         </div>
       </div>
     </div>

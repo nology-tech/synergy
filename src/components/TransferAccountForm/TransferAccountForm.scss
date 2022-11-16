@@ -1,0 +1,70 @@
+@use "../../assets/sass/_variables.scss" as *;
+
+.account-form {
+  background: $color-light-gray3;
+  padding: 15px 20px;
+  border: 1px solid $color-light-gray3;
+  border-radius: 8px;
+  margin: 20px 0px;
+  width: 480px;
+  height: fit-content;
+  font-family: $title-font-family;
+
+  &__username {
+    color: $color-middle-blue;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0px 0px 8px 0px;
+    font-size: 16px bold;
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 0px 3px 0px;
+
+    p,
+    h3 {
+      font-size: 12px;
+      font-weight: 400;
+      color: $color-font-light-gray;
+    }
+
+    &__sort-code {
+      padding-bottom: 20px;
+    }
+  }
+
+  &__total {
+    border-top: 1px solid $color-background-clear;
+    width: 100%;
+    padding-top: 20px;
+
+    &__amount {
+      display: flex;
+      justify-content: space-between;
+
+      h3,
+      p {
+        font-size: 16px;
+        font-weight: 400;
+        text-align: right;
+        color: $color-black;
+      }
+    }
+
+    &__funds-rem {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 10px;
+      font-size: 12px;
+      text-align: right;
+      color: $color-font-light-gray;
+
+      h3,
+      p {
+        font-weight: 400;
+      }
+    }
+  }
+}

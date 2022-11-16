@@ -7,7 +7,7 @@
     font-family: $title-font-family;
     font-weight: normal;
     padding-top: 30px;
-    margin-left: 245px;
+    margin-left: 45px;
     width: 220px;
 }
 .fundsBox{
@@ -40,7 +40,7 @@
             &__amount{
                 display: flex;
                 justify-content: center;
-                margin-top: 20px;
+                margin-top: 40px;
                 position: absolute;
                 top: 201px;
                 left: 242px;
@@ -59,7 +59,7 @@
                 flex-direction: row;
                 color: $color-middle-blue;
                 position: absolute;
-                top: 300px;
+                top: 345px;
                 left: 220px;
                 font-weight: bold;
                 font-size: 2vh;

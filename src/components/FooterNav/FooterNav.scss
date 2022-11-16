@@ -1,11 +1,11 @@
 
 @use "../../assets/sass/variables.scss" as *;
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-}
+// *{
+//     margin:0;
+//     padding:0;
+    
+// }
 
 .footernav{  
     background-color: $color-black;
@@ -13,12 +13,15 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
     *{
         text-decoration: none;
-        padding: 0 45px 10px 20px;
-        margin: 5px;
+        // padding: 0 45px 10px 20px;
+        margin-bottom: 5px;
     }
-    &__centerlinks, &__signin{
+    &__centerlinks
+    // , &__signin
+    {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -32,10 +35,10 @@
         *:hover, *:active{
             color: $color-white;
         }
-        .signup{
-            background-color: $color-middle-blue;
-            color:$color-white;
-            border-radius: 6px;
-        }
+        // .signup{
+        //     background-color: $color-middle-blue;
+        //     color:$color-white;
+        //     border-radius: 6px;
+        // }
     }
 }

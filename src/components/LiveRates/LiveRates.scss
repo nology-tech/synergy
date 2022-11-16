@@ -1,11 +1,7 @@
 @use "../../assets/sass/_variables.scss" as *;
 
-.live-rates-page {
-  display: flex;
-  margin-top: 20px;
-
   .live-rates {
-    margin-left: 5%;
+    padding-left: 50px;
 
     &__h4 {
       color: $color-middle-blue;
@@ -39,9 +35,6 @@
       color: $color-font-light-gray;
     }
   }
-}
-
-
 
 .button {
   width: 114px;
