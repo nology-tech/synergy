@@ -22,7 +22,7 @@ import CurrencyConverterContainer from "./containers/CurrencyConverterContainer/
 import currency from './data/currency';
 import TransferMakeTransfer from "./components/TransferMakeTransfer/TransferMakeTransfer";
 import Button from "./components/Button/Button";
-
+import ContactAdd from "./components/ContactAdd/ContactAdd";
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [baseCurrency, setBaseCurrency] = useState(currency[0]);
@@ -114,6 +114,7 @@ const App = () => {
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/contacts" element={<ContactListPage searchTerm={searchTerm} handleInput={handleInput}/>} />
           <Route path="/liverates" element={<LiveRates searchTerm={searchTerm} handleInput={handleInput}/>} />
+          <Route path="/contactadd" element={<ContactAdd />} />
           <Route
             path="/contacts"
             element={
