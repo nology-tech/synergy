@@ -209,10 +209,10 @@ const LoginFlow = (props) => {
 
             <div className="loginFlow__button">
               {loginFlow_header === "Change Password" ? (
-                <Button buttonText={buttonText} disabled={resetToggle} />
+                <Button buttonStyle={"btn button-blue-disabled button-blue"} buttonText={buttonText} disabled={resetToggle} />
               ) : (
                 <Link to="/dashboard">
-                  <Button buttonText={buttonText} disabled={false} />
+                  <Button buttonStyle={"btn button-blue"} buttonText={buttonText} disabled={false} />
                 </Link>
               )}
             </div>
