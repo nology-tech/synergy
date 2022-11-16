@@ -6,26 +6,71 @@
 // Button to cancel and clear all fields
 // Button to continue to review
 
-import React from 'react'
+import React from "react";
+import "./ContactAdd.scss";
+import blackCross from "./../../assets/images/black-cross.png";
 
 const ContactAdd = () => {
   return (
-    <div className='add-contacts'>
-    <h2>Add Recipient</h2>
-    <form>
-        <label for="fname">Recipient Name</label><br></br>
-        <input type="text" id="fname" name="fname"></input><br></br>
-        <label for="actype">Account Type</label><br></br>
-        <input type="text" id="actype" name="actype"></input><br></br>
-        <label for="acnum">Account Number</label><br></br>
-        <input type="text" id="acnum" name="acnum"></input><br></br>
-        <label for="sort">Sort Code</label><br></br>
-        <input type="text" id="sort" name="sort"></input><br></br>
-    </form>
-     <button>Cancel</button>
-     <button>Continue</button>
-     </div>
-  )
-}
+    <div className="add-contacts">
+      <div className="add-contacts__header">
+        <img
+          src={blackCross}
+          alt="black cross"
+          className="add-contacts__header__close"
+        />
+        <h2 className="add-contacts__header__title">Add Recipient</h2>
+      </div>
+      <form>
+        <label className="add-contacts__label" htmlFor="fname">
+          Recipient Name
+        </label>
+        <br></br>
+        <input
+          className="add-contacts__input-box"
+          type="text"
+          id="fname"
+          name="fname"
+        ></input>
+        <br></br>
+        <label className="add-contacts__label" htmlFor="actype">
+          Account Type
+        </label>
+        <br></br>
+        <input
+          className="add-contacts__input-box"
+          type="text"
+          id="actype"
+          name="actype"
+        ></input>
+        <br></br>
+        <label className="add-contacts__label" htmlFor="acnum">
+          Account Number
+        </label>
+        <br></br>
+        <input
+          className="add-contacts__input-box"
+          type="text"
+          id="acnum"
+          name="acnum"
+        ></input>
+        <br></br>
+        <label className="add-contacts__label" htmlFor="sort">
+          Sort Code
+        </label>
+        <br></br>
+        <input
+          className="add-contacts__input-box"
+          type="text"
+          id="sort"
+          name="sort"
+        ></input>
+        <br></br>
+      </form>
+      <button className="add-contacts__cancel-button">Cancel</button>
+      <button className="add-contacts__continue-button">Continue</button>
+    </div>
+  );
+};
 
-export default ContactAdd
+export default ContactAdd;
