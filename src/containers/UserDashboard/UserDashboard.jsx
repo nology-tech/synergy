@@ -8,9 +8,8 @@ import profile from "../../assets/images/Ellipse.png";
 import chevron from "../../assets/images/charm_chevron-down.png";
 
 const UserDashboard = (props) => {
-  const { searchTerm, handleInput, navigateTo } = props;
+  const { navigateTo } = props;
   let mainLogo = logo;
-  const searchImg = clarity;
   let profileImg = profile;
   let profileName = "Samantha Brooks";
   const downImg = chevron;
@@ -23,17 +22,6 @@ const UserDashboard = (props) => {
       </div>
       <div className="userdashboard_main">
         <div className="userdashboard_main_top">
-          <div className="searchbox">
-            <img src={searchImg} alt="Search" />
-            <input
-              type="text"
-              name="test"
-              id="search"
-              value={searchTerm}
-              onInput={handleInput}
-              placeHolder="Search..."
-            />
-          </div>
           <div className="user">
             <Link to="/userprofile" className="signin">
               {profileName}

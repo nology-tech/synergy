@@ -3,7 +3,6 @@ import React from "react";
 
 import "./App.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SignIn from "./components/SignIn/SignIn";
 import SignUpMain from "./components/SignUp/SignUpMain";
 import UserDashboard from "./containers/UserDashboard/UserDashboard";
 import ForgottenPassword from "./components/ForgottenPassword/ForgottenPassword";
@@ -20,7 +19,6 @@ import TransferMakeTransfer from "./components/TransferMakeTransfer/TransferMake
 import Button from "./components/Button/Button";
 
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState("");
   const [baseCurrency, setBaseCurrency] = useState(currency[0]);
   const [toCurrency, setToCurrency] = useState(currency[1]);
   const [amount, setAmount] = useState('');
@@ -28,11 +26,6 @@ const App = () => {
   // fx should come from Live rates on Send button click, temporary setting to EUR rate from data file
   const [fxRate, setFxRate] = useState(currency[1].rate);
       
-  const handleInput = (event) => {
-    const cleanInput = event.target.value.toLowerCase();
-    setSearchTerm(cleanInput);
-  };
-
   // hardcoded values for transfer:
   // list below shall be replaced from currency converter
   const currencyBaseCode = "USD";
@@ -110,16 +103,13 @@ const App = () => {
           <Route
             path="/contacts"
             element={
-              <ContactListPage
-                searchTerm={searchTerm}
-                handleInput={handleInput}
-              />
+              <ContactListPage />
             }
           />
           <Route
             path="/liverates"
             element={
-              <LiveRates searchTerm={searchTerm} handleInput={handleInput} />
+              <LiveRates />
             }
           />
           <Route path="/signin" element={<LoginFlowWelcome />} />
@@ -127,8 +117,6 @@ const App = () => {
             path="/userprofile"
             element={
               <UserDashboard
-                handleInput={handleInput}
-                value={searchTerm}
                 navigateTo="Wallet"
               />
             }
@@ -137,8 +125,6 @@ const App = () => {
             path="/dashboard"
             element={
               <UserDashboard
-                handleInput={handleInput}
-                value={searchTerm}
                 navigateTo="Wallet"
               />
             }
@@ -147,22 +133,11 @@ const App = () => {
             path="/dashboard/wallet"
             element={
               <UserDashboard
-                handleInput={handleInput}
-                value={searchTerm}
                 navigateTo="Wallet"
               />
             }
           />
-          <Route
-            path="/dashboard/convert"
-            element={
-              <UserDashboard
-                handleInput={handleInput}
-                value={searchTerm}
-                navigateTo="Convert"
-              />
-            }
-          />
+          
           <Route path="/home" element={<LandingMain />}></Route>
           <Route path="/features" element={<LandingMain />}></Route>
           <Route path="/about" element={<LandingMain />}></Route>
