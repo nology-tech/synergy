@@ -4,7 +4,8 @@ import "./CurrencyConverter.scss";
 import { Link } from "react-router-dom";
 import currency from '../../data/currency';
 import { faL } from '@fortawesome/free-solid-svg-icons';
-import convertImage from "../../assets/images/ep_refresh.png"
+import convertImage from "../../assets/images/flipbutton.png"
+import convertIcon from "../../assets/images/flipicon.png"
 
 const CurrencyConverter = (props) => {
     const {amount,setAmount,baseCurrency,setBaseCurrency,toCurrency,setToCurrency,convertedAmount,
@@ -19,7 +20,7 @@ const CurrencyConverter = (props) => {
     const message1From = `1 ${baseCurrency.code} = ${1 * fxRate} ${toCurrency.code}`;
     const message1To = `1 ${toCurrency.code} = ${inverseFXRate} ${baseCurrency.code}`;
     // const numericRegExp = /^[0-9]+$/;
-    const numericRegExp = /^\d+\.\d{0,10}$/;
+    const numericRegExp = /^\d*\.?\d*$/;
     
     
 
@@ -90,7 +91,7 @@ const CurrencyConverter = (props) => {
                   </div>               
               </div>  
               <button className = "currencyConverter__main__btn" onClick={convertAmount}>
-                <img src={convertImage} className="currencyConverter__main__btn-img"/>
+                <img src={convertIcon} className="currencyConverter__main__btn-img"/>
                 <span className='currencyConverter__main__btn-span'>Convert</span>
               </button>
             </div>
