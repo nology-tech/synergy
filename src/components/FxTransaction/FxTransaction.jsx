@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./FxTransaction.scss";
 import Button from "../Button/Button";
 import currencies from "../../data/currency.js";
@@ -91,7 +92,11 @@ const FxTransaction = (props) => {
             {amountBase}
           </p>
         </div>
-        <div><Button buttonText="Continue" /></div>
+        <div>
+          <Link to="/transfer-send-from">
+          <Button buttonText="Continue" />
+          </Link>
+          </div>
       </div>
     </div>
   );
