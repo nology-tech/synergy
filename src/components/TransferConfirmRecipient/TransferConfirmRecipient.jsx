@@ -1,29 +1,29 @@
 import React from "react";
-import "./TransferConfirmRecipient.scss"
+import "./TransferConfirmRecipient.scss";
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
-import blackcross from "../../assets/images/black-cross.png"
+import blackcross from "../../assets/images/black-cross.png";
 
 const TransferConfirmRecepient = (props) => {
-  const {linkToCloseTheWindow, 
-    linkToGoBack, 
-    linkToProceed, 
+  const {
+    linkToCloseTheWindow,
+    linkToGoBack,
+    linkToProceed,
     recipientName,
     accountType,
     accountNum,
     sortCode,
-   } = props;
+    handleGoBack,
+  } = props;
+
+  console.log(props);
 
   return (
     <>
       <div className="transfer-confirm-recepient"></div>
       <div className="transfer-confirm-recepient__main">
-      <Link to={linkToCloseTheWindow}>
-      <img
-          src={blackcross}
-          alt="Close menu"
-          className="blackcross"
-        />
+        <Link to={linkToCloseTheWindow}>
+          <img src={blackcross} alt="Close menu" className="blackcross" />
         </Link>
         <h1>Confirm Details</h1>
         <div className="transfer-confirm-recepient__main__details">
@@ -40,6 +40,7 @@ const TransferConfirmRecepient = (props) => {
           <Link
             className="transfer-confirm-recepient__main__options__cancel"
             to={linkToGoBack}
+            onClick={handleGoBack}
           >
             Go Back
           </Link>

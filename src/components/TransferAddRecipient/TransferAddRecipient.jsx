@@ -6,8 +6,13 @@ import blackcross from "../../assets/images/black-cross.png";
 import Button from "../Button/Button";
 
 const TransferAddRecipient = (props) => {
-
-  const {linkToCloseTheWindow, linkToGoBack, linkToProceed, handlePaySomeOneNew, handleGoBack } = props;
+  const {
+    linkToCloseTheWindow,
+    linkToGoBack,
+    linkToProceed,
+    handlePaySomeOneNew,
+    handleGoBack,
+  } = props;
 
   const [recipientName, setRecipientName] = useState("");
   const [accountType, setAccountType] = useState();
@@ -73,18 +78,18 @@ const TransferAddRecipient = (props) => {
           <Link
             className="transfer-add-recipient__main__options__cancel"
             to={linkToGoBack}
-            onClick={handleGoBack}
           >
             Cancel
           </Link>
-            <Button
-              buttomImg={""}
-              buttonStyle={"button-light-blue"}
-              isDisabled={false}
-              buttonType={""}
-              buttonText={"Continue"}
-              onClick={handlePaySomeOneNew}
-            />
+
+          <Button
+            buttomImg={""}
+            buttonStyle={"button-light-blue"}
+            isDisabled={false}
+            buttonType={""}
+            buttonText={"Continue"}
+            onClick={handlePaySomeOneNew}
+          />
         </div>
       </div>
     </>
