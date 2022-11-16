@@ -17,17 +17,6 @@ const DashboardHeader = (props) => {
 
   return (
     <div className="dashboardheader">
-    <div className="searchbox">
-      <img src={searchImg} alt="Search" />
-      <input
-        type="text"
-        name="test"
-        id="search"
-        value={searchTerm}
-        onInput={handleInput}
-        placeHolder="Search..."
-      />
-    </div>
     <div className="user">
       <Link to="/userprofile" className="signin">
         {profileName}
