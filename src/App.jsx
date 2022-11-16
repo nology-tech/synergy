@@ -14,27 +14,32 @@ import BillingAddress from "./containers/BillingAddress/BillingAddress";
 import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
+import CurrencyConverterContainer from "./containers/CurrencyConverterContainer/CurrencyConverterContainer";
+import currency from './data/currency';
 import TransferMakeTransfer from "./components/TransferMakeTransfer/TransferMakeTransfer";
 import Button from "./components/Button/Button";
 
-// import {SlRefresh} from 'react-icons/sl';
-// import {IoExitOutline} from "react-icons/io5";
-
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [baseCurrency, setBaseCurrency] = useState(currency[0]);
+  const [toCurrency, setToCurrency] = useState(currency[1]);
+  const [amount, setAmount] = useState('');
+  const [convertedAmount, setConvertedAmount] = useState('');
+  // fx should come from Live rates on Send button click, temporary setting to EUR rate from data file
+  const [fxRate, setFxRate] = useState(currency[1].rate);
+      
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
   };
 
-   // hardcoded values for transfer:
+  // hardcoded values for transfer:
   // list below shall be replaced from currency converter
   const currencyBaseCode = "USD";
   const currencyRecepientCode = "GBP";
   const amountBase = 1000;
   const amountReceived = 1359.5;
-  const fxRate = 1.3595;
+  //const fxRate = 1.3595;
   // list below shall be replaced from create account database
   const username = "Smantha Brooks";
   const accountNum = "10840366";
@@ -46,8 +51,7 @@ const App = () => {
   // const buttonImg = <SlRefresh />;  // to be removed
   // const buttonText = "Convert";  // to be removed
 
-
-  return (
+ return (
     <Router>
       <div>
         {/* Button Test */}
@@ -164,6 +168,23 @@ const App = () => {
           <Route path="/about" element={<LandingMain />}></Route>
           <Route path="/contact" element={<LandingMain />}></Route>
           <Route path="/" element={<LandingMain />}></Route>
+
+          <Route path="/currencyconverter" 
+                 element={
+                  <CurrencyConverterContainer 
+                  amount={amount} 
+                  setAmount={setAmount} 
+                  baseCurrency={baseCurrency}
+                  setBaseCurrency = {setBaseCurrency}
+                  toCurrency={toCurrency}
+                  setToCurrency = {setToCurrency}
+                  convertedAmount={convertedAmount}
+                  setConvertedAmount={setConvertedAmount}
+                  fxRate={fxRate}
+                  setFxRate={setFxRate}/>}>
+          </Route>
+          
+
           <Route
             path="/transfer-fx-transaction"
             element={
