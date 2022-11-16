@@ -232,7 +232,7 @@ const App = () => {
               />
             }
           />
-          <Route
+          {/* <Route
             path="/transfer-confirm-recipient"
             element={
               <TransferMakeTransfer
@@ -248,7 +248,7 @@ const App = () => {
                 sortCode={sortCode}
               />
             }
-          />
+          /> */}
         </Routes>
       </div>
     </Router>

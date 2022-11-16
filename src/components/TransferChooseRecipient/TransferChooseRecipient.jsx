@@ -8,6 +8,9 @@ import "./TransferChooseRecipient.scss";
 import contacts from "../../data/Contacts.js";
 
 const TransferChooseRecipient = (props) => {
+
+  const {linkToCloseTheWindow, linkToProceed } = props;
+
   // Setting up the search box
   const [searchQuery, setSearchQuery] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
@@ -39,7 +42,7 @@ const TransferChooseRecipient = (props) => {
     <>
     <div className="transfer-choose-recipient"></div>
       <div className="transfer-choose-recipient__main">
-      <Link to="/transfer-send-from">
+      <Link to={linkToCloseTheWindow}>
         <img src={blackCross} alt="Close menu" className="blackcross" />
       </Link>
       <h1>Choose Recipient</h1>

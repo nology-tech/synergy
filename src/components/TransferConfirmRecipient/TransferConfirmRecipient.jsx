@@ -5,8 +5,10 @@ import Button from "../Button/Button";
 import blackcross from "../../assets/images/black-cross.png"
 
 const TransferConfirmRecepient = (props) => {
-
-  const {recipientName,
+  const {linkToCloseTheWindow, 
+    linkToGoBack, 
+    linkToProceed, 
+    recipientName,
     accountType,
     accountNum,
     sortCode,
@@ -16,7 +18,7 @@ const TransferConfirmRecepient = (props) => {
     <>
       <div className="transfer-confirm-recepient"></div>
       <div className="transfer-confirm-recepient__main">
-      <Link to="/transfer-send-from">
+      <Link to={linkToCloseTheWindow}>
       <img
           src={blackcross}
           alt="Close menu"
@@ -37,11 +39,11 @@ const TransferConfirmRecepient = (props) => {
         <div className="transfer-confirm-recepient__main__options">
           <Link
             className="transfer-confirm-recepient__main__options__cancel"
-            to="/transfer-add-recipient"
+            to={linkToGoBack}
           >
             Go Back
           </Link>
-          <Link to="/transfer-completed">
+          <Link to={linkToProceed}>
             <button>Submit</button>
             {/* <Button
               buttomImg={""}

@@ -27,6 +27,18 @@ const TransferMakeTransfer = (props) => {
 
   const accountFormTypes = true;
 
+  const [workflowStage, setWorkflowStage] = useState("addRecipient");  
+
+  const handlePaySomeOneNew = (event) => {
+    setWorkflowStage("addRecipientConfirmed");
+  }
+  console.log(workflowStage);
+
+  
+  const handleGoBack = (event) => {
+    setWorkflowStage("addRecipient");
+  }
+
   return (
       <div className="transfer-currency">
         <div className="transfer-currency__navMenu">
@@ -86,7 +98,13 @@ const TransferMakeTransfer = (props) => {
                 accountNum={accountNum}
                 sortCode={sortCode}
               />
-              <TransferChooseRecipient/>
+              
+              <TransferChooseRecipient
+              linkToCloseTheWindow = "/transfer-send-from"
+              linkToProceed = "/transfer-confirm-recipient"
+              />
+              <TransferConfirmRecipient/>
+
             </>
           ) : (
             <></>
@@ -104,7 +122,14 @@ const TransferMakeTransfer = (props) => {
                 accountNum={accountNum}
                 sortCode={sortCode}
               />
-              <TransferAddRecipient/>
+              {workflowStage=="addRecipient"?
+              (<TransferAddRecipient
+                linkToCloseTheWindow = "/transfer-send-from"
+                linkToGoBack = "/transfer-send-from"
+                linkToProceed = "/transfer-confirm-recipient"
+                handlePaySomeOneNew ={handlePaySomeOneNew}
+                handleGoBack={handleGoBack}
+              />):(<TransferConfirmRecipient/>)}
             </>
           ) : (
             <></>
@@ -123,6 +148,9 @@ const TransferMakeTransfer = (props) => {
                 sortCode={sortCode}
               />
               <TransferConfirmRecipient
+                linkToCloseTheWindow = "/transfer-send-from"
+                linkToGoBack = "/transfer-add-recipient"
+                linkToProceed = "/transfer-completed"
                 recipientName="Sarah Bernar"
                 accountType="some type"
                 accountNum="12345678"
