@@ -11,14 +11,18 @@ const CurrencyConverter = (props) => {
     const {amount,setAmount,baseCurrency,setBaseCurrency,toCurrency,setToCurrency,convertedAmount,
        setConvertedAmount, fxRate, setFxRate}=props;
     const [shouldHide, setShouldHide] = useState(true);
-    const [inverseFXRate,setInverseFXRate] = useState(Number(1/fxRate).toFixed(4))
+    //const [inverseFXRate,setInverseFXRate] = useState(Number(1/fxRate).toFixed(4));
+    const [amountSymbol,setAmountSymbol] = useState(baseCurrency.symbol);
+    const [firstDisplay,setFirstDisplay] = useState(baseCurrency);
+    const [secondDisplay,setSecondDisplay] = useState(toCurrency);
+    const [firstLabel,setFirstLabel] = useState("From");
+    const [secondLabel,setSecondLabel] = useState("To");
+    const [firstMessage,setFirstMessage] = useState(`${amount} ${baseCurrency.name} =`)
+    const [secondMessage,setSecondMessage] = useState(`${Number(amount * fxRate).toFixed(4)} ${toCurrency.name}`);
+    const [flippedFxAmount,setflippedFxAmount] = useState(amount * Number(1/fxRate).toFixed(4));
     
-    const currencyFromName = baseCurrency.name;
-    const currencyToName = toCurrency.name;
-    const messageFrom = `${amount} ${currencyFromName} =`;
-    const messageTo =  `${convertedAmount} ${currencyToName}`;
     const message1From = `1 ${baseCurrency.code} = ${1 * fxRate} ${toCurrency.code}`;
-    const message1To = `1 ${toCurrency.code} = ${inverseFXRate} ${baseCurrency.code}`;
+    const message1To = `1 ${toCurrency.code} = ${Number(1/fxRate).toFixed(4)} ${baseCurrency.code}`;
     // const numericRegExp = /^[0-9]+$/;
     const numericRegExp = /^\d*\.?\d*$/;
     
@@ -29,26 +33,64 @@ const CurrencyConverter = (props) => {
       const amount = e.target.value.toLowerCase();
       if (amount === '' || numericRegExp.test(amount)) {
         setAmount(amount); 
-        setConvertedAmount (Number(amount * fxRate).toFixed(4));          
+        setConvertedAmount (Number(amount * fxRate).toFixed(4)); 
+        if (amountSymbol===baseCurrency.symbol){
+          setFirstMessage(`${amount} ${baseCurrency.name} =`); 
+          setSecondMessage(`${Number(amount * fxRate).toFixed(4)} ${toCurrency.name}`);
+        } 
+        else {
+          setFirstMessage(`${amount} ${toCurrency.name} =`);
+          setSecondMessage(`${Number(amount * 1/fxRate).toFixed(4)} ${baseCurrency.name}`)
+        }               
       }         
     };
-      
+    const flip = () => {
+      if (amountSymbol===baseCurrency.symbol){
+        setAmountSymbol(toCurrency.symbol);
+        setFirstDisplay(toCurrency);
+        setSecondDisplay(baseCurrency);
+        setFirstLabel("To");
+        setSecondLabel("From");
+        setFirstMessage(`${amount} ${toCurrency.name} =`);
+        setSecondMessage(`${Number(amount * 1/fxRate).toFixed(4)} ${baseCurrency.name}`)
+      } else {
+        setAmountSymbol(baseCurrency.symbol);
+        setFirstDisplay(baseCurrency);
+        setSecondDisplay(toCurrency);
+        setFirstLabel("From");
+        setSecondLabel("To");
+        setFirstMessage(`${amount} ${baseCurrency.name} =`);
+        setSecondMessage(`${Number(amount * fxRate).toFixed(4)} ${toCurrency.name}`);
+      }      
+    } 
+    const setup = () => {
+      if (amountSymbol===toCurrency.symbol){
+        setAmountSymbol(toCurrency.symbol);
+        setFirstDisplay(toCurrency);
+        setSecondDisplay(baseCurrency);
+        setFirstLabel("To");
+        setSecondLabel("From");
+        setFirstMessage(`${amount} ${toCurrency.name} =`);
+        setSecondMessage(`${Number(amount * 1/fxRate).toFixed(4)} ${baseCurrency.name}`)
+      } else {
+        setAmountSymbol(baseCurrency.symbol);
+        setFirstDisplay(baseCurrency);
+        setSecondDisplay(toCurrency);
+        setFirstLabel("From");
+        setSecondLabel("To");
+        setFirstMessage(`${amount} ${baseCurrency.name} =`);
+        setSecondMessage(`${Number(amount * fxRate).toFixed(4)} ${toCurrency.name}`);
+      }      
+    }   
     const convertAmount = () => {
+      if (amount == '') setShouldHide(true); 
+      else setShouldHide(false);
+      setup();
       setConvertedAmount(Number(amount * fxRate).toFixed(4)); 
-      if (amount != null) setShouldHide(false); 
+      
     }
 
-    const flip = () => {
-      const temp = baseCurrency;
-      const temp1 = fxRate;
-      setToCurrency (temp);
-      setBaseCurrency(toCurrency);
-      setFxRate(inverseFXRate);
-      //console.log("baseCurrency: " + baseCurrency.code + "toCurrency: " + toCurrency.code + "amount: " + amount + "fx rate: " + fxRate + "inverseRate: " +inverseFXRate)
-      setConvertedAmount(Number(amount * fxRate));
-      setInverseFXRate (temp1);   
-      setShouldHide(true);   
-    }
+ 
 
   return (
     <div className='currencyConverter'>
@@ -69,24 +111,24 @@ const CurrencyConverter = (props) => {
                           className="currencyConverter__main__converter__input__box"
                           value={amount}
                           type="text"/>
-                      <i>{baseCurrency.symbol}</i>    
+                      <i>{amountSymbol}</i>    
                     </div>                  
                   </div>
                   <div className = "currencyConverter__main__converter__input">
-                    <label className="currencyConverter__main__converter__input__label">From</label>
+                    <label className="currencyConverter__main__converter__input__label">{firstLabel}</label>
                     {/* From: Base Currency in Wallet/Live Rates -- assuming Base Currency = USD */}
                     <div className='input-container'>
-                      <input value={baseCurrency.code} type="text" className="currencyConverter__main__converter__input__box"/>
-                      <img src={baseCurrency.img} className='flag_from'/>
+                      <input value={firstDisplay.code} type="text" className="currencyConverter__main__converter__input__box"/>
+                      <img src={firstDisplay.img} className='flag_from'/>
                     </div>                  
                   </div>
                   <input type="image" src={convertImage} className="currencyConverter__main__converter__button" onClick={flip}/>              
                   <div className = "currencyConverter__main__converter__input">
-                    <label className="currencyConverter__main__converter__input__label">To</label>
+                    <label className="currencyConverter__main__converter__input__label">{secondLabel}</label>
                       {/* To: Desired currency selected via Live Rates */}
                       <div className='input-container'>
-                        <input value={toCurrency.code} type="text" className="currencyConverter__main__converter__input__box" />
-                        <img src={toCurrency.img} className='flag_to'/>
+                        <input value={secondDisplay.code} type="text" className="currencyConverter__main__converter__input__box" />
+                        <img src={secondDisplay.img} className='flag_to'/>
                       </div>
                   </div>               
               </div>  
@@ -100,8 +142,8 @@ const CurrencyConverter = (props) => {
                 {shouldHide ? 'currencyConverter__main__hidden' : 'currencyConverter__main__bottom'}>
                 {/* will display conversion */}
                 <div>
-                  <p className="currencyConverter__main__bottom-from">{messageFrom}</p>
-                  <p className="currencyConverter__main__bottom-to">{messageTo}</p>
+                  <p className="currencyConverter__main__bottom-from">{firstMessage}</p>
+                  <p className="currencyConverter__main__bottom-to">{secondMessage}</p>
                   <p className="currencyConverter__main__bottom-rate">{message1From}</p>
                   <p className="currencyConverter__main__bottom-rate">{message1To}</p>
                 </div>                
