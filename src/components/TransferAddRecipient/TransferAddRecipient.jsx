@@ -73,7 +73,7 @@ const TransferAddRecipient = (props) => {
           >
             Cancel
           </Link>
-          <Link to="/transfer-confirm-recepient">
+          <Link to="/transfer-confirm-recipient">
             <button>Continue</button>
             {/* <Button
               buttomImg={""}

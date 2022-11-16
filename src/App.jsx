@@ -31,7 +31,7 @@ const App = () => {
    // hardcoded values for transfer:
   // list below shall be replaced from currency converter
   const currencyBaseCode = "USD";
-  const currencyRecepientCode = "GBP";
+  const currencyRecipientCode = "GBP";
   const amountBase = 1000;
   const amountReceived = 1359.5;
   const fxRate = 1.3595;
@@ -170,7 +170,7 @@ const App = () => {
               <TransferMakeTransfer
               transferWorkflowStage = "fxTransaction"
                 currencyBaseCode={currencyBaseCode}
-                currencyRecepientCode={currencyRecepientCode}
+                currencyRecipientCode={currencyRecipientCode}
                 amountBase={amountBase}
                 amountReceived={amountReceived}
                 fxRate={fxRate}
@@ -187,7 +187,7 @@ const App = () => {
               <TransferMakeTransfer
               transferWorkflowStage = "transferSendFrom"
                 currencyBaseCode={currencyBaseCode}
-                currencyRecepientCode={currencyRecepientCode}
+                currencyRecipientCode={currencyRecipientCode}
                 amountBase={amountBase}
                 amountReceived={amountReceived}
                 fxRate={fxRate}
@@ -199,12 +199,12 @@ const App = () => {
             }
           />
           <Route
-            path="/transfer-add-recepient"
+            path="/transfer-choose-recipient"
             element={
               <TransferMakeTransfer
-              transferWorkflowStage = "transferAddRecepient" 
+              transferWorkflowStage = "transferChooseRecipient" 
                 currencyBaseCode={currencyBaseCode}
-                currencyRecepientCode={currencyRecepientCode}
+                currencyRecipientCode={currencyRecipientCode}
                 amountBase={amountBase}
                 amountReceived={amountReceived}
                 fxRate={fxRate}
@@ -216,12 +216,29 @@ const App = () => {
             }
           />
           <Route
-            path="/transfer-confirm-recepient"
+            path="/transfer-add-recipient"
             element={
               <TransferMakeTransfer
-              transferWorkflowStage = "transferConfirmRecepient" 
+              transferWorkflowStage = "transferAddRecipient" 
                 currencyBaseCode={currencyBaseCode}
-                currencyRecepientCode={currencyRecepientCode}
+                currencyRecipientCode={currencyRecipientCode}
+                amountBase={amountBase}
+                amountReceived={amountReceived}
+                fxRate={fxRate}
+                username={username}
+                accountBalance={accountBalance}
+                accountNum={accountNum}
+                sortCode={sortCode}
+              />
+            }
+          />
+          <Route
+            path="/transfer-confirm-recipient"
+            element={
+              <TransferMakeTransfer
+              transferWorkflowStage = "transferConfirmRecipient" 
+                currencyBaseCode={currencyBaseCode}
+                currencyRecipientCode={currencyRecipientCode}
                 amountBase={amountBase}
                 amountReceived={amountReceived}
                 fxRate={fxRate}

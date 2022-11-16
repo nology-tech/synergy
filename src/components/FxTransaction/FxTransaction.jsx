@@ -8,7 +8,7 @@ import infosign from "../../assets/images/infosign.png";
 const FxTransaction = (props) => {
   const {
     currencyBaseCode,
-    currencyRecepientCode,
+    currencyRecipientCode,
     amountBase,
     amountReceived,
     fxRate,
@@ -22,12 +22,18 @@ const FxTransaction = (props) => {
   console.log(currencyBase[0].code);
   console.log(currencyBase[0].name);
   console.log(currencyBase[0].symbol);
+  
   console.log(amountBase);
 
-  const currencyRecepient = currencies.filter((currency) => {
-    return currency.code == currencyRecepientCode;
+  const currencyRecipient = currencies.filter((currency) => {
+    return currency.code == currencyRecipientCode;
   });
 
+  console.log(currencyRecipient[0].img);
+  console.log(currencyRecipient[0].code);
+  console.log(currencyRecipient[0].name);
+  console.log(currencyRecipient[0].symbol);
+  
   return (
     <div className="fx-transaction">
       <div className="fx-transaction__amount">
@@ -50,20 +56,20 @@ const FxTransaction = (props) => {
         </div>
       </div>
       <div className="fx-transaction__amount">
-        <h2>Recepient gets</h2>
+        <h2>Recipient gets</h2>
         <div className="fx-transaction__amount__details">
           <div className="fx-transaction__amount__details__currency">
             <img
               className="fx-transaction__amount__img"
-              src={currencyRecepient[0].img}
+              src={currencyRecipient[0].img}
               alt="US currency"
             />
             <div className="fx-transaction__amount__name">
-              {currencyRecepient[0].code} - {currencyRecepient[0].name}
+              {currencyRecipient[0].code} - {currencyRecipient[0].name}
             </div>
           </div>
           <div className="fx-transaction__amount__amount">
-            {currencyRecepient[0].symbol}
+            {currencyRecipient[0].symbol}
             {amountReceived}
           </div>
         </div>

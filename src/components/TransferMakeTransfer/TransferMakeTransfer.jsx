@@ -4,8 +4,9 @@ import HeaderNav from "../HeaderNav/HeaderNav";
 import NavMenu from "../NavMenu/NavMenu";
 import FxTransaction from "../FxTransaction/FxTransaction";
 import TransferAddRecipient from "../TransferAddRecipient/TransferAddRecipient";
+import TransferChooseRecipient from "../TransferChooseRecipient/TransferChooseRecipient";
 import TransferSendFrom from "../TransferSendFrom/TransferSendFrom";
-import TransferConfirmRecepient from "../TransferConfirmRecepient/TransferConfirmRecepient";
+import TransferConfirmRecipient from "../TransferConfirmRecipient/TransferConfirmRecipient"
 import "./TransferMakeTransfer.scss";
 import DashboardHeader from "../DashboardHeader/DashboardHeader";
 
@@ -14,7 +15,7 @@ const TransferMakeTransfer = (props) => {
   const {
     transferWorkflowStage,
     currencyBaseCode,
-    currencyRecepientCode,
+    currencyRecipientCode,
     amountBase,
     amountReceived,
     fxRate,
@@ -48,7 +49,7 @@ const TransferMakeTransfer = (props) => {
           {transferWorkflowStage == "fxTransaction" ? (
             <FxTransaction
               currencyBaseCode={currencyBaseCode}
-              currencyRecepientCode={currencyRecepientCode}
+              currencyRecipientCode={currencyRecipientCode}
               amountBase={amountBase}
               amountReceived={amountReceived}
               fxRate={fxRate}
@@ -72,8 +73,27 @@ const TransferMakeTransfer = (props) => {
             <></>
           )}
 
-          {/* Display the screen with Add Recepient overlapping Send From transaction details */}
-          {transferWorkflowStage == "transferAddRecepient" ? (
+           {/* Display the screen with Choose recipient overlapping Send From transaction details */}
+
+           {transferWorkflowStage == "transferChooseRecipient" ? (
+            <>
+              <TransferSendFrom
+                currencyBaseCode={currencyBaseCode}
+                accountBalance={accountBalance}
+                amountBase={amountBase}
+                accountFormTypes={accountFormTypes}
+                username={username}
+                accountNum={accountNum}
+                sortCode={sortCode}
+              />
+              <TransferChooseRecipient/>
+            </>
+          ) : (
+            <></>
+          )}
+
+          {/* Display the screen with Add recipient overlapping Send From transaction details */}
+          {transferWorkflowStage == "transferAddRecipient" ? (
             <>
               <TransferSendFrom
                 currencyBaseCode={currencyBaseCode}
@@ -90,8 +110,8 @@ const TransferMakeTransfer = (props) => {
             <></>
           )}
 
-          {/* Display the screen with Confirm Recepient overlapping Send From transaction details */}
-          {transferWorkflowStage == "transferConfirmRecepient" ? (
+          {/* Display the screen with Confirm recipient overlapping Send From transaction details */}
+          {transferWorkflowStage == "transferConfirmRecipient" ? (
             <>
               <TransferSendFrom
                 currencyBaseCode={currencyBaseCode}
@@ -102,7 +122,7 @@ const TransferMakeTransfer = (props) => {
                 accountNum={accountNum}
                 sortCode={sortCode}
               />
-              <TransferConfirmRecepient
+              <TransferConfirmRecipient
                 recipientName="Sarah Bernar"
                 accountType="some type"
                 accountNum="12345678"

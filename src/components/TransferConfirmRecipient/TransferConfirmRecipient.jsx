@@ -1,5 +1,5 @@
 import React from "react";
-import "./TransferConfirmRecepient.scss"
+import "./TransferConfirmRecipient.scss"
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import blackcross from "../../assets/images/black-cross.png"
@@ -37,7 +37,7 @@ const TransferConfirmRecepient = (props) => {
         <div className="transfer-confirm-recepient__main__options">
           <Link
             className="transfer-confirm-recepient__main__options__cancel"
-            to="/transfer-add-recepient"
+            to="/transfer-add-recipient"
           >
             Go Back
           </Link>
