@@ -9,16 +9,15 @@ import NavBar from "../../assets/images/navbar.png";
 import DashboardHeader from "../DashboardHeader/DashboardHeader.jsx";
 import Button from "../Button/Button.jsx";
 
-const LiveRates = (props) => {
+const LiveRates = () => {
   const { liverates } = useParams();
-  const {searchTerm, handleInput} = props;
   return (
     <div className="dashboardPage">
       <NavMenu />
 
       <div className="dashboardPage__right">
         <div className="placeHolders__Navbar">
-          <DashboardHeader searchTerm={searchTerm} handleInput={handleInput}/>
+          <DashboardHeader />
         </div>
         <div className="live-rates">
           <h4 className="live-rates__h4">Transfer</h4>
