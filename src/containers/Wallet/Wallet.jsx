@@ -6,16 +6,16 @@ import ContactContainer from '../ContactContainer/ContactContainer';
 import NavBar from "../../assets/images/navbar.png";
 import DashboardHeader from '../../components/DashboardHeader/DashboardHeader';
 import ContactList from '../../components/ContactList/ContactList';
+import "../../assets/sass/_dashboard.scss"
 
+const Wallet = (props) => {
+  const {searchTerm, handleInput} = props;
 
-const Wallet = () => {
   return (
-    <div className="wallet-page">
-      <div className="wallet-page__menu">
+    <div className="dashboardPage">
         <NavMenu />
-      </div>
-      <div className="wallet-page__header">
-        <DashboardHeader />
+      <div className="dashboardPage__right">
+        <DashboardHeader searchTerm= {searchTerm} handleInput={handleInput} />
       </div>
       {/* <div className='walletPage__details'>
           <h1 className='walletPage__details__title'>Funds box will go here</h1>
