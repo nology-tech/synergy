@@ -3,6 +3,8 @@ import ContactSearch from "../../components/ContactSearch/ContactSearch";
 import "./ContactContainer.scss";
 import ContactList from "../../components/ContactList/ContactList";
 import contacts from "../../data/Contacts";
+import Button from "../../components/Button/Button";
+
 
 const ContactContainer = () => {
   // Setting up the search box
@@ -51,12 +53,25 @@ const ContactContainer = () => {
     <div className="contact">
       <h2 className="contact__Title">Contacts</h2>
       <h1 className="contact__Heading">Contact List</h1>
-      <ContactSearch
-        searchTerm={searchQuery}
-        handleInput={handleInput}
-        onSearchClick={onSearchClick}
-        addContact={addContact}
-      />
+      <div className="contactSearch">
+        <div className="contactSearch__text">
+          All your friends and family financial details in one place. Easily
+          transfer currency internationally at the best possible rates.
+        </div>
+        <ContactSearch
+          searchTerm={searchQuery}
+          handleInput={handleInput}
+          onSearchClick={onSearchClick}
+        />
+          <Button
+          buttonStyle={"button-transparent contactSearch__area__addButton"}
+          buttonText={"Add"}
+          onClick={addContact}
+          value="Add"
+          type="submit"
+        />
+        {/* <input type="submit" className="contactSearch__area__addButton" onClick={addContact} value="Add"></input> */}
+      </div>
       <ContactList
         contactsArray={filteredContactsArray}
         onClick={onContactClick}
