@@ -1,1 +1,7 @@
 @use "../../assets/sass/_variables.scss" as *;
+
+.add-contacts{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}

@@ -10,26 +10,21 @@ import React from 'react'
 
 const ContactAdd = () => {
   return (
+    <div className='add-contacts'>
+    <h2>Add Recipient</h2>
     <form>
-        <h2>Add Recipient</h2>
-        <table>
-        <tr>Recipient Name</tr>
-        <tr>
-        <input
-        type = "text">
-        
-        </input>
-        </tr>
-        <tr>Account Type</tr>
-        <input></input>
-        <label>Account Number</label>
-        <input></input>
-        <label>Sort Code</label>
-        <input></input>
-        </table>
-        <button>Cancel</button> 
-
+        <label for="fname">Recipient Name</label><br></br>
+        <input type="text" id="fname" name="fname"></input><br></br>
+        <label for="actype">Account Type</label><br></br>
+        <input type="text" id="actype" name="actype"></input><br></br>
+        <label for="acnum">Account Number</label><br></br>
+        <input type="text" id="acnum" name="acnum"></input><br></br>
+        <label for="sort">Sort Code</label><br></br>
+        <input type="text" id="sort" name="sort"></input><br></br>
     </form>
+     <button>Cancel</button>
+     <button>Continue</button>
+     </div>
   )
 }
 
