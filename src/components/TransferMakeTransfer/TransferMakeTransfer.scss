@@ -1,0 +1,36 @@
+@use "../../assets/sass/_variables.scss"as *;
+
+.transfer-currency {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+
+    &__navMenu {
+        width: fit-content;
+    }
+    &__main {
+        &__header {
+            font-family: Outfit;
+
+            h1 {
+                color: $color-black;
+                font-size: 32px;
+                font-weight: 400;
+                padding: 10px 0px;
+            }
+
+            h2 {
+                color: $color-middle-blue;
+                font-size: 12px;
+                font-weight: 500;
+                padding: 20px 0px 0px 0px;
+            }
+
+            p {
+                color: $color-font-light-gray;
+                font-size: 16px;
+                font-weight: 400;
+                padding: 10px 0px;
+            }
+        }
+    }
+}

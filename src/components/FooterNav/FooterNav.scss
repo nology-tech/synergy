@@ -16,10 +16,12 @@
     box-sizing: border-box;
     *{
         text-decoration: none;
-        padding: 0 45px 10px 20px;
-        margin: 5px;
+        // padding: 0 45px 10px 20px;
+        margin-bottom: 5px;
     }
-    &__centerlinks, &__signin{
+    &__centerlinks
+    // , &__signin
+    {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -33,10 +35,10 @@
         *:hover, *:active{
             color: $color-white;
         }
-        .signup{
-            background-color: $color-middle-blue;
-            color:$color-white;
-            border-radius: 6px;
-        }
+        // .signup{
+        //     background-color: $color-middle-blue;
+        //     color:$color-white;
+        //     border-radius: 6px;
+        // }
     }
 }

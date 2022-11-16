@@ -1,0 +1,61 @@
+@use "../../assets/sass/_variables.scss"as *;
+
+.transfer-send-form {
+    padding: 40px 40px;
+    border: 1px solid $color-light-gray-info-bar;
+    border-radius: 8px;
+    color: $color-black;
+    font-family: $title-font-family;
+    background-color: $color-light-gray-info-bar;
+    width: 600px;
+    height: fit-content;
+
+    h2 {
+        font-weight: 400;
+        font-size: 24px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    &__to {
+        border-bottom: 1px solid $color-background-clear;
+        width: 480px;
+
+        &__options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding-bottom: 20px;
+
+            button {
+                margin-right: 40px;
+            }
+
+            &__newPayee {
+                display: flex;
+                border-left: 3px solid $color-background-clear;
+                color: $color-middle-blue;
+         
+                a {
+                    color: $color-middle-blue;
+                    font-size: 16px;
+                    margin-left: 40px;
+                    font-weight: 600;
+    
+                }
+
+                a:link,
+                a:visited {
+                  text-decoration: none;
+                }
+                      
+            }
+        }
+
+      
+
+     
+    }
+
+
+}

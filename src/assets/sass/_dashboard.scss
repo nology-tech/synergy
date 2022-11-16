@@ -1,0 +1,9 @@
+.dashboardPage {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    &__right {
+        display: flex;
+        flex-direction: column;
+    }
+}

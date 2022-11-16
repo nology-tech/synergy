@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./BillingAddress.scss";
 import synergyLogo from "../../assets/images/synergy_main_logo.png";
-import SignInNav from "../SignInNav/SignInNav";
+import SignInNav from "../../components/SignInNav/SignInNav";
+import Button from "../../components/Button/Button";
 
 const BillingAddress = () => {
   const [houseNum, setHouseNum] = useState();
@@ -94,9 +95,10 @@ const BillingAddress = () => {
                     Go Back
                   </button>
                 </Link>
-                <button className="billingAddressForm__btn" type="submit">
+                <Button buttonStyle={"btn button-blue billingAddressForm__btn"} type="submit" buttonText={"Create Account"} />
+                {/* <button className="billingAddressForm__btn" type="submit">
                   Create Account
-                </button>
+                </button> */}
               </div>
             </form>
           </div>

@@ -1,7 +1,7 @@
 import React from "react";
 // import "./LandingNav.scss";
-import HeaderNav from "../../components/HeaderNav/HeaderNav";
-import FooterNav from "../../components/FooterNav/FooterNav";
+import HeaderNav from "../HeaderNav/HeaderNav";
+import FooterNav from "../FooterNav/FooterNav";
 
 const LandingNav = () => {
   return (

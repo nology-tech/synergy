@@ -6,8 +6,8 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import Button from "../Button/Button";
-import SignInNav from "../SignInNav/SignInNav";
+import Button from "../../components/Button/Button";
+import SignInNav from "../../components/SignInNav/SignInNav";
 
 const LoginFlow = (props) => {
   const {
@@ -209,10 +209,10 @@ const LoginFlow = (props) => {
 
             <div className="loginFlow__button">
               {loginFlow_header === "Change Password" ? (
-                <Button buttonText={buttonText} disabled={resetToggle} />
+                <Button buttonStyle={"btn button-blue-disabled button-blue"} buttonText={buttonText} disabled={resetToggle} />
               ) : (
                 <Link to="/dashboard">
-                  <Button buttonText={buttonText} disabled={false} />
+                  <Button buttonStyle={"btn button-blue"} buttonText={buttonText} disabled={false} />
                 </Link>
               )}
             </div>

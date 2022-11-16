@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./BankDetails.scss";
 import synergyLogo from "../../assets/images/synergy_main_logo.png";
-import SignInNav from "../SignInNav/SignInNav";
+import SignInNav from "../../components/SignInNav/SignInNav";
+import Button from "../../components/Button/Button";
 
 const BankDetails = () => {
   const [accountName, setAccountName] = useState("");
@@ -78,12 +79,17 @@ const BankDetails = () => {
                   </button>
                 </Link>
                 <Link to="/billingaddress">
-                  <button
+                  <Button 
+                    buttonStyle={"btn button-blue"}
+                    buttonType={"submit"} 
+                    buttonText={`Continue ▶`} 
+                  />
+                  {/* <button
                     className="bankDetailsForm__continueBtn"
                     type="submit"
                   >
                     Continue &#9654;
-                  </button>
+                  </button> */}
                 </Link>
               </div>
             </form>

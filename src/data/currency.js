@@ -2,7 +2,8 @@ const currency = [
     {
         "id": 1,
         "img": "https://flagcdn.com/16x12/us.png",
-        "name": "US Dollar",
+
+        "name": "US Dollar",        
         "code": "USD",
         "amount": "1.00",
         "rate": "",
@@ -13,7 +14,7 @@ const currency = [
         "img": "https://flagcdn.com/16x12/eu.png",
         "name": "Euro",
         "code": "EUR",
-        "amount": "0.9882",
+        "amount": "0.9882", 
         "rate": "0.9882",
         "symbol": "€"
     },
@@ -23,7 +24,7 @@ const currency = [
         "name": "British Pound",
         "code": "GBP",
         "amount": "0.8720",
-        "rate": "0.8720",
+        "rate": "0.8720",    
         "symbol": "£"
     },
     {    
@@ -74,13 +75,14 @@ const currency = [
         "name": "Malaysian Ringgit",
         "amount": "4.723077",
         "rate": "0.211726",
-        "symbol": "RM"
-        
+        "symbol": "RM"     
+
     },
     {
         "id": 10,
         "img": "https://flagcdn.com/16x12/jp.png",
         "name": "Japanese Yen",
+        "code": "JPY",
         "amount": "148.6933",
         "rate": "0.0067",
         "symbol": "¥"
