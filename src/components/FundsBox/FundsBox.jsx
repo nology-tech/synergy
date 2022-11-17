@@ -24,7 +24,7 @@ const FundsBox = (props) => {
           />
           <h3 className="fundsBox__content__title">Your Funds:</h3>
           <div className="fundsBox__content__amount">
-            {"\u00A3" + fundsAmount.toLocaleString("en-US")}
+            {"$" + fundsAmount.toLocaleString("en-US")}
           </div>
           {/* <button className="fundsBox__content__manage"> Manage </button> */}
           <Button
