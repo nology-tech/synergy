@@ -1,7 +1,7 @@
 .BankDetails {
   font-family: "Outfit";
   box-sizing: border-box;
-  background: #F1FFFF;
+  background: #EFFFFF;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,7 +88,7 @@
   font-size: 16px;
 }
 .bank-form-box .bankDetailsForm__btn[disabled] {
-  background: #F1FFFF 0.4;
+  background: #EFFFFF 0.4;
 }
 .bank-form-box .bankDetailsForm .buttons-group {
   text-align: right;
@@ -100,10 +100,10 @@
   margin-left: auto;
 }
 .bank-form-box .bankDetailsForm .valid {
-  color: #57E141;
+  color: #57e141;
   font-size: 10px;
 }
 .bank-form-box .bankDetailsForm .invalid {
-  color: #DF1C1C;
+  color: #df1c1c;
   font-size: 10px;
 }/*# sourceMappingURL=BankDetails.css.map */

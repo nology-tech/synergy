@@ -1,1 +1,93 @@
-/*# sourceMappingURL=CreateAccount.css.map */
+.CreateAccount {
+  font-family: "Outfit";
+  box-sizing: border-box;
+  background: #EFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form {
+  min-width: 600px;
+  min-height: 710px;
+  background: #FFFFFF;
+}
+.form .CreateAccount-header {
+  padding: 30px 0px 20px 30px;
+}
+.form h1 {
+  margin: 0;
+  padding-left: 40px;
+}
+.form .ipsum {
+  color: #8896A3;
+  margin-top: 0;
+  padding-left: 40px;
+}
+.form .input {
+  background: #FBFBFC;
+  border: 1px solid #e2e2e2;
+  border-radius: 6px;
+  width: 505px;
+  padding-left: 10px;
+  min-height: 55px;
+  margin-top: 5px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #A6AFBD;
+}
+.form .fontAwesome_icon {
+  margin-left: -30px;
+}
+.form .CreateAccountForm {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 40px 40px 40px;
+}
+.form .CreateAccountForm__div {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  color: #5B6D7D;
+}
+.form .CreateAccountForm__separator {
+  border: 1px solid #F1F1F1;
+  height: 1px;
+  width: 505px;
+  margin-top: 30px;
+}
+.form .CreateAccountForm__hasAccount__question {
+  color: #8896A3;
+}
+.form .CreateAccountForm__hasAccount__login {
+  color: #00CED4;
+}
+.form .CreateAccountForm__btn {
+  background: #00CED4;
+  border: none;
+  border-radius: 6px;
+  color: #FFFFFF;
+  width: 115px;
+  height: 50px;
+  margin-right: 0;
+  margin-top: 25px;
+  font-weight: bold;
+  font-family: "Inter";
+  font-size: 16px;
+}
+.form .CreateAccountForm__btn[disabled] {
+  background: rgba(0, 206, 212, 0.4);
+}
+.form a {
+  margin-right: 0;
+  margin-left: auto;
+}
+.form .valid {
+  color: #57e141;
+  font-size: 10px;
+}
+.form .invalid {
+  color: #df1c1c;
+  font-size: 10px;
+}/*# sourceMappingURL=CreateAccount.css.map */

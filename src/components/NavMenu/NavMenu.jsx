@@ -28,7 +28,7 @@ const NavMenu = () => {
           Menu
           <div className="sidemenu__item">
             <img className="sidemenu__icon" src={walletImg} alt="Wallet" />
-            <Link className="sidemenu__a" to="/dashboard/wallet">
+            <Link className="sidemenu__a" to="/wallet">
               Wallet
             </Link>
           </div>
@@ -40,7 +40,7 @@ const NavMenu = () => {
           </div>
           <div className="sidemenu__item">
             <img className="sidemenu__icon" src={convertImg} alt="Convert" />
-            <Link className="sidemenu__a" to="/dashboard/convert">
+            <Link className="sidemenu__a" to="/currencyconverter">
               Convert
             </Link>
           </div>
