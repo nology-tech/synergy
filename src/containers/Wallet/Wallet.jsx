@@ -1,6 +1,6 @@
 import React from 'react';
 import FundsBox from '../../components/FundsBox/FundsBox';
-import userInfo from '../../data/userInfo.js';
+import userInfo from '../../data/UserInfo.js';
 import NavMenu from '../../components/NavMenu/NavMenu';
 import ContactContainer from '../ContactContainer/ContactContainer';
 import DashboardHeader from '../../components/DashboardHeader/DashboardHeader';
