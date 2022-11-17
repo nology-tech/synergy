@@ -13,14 +13,12 @@ import blackCross from "./../../assets/images/black-cross.png";
 const ContactAdd = () => {
   return (
     <div className="add-contacts">
-      <div className="add-contacts__header">
-        <img
+              <img
           src={blackCross}
           alt="black cross"
-          className="add-contacts__header__close"
+          className="add-contacts__close"
         />
-        <h2 className="add-contacts__header__title">Add Recipient</h2>
-      </div>
+        <h2 className="add-contacts__title">Add Recipient</h2>
       <form>
         <label className="add-contacts__label" htmlFor="fname">
           Recipient Name
