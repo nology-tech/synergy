@@ -24,26 +24,22 @@
 
 .currencyConverter{
     min-height: 500px;    
-    margin-left: 5%;
+    padding-left: 50px;
 
     &__title1 {
         font-family: $title-font-family;
         color: $color-middle-blue;
-        margin: 5px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 500;
         font-size: 12px;
-        line-height: 15px;
     }
 
     &__title2 {
         font-family: $title-font-family;
         color: $color-black;
-        margin: 5px;
         font-style: normal;
         font-weight: 400;
         font-size: 32px;
-        line-height: 40px;
     }
 
     &__description {

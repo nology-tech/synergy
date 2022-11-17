@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { useState } from "react";
 import "./CurrencyConverterContainer.scss"
 import NavMenu from "../../components/NavMenu/NavMenu"
 import HeaderNav from "../../components/DashboardHeader/DashboardHeader"
 import LiveRatesList from '../../components/LiveRatesList/LiveRatesList';
-import LiveRates from '../../components/LiveRates/LiveRates';
+// import LiveRates from '../../components/LiveRates/LiveRates';
 import CurrencyConverter from '../../components/CurrencyConverter/CurrencyConverter';
-// import currency from '../../data/currency.js'
+import currency from '../../data/currency.js'
+import "../../assets/sass/_dashboard.scss"
 
 const CurrencyConverterContainer = (props) => {
-  const {amount,setAmount,baseCurrency,setBaseCurrency,toCurrency,
-    setToCurrency,convertedAmount, setConvertedAmount, fxRate, setFxRate}=props;
+  const {amount,setAmount,baseCurrency,setBaseCurrency,convertedAmount, setConvertedAmount, fxRate, setFxRate}=props;
   
+  const [toCurrency, setToCurrency] = useState(currency[1]);
+  
+  const selectToCurrency = (currency) => {
+    console.log("selected currency: ");
+    console.log(currency);
+    setToCurrency(currency);
+  }
+
   return (
-    <div className='currencyConverterPage'>
+    <div className='dashboardPage'>
       <NavMenu />
-      <div className='currencyConverterPage__right'>
+      <div className='dashboardPage__right'>
         <HeaderNav />    
         <CurrencyConverter 
                   amount={amount} 
@@ -22,13 +30,15 @@ const CurrencyConverterContainer = (props) => {
                   baseCurrency={baseCurrency}
                   setBaseCurrency = {setBaseCurrency}
                   toCurrency={toCurrency}
-                  setToCurrency = {setToCurrency}
+                  // setToCurrency = {setToCurrency}
                   convertedAmount={convertedAmount}
                   setConvertedAmount={setConvertedAmount}
                   fxRate={fxRate}
                   setFxRate={setFxRate}/>
-        <LiveRates />
-        {/* <LiveRatesList className="live-rates__list" currency={currency}/> */}
+        <div className='liveRates'>
+          <LiveRatesList currency={currency} onSelect={selectToCurrency}/>
+        </div>                  
+
       </div>
     </div>
   )

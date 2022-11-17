@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import "./CurrencyConverter.scss";
 import { Link } from "react-router-dom";
 import currency from '../../data/currency';
@@ -8,8 +8,11 @@ import convertImage from "../../assets/images/flipbutton.png"
 import convertIcon from "../../assets/images/flipicon.png"
 
 const CurrencyConverter = (props) => {
-    const {amount,setAmount,baseCurrency,setBaseCurrency,toCurrency,setToCurrency,convertedAmount,
+    const {amount,setAmount,baseCurrency,setBaseCurrency,toCurrency,convertedAmount,
        setConvertedAmount, fxRate, setFxRate}=props;
+
+    console.log("Currency Converter To Currency");
+    console.log(toCurrency);
     const [shouldHide, setShouldHide] = useState(true);
     //const [inverseFXRate,setInverseFXRate] = useState(Number(1/fxRate).toFixed(4));
     const [amountSymbol,setAmountSymbol] = useState(baseCurrency.symbol);
@@ -25,6 +28,11 @@ const CurrencyConverter = (props) => {
     const message1To = `1 ${toCurrency.code} = ${Number(1/fxRate).toFixed(4)} ${baseCurrency.code}`;
     // const numericRegExp = /^[0-9]+$/;
     const numericRegExp = /^\d*\.?\d*$/;
+
+    // On re-render, we need to set the secondDisplay to the toCurrency;
+    // useEffect(() => {setSecondDisplay(toCurrency)}, []);
+    useEffect(() => {setup()}, [toCurrency]);
+    
     
     
 

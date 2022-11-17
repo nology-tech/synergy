@@ -1,20 +1,40 @@
 @use "../../assets/sass/_variables.scss" as *;
 
+.live-rates-head {
+    padding-left: 0;
+    &__h2 {
+        font-family: $title-font-family;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 32px;
+        // padding: 10px 0;
+        }
+
+    &__para {
+    font-family: $third-font-family;
+    width: 514px;
+    height: 72px;
+    font-style: normal;
+    font-size: 16px;
+    // line-height: 150%;
+    margin-top: 0px;
+    // margin-bottom: 30px;
+    color: $color-font-light-gray;
+    }
+
+}
+    
 .currency-row {
     display: flex;
     flex-direction: row;
     width: 90%;
-    height: 10%;
-    padding-top: 10px;
-    padding-bottom: 10px;
     border-radius: 8px 8px 0 0;
  }
 
  .currency-list__img {
-    width: 26px;
-    height: 30px;
-    justify-content:left;
-    padding-top: 9px;
+    width: 28px;
+    height: 28px;
+    padding-top: 12px;
 }
 
 .currency-list__heading{
@@ -25,7 +45,7 @@
     margin: 10px 0px 20px 0px;
     justify-content: space-between;
     text-align:left;
-    width: 76%;
+    width: 75%;
 }
 
 .row-blue {
@@ -46,26 +66,22 @@
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
-    margin: 10px 0 5px 10px;
-    justify-content: space-around;
+    align-items: center;
  }
 
 .currency-list__name {
     text-align:left;
     width: 25%;
-    padding-top: 7px;
 }
 
 .currency-list__amount {
     text-align:left;
     width: 25%;
-    padding-top: 7px;
 }
 
 .currency-list__rate {
     text-align:left;
     width: 25%;
-    padding-top: 7px;
 }
 
 .button {

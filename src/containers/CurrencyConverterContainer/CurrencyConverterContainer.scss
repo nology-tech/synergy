@@ -1,9 +1,12 @@
 @use "../../assets/sass/_variables.scss" as *;
-.currencyConverterPage {
-    display: grid;
-    grid-template-columns: 236px 1700px;
-    
-    &__right {
-        border-left: 3px solid $color-border-light-gray;
-    }
+.liveRates {
+    padding-left: 50px;
 }
+// .currencyConverterPage {
+//     display: grid;
+//     grid-template-columns: 236px 1700px;
+    
+//     &__right {
+//         border-left: 3px solid $color-border-light-gray;
+//     }
+// }
