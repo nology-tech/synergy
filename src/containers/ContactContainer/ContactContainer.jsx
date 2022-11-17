@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ContactSearch from "../../components/ContactSearch/ContactSearch";
+import Search from "../../components/Search/Search";
 import "./ContactContainer.scss";
 import ContactList from "../../components/ContactList/ContactList";
 import contacts from "../../data/Contacts";
@@ -58,7 +58,7 @@ const ContactContainer = () => {
           All your friends and family financial details in one place. Easily
           transfer currency internationally at the best possible rates.
         </div>
-        <ContactSearch
+        <Search
           searchTerm={searchQuery}
           handleInput={handleInput}
           onSearchClick={onSearchClick}

@@ -51,7 +51,7 @@
 
 import React from "react";
 import spyglass from "./../../assets/images/spyglass.png";
-import "./ContactSearch.scss";
+import "./Search.scss";
 import Button from "../Button/Button";
 
 // this contains all details in the search row below the contact List heading
