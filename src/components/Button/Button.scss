@@ -13,6 +13,10 @@
     line-height: 22px;
     text-align: center;
     color: $color-white;
+    &:hover {
+        cursor: pointer;
+        opacity:.8;
+    }
 }
 .button-blue-disabled {
     width: 116px;
@@ -27,6 +31,10 @@
     line-height: 22px;
     text-align: center;
     color:$color-white;
+    &:hover {
+        cursor: pointer;
+        opacity:.8;
+    }
 }
 .button-blue-white-border {
     box-sizing: border-box;
@@ -42,6 +50,10 @@
     line-height: 22px; /* identical to box height */
     text-align: center;
     color: $color-white;
+    &:hover {
+        cursor: pointer;
+        opacity:.8;
+    }
 }
 .button-transparent {
     box-sizing: border-box;
@@ -58,6 +70,10 @@
     line-height: 110%;
     text-align: center;
     color: $color-middle-blue;
+    &:hover {
+        cursor: pointer;
+        background-color: gainsboro;
+    }
 }
 .button-white {
     width: 121px;
@@ -71,6 +87,10 @@
     line-height: 19px;
     color: $color-middle-blue;
     border: $color-white;
+    &:hover {
+        cursor: pointer;
+        background-color: gainsboro;
+    }
 }
 
 .button-dashed {
@@ -86,10 +106,16 @@
     line-height: 15px;
     text-align: center;
     color: $color-font-light-gray;
+    &:hover {
+        cursor: pointer;
+        background-color: gainsboro;
+    }
 }
 .btn {
     margin: 10px;
 }
+
+
 // btn {
 //     background: $color-middle-blue;
 //     border: none;
