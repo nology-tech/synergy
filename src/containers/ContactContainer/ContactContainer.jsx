@@ -11,14 +11,25 @@ const ContactContainer = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   // this handle reads the search text
+  // const handleInput = (event) => {
+  //   const cleanInput=event.target.value.toLowerCase();
+  //   setSearchQuery(cleanInput);
+  // };
+  // // for the spyglass when clicked
+  // const onSearchClick = (event) => {
+  //   event.preventDefault();
+  //   setSearchTerm(searchQuery.toLowerCase());
+  // };
+
   const handleInput = (event) => {
-    setSearchQuery(event.target.value);
+    const cleanInput=event.target.value.toLowerCase();
+    setSearchTerm(cleanInput);
   };
   // for the spyglass when clicked
-  const onSearchClick = (event) => {
-    event.preventDefault();
-    setSearchTerm(searchQuery.toLowerCase());
-  };
+  // const onSearchClick = (event) => {
+  //   event.preventDefault();
+  //   setSearchTerm(searchQuery.toLowerCase());
+  // };
 
   // Filter contact using search
   const filteredContactsArray = contacts.filter((contact) => {
@@ -59,9 +70,9 @@ const ContactContainer = () => {
           transfer currency internationally at the best possible rates.
         </div>
         <Search
-          searchTerm={searchQuery}
+          searchTerm={searchTerm}
           handleInput={handleInput}
-          onSearchClick={onSearchClick}
+          // onSearchClick={onSearchClick}
         />
           <Button
           buttonStyle={"button-transparent contactSearch__area__addButton"}

@@ -55,22 +55,22 @@ import "./Search.scss";
 import Button from "../Button/Button";
 
 // this contains all details in the search row below the contact List heading
-const ContactSearch = (props) => {
+const Search = (props) => {
   const { searchTerm, handleInput, onSearchClick, addContact } = props;
   return (
         <div className="contactSearch__area">
           <form className="contactSearch__area__box">
-            <button
+            {/* <button
               type="Submit"
               className="contactSearch__area__box__button"
-              onClick={onSearchClick}
+              // onClick={onSearchClick}
             >
               <img
                 src={spyglass}
                 alt="Magnifying Glass"
                 className="contactSearch__area__box__button__spyGlass"
               />
-            </button>
+            </button> */}
             {/* search input box */}
             <input
               type="text"
@@ -85,4 +85,4 @@ const ContactSearch = (props) => {
   );
 };
 
-export default ContactSearch;
+export default Search;
