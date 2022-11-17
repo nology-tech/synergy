@@ -7,49 +7,24 @@ import Button from "../Button/Button";
 
 const TransferAddRecipient = (props) => {
   const {
-    linkToCloseTheWindow,
-    linkToGoBack,
-    linkToProceed,
-    handlePaySomeOneNew,
-    handleGoBack,
+    recipientName,
+    accountTypeRecipient,
+    accountNumRecipient,
+    sortCodeRecipient,
+    handleContinueButton,
+    handleCloseWindow,
+    handleRecipientName,
+    handleAccountTypeRecipient,
+    handleAccountNumRecipient,
+    handleSortCodeRecipient,
   } = props;
 
-  const [recipientName, setRecipientName] = useState("");
-  const [accountType, setAccountType] = useState();
-  const [accountNum, setAccountNum] = useState();
-  const [sortCode, setSortCode] = useState("");
-
-  // Handling the recipeint name input field change
-  const handleRecipientName = (e) => {
-    e.preventDefault();
-    setRecipientName(e.target.value.toString());
-  };
-
-  // Handling the account type input field change
-  const handleAccountType = (e) => {
-    e.preventDefault();
-    setAccountType(e.target.value);
-  };
-
-  // Handling the account number input field change
-  const handleAccountNum = (e) => {
-    e.preventDefault();
-    setAccountNum(e.target.value);
-  };
-
-  // Handling the sort code input field change
-  const handleSortCode = (e) => {
-    e.preventDefault();
-    setSortCode(e.target.value.toString());
-  };
 
   return (
     <>
       <div className="transfer-add-recipient"></div>
       <div className="transfer-add-recipient__main">
-        <Link to={linkToCloseTheWindow}>
-          <img src={blackcross} alt="Close menu" className="blackcross" />
-        </Link>
+          <img src={blackcross} alt="Close menu" className="blackcross" onClick={handleCloseWindow} />
         <h1>Add Recipient</h1>
         <div className="transfer-add-recipient__main__details">
           <h3>Recipient Name</h3>
@@ -61,34 +36,35 @@ const TransferAddRecipient = (props) => {
           />
           <h3>Account Type</h3>
           <input
-            onInput={handleAccountType}
+            onInput={handleAccountTypeRecipient}
             className="input"
-            value={accountType}
+            value={accountTypeRecipient}
           />
           <h3>Account Number</h3>
           <input
-            onInput={handleAccountNum}
+            onInput={handleAccountNumRecipient}
             className="input"
-            value={accountNum}
+            value={accountNumRecipient}
           />
           <h3>Sort Code</h3>
-          <input onChange={handleSortCode} className="input" value={sortCode} />
+          <input onChange={handleSortCodeRecipient} className="input" 
+          value={sortCodeRecipient}
+           />
         </div>
         <div className="transfer-add-recipient__main__options">
-          <Link
+          <a
             className="transfer-add-recipient__main__options__cancel"
-            to={linkToGoBack}
+            onClick={handleCloseWindow}
           >
             Cancel
-          </Link>
-
+          </a>
           <Button
             buttomImg={""}
             buttonStyle={"button-light-blue"}
             isDisabled={false}
             buttonType={""}
             buttonText={"Continue"}
-            onClick={handlePaySomeOneNew}
+            onClick={handleContinueButton}
           />
         </div>
       </div>

@@ -6,53 +6,70 @@ import blackcross from "../../assets/images/black-cross.png";
 
 const TransferConfirmRecepient = (props) => {
   const {
-    linkToCloseTheWindow,
-    linkToGoBack,
     linkToProceed,
     recipientName,
-    accountType,
-    accountNum,
-    sortCode,
+    accountTypeRecipient,
+    accountNumRecipient,
+    sortCodeRecipient,
+    handleGoBackToChooseContact,
+    handleCloseWindow,
     handleGoBack,
+    workflowStage,
   } = props;
 
-  console.log(props);
+  const displayConfirmRecipient = () => {
+    if (workflowStage == "addRecipientConfirmed") {
+      return (
+        <a
+          className="transfer-confirm-recepient__main__options__cancel"
+          onClick={handleGoBack}
+        >
+          Go Back
+        </a>
+      );
+    } else if (workflowStage == "selectContactConfirmed") {
+      return (
+        <a
+          className="transfer-confirm-recepient__main__options__cancel"
+          onClick={handleGoBackToChooseContact}
+        >
+          Go Back
+        </a>
+      );
+    }
+  };
 
   return (
     <>
       <div className="transfer-confirm-recepient"></div>
       <div className="transfer-confirm-recepient__main">
-        <Link to={linkToCloseTheWindow}>
-          <img src={blackcross} alt="Close menu" className="blackcross" />
-        </Link>
+        <img
+          src={blackcross}
+          alt="Close menu"
+          className="blackcross"
+          onClick={handleCloseWindow}
+        />
         <h1>Confirm Details</h1>
         <div className="transfer-confirm-recepient__main__details">
           <h3>Recipient Name</h3>
           <p>{recipientName} </p>
           <h3>Account Type</h3>
-          <p>{accountType}</p>
+          <p>{accountTypeRecipient}</p>
           <h3>Account Number</h3>
-          <p>{accountNum}</p>
+          <p>{accountNumRecipient}</p>
           <h3>Sort Code</h3>
-          <p>{sortCode}</p>
+          <p>{sortCodeRecipient}</p>
         </div>
         <div className="transfer-confirm-recepient__main__options">
-          <Link
-            className="transfer-confirm-recepient__main__options__cancel"
-            to={linkToGoBack}
-            onClick={handleGoBack}
-          >
-            Go Back
-          </Link>
+       {displayConfirmRecipient()}
           <Link to={linkToProceed}>
-            <button>Submit</button>
-            {/* <Button
+            <Button
               buttomImg={""}
               buttonStyle={"button-light-blue"}
               isDisabled={false}
               buttonType={""}
               buttonText={"Submit"}
-            /> */}
+            />
           </Link>
         </div>
       </div>
