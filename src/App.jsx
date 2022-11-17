@@ -13,11 +13,15 @@ import BillingAddress from "./containers/BillingAddress/BillingAddress";
 import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
+import Wallet from "./containers/Wallet/Wallet";
+
+// import Button from "./components/Button/Button"; // to be removed
+// import {SlRefresh} from 'react-icons/sl';  // to be removed
 import CurrencyConverterContainer from "./containers/CurrencyConverterContainer/CurrencyConverterContainer";
 import currency from './data/currency';
 import TransferMakeTransfer from "./components/TransferMakeTransfer/TransferMakeTransfer";
 import Button from "./components/Button/Button";
-
+import ContactAdd from "./components/ContactAdd/ContactAdd";
 const App = () => {
   const [baseCurrency, setBaseCurrency] = useState(currency[0]);
   const [toCurrency, setToCurrency] = useState(currency[1]);
@@ -100,6 +104,8 @@ const App = () => {
           <Route path="/billingaddress" element={<BillingAddress />} />
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
+          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/contactadd" element={<ContactAdd />} />
           <Route
             path="/contacts"
             element={
