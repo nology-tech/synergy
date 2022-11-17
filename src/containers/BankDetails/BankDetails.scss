@@ -12,7 +12,7 @@
 
 .bank-form-box {
     min-width: 600px;
-    min-height: 640px;
+    min-height: 600px;
     background: $color-white;
 
     .bank-details-header {
@@ -54,7 +54,6 @@
         &__div {
             display: flex;
             flex-direction: column;
-            padding-bottom: 20px;
             color:$color-font-gray;
             
         }
@@ -63,7 +62,7 @@
             border: 1px solid $color-separator-light-gray;
             height: 1px;
             width: 505px;
-            margin-top: 30px;
+            margin-top: 40px;
         }
     
         &__goBackBtn {
