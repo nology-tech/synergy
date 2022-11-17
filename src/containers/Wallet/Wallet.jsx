@@ -6,14 +6,12 @@ import ContactContainer from '../ContactContainer/ContactContainer';
 import DashboardHeader from '../../components/DashboardHeader/DashboardHeader';
 import "../../assets/sass/_dashboard.scss"
 
-const Wallet = (props) => {
-  const {searchTerm, handleInput} = props;
-
+const Wallet = () => {
   return (
     <div className="dashboardPage wallet-page">
       <NavMenu />
       <div className="dashboardPage__right">
-        <DashboardHeader searchTerm={searchTerm} handleInput={handleInput} />
+        <DashboardHeader />
         <div className="wallet-page__main">
           <FundsBox
             name={userInfo[0].firstName}
