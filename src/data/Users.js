@@ -3,7 +3,6 @@ const Users = [
       uid: 1234560,
       firstName: "Roberto",
       lastName: "Hoopero",
-      // contacts: []
     },
     {
       uid: 1234561,
