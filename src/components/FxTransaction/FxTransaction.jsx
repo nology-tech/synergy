@@ -18,21 +18,10 @@ const FxTransaction = (props) => {
     return currency.code == currencyBaseCode;
   });
 
-  console.log(currencyBase[0].img);
-  console.log(currencyBase[0].code);
-  console.log(currencyBase[0].name);
-  console.log(currencyBase[0].symbol);
-  
-  console.log(amountBase);
-
   const currencyRecipient = currencies.filter((currency) => {
     return currency.code == currencyRecipientCode;
   });
 
-  console.log(currencyRecipient[0].img);
-  console.log(currencyRecipient[0].code);
-  console.log(currencyRecipient[0].name);
-  console.log(currencyRecipient[0].symbol);
   
   return (
     <div className="fx-transaction">
@@ -51,7 +40,7 @@ const FxTransaction = (props) => {
           </div>
           <div className="fx-transaction__amount__amount">
             {currencyBase[0].symbol}
-            {amountBase}
+            {amountBase.toFixed(2)}
           </div>
         </div>
       </div>
@@ -70,7 +59,7 @@ const FxTransaction = (props) => {
           </div>
           <div className="fx-transaction__amount__amount">
             {currencyRecipient[0].symbol}
-            {amountReceived}
+            {amountReceived.toFixed(2)}
           </div>
         </div>
       </div>
@@ -95,7 +84,7 @@ const FxTransaction = (props) => {
           <h3>Total</h3>
           <p>
             {currencyBase[0].symbol}
-            {amountBase}
+            {amountBase.toFixed(2)}
           </p>
         </div>
         <div>

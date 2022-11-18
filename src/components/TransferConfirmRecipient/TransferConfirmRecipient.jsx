@@ -6,7 +6,6 @@ import blackcross from "../../assets/images/black-cross.png";
 
 const TransferConfirmRecepient = (props) => {
   const {
-    linkToProceed,
     recipientName,
     accountTypeRecipient,
     accountNumRecipient,
@@ -15,6 +14,7 @@ const TransferConfirmRecepient = (props) => {
     handleCloseWindow,
     handleGoBack,
     workflowStage,
+    handleSubmit,
   } = props;
 
   const displayConfirmRecipient = () => {
@@ -61,16 +61,15 @@ const TransferConfirmRecepient = (props) => {
           <p>{sortCodeRecipient}</p>
         </div>
         <div className="transfer-confirm-recepient__main__options">
-       {displayConfirmRecipient()}
-          <Link to={linkToProceed}>
-            <Button
-              buttomImg={""}
-              buttonStyle={"button-light-blue"}
-              isDisabled={false}
-              buttonType={""}
-              buttonText={"Submit"}
-            />
-          </Link>
+          {displayConfirmRecipient()}
+          <Button
+            buttomImg={""}
+            buttonStyle={"button-light-blue"}
+            isDisabled={false}
+            buttonType={""}
+            buttonText={"Submit"}
+            onClick={handleSubmit}
+          />
         </div>
       </div>
     </>

@@ -14,18 +14,18 @@ import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
 import CurrencyConverterContainer from "./containers/CurrencyConverterContainer/CurrencyConverterContainer";
-import currency from './data/currency';
+import currency from "./data/currency";
 import TransferMakeTransfer from "./components/TransferMakeTransfer/TransferMakeTransfer";
 import Button from "./components/Button/Button";
 
 const App = () => {
   const [baseCurrency, setBaseCurrency] = useState(currency[0]);
   const [toCurrency, setToCurrency] = useState(currency[1]);
-  const [amount, setAmount] = useState('');
-  const [convertedAmount, setConvertedAmount] = useState('');
+  const [amount, setAmount] = useState("");
+  const [convertedAmount, setConvertedAmount] = useState("");
   // fx should come from Live rates on Send button click, temporary setting to EUR rate from data file
   const [fxRate, setFxRate] = useState(currency[1].rate);
-      
+
   // hardcoded values for transfer:
   // list below shall be replaced from currency converter
   const currencyBaseCode = "USD";
@@ -39,12 +39,13 @@ const App = () => {
   const sortCode = "110053";
   // list below shall be replaced from wallet
   const accountBalance = 15210;
+
   //---------------------------------
-  
+
   // const buttonImg = <SlRefresh />;  // to be removed
   // const buttonText = "Convert";  // to be removed
 
- return (
+  return (
     <Router>
       <div>
         {/* Button Test */}
@@ -100,71 +101,51 @@ const App = () => {
           <Route path="/billingaddress" element={<BillingAddress />} />
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
-          <Route
-            path="/contacts"
-            element={
-              <ContactListPage />
-            }
-          />
-          <Route
-            path="/liverates"
-            element={
-              <LiveRates />
-            }
-          />
+          <Route path="/contacts" element={<ContactListPage />} />
+          <Route path="/liverates" element={<LiveRates />} />
           <Route path="/signin" element={<LoginFlowWelcome />} />
           <Route
             path="/userprofile"
-            element={
-              <UserDashboard
-                navigateTo="Wallet"
-              />
-            }
+            element={<UserDashboard navigateTo="Wallet" />}
           />
           <Route
             path="/dashboard"
-            element={
-              <UserDashboard
-                navigateTo="Wallet"
-              />
-            }
+            element={<UserDashboard navigateTo="Wallet" />}
           />
           <Route
             path="/dashboard/wallet"
-            element={
-              <UserDashboard
-                navigateTo="Wallet"
-              />
-            }
+            element={<UserDashboard navigateTo="Wallet" />}
           />
-          
+
           <Route path="/home" element={<LandingMain />}></Route>
           <Route path="/features" element={<LandingMain />}></Route>
           <Route path="/about" element={<LandingMain />}></Route>
           <Route path="/contact" element={<LandingMain />}></Route>
           <Route path="/" element={<LandingMain />}></Route>
 
-          <Route path="/currencyconverter" 
-                 element={
-                  <CurrencyConverterContainer 
-                  amount={amount} 
-                  setAmount={setAmount} 
-                  baseCurrency={baseCurrency}
-                  setBaseCurrency = {setBaseCurrency}
-                  toCurrency={toCurrency}
-                  setToCurrency = {setToCurrency}
-                  convertedAmount={convertedAmount}
-                  setConvertedAmount={setConvertedAmount}
-                  fxRate={fxRate}
-                  setFxRate={setFxRate}/>}>
-          </Route>
-          
+          <Route
+            path="/currencyconverter"
+            element={
+              <CurrencyConverterContainer
+                amount={amount}
+                setAmount={setAmount}
+                baseCurrency={baseCurrency}
+                setBaseCurrency={setBaseCurrency}
+                toCurrency={toCurrency}
+                setToCurrency={setToCurrency}
+                convertedAmount={convertedAmount}
+                setConvertedAmount={setConvertedAmount}
+                fxRate={fxRate}
+                setFxRate={setFxRate}
+              />
+            }
+          ></Route>
 
           <Route
             path="/transfer-fx-transaction"
             element={
               <TransferMakeTransfer
-              transferWorkflowStage = "fxTransaction"
+                transferWorkflowStage="fxTransaction"
                 currencyBaseCode={currencyBaseCode}
                 currencyRecipientCode={currencyRecipientCode}
                 amountBase={amountBase}
@@ -181,7 +162,7 @@ const App = () => {
             path="/transfer-send-from"
             element={
               <TransferMakeTransfer
-              transferWorkflowStage = "transferSendFrom"
+                transferWorkflowStage="transferSendFrom"
                 currencyBaseCode={currencyBaseCode}
                 currencyRecipientCode={currencyRecipientCode}
                 amountBase={amountBase}

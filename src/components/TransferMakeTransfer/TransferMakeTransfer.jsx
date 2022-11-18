@@ -9,6 +9,7 @@ import TransferSendFrom from "../TransferSendFrom/TransferSendFrom";
 import TransferConfirmRecipient from "../TransferConfirmRecipient/TransferConfirmRecipient";
 import "./TransferMakeTransfer.scss";
 import DashboardHeader from "../DashboardHeader/DashboardHeader";
+import TransferTransactionSend from "../TransferTransactionSend/TransferTransactionSend";
 
 const TransferMakeTransfer = (props) => {
   const {
@@ -31,10 +32,18 @@ const TransferMakeTransfer = (props) => {
   console.log(workflowStage);
 
   //From Send Form Select Recipient
-
   const handleSelectRecipient = (event) => {
-    setWorkflowStage("chooseContact")
-  }
+    setWorkflowStage("chooseContact");
+  };
+
+  //From Choose recipient to Confirmed
+  const selectContact = (event) => {
+    setWorkflowStage("selectContactConfirmed");
+  };
+
+  const handleGoBackToChooseContact = (event) => {
+    setWorkflowStage("chooseContact");
+  };
 
   //From Send Form Pay SomeOneNew
   const handlePaySomeOneNew = (event) => {
@@ -45,39 +54,38 @@ const TransferMakeTransfer = (props) => {
     setSortCodeRecipient("");
   };
 
-
-  //From Add recipient to Confirmed
+  //From Add recipient to Confirm Details
   const handleContinueButton = (event) => {
     setWorkflowStage("addRecipientConfirmed");
   };
- 
+
   const handleGoBack = (event) => {
     setWorkflowStage("addRecipient");
   };
 
-
-  //From Choose recipient to Confirmed
-
-  const selectContact = (event) => {
-    setWorkflowStage("selectContactConfirmed");
-  };
- 
-  const handleGoBackToChooseContact = (event) => {
-    setWorkflowStage("chooseContact");
+  // From Confirm Details to Send Transfer
+  const handleSubmit = (event) => {
+    setWorkflowStage("confirmTransferDetails");
   };
 
-//Handle black cross
+  const handleCancel = (event) => {
+    setWorkflowStage("sendForm");
+  };
+  
+  const handleSend = (event) => {
+    setWorkflowStage("sendForm");
+  };
 
-const handleCloseWindow = (event) => {
-  setWorkflowStage("sendForm");
-  setRecipientName("");
-  setAccountTypeRecipient("");
-  setAccountNumRecipient("");
-  setSortCodeRecipient("");
-}
+  //Handle black cross
+  const handleCloseWindow = (event) => {
+    setWorkflowStage("sendForm");
+    setRecipientName("");
+    setAccountTypeRecipient("");
+    setAccountNumRecipient("");
+    setSortCodeRecipient("");
+  };
 
   //Add Recepient
-
   const [recipientName, setRecipientName] = useState("");
   const [accountTypeRecipient, setAccountTypeRecipient] = useState();
   const [accountNumRecipient, setAccountNumRecipient] = useState();
@@ -133,7 +141,6 @@ const handleCloseWindow = (event) => {
             username={username}
             accountNum={accountNum}
             sortCode={sortCode}
-           
           />
           <TransferAddRecipient
             handleContinueButton={handleContinueButton}
@@ -161,61 +168,82 @@ const handleCloseWindow = (event) => {
             username={username}
             accountNum={accountNum}
             sortCode={sortCode}
-           
           />
 
           <TransferConfirmRecipient
-            linkToProceed="needToAdd"
             recipientName={recipientName}
             accountTypeRecipient={accountTypeRecipient}
             accountNumRecipient={accountNumRecipient}
             sortCodeRecipient={sortCodeRecipient}
             handleGoBack={handleGoBack}
             handleCloseWindow={handleCloseWindow}
+            handleSubmit= {handleSubmit}
             workflowStage={workflowStage}
           />
         </>
       );
-    }
-    else if (workflowStage == "chooseContact"){
-      return (<>
-      <TransferSendFrom
+    } else if (workflowStage == "chooseContact") {
+      return (
+        <>
+          <TransferSendFrom
+            currencyBaseCode={currencyBaseCode}
+            accountBalance={accountBalance}
+            amountBase={amountBase}
+            accountFormTypes={accountFormTypes}
+            username={username}
+            accountNum={accountNum}
+            sortCode={sortCode}
+          />
+
+          <TransferChooseRecipient
+            handleCloseWindow={handleCloseWindow}
+            selectContact={selectContact}
+            workflowStage={workflowStage}
+          />
+        </>
+      );
+    } else if (workflowStage == "selectContactConfirmed") {
+      return (
+        <>
+          <TransferSendFrom
+            currencyBaseCode={currencyBaseCode}
+            accountBalance={accountBalance}
+            amountBase={amountBase}
+            accountFormTypes={accountFormTypes}
+            username={username}
+            accountNum={accountNum}
+            sortCode={sortCode}
+          />
+          <TransferConfirmRecipient
+            handleGoBackToChooseContact={handleGoBackToChooseContact}
+            handleCloseWindow={handleCloseWindow}
+            handleSubmit= {handleSubmit}
+          />
+        </>
+      );
+    } else if (workflowStage == "confirmTransferDetails") {
+      return (
+        <>
+          <div className="transfer-transaction-send">
+            <TransferTransactionSend
               currencyBaseCode={currencyBaseCode}
-              accountBalance={accountBalance}
               amountBase={amountBase}
               accountFormTypes={accountFormTypes}
               username={username}
-              accountNum={accountNum}
-              sortCode={sortCode}
-            
-            />
-
-            <TransferChooseRecipient
-              handleCloseWindow={handleCloseWindow}
-              selectContact={selectContact}
-              workflowStage={workflowStage}
-            />
-      
-      </>)
-    }
-
-    else if(workflowStage == "selectContactConfirmed") {
-      return (<>
-      <TransferSendFrom
-              currencyBaseCode={currencyBaseCode}
               accountBalance={accountBalance}
-              amountBase={amountBase}
-              accountFormTypes={accountFormTypes}
-              username={username}
               accountNum={accountNum}
               sortCode={sortCode}
-              
+              currencyRecipientCode={currencyRecipientCode}
+              recipientName={recipientName}
+              accountNumRecipient={accountNumRecipient}
+              sortCodeRecipient={sortCodeRecipient}
+              amountReceived={amountReceived}
+              handleCancel={handleCancel }
+              handleSubmit= {handleSend}
             />
-        <TransferConfirmRecipient
-              handleGoBackToChooseContact={handleGoBackToChooseContact}
-              handleCloseWindow={handleCloseWindow}
-            />
-      </>)
+          </div>
+        </>
+      );
     }
   };
 
@@ -256,7 +284,6 @@ const handleCloseWindow = (event) => {
         ) : (
           <></>
         )}
-
       </main>
     </div>
   );

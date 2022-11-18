@@ -1,0 +1,184 @@
+@use "../../assets/sass/_variables.scss"as *;
+
+.transfer-transaction-send {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: $color-light-gray-info-bar;
+  padding: 20px 40px;
+  border: 1px solid $color-light-gray-info-bar;
+  border-radius: 8px;
+  // margin: 0px 0px;
+  width: 600px;
+  height: fit-content;
+  align-items: center;
+
+
+  h2 {
+    color: $color-black;
+    font-size: 24px;
+    font-weight: 400;
+
+  }
+
+  .transfer-transaction-send__account-recipient {
+    background: $color-light-gray3;
+    padding: 15px 20px;
+    border: 1px solid $color-light-gray3;
+    border-radius: 8px;
+    margin: 20px 0px;
+    width: 480px;
+    height: fit-content;
+    font-family: $title-font-family;
+
+
+    &__username {
+      color: $color-middle-blue;
+      font-size: 16px;
+      font-weight: 500;
+      font-size: 16px bold;
+
+    }
+
+    &__details {
+      display: flex;
+      justify-content: space-between;
+
+      p,
+      h3 {
+        font-size: 12px;
+        font-weight: 400;
+        color: $color-font-light-gray;
+      }
+
+      &__sort-code {
+        padding-bottom: 10px;
+      }
+
+    }
+
+
+  }
+
+  &__fee {
+
+    border-bottom: 1px solid $color-background-clear;
+    width: 100%;
+    padding: 20px 0px;
+
+    p {
+      font-size: 16px;
+      font-weight: 400;
+      color: $color-font-light-gray;
+      font-family: $third-font-family;
+    }
+
+    h3 {
+      font-weight: 400;
+      color: $color-black;
+      font-family: $title-font-family;
+    }
+
+    &__details {
+
+      display: flex;
+      justify-content: space-between;
+
+
+      &__rate {
+        display: flex;
+        align-content: center;
+      }
+
+      h3 {
+        font-size: 16px;
+      }
+
+      .infosign {
+        width: 20px;
+        height: 20px;
+        color: $color-black;
+        margin: 0px 5px;
+
+      }
+    }
+
+    &__delivery {
+      display: flex;
+      justify-content: space-between;
+
+      h3 {
+        font-size: 20px;
+      }
+    }
+
+  }
+
+  &__total {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-bottom: 1px solid $color-background-clear;
+ 
+
+    &_pay-amount {
+      display: flex;
+      justify-content: space-between;
+      font-family: $title-font-family;
+      color: $color-black;
+
+      h3 {
+        font-size: 24px;
+        font-weight: 400;
+      }
+
+      p {
+        font-size: 24px;
+        font-weight: 400;
+      }
+    }
+
+    &__funds-recipient {
+      display: flex;
+      justify-content: space-between;
+      font-family: $title-font-family;
+      color: $color-middle-blue;
+      padding-bottom: 10px;
+
+      h3 {
+        font-size: 16px;
+        font-weight: 400;     
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  &__main__options {
+    text-align: right;
+    margin: 20px 20px;
+
+    a,
+    button {
+      margin: 10px;
+    }
+
+    a:link,
+    a:visited {
+      text-decoration: none;
+    }
+
+    &__cancel {
+      font-family: $third-font-family;
+      font-size: 16px;
+      font-weight: 400;
+      color: $color-font-light-gray;
+      border-bottom: 2px dotted $color-font-light-gray;
+    }
+  }
+
+
+}
