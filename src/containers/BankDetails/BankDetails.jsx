@@ -70,7 +70,7 @@ const BankDetails = () => {
                   value={sortCode}
                 />
               </div>
-              <div className="billingAddressForm__separator"></div>
+              <div className="bankDetailsForm__separator"></div>
 
               <div className="buttons-group">
                 <Link to="/signup">
