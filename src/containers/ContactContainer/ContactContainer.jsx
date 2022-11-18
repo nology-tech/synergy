@@ -3,11 +3,12 @@ import ContactSearch from "../../components/ContactSearch/ContactSearch";
 import "./ContactContainer.scss";
 import ContactList from "../../components/ContactList/ContactList";
 import contacts from "../../data/Contacts";
+import UserContacts from "../../components/UserContacts/UserContacts";
 
 const ContactContainer = () => {
   // Setting up the search box
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");  
   // this handle reads the search text
   const handleInput = (event) => {
     setSearchQuery(event.target.value);
@@ -57,6 +58,8 @@ const ContactContainer = () => {
         onSearchClick={onSearchClick}
         addContact={addContact}
       />
+      <UserContacts contactsArray = {filteredContactsArray}/>
+
       <ContactList
         contactsArray={filteredContactsArray}
         onClick={onContactClick}
