@@ -1,7 +1,10 @@
-.live-rates {
+.live-rates-page {
+  display: flex;
+}
+.live-rates-page .live-rates {
   margin-left: 5%;
 }
-.live-rates__h4 {
+.live-rates-page .live-rates__h4 {
   color: #00CED4;
   font-family: "Outfit";
   font-style: normal;
@@ -10,14 +13,14 @@
   line-height: 15px;
   margin-bottom: 0px;
 }
-.live-rates__h2 {
+.live-rates-page .live-rates__h2 {
   font-family: "Outfit";
   font-style: normal;
   font-weight: 400;
   font-size: 32px;
   line-height: 40px;
 }
-.live-rates__para {
+.live-rates-page .live-rates__para {
   font-family: "Inter";
   width: 514px;
   height: 72px;
