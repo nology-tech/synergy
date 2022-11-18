@@ -9,7 +9,8 @@ import contacts from "../../data/Contacts.js";
 
 const TransferChooseRecipient = (props) => {
 
-  const {linkToCloseTheWindow, linkToProceed } = props;
+  const {handleCloseWindow, 
+  selectContact } = props;
 
   // Setting up the search box
   const [searchQuery, setSearchQuery] = useState("");
@@ -42,21 +43,23 @@ const TransferChooseRecipient = (props) => {
     <>
     <div className="transfer-choose-recipient"></div>
       <div className="transfer-choose-recipient__main">
-      <Link to={linkToCloseTheWindow}>
-        <img src={blackCross} alt="Close menu" className="blackcross" />
-      </Link>
+      
+        <img src={blackCross} alt="Close menu" className="blackcross" onClick={handleCloseWindow}/>
+      
       <h1>Choose Recipient</h1>
       <p>Search</p>
-      ///contact search needs to be changed to remove the message "all
-      frineds..."
+      {/* ///contact search needs to be changed to remove the message "all
+      frineds..." */}
       <ContactSearch
         searchTerm={searchQuery}
         handleInput={handleInput}
         onSearchClick={onSearchClick}
       />
-      //the contact list & contact Row need to be duplicated to handel less data
-      columns
-      <ContactList contactsArray={filteredContactsArray} />
+      {/* //the contact list & contact Row need to be duplicated to handel less data
+      columns 
+      the OnClick shall be applied to the name of the contact or contact row
+      */}
+      <ContactList contactsArray={filteredContactsArray} onClick={selectContact}/> 
       </div>
       </>
   );

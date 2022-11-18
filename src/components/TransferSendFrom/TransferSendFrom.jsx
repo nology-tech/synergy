@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './TransferSendFrom.scss'
 import TransferAccountForm from "../TransferAccountForm/TransferAccountForm"
 import Button from '../Button/Button'
@@ -14,6 +15,8 @@ const TransferSendFrom = (props) => {
     accountBalance,
     accountNum,
     sortCode,
+    handlePaySomeOneNew,
+    onClick
   } = props;
 
   return (
@@ -31,13 +34,11 @@ const TransferSendFrom = (props) => {
     <div className="transfer-send-form__to">
       <h2>To</h2>
       <div className="transfer-send-form__to__options">
-        <Link to="/transfer-choose-recipient">
-        <Button buttonText="Select Recipient" />
-        </Link>
+        <Button buttonText="Select Recipient" onClick={onClick}/>
         <div className="transfer-send-form__to__options__newPayee">
-          <Link to="/transfer-add-recipient">
+          <a onClick={handlePaySomeOneNew}> 
             + Pay Someone New
-          </Link> 
+            </a>
         </div>
       </div>
     </div>

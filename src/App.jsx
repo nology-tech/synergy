@@ -194,57 +194,6 @@ const App = () => {
               />
             }
           />
-          <Route
-            path="/transfer-choose-recipient"
-            element={
-              <TransferMakeTransfer
-              transferWorkflowStage = "transferChooseRecipient" 
-                currencyBaseCode={currencyBaseCode}
-                currencyRecipientCode={currencyRecipientCode}
-                amountBase={amountBase}
-                amountReceived={amountReceived}
-                fxRate={fxRate}
-                username={username}
-                accountBalance={accountBalance}
-                accountNum={accountNum}
-                sortCode={sortCode}
-              />
-            }
-          />
-          <Route
-            path="/transfer-add-recipient"
-            element={
-              <TransferMakeTransfer
-              transferWorkflowStage = "transferAddRecipient" 
-                currencyBaseCode={currencyBaseCode}
-                currencyRecipientCode={currencyRecipientCode}
-                amountBase={amountBase}
-                amountReceived={amountReceived}
-                fxRate={fxRate}
-                username={username}
-                accountBalance={accountBalance}
-                accountNum={accountNum}
-                sortCode={sortCode}
-              />
-            }
-          />
-          {/* <Route
-            path="/transfer-confirm-recipient"
-            element={
-              <TransferMakeTransfer
-              transferWorkflowStage = "transferConfirmRecipient" 
-                currencyBaseCode={currencyBaseCode}
-                currencyRecipientCode={currencyRecipientCode}
-                amountBase={amountBase}
-                amountReceived={amountReceived}
-                fxRate={fxRate}
-                username={username}
-                accountBalance={accountBalance}
-                accountNum={accountNum}
-                sortCode={sortCode}
-              />
-            }
-          /> */}
         </Routes>
       </div>
     </Router>

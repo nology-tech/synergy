@@ -26,18 +26,197 @@ const TransferMakeTransfer = (props) => {
 
   const accountFormTypes = true;
 
-  const [workflowStage, setWorkflowStage] = useState("addRecipient");
-
-  const handlePaySomeOneNew = (event) => {
-    setWorkflowStage("addRecipientConfirmed");
-  };
+  // handle navigation
+  const [workflowStage, setWorkflowStage] = useState("sendForm");
   console.log(workflowStage);
 
-  const handleGoBack = (event) => {
-    // Logic to select new workflow stage based on current workflow stage
-    // IF add Recipient confirmed, add recipient
-    // IF select recipient confirmed, select recipient
+  //From Send Form Select Recipient
+
+  const handleSelectRecipient = (event) => {
+    setWorkflowStage("chooseContact")
+  }
+
+  //From Send Form Pay SomeOneNew
+  const handlePaySomeOneNew = (event) => {
     setWorkflowStage("addRecipient");
+    setRecipientName("");
+    setAccountTypeRecipient("");
+    setAccountNumRecipient("");
+    setSortCodeRecipient("");
+  };
+
+
+  //From Add recipient to Confirmed
+  const handleContinueButton = (event) => {
+    setWorkflowStage("addRecipientConfirmed");
+  };
+ 
+  const handleGoBack = (event) => {
+    setWorkflowStage("addRecipient");
+  };
+
+
+  //From Choose recipient to Confirmed
+
+  const selectContact = (event) => {
+    setWorkflowStage("selectContactConfirmed");
+  };
+ 
+  const handleGoBackToChooseContact = (event) => {
+    setWorkflowStage("chooseContact");
+  };
+
+//Handle black cross
+
+const handleCloseWindow = (event) => {
+  setWorkflowStage("sendForm");
+  setRecipientName("");
+  setAccountTypeRecipient("");
+  setAccountNumRecipient("");
+  setSortCodeRecipient("");
+}
+
+  //Add Recepient
+
+  const [recipientName, setRecipientName] = useState("");
+  const [accountTypeRecipient, setAccountTypeRecipient] = useState();
+  const [accountNumRecipient, setAccountNumRecipient] = useState();
+  const [sortCodeRecipient, setSortCodeRecipient] = useState("");
+
+  // Handling the recipeint name input field change
+  const handleRecipientName = (e) => {
+    e.preventDefault();
+    setRecipientName(e.target.value.toString());
+  };
+
+  // Handling the account type input field change
+  const handleAccountTypeRecipient = (e) => {
+    e.preventDefault();
+    setAccountTypeRecipient(e.target.value);
+  };
+
+  // Handling the account number input field change
+  const handleAccountNumRecipient = (e) => {
+    e.preventDefault();
+    setAccountNumRecipient(e.target.value);
+  };
+
+  // Handling the sort code input field change
+  const handleSortCodeRecipient = (e) => {
+    e.preventDefault();
+    setSortCodeRecipient(e.target.value.toString());
+  };
+
+  const displayCurrentView = () => {
+    if (workflowStage == "sendForm") {
+      return (
+        <TransferSendFrom
+          currencyBaseCode={currencyBaseCode}
+          accountBalance={accountBalance}
+          amountBase={amountBase}
+          accountFormTypes={accountFormTypes}
+          username={username}
+          accountNum={accountNum}
+          sortCode={sortCode}
+          handlePaySomeOneNew={handlePaySomeOneNew}
+          onClick={handleSelectRecipient}
+        />
+      );
+    } else if (workflowStage == "addRecipient") {
+      return (
+        <>
+          <TransferSendFrom
+            currencyBaseCode={currencyBaseCode}
+            accountBalance={accountBalance}
+            amountBase={amountBase}
+            accountFormTypes={accountFormTypes}
+            username={username}
+            accountNum={accountNum}
+            sortCode={sortCode}
+           
+          />
+          <TransferAddRecipient
+            handleContinueButton={handleContinueButton}
+            handleGoBack={handleGoBack}
+            handleRecipientName={handleRecipientName}
+            handleAccountTypeRecipient={handleAccountTypeRecipient}
+            handleAccountNumRecipient={handleAccountNumRecipient}
+            handleSortCodeRecipient={handleSortCodeRecipient}
+            handleCloseWindow={handleCloseWindow}
+            recipientName={recipientName}
+            accountTypeRecipient={accountTypeRecipient}
+            accountNumRecipient={accountNumRecipient}
+            sortCodeRecipient={sortCodeRecipient}
+          />
+        </>
+      );
+    } else if (workflowStage == "addRecipientConfirmed") {
+      return (
+        <>
+          <TransferSendFrom
+            currencyBaseCode={currencyBaseCode}
+            accountBalance={accountBalance}
+            amountBase={amountBase}
+            accountFormTypes={accountFormTypes}
+            username={username}
+            accountNum={accountNum}
+            sortCode={sortCode}
+           
+          />
+
+          <TransferConfirmRecipient
+            linkToProceed="needToAdd"
+            recipientName={recipientName}
+            accountTypeRecipient={accountTypeRecipient}
+            accountNumRecipient={accountNumRecipient}
+            sortCodeRecipient={sortCodeRecipient}
+            handleGoBack={handleGoBack}
+            handleCloseWindow={handleCloseWindow}
+            workflowStage={workflowStage}
+          />
+        </>
+      );
+    }
+    else if (workflowStage == "chooseContact"){
+      return (<>
+      <TransferSendFrom
+              currencyBaseCode={currencyBaseCode}
+              accountBalance={accountBalance}
+              amountBase={amountBase}
+              accountFormTypes={accountFormTypes}
+              username={username}
+              accountNum={accountNum}
+              sortCode={sortCode}
+            
+            />
+
+            <TransferChooseRecipient
+              handleCloseWindow={handleCloseWindow}
+              selectContact={selectContact}
+              workflowStage={workflowStage}
+            />
+      
+      </>)
+    }
+
+    else if(workflowStage == "selectContactConfirmed") {
+      return (<>
+      <TransferSendFrom
+              currencyBaseCode={currencyBaseCode}
+              accountBalance={accountBalance}
+              amountBase={amountBase}
+              accountFormTypes={accountFormTypes}
+              username={username}
+              accountNum={accountNum}
+              sortCode={sortCode}
+              
+            />
+        <TransferConfirmRecipient
+              handleGoBackToChooseContact={handleGoBackToChooseContact}
+              handleCloseWindow={handleCloseWindow}
+            />
+      </>)
+    }
   };
 
   return (
@@ -71,104 +250,13 @@ const TransferMakeTransfer = (props) => {
           <></>
         )}
 
-        {/* Display the screen with Send From details */}
+        {/* Display the screen with Add recipient or Choose Recipient overlapping Send From transaction details */}
         {transferWorkflowStage == "transferSendFrom" ? (
-          <TransferSendFrom
-            currencyBaseCode={currencyBaseCode}
-            accountBalance={accountBalance}
-            amountBase={amountBase}
-            accountFormTypes={accountFormTypes}
-            username={username}
-            accountNum={accountNum}
-            sortCode={sortCode}
-          />
+          displayCurrentView()
         ) : (
           <></>
         )}
 
-        {/* Display the screen with Choose recipient overlapping Send From transaction details */}
-
-        {transferWorkflowStage == "transferChooseRecipient" ? (
-          <>
-            <TransferSendFrom
-              currencyBaseCode={currencyBaseCode}
-              accountBalance={accountBalance}
-              amountBase={amountBase}
-              accountFormTypes={accountFormTypes}
-              username={username}
-              accountNum={accountNum}
-              sortCode={sortCode}
-            />
-
-            <TransferChooseRecipient
-              linkToCloseTheWindow="/transfer-send-from"
-              linkToProceed="/transfer-confirm-recipient"
-            />
-            <TransferConfirmRecipient
-              handleGoBack={handleGoBack}
-              linkToGoBack="/transfer-choose-recipient"
-            />
-          </>
-        ) : (
-          <></>
-        )}
-
-        {/* Display the screen with Add recipient overlapping Send From transaction details */}
-        {transferWorkflowStage == "transferAddRecipient" ? (
-          <>
-            <TransferSendFrom
-              currencyBaseCode={currencyBaseCode}
-              accountBalance={accountBalance}
-              amountBase={amountBase}
-              accountFormTypes={accountFormTypes}
-              username={username}
-              accountNum={accountNum}
-              sortCode={sortCode}
-            />
-            {workflowStage == "addRecipient" ? (
-              <TransferAddRecipient
-                linkToCloseTheWindow="/transfer-send-from"
-                linkToGoBack="/transfer-send-from"
-                linkToProceed="/transfer-confirm-recipient"
-                handlePaySomeOneNew={handlePaySomeOneNew}
-                handleGoBack={handleGoBack}
-              />
-            ) : (
-              <TransferConfirmRecipient
-                handleGoBack={handleGoBack}
-                linkToGoBack="/transfer-add-recipient"
-              />
-            )}
-          </>
-        ) : (
-          <></>
-        )}
-
-        {/* Display the screen with Confirm recipient overlapping Send From transaction details */}
-        {transferWorkflowStage == "transferConfirmRecipient" ? (
-          <>
-            <TransferSendFrom
-              currencyBaseCode={currencyBaseCode}
-              accountBalance={accountBalance}
-              amountBase={amountBase}
-              accountFormTypes={accountFormTypes}
-              username={username}
-              accountNum={accountNum}
-              sortCode={sortCode}
-            />
-            <TransferConfirmRecipient
-              linkToCloseTheWindow="/transfer-send-from"
-              linkToGoBack="/transfer-add-recipient"
-              linkToProceed="/transfer-completed"
-              recipientName="Sarah Bernar"
-              accountType="some type"
-              accountNum="12345678"
-              sortCode="101010"
-            />
-          </>
-        ) : (
-          <></>
-        )}
       </main>
     </div>
   );
