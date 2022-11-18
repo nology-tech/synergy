@@ -22,15 +22,8 @@
     padding-top: 3px;
 }
 
-// .input-container-amount {
-//     padding-left: 30px;
-//     padding-top: 3px;
-// }
-
-
 .currencyConverter{
     min-height: 500px;    
-    padding-left: 50px;
 
     &__title1 {
         font-family: $title-font-family;
@@ -38,6 +31,7 @@
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
+        padding-left: 50px;
     }
 
     &__title2 {
@@ -46,6 +40,7 @@
         font-style: normal;
         font-weight: 400;
         font-size: 32px;
+        padding-left: 50px;
     }
 
     &__description {
@@ -59,27 +54,25 @@
         line-height: 150%;
         margin: 0px 0px 30px 5px;
         font-family: $third-font-family;      
+        padding-left: 50px;        
     }
 
     &__main {
         display: grid;
-        grid-template-columns: 280px 1200px;        
+        grid-template-columns: 320px 1200px;        
 
-        &__walletTemp {
-            width: 263px;
-            height: 252px;
-            border: 3px solid $color-border-light-gray;
+        &__wallet {
+            margin: 0;
+            padding: 0;
         }
         &__convertercontainer {
-            //border: 3px solid $color-border-light-gray;
-            min-height: 252px;
-            max-height: 410px;
-
+            // border: 3px solid $color-border-light-gray;
+            height: 380px;
         }
         &__top {
+            padding-top: 20px;
             padding-bottom: 40px;;
-            border-bottom: 3px solid $color-border-light-gray;
-            
+            border-bottom: 3px solid $color-border-light-gray;           
         }
        
         &__btn {

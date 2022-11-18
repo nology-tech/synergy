@@ -6,13 +6,13 @@ import currency from '../../data/currency';
 import { faL } from '@fortawesome/free-solid-svg-icons';
 import convertImage from "../../assets/images/flipbutton.png"
 import convertIcon from "../../assets/images/flipicon.png"
+import FundsBox from '../FundsBox/FundsBox';
+import userInfo from '../../data/UserInfo.js';
 
 const CurrencyConverter = (props) => {
     const {amount,setAmount,baseCurrency,setBaseCurrency,toCurrency,convertedAmount,
        setConvertedAmount, fxRate, setFxRate}=props;
 
-    console.log("Currency Converter To Currency");
-    console.log(toCurrency);
     const [shouldHide, setShouldHide] = useState(true);
     //const [inverseFXRate,setInverseFXRate] = useState(Number(1/fxRate).toFixed(4));
     const [amountSymbol,setAmountSymbol] = useState(baseCurrency.symbol);
@@ -106,7 +106,16 @@ const CurrencyConverter = (props) => {
        <h2 className="currencyConverter__title2">Currency Converter</h2>  
        <p className="currencyConverter__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea dolorem nihil neque laudantium assumenda totam amet alias, sequi fuga officiis asperiores beatae provident iste. Quis ducimus nobis a officia earum.</p>   
        <div className='currencyConverter__main'>
-          <div className='currencyConverter__main__walletTemp'>Wallet Placeholder</div>
+
+          <div className="currencyConverter__main__wallet">
+            <FundsBox 
+                fundsAmount={userInfo[0].accountBalance}
+                fundBoxHeader={"Funds Remaining"}
+                buttonOn={false}
+                converterText={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga laudantium porro sapiente debitis."}
+            />
+
+          </div>
           
           <div className='currencyConverter__main__convertercontainer'>
             <div className='currencyConverter__main__top'>
