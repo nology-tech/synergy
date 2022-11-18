@@ -158,7 +158,10 @@
   }
 
   &__main__options {
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    // text-align: right;
     margin: 20px 20px;
 
     a,

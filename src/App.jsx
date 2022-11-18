@@ -147,7 +147,7 @@ const App = () => {
               <TransferMakeTransfer
                 transferWorkflowStage="fxTransaction"
                 currencyBaseCode={currencyBaseCode}
-                currencyRecipientCode={currencyRecipientCode}
+                currencyRecipientCode={baseCurrency.code}
                 amountBase={amountBase}
                 amountReceived={amountReceived}
                 fxRate={fxRate}

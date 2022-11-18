@@ -104,16 +104,16 @@ const TransferTransactionSend = (props) => {
           Cancel
         </a>
         {/* </Link>   */}
-        <Link to="/dashboard/wallet">
+        {/* <Link to="/dashboard/wallet"> */}
         <Button
           buttomImg={""}
           buttonStyle={"button-light-blue"}
           isDisabled={false}
           buttonType={""}
           buttonText={"Send"}
-          // onClick={handleSend}
+          onClick={handleSend}
         />
-         </Link>         
+         {/* </Link>          */}
       </div>
     </>
   );
