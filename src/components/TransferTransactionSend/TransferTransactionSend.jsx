@@ -11,6 +11,7 @@ const TransferTransactionSend = (props) => {
     currencyBaseCode,
     amountBase,
     fxRate,
+    fee,
     accountFormTypes,
     username,
     accountBalance,
@@ -31,6 +32,9 @@ const TransferTransactionSend = (props) => {
   const currencyRecipient = currencies.filter((currency) => {
     return currency.code == currencyRecipientCode;
   });
+
+  const totalToPay= Number(amountBase)+Number(fee)
+  console.log(`${totalToPay} ${amountBase} ${fee}`)
 
   return (
     <>
@@ -70,7 +74,8 @@ const TransferTransactionSend = (props) => {
         </div>
         <div className="transfer-transaction-send__fee__details">
           <h3>Fee</h3>
-          <p>{currencyBase[0].symbol}0.00</p>
+          <p>{currencyBase[0].symbol}{Number(fee).toFixed(2)}</p>
+
         </div>
         <div className="transfer-transaction-send__fee__details">
           <h3>Delivery</h3>
@@ -83,14 +88,14 @@ const TransferTransactionSend = (props) => {
             <h3>Total to Pay</h3>
             <p>
               {currencyBase[0].symbol}
-              {(amountBase).toFixed(2)}
+              {Number(totalToPay).toFixed(2)}
             </p>
           </div>
           <div className="transfer-transaction-send__total__funds-recipient">
             <h3>Recipient Receives:</h3>
             <p>
               {currencyRecipient[0].symbol}
-              {(amountReceived).toFixed(2)}
+              {Number(amountReceived).toFixed(2)}
             </p>
           </div>
         </div>

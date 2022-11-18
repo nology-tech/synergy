@@ -12,6 +12,7 @@ const FxTransaction = (props) => {
     amountBase,
     amountReceived,
     fxRate,
+    fee,
   } = props;
 
   const currencyBase = currencies.filter((currency) => {
@@ -40,7 +41,7 @@ const FxTransaction = (props) => {
           </div>
           <div className="fx-transaction__amount__amount">
             {currencyBase[0].symbol}
-            {amountBase.toFixed(2)}
+            {Number(amountBase).toFixed(2)}
           </div>
         </div>
       </div>
@@ -59,7 +60,7 @@ const FxTransaction = (props) => {
           </div>
           <div className="fx-transaction__amount__amount">
             {currencyRecipient[0].symbol}
-            {amountReceived.toFixed(2)}
+            {Number(amountReceived).toFixed(2)}
           </div>
         </div>
       </div>
@@ -68,11 +69,11 @@ const FxTransaction = (props) => {
           <h3 className="fx-transaction__fee__details__rate">
             Rate <img className="infosign" src={infosign} alt="more info" />
           </h3>
-          <p>{fxRate}</p>
+          <p>{Number(fxRate).toFixed(4)}</p>
         </div>
         <div className="fx-transaction__fee__details">
           <h3>Fee</h3>
-          <p>{currencyBase[0].symbol}0.00</p>
+          <p>{currencyBase[0].symbol}{Number(fee).toFixed(2)}</p>
         </div>
         <div className="fx-transaction__fee__details">
           <h3>Delivery</h3>
@@ -84,7 +85,7 @@ const FxTransaction = (props) => {
           <h3>Total</h3>
           <p>
             {currencyBase[0].symbol}
-            {amountBase.toFixed(2)}
+            {Number(amountBase).toFixed(2)}
           </p>
         </div>
         <div>

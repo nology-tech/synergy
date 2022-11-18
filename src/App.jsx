@@ -27,11 +27,13 @@ const App = () => {
   const [fxRate, setFxRate] = useState(currency[1].rate);
 
   // hardcoded values for transfer:
+
   // list below shall be replaced from currency converter
-  const currencyBaseCode = "USD";
-  const currencyRecipientCode = "GBP";
-  const amountBase = 1000;
-  const amountReceived = 1359.5;
+  // const currencyBaseCode = "USD";
+  // const currencyRecipientCode = "GBP";
+  // const amountBase = 1000;
+  const fee = 0;
+  // const amountReceived = 1359.5;
   //const fxRate = 1.3595;
   // list below shall be replaced from create account database
   const username = "Smantha Brooks";
@@ -40,6 +42,13 @@ const App = () => {
   // list below shall be replaced from wallet
   const accountBalance = 15210;
 
+  console.log(`${baseCurrency.code}  ${toCurrency.code}  ${amount}  ${convertedAmount}  ${fxRate}`)
+
+  // currencyBaseCode={baseCurrency.symbol}
+  // currencyRecipientCode={baseCurrency.code}
+  // amountBase={amount}
+  // amountReceived={convertedAmount}
+  // fxRate={fxRate}
   //---------------------------------
 
   // const buttonImg = <SlRefresh />;  // to be removed
@@ -146,11 +155,12 @@ const App = () => {
             element={
               <TransferMakeTransfer
                 transferWorkflowStage="fxTransaction"
-                currencyBaseCode={currencyBaseCode}
-                currencyRecipientCode={baseCurrency.code}
-                amountBase={amountBase}
-                amountReceived={amountReceived}
+                currencyBaseCode={baseCurrency.code}
+                currencyRecipientCode={toCurrency.code}
+                amountBase={amount}
+                amountReceived={convertedAmount}
                 fxRate={fxRate}
+                fee={fee}
                 username={username}
                 accountBalance={accountBalance}
                 accountNum={accountNum}
@@ -163,11 +173,12 @@ const App = () => {
             element={
               <TransferMakeTransfer
                 transferWorkflowStage="transferSendFrom"
-                currencyBaseCode={currencyBaseCode}
-                currencyRecipientCode={currencyRecipientCode}
-                amountBase={amountBase}
-                amountReceived={amountReceived}
+                currencyBaseCode={baseCurrency.code}
+                currencyRecipientCode={toCurrency.code}
+                amountBase={amount}
+                amountReceived={convertedAmount}
                 fxRate={fxRate}
+                fee={fee}
                 username={username}
                 accountBalance={accountBalance}
                 accountNum={accountNum}

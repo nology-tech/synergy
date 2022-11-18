@@ -19,6 +19,7 @@ const TransferMakeTransfer = (props) => {
     amountBase,
     amountReceived,
     fxRate,
+    fee,
     username,
     accountBalance,
     accountNum,
@@ -72,7 +73,9 @@ const TransferMakeTransfer = (props) => {
     setWorkflowStage("sendForm");
   };
   
+  // The handleSend should go back to wallet. Currently its on send form
   const handleSend = (event) => {
+    console.log("handleSend")
     setWorkflowStage("sendForm");
   };
 
@@ -233,13 +236,14 @@ const TransferMakeTransfer = (props) => {
               accountBalance={accountBalance}
               accountNum={accountNum}
               sortCode={sortCode}
+              fee={fee}
               currencyRecipientCode={currencyRecipientCode}
               recipientName={recipientName}
               accountNumRecipient={accountNumRecipient}
               sortCodeRecipient={sortCodeRecipient}
               amountReceived={amountReceived}
               handleCancel={handleCancel }
-              handleSubmit= {handleSend}
+              handleSend= {handleSend}
             />
           </div>
         </>
@@ -273,6 +277,7 @@ const TransferMakeTransfer = (props) => {
             amountBase={amountBase}
             amountReceived={amountReceived}
             fxRate={fxRate}
+            fee={fee}
           />
         ) : (
           <></>

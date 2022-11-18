@@ -34,14 +34,14 @@ const TransferAccountForm = (props) => {
           <h3>Total </h3>
           <p>
             {currencyBase[0].symbol}
-            {amountBase.toFixed(2)}
+            {Number(amountBase).toFixed(2)}
           </p>
         </div>
         <div className="account-form__total__funds-rem">
           <h3>Funds Remaining:</h3>
           <p>
             {currencyBase[0].symbol}
-            {fundsRemaining.toFixed(2)}
+            {Number(fundsRemaining).toFixed(2)}
           </p>
         </div>
       </div>
