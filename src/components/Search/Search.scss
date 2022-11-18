@@ -1,6 +1,5 @@
 @use "./../../assets/sass/_variables.scss" as *;
-
-.contactSearch {
+.Search {
     display: flex;
     flex-direction: row;
     width: 95%;
@@ -8,66 +7,28 @@
     font-family: $third-font-family;
     margin: 5px;
     padding: 2px;
-    
-    &__text {
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 480px;
-        align-content: center;
-
-        font-size: 16px;
-        color: $color-font-light-gray;
-    }
-
-        // div has all the search content included.
-    &__area {
+    &__bar {
         display: flex;
         flex-direction: row;
-
-            // Includes the button with a spyglass as a button, and the search input box.
-        &__box {
-            display: flex;
-            flex-direction: row;
-            background-color: $color-light-gray-info-bar;
-            border-radius: 8px;
-            width: 221px;
-            height: 51px;
-
-            &__button {
-                background: transparent;
-                border: none;
-                outline: none;
-
-
-                &__spyGlass {
-                    height: 20px;
-                    width: 20px;
-                    object-fit: cover;
-                    color: $color-light-gray2;
-                }
-            }
-
-            &__inputBox {
-                border: none;
-                outline: none;
-                background: $color-light-gray-info-bar;
-                width: 64px;
-                font-family: $title-font-family;
-                
-            }
+        background-color: $color-light-gray-info-bar;
+        border-radius: 8px;
+        width: 221px;
+        height: 51px;
+        .Search__bar-spyGlass {
+            height: 20px;
+            width: 20px;
+            // object-fit: cover;
+            justify-items: center;
+            margin: 15px 5px 0 5px;
+            color: $color-light-gray2;
         }
-        // add button not currenlty functioning for contacts
-        &__addButton {
-            color: $color-middle-blue;
-            width: 106px;
-            border-radius: 6px;
-            border: 1px solid $color-middle-blue;
-            height: 50px;
-            padding-left: 20px;
-            background: $color-white url("./../../assets/images/add.png") no-repeat 20% 50%;
-            font-weight: bold;
-        
+        .Search__bar-inputBox {
+            border: none;
+            outline: none;
+            background: $color-light-gray-info-bar;
+            // width: 64px;
+            width: 200px;
+            font-family: $title-font-family;
         }
-
     }
-} 
+}
