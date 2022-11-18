@@ -59,7 +59,7 @@ const ContactContainer = () => {
           />
             <Button
             buttonStyle={"button-transparent contactSearch-AddButton"}
-            buttonText={"+ Add"}
+            buttonText={"＋ Add"}
             onClick={addContact}
             value="Add"
             type="submit"
