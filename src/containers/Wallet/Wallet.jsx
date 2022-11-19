@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import FundsBox from '../../components/FundsBox/FundsBox';
 import userInfo from '../../data/UserInfo.js';
 import NavMenu from '../../components/NavMenu/NavMenu';
 import ContactContainer from '../ContactContainer/ContactContainer';
 import DashboardHeader from '../../components/DashboardHeader/DashboardHeader';
 import "../../assets/sass/_dashboard.scss"
+import UserContacts from '../../components/UserContacts/UserContacts';
 
 const Wallet = () => {
+  const [walletOn, setWalletOn] = useState(true);
   return (
     <div className="dashboardPage wallet-page">
       <NavMenu />
@@ -20,7 +22,7 @@ const Wallet = () => {
         </div>
         <div className="wallet-page__contacts">
           {" "}
-          <ContactContainer />
+          <ContactContainer walletOn />
         </div>
       </div>
     </div>
