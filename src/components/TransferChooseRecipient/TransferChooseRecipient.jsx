@@ -9,20 +9,20 @@ import contacts from "../../data/Contacts.js";
 const TransferChooseRecipient = (props) => {
 
   const {handleCloseWindow, 
-  selectContact } = props;
+  selectContact, searchTerm } = props;
 
-  // Setting up the search box
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchTerm, setSearchTerm] = useState("");
-  // this handle reads the search text
-  const handleInput = (event) => {
-    setSearchQuery(event.target.value);
-  };
-  // for the spyglass when clicked
-  const onSearchClick = (event) => {
-    event.preventDefault();
-    setSearchTerm(searchQuery.toLowerCase());
-  };
+  // // Setting up the search box
+  // const [searchQuery, setSearchQuery] = useState("");
+  // const [searchTerm, setSearchTerm] = useState("");
+  // // this handle reads the search text
+  // const handleInput = (event) => {
+  //   setSearchQuery(event.target.value);
+  // };
+  // // for the spyglass when clicked
+  // const onSearchClick = (event) => {
+  //   event.preventDefault();
+  //   setSearchTerm(searchQuery.toLowerCase());
+  // };
 
   // Filter contact using search
   const filteredContactsArray = contacts.filter((contact) => {
