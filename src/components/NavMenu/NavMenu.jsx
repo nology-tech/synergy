@@ -60,7 +60,7 @@ const NavMenu = () => {
       </div>
       <div className="sidemenu__signout">
         <Link to="/home">
-          {/* <img className="sidemenu__logout" src={signoutImg} alt="Sign Out" /> */}
+          <img className="sidemenu__logout" src={signoutImg} alt="Sign Out" />
           <Button 
             buttonStyle={"btn button-blue sidemenu__logout"}
             buttonText={"Sign Out"} 

@@ -17,37 +17,44 @@ import Wallet from "./containers/Wallet/Wallet";
 // import Button from "./components/Button/Button"; // to be removed
 // import {SlRefresh} from 'react-icons/sl';  // to be removed
 import CurrencyConverterContainer from "./containers/CurrencyConverterContainer/CurrencyConverterContainer";
-import currency from './data/currency';
+import currency from "./data/currency";
 import TransferMakeTransfer from "./components/TransferMakeTransfer/TransferMakeTransfer";
 import Button from "./components/Button/Button";
 import ContactAdd from "./components/ContactAdd/ContactAdd";
+import Search from "./components/Search/Search";
 const App = () => {
+  //user Information
+  const [username, setUserName] = useState("Samantha Brooks"); //shall be replaced by a function on login
+  const [accountNum, setAccountNum] = useState("123456789"); // shall be replaced by a function on login
+  const [sortCode, setSortCode] = useState("012345"); // shall be replaced by a function on login
+
+  //Details of the  transfer
+  
   const [baseCurrency, setBaseCurrency] = useState(currency[0]);
   const [toCurrency, setToCurrency] = useState(currency[1]);
-  const [amount, setAmount] = useState('');
-  const [convertedAmount, setConvertedAmount] = useState('');
+  const [amount, setAmount] = useState("");
+  const [convertedAmount, setConvertedAmount] = useState("");
   // fx should come from Live rates on Send button click, temporary setting to EUR rate from data file
   const [fxRate, setFxRate] = useState(currency[1].rate);
-      
-  // hardcoded values for transfer:
-  // list below shall be replaced from currency converter
-  const currencyBaseCode = "USD";
-  const currencyRecepientCode = "GBP";
-  const amountBase = 1000;
-  const amountReceived = 1359.5;
-  //const fxRate = 1.3595;
-  // list below shall be replaced from create account database
-  const username = "Smantha Brooks";
-  const accountNum = "10840366";
-  const sortCode = "110053";
+  // list below shall be replaced from API
+  const fee = 0;
+
+  //Details of the Wallet
   // list below shall be replaced from wallet
   const accountBalance = 15210;
-  //---------------------------------
-  
-  // const buttonImg = <SlRefresh />;  // to be removed
-  // const buttonText = "Convert";  // to be removed
 
- return (
+  //Search function
+  // Setting up the search box
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // this handle reads the search text  
+  const handleInput = (event) => {
+    const cleanInput=event.target.value.toLowerCase();
+    setSearchTerm(cleanInput);
+  };
+
+
+  return (
     <Router>
       <div>
         {/* Button Test */}
@@ -105,41 +112,63 @@ const App = () => {
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/contactadd" element={<ContactAdd />} />
-          <Route path="/contacts" element={<ContactListPage />}/>
-          <Route path="/liverates" element={<LiveRates />}/>
+          <Route path="/contacts" element={<ContactListPage />} />
+          <Route path="/liverates" element={<LiveRates />} />
           <Route path="/signin" element={<LoginFlowWelcome />} />
           <Route path="/userprofile" element={<Wallet />} />
-          <Route path="/dashboard" element={<Wallet />} />         
+          <Route path="/dashboard" element={<Wallet />} />
           <Route path="/home" element={<LandingMain />}></Route>
           <Route path="/features" element={<LandingMain />}></Route>
           <Route path="/about" element={<LandingMain />}></Route>
           <Route path="/contact" element={<LandingMain />}></Route>
           <Route path="/" element={<LandingMain />}></Route>
-          <Route path="/currencyconverter" 
-                 element={
-                  <CurrencyConverterContainer 
-                  amount={amount} 
-                  setAmount={setAmount} 
-                  baseCurrency={baseCurrency}
-                  setBaseCurrency = {setBaseCurrency}
-                  toCurrency={toCurrency}
-                  setToCurrency = {setToCurrency}
-                  convertedAmount={convertedAmount}
-                  setConvertedAmount={setConvertedAmount}
-                  fxRate={fxRate}
-                  setFxRate={setFxRate}/>}>
-          </Route>       
+          <Route
+            path="/currencyconverter"
+            element={
+              <CurrencyConverterContainer
+                amount={amount}
+                setAmount={setAmount}
+                baseCurrency={baseCurrency}
+                setBaseCurrency={setBaseCurrency}
+                toCurrency={toCurrency}
+                setToCurrency={setToCurrency}
+                convertedAmount={convertedAmount}
+                setConvertedAmount={setConvertedAmount}
+                fxRate={fxRate}
+                setFxRate={setFxRate}
+              />
+            }
+          ></Route>
+
+          <Route
+            path="/currencyconverter"
+            element={
+              <CurrencyConverterContainer
+                amount={amount}
+                setAmount={setAmount}
+                baseCurrency={baseCurrency}
+                setBaseCurrency={setBaseCurrency}
+                toCurrency={toCurrency}
+                setToCurrency={setToCurrency}
+                convertedAmount={convertedAmount}
+                setConvertedAmount={setConvertedAmount}
+                fxRate={fxRate}
+                setFxRate={setFxRate}
+              />
+            }
+          ></Route>
 
           <Route
             path="/transfer-fx-transaction"
             element={
               <TransferMakeTransfer
-              transferWorkflowStage = "fxTransaction"
-                currencyBaseCode={currencyBaseCode}
-                currencyRecepientCode={currencyRecepientCode}
-                amountBase={amountBase}
-                amountReceived={amountReceived}
+                transferWorkflowStage="fxTransaction"
+                currencyBaseCode={baseCurrency.code}
+                currencyRecipientCode={toCurrency.code}
+                amountBase={amount}
+                amountReceived={convertedAmount}
                 fxRate={fxRate}
+                fee={fee}
                 username={username}
                 accountBalance={accountBalance}
                 accountNum={accountNum}
@@ -151,50 +180,19 @@ const App = () => {
             path="/transfer-send-from"
             element={
               <TransferMakeTransfer
-              transferWorkflowStage = "transferSendFrom"
-                currencyBaseCode={currencyBaseCode}
-                currencyRecepientCode={currencyRecepientCode}
-                amountBase={amountBase}
-                amountReceived={amountReceived}
+                transferWorkflowStage="transferSendFrom"
+                currencyBaseCode={baseCurrency.code}
+                currencyRecipientCode={toCurrency.code}
+                amountBase={amount}
+                amountReceived={convertedAmount}
                 fxRate={fxRate}
+                fee={fee}
                 username={username}
                 accountBalance={accountBalance}
                 accountNum={accountNum}
                 sortCode={sortCode}
-              />
-            }
-          />
-          <Route
-            path="/transfer-add-recepient"
-            element={
-              <TransferMakeTransfer
-              transferWorkflowStage = "transferAddRecepient" 
-                currencyBaseCode={currencyBaseCode}
-                currencyRecepientCode={currencyRecepientCode}
-                amountBase={amountBase}
-                amountReceived={amountReceived}
-                fxRate={fxRate}
-                username={username}
-                accountBalance={accountBalance}
-                accountNum={accountNum}
-                sortCode={sortCode}
-              />
-            }
-          />
-          <Route
-            path="/transfer-confirm-recepient"
-            element={
-              <TransferMakeTransfer
-              transferWorkflowStage = "transferConfirmRecepient" 
-                currencyBaseCode={currencyBaseCode}
-                currencyRecepientCode={currencyRecepientCode}
-                amountBase={amountBase}
-                amountReceived={amountReceived}
-                fxRate={fxRate}
-                username={username}
-                accountBalance={accountBalance}
-                accountNum={accountNum}
-                sortCode={sortCode}
+                searchTerm={searchTerm}
+                handleInput={handleInput}
               />
             }
           />

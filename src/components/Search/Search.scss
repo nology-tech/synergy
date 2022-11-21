@@ -1,5 +1,5 @@
 @use "./../../assets/sass/_variables.scss" as *;
-.Search {
+.search {
     display: flex;
     flex-direction: row;
     width: 95%;
@@ -14,7 +14,7 @@
         border-radius: 8px;
         width: 221px;
         height: 51px;
-        .Search__bar-spyGlass {
+        .search__bar-spyGlass {
             height: 20px;
             width: 20px;
             // object-fit: cover;
@@ -22,7 +22,7 @@
             margin: 15px 5px 0 5px;
             color: $color-light-gray2;
         }
-        .Search__bar-inputBox {
+        .search__bar-inputBox {
             border: none;
             outline: none;
             background: $color-light-gray-info-bar;
