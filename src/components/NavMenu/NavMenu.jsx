@@ -28,7 +28,7 @@ const NavMenu = () => {
           Menu
           <div className="sidemenu__item">
             <img className="sidemenu__icon" src={walletImg} alt="Wallet" />
-            <Link className="sidemenu__a" to="/dashboard/wallet">
+            <Link className="sidemenu__a" to="/wallet">
               Wallet
             </Link>
           </div>

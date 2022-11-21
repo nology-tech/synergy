@@ -4,7 +4,6 @@ import React from "react";
 import "./App.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignUpMain from "./components/SignUp/SignUpMain";
-import UserDashboard from "./containers/UserDashboard/UserDashboard";
 import ForgottenPassword from "./components/ForgottenPassword/ForgottenPassword";
 import LoginFlowChangePsw from "./components/LoginFlowChangePsw/LoginFlowChangePsw";
 import LoginFlowWelcome from "./components/LoginFlowWelcome/LoginFlowWelcome";
@@ -13,11 +12,15 @@ import BillingAddress from "./containers/BillingAddress/BillingAddress";
 import LandingMain from "./containers/LandingMain/LandingMain";
 import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
+import Wallet from "./containers/Wallet/Wallet";
+
+// import Button from "./components/Button/Button"; // to be removed
+// import {SlRefresh} from 'react-icons/sl';  // to be removed
 import CurrencyConverterContainer from "./containers/CurrencyConverterContainer/CurrencyConverterContainer";
 import currency from "./data/currency";
 import TransferMakeTransfer from "./components/TransferMakeTransfer/TransferMakeTransfer";
 import Button from "./components/Button/Button";
-
+import ContactAdd from "./components/ContactAdd/ContactAdd";
 const App = () => {
   const [baseCurrency, setBaseCurrency] = useState(currency[0]);
   const [toCurrency, setToCurrency] = useState(currency[1]);
@@ -110,27 +113,32 @@ const App = () => {
           <Route path="/billingaddress" element={<BillingAddress />} />
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
-          <Route path="/contacts" element={<ContactListPage />} />
-          <Route path="/liverates" element={<LiveRates />} />
+          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/contactadd" element={<ContactAdd />} />
+          <Route path="/contacts" element={<ContactListPage />}/>
+          <Route path="/liverates" element={<LiveRates />}/>
           <Route path="/signin" element={<LoginFlowWelcome />} />
-          <Route
-            path="/userprofile"
-            element={<UserDashboard navigateTo="Wallet" />}
-          />
-          <Route
-            path="/dashboard"
-            element={<UserDashboard navigateTo="Wallet" />}
-          />
-          <Route
-            path="/dashboard/wallet"
-            element={<UserDashboard navigateTo="Wallet" />}
-          />
-
+          <Route path="/userprofile" element={<Wallet />} />
+          <Route path="/dashboard" element={<Wallet />} />         
           <Route path="/home" element={<LandingMain />}></Route>
           <Route path="/features" element={<LandingMain />}></Route>
           <Route path="/about" element={<LandingMain />}></Route>
           <Route path="/contact" element={<LandingMain />}></Route>
           <Route path="/" element={<LandingMain />}></Route>
+          <Route path="/currencyconverter" 
+                 element={
+                  <CurrencyConverterContainer 
+                  amount={amount} 
+                  setAmount={setAmount} 
+                  baseCurrency={baseCurrency}
+                  setBaseCurrency = {setBaseCurrency}
+                  toCurrency={toCurrency}
+                  setToCurrency = {setToCurrency}
+                  convertedAmount={convertedAmount}
+                  setConvertedAmount={setConvertedAmount}
+                  fxRate={fxRate}
+                  setFxRate={setFxRate}/>}>
+          </Route>       
 
           <Route
             path="/currencyconverter"
