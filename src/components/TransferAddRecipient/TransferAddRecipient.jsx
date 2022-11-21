@@ -57,11 +57,8 @@ const TransferAddRecipient = (props) => {
             Cancel
           </a>
           <Button
-            buttomImg={""}
-            buttonStyle={"button-light-blue"}
-            isDisabled={false}
-            buttonType={""}
-            buttonText={"Continue"}
+            buttonStyle={"btn button-blue"}
+            buttonText={`Continue ▶`}
             onClick={handleContinueButton}
           />
         </div>

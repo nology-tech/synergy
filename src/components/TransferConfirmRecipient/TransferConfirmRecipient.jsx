@@ -62,10 +62,7 @@ const TransferConfirmRecepient = (props) => {
         <div className="transfer-confirm-recepient__main__options">
           {displayConfirmRecipient()}
           <Button
-            buttomImg={""}
-            buttonStyle={"button-light-blue"}
-            isDisabled={false}
-            buttonType={""}
+            buttonStyle={"btn button-blue"}
             buttonText={"Submit"}
             onClick={handleSubmit}
           />

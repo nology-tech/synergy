@@ -1,4 +1,4 @@
-@use "../../assets/sass/_variables.scss"as *;
+@use "../../assets/sass/_variables.scss" as *;
 
 .transfer-transaction-send {
   display: flex;
@@ -13,12 +13,10 @@
   height: fit-content;
   align-items: center;
 
-
   h2 {
     color: $color-black;
     font-size: 24px;
     font-weight: 400;
-
   }
 
   .transfer-transaction-send__account-recipient {
@@ -31,13 +29,11 @@
     height: fit-content;
     font-family: $title-font-family;
 
-
     &__username {
       color: $color-middle-blue;
       font-size: 16px;
       font-weight: 500;
       font-size: 16px bold;
-
     }
 
     &__details {
@@ -54,14 +50,10 @@
       &__sort-code {
         padding-bottom: 10px;
       }
-
     }
-
-
   }
 
   &__fee {
-
     border-bottom: 1px solid $color-background-clear;
     width: 100%;
     padding: 20px 0px;
@@ -80,10 +72,8 @@
     }
 
     &__details {
-
       display: flex;
       justify-content: space-between;
-
 
       &__rate {
         display: flex;
@@ -99,7 +89,6 @@
         height: 20px;
         color: $color-black;
         margin: 0px 5px;
-
       }
     }
 
@@ -111,7 +100,6 @@
         font-size: 20px;
       }
     }
-
   }
 
   &__total {
@@ -119,7 +107,6 @@
     flex-direction: column;
     width: 100%;
     border-bottom: 1px solid $color-background-clear;
- 
 
     &_pay-amount {
       display: flex;
@@ -147,7 +134,7 @@
 
       h3 {
         font-size: 16px;
-        font-weight: 400;     
+        font-weight: 400;
       }
 
       p {
@@ -158,15 +145,11 @@
   }
 
   &__main__options {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    // text-align: right;
-    margin: 20px 20px;
+    text-align: right;
+    margin: 20px 0px;
 
-    a,
     button {
-      margin: 10px;
+      margin: 10px 0px 10px 10px;
     }
 
     a:link,
@@ -174,7 +157,8 @@
       text-decoration: none;
     }
 
-    &__cancel {
+    a {
+      margin: 10px;
       font-family: $third-font-family;
       font-size: 16px;
       font-weight: 400;
@@ -182,6 +166,4 @@
       border-bottom: 2px dotted $color-font-light-gray;
     }
   }
-
-
 }

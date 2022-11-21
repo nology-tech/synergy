@@ -4,6 +4,7 @@ import TransferAccountForm from "../TransferAccountForm/TransferAccountForm";
 import currencies from "../../data/currency.js";
 import infosign from "../../assets/images/infosign.png";
 import "./TransferTransactionSend.scss";
+import { FiSend } from "react-icons/fi";
 
 const TransferTransactionSend = (props) => {
   const {
@@ -24,6 +25,8 @@ const TransferTransactionSend = (props) => {
     handleCancel,
     handleSend,
   } = props;
+
+  const buttonSend = <FiSend/>
   const currencyBase = currencies.filter((currency) => {
     return currency.code === currencyBaseCode;
   });
@@ -98,24 +101,24 @@ const TransferTransactionSend = (props) => {
             </p>
           </div>
         </div>
-      </div>
-      <div className="transfer-transaction-send__main__options">
+        <div className="transfer-transaction-send__main__options">
         <a
-          className="transfer-transaction-send__main__options__cancel"
+          // className="transfer-transaction-send__main__options__cancel"
           onClick={handleCancel}
         >
           Cancel
         </a>
         <Button
-          buttomImg={""}
-          buttonStyle={"button-light-blue"}
-          isDisabled={false}
-          buttonType={""}
+          buttonStyle={"btn button-blue"}
           buttonText={"Send"}
+          buttonImg={buttonSend}
           onClick={handleSend}
         />
          {/* </Link>          */}
       </div>
+
+      </div>
+    
     </>
   );
 };

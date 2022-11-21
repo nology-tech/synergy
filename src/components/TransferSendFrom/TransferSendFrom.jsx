@@ -32,7 +32,7 @@ const TransferSendFrom = (props) => {
     <div className="transfer-send-form__to">
       <h2>To</h2>
       <div className="transfer-send-form__to__options">
-        <Button buttonText="Select Recipient" onClick={onClick}/>
+        <Button buttonStyle={"btn button-blue"} buttonText="Select Recipient" onClick={onClick}/>
         <div className="transfer-send-form__to__options__newPayee">
           <a onClick={handlePaySomeOneNew}> 
             + Pay Someone New

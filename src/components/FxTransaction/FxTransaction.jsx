@@ -90,7 +90,7 @@ const FxTransaction = (props) => {
         </div>
         <div>
           <Link to="/transfer-send-from">
-          <Button buttonText="Continue" />
+          <Button buttonStyle={"btn button-blue"} buttonText={`Continue ▶`} />
           </Link>
           </div>
       </div>
