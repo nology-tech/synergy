@@ -1,8 +1,9 @@
 @use "./../../assets/sass/_variables.scss" as *;
 
 .button-blue {
-    width: 116px;
-    height: 40px;
+    // width: 116px;
+    // height: 40px;
+    padding: 20px;
     background: $color-middle-blue;
     border: $color-middle-blue;
     border-radius: 6px;
@@ -10,7 +11,7 @@
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
-    line-height: 22px;
+    // line-height: 22px;
     text-align: center;
     color: $color-white;
     &:hover {
@@ -19,8 +20,9 @@
     }
 }
 .button-blue-disabled {
-    width: 116px;
-    height: 40px;
+    // width: 116px;
+    // height: 40px;
+    padding: 20px;
     background: rgba(0, 206, 212, 0.4);
     border: rgba(0, 206, 212, 0.4);
     border-radius: 6px;
@@ -40,8 +42,9 @@
     box-sizing: border-box;
     background: $color-middle-blue;
     border-radius: 6px;
-    width: 114px;
-    height: 41px;
+    // width: 114px;
+    // height: 41px;
+    padding: 20px;
     border: 2px solid $color-white;
     font-family: $third-font-family;
     font-style: normal;
@@ -57,8 +60,9 @@
 }
 .button-transparent {
     box-sizing: border-box;
-    width: 214px;
-    height: 64px;
+    // width: 214px;
+    // height: 64px;
+    padding: 20px;
     border: 1px solid $color-middle-blue;
     border-radius: 6px;
     // background: #F1FFFF;
@@ -76,8 +80,9 @@
     }
 }
 .button-white {
-    width: 121px;
-    height: 58px;
+    // width: 121px;
+    // height: 58px;
+    padding: 20px;
     background: $color-white;
     border-radius: 6px;
     font-family: $third-font-family;
@@ -95,8 +100,9 @@
 
 .button-dashed {
     box-sizing: border-box;
-    width: 108px;
-    height: 32px;
+    // width: 108px;
+    // height: 32px;
+    padding: 20px;
     border: 1px dashed $color-font-light-gray;
     border-radius: 8px;
     font-family: $third-font-family;
