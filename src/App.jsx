@@ -29,7 +29,7 @@ const App = () => {
   const [sortCode, setSortCode] = useState("012345"); // shall be replaced by a function on login
 
   //Details of the  transfer
-
+  
   const [baseCurrency, setBaseCurrency] = useState(currency[0]);
   const [toCurrency, setToCurrency] = useState(currency[1]);
   const [amount, setAmount] = useState("");

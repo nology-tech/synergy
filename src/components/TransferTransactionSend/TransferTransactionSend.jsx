@@ -26,7 +26,7 @@ const TransferTransactionSend = (props) => {
     handleSend,
   } = props;
 
-  const buttonSend = <FiSend/>
+  const buttonSend = <FiSend />;
   const currencyBase = currencies.filter((currency) => {
     return currency.code === currencyBaseCode;
   });
@@ -35,8 +35,7 @@ const TransferTransactionSend = (props) => {
     return currency.code === currencyRecipientCode;
   });
 
-  const totalToPay= Number(amountBase)+Number(fee)
-  console.log(`${totalToPay} ${amountBase} ${fee}`)
+  const totalToPay = Number(amountBase) + Number(fee);
 
   return (
     <>
@@ -68,21 +67,23 @@ const TransferTransactionSend = (props) => {
           </div>
         </div>
         <div className="transfer-transaction-send__fee">
-        <div className="transfer-transaction-send__fee__details">
-          <h3 className="transfer-transaction-send__fee__details__rate">
-            Rate <img className="infosign" src={infosign} alt="more info" />
-          </h3>
-          <p>{fxRate}</p>
-        </div>
-        <div className="transfer-transaction-send__fee__details">
-          <h3>Fee</h3>
-          <p>{currencyBase[0].symbol}{Number(fee).toFixed(2)}</p>
-
-        </div>
-        <div className="transfer-transaction-send__fee__details">
-          <h3>Delivery</h3>
-          <p>Typically same day</p>
-        </div>
+          <div className="transfer-transaction-send__fee__details">
+            <h3 className="transfer-transaction-send__fee__details__rate">
+              Rate <img className="infosign" src={infosign} alt="more info" />
+            </h3>
+            <p>{fxRate}</p>
+          </div>
+          <div className="transfer-transaction-send__fee__details">
+            <h3>Fee</h3>
+            <p>
+              {currencyBase[0].symbol}
+              {Number(fee).toFixed(2)}
+            </p>
+          </div>
+          <div className="transfer-transaction-send__fee__details">
+            <h3>Delivery</h3>
+            <p>Typically same day</p>
+          </div>
         </div>
 
         <div className="transfer-transaction-send__total">
@@ -102,23 +103,21 @@ const TransferTransactionSend = (props) => {
           </div>
         </div>
         <div className="transfer-transaction-send__main__options">
-        <a
-          // className="transfer-transaction-send__main__options__cancel"
-          onClick={handleCancel}
-        >
-          Cancel
-        </a>
-        <Button
-          buttonStyle={"btn button-blue"}
-          buttonText={"Send"}
-          buttonImg={buttonSend}
-          onClick={handleSend}
-        />
-         {/* </Link>          */}
+          <a
+            // className="transfer-transaction-send__main__options__cancel"
+            onClick={handleCancel}
+          >
+            Cancel
+          </a>
+          <Button
+            buttonStyle={"btn button-blue"}
+            buttonText={"Send"}
+            buttonImg={buttonSend}
+            onClick={handleSend}
+          />
+          {/* </Link>          */}
+        </div>
       </div>
-
-      </div>
-    
     </>
   );
 };

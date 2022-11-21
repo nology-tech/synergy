@@ -76,8 +76,8 @@ const TransferMakeTransfer = (props) => {
   
   // The handleSend should go back to wallet. Currently its on send form
   const handleSend = (event) => {
-    console.log("handleSend")
     setWorkflowStage("sendForm");
+    window.open('/wallet', '_blank')
   };
 
   //Handle black cross
