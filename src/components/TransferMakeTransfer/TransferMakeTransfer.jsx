@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import HeaderNav from "../HeaderNav/HeaderNav";
 import NavMenu from "../NavMenu/NavMenu";
 import FxTransaction from "../FxTransaction/FxTransaction";
 import TransferAddRecipient from "../TransferAddRecipient/TransferAddRecipient";
@@ -119,7 +118,7 @@ const TransferMakeTransfer = (props) => {
   };
 
   const displayCurrentView = () => {
-    if (workflowStage == "sendForm") {
+    if (workflowStage === "sendForm") {
       return (
         <TransferSendFrom
           currencyBaseCode={currencyBaseCode}
@@ -133,7 +132,7 @@ const TransferMakeTransfer = (props) => {
           onClick={handleSelectRecipient}
         />
       );
-    } else if (workflowStage == "addRecipient") {
+    } else if (workflowStage === "addRecipient") {
       return (
         <>
           <TransferSendFrom
@@ -160,7 +159,7 @@ const TransferMakeTransfer = (props) => {
           />
         </>
       );
-    } else if (workflowStage == "addRecipientConfirmed") {
+    } else if (workflowStage === "addRecipientConfirmed") {
       return (
         <>
           <TransferSendFrom
@@ -185,7 +184,7 @@ const TransferMakeTransfer = (props) => {
           />
         </>
       );
-    } else if (workflowStage == "chooseContact") {
+    } else if (workflowStage === "chooseContact") {
       return (
         <>
           <TransferSendFrom
@@ -205,7 +204,7 @@ const TransferMakeTransfer = (props) => {
           />
         </>
       );
-    } else if (workflowStage == "selectContactConfirmed") {
+    } else if (workflowStage === "selectContactConfirmed") {
       return (
         <>
           <TransferSendFrom
@@ -224,7 +223,7 @@ const TransferMakeTransfer = (props) => {
           />
         </>
       );
-    } else if (workflowStage == "confirmTransferDetails") {
+    } else if (workflowStage === "confirmTransferDetails") {
       return (
         <>
           <div className="transfer-transaction-send">
@@ -270,7 +269,7 @@ const TransferMakeTransfer = (props) => {
         </div>
 
         {/* Display the screen with FX transaction details */}
-        {transferWorkflowStage == "fxTransaction" ? (
+        {transferWorkflowStage === "fxTransaction" ? (
           <FxTransaction
             currencyBaseCode={currencyBaseCode}
             currencyRecipientCode={currencyRecipientCode}
@@ -284,7 +283,7 @@ const TransferMakeTransfer = (props) => {
         )}
 
         {/* Display the screen with Add recipient or Choose Recipient overlapping Send From transaction details */}
-        {transferWorkflowStage == "transferSendFrom" ? (
+        {transferWorkflowStage === "transferSendFrom" ? (
           displayCurrentView()
         ) : (
           <></>

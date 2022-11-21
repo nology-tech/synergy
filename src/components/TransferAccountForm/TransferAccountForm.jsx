@@ -1,6 +1,5 @@
 import React from "react";
 import currencies from "../../data/currency.js";
-import Button from "../Button/Button";
 import "./TransferAccountForm.scss";
 
 const TransferAccountForm = (props) => {
@@ -15,7 +14,7 @@ const TransferAccountForm = (props) => {
 
   let fundsRemaining = accountBalance - amountBase;
   const currencyBase = currencies.filter((currency) => {
-    return currency.code == currencyBaseCode;
+    return currency.code === currencyBaseCode;
   });
 
   return (

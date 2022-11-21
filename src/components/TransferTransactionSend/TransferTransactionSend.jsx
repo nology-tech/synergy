@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import TransferAccountForm from "../TransferAccountForm/TransferAccountForm";
 import currencies from "../../data/currency.js";
@@ -26,11 +25,11 @@ const TransferTransactionSend = (props) => {
     handleSend,
   } = props;
   const currencyBase = currencies.filter((currency) => {
-    return currency.code == currencyBaseCode;
+    return currency.code === currencyBaseCode;
   });
 
   const currencyRecipient = currencies.filter((currency) => {
-    return currency.code == currencyRecipientCode;
+    return currency.code === currencyRecipientCode;
   });
 
   const totalToPay= Number(amountBase)+Number(fee)
@@ -101,15 +100,12 @@ const TransferTransactionSend = (props) => {
         </div>
       </div>
       <div className="transfer-transaction-send__main__options">
-      {/* <Link to="/transfer-fx-transaction"> */}
         <a
           className="transfer-transaction-send__main__options__cancel"
           onClick={handleCancel}
         >
           Cancel
         </a>
-        {/* </Link>   */}
-        {/* <Link to="/dashboard/wallet"> */}
         <Button
           buttomImg={""}
           buttonStyle={"button-light-blue"}

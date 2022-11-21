@@ -16,11 +16,11 @@ const FxTransaction = (props) => {
   } = props;
 
   const currencyBase = currencies.filter((currency) => {
-    return currency.code == currencyBaseCode;
+    return currency.code === currencyBaseCode;
   });
 
   const currencyRecipient = currencies.filter((currency) => {
-    return currency.code == currencyRecipientCode;
+    return currency.code === currencyRecipientCode;
   });
 
   

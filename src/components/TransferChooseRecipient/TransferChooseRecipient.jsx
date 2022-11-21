@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import ContactSearch from "../ContactSearch/ContactSearch";
+// import ContactSearch from "../ContactSearch/ContactSearch";
 import blackCross from "../../assets/images/black-cross.png";
 import ContactList from "../ContactList/ContactList";
 import "./TransferChooseRecipient.scss";
@@ -50,11 +49,11 @@ const TransferChooseRecipient = (props) => {
       <p>Search</p>
       {/* ///contact search needs to be changed to remove the message "all
       frineds..." */}
-      <ContactSearch
+      {/* <ContactSearch
         searchTerm={searchQuery}
         handleInput={handleInput}
         onSearchClick={onSearchClick}
-      />
+      /> */}
       {/* //the contact list & contact Row need to be duplicated to handel less data
       columns 
       the OnClick shall be applied to the name of the contact or contact row

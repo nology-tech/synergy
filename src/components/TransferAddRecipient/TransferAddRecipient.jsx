@@ -1,6 +1,4 @@
 import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import "./TransferAddRecipient.scss";
 import blackcross from "../../assets/images/black-cross.png";
 import Button from "../Button/Button";

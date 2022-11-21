@@ -1,6 +1,5 @@
 import React from "react";
 import "./TransferConfirmRecipient.scss";
-import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import blackcross from "../../assets/images/black-cross.png";
 
@@ -18,7 +17,7 @@ const TransferConfirmRecepient = (props) => {
   } = props;
 
   const displayConfirmRecipient = () => {
-    if (workflowStage == "addRecipientConfirmed") {
+    if (workflowStage === "addRecipientConfirmed") {
       return (
         <a
           className="transfer-confirm-recepient__main__options__cancel"
@@ -27,7 +26,7 @@ const TransferConfirmRecepient = (props) => {
           Go Back
         </a>
       );
-    } else if (workflowStage == "selectContactConfirmed") {
+    } else if (workflowStage === "selectContactConfirmed") {
       return (
         <a
           className="transfer-confirm-recepient__main__options__cancel"
