@@ -42,7 +42,18 @@ const App = () => {
   //Details of the Wallet
   // list below shall be replaced from wallet
   const accountBalance = 15210;
- 
+
+  //Search function
+  // Setting up the search box
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // this handle reads the search text  
+  const handleInput = (event) => {
+    const cleanInput=event.target.value.toLowerCase();
+    setSearchTerm(cleanInput);
+  };
+
+
   return (
     <Router>
       <div>
@@ -180,15 +191,11 @@ const App = () => {
                 accountBalance={accountBalance}
                 accountNum={accountNum}
                 sortCode={sortCode}
-
+                searchTerm={searchTerm}
+                handleInput={handleInput}
               />
             }
           />
-          <Route
-            path="/search"
-            element={<Search
-            />}
-            />
         </Routes>
       </div>
     </Router>

@@ -23,6 +23,8 @@ const TransferMakeTransfer = (props) => {
     accountBalance,
     accountNum,
     sortCode,
+    searchTerm,
+    handleInput
   } = props;
 
   const accountFormTypes = true;
@@ -201,6 +203,8 @@ const TransferMakeTransfer = (props) => {
             handleCloseWindow={handleCloseWindow}
             selectContact={selectContact}
             workflowStage={workflowStage}
+            searchTerm={searchTerm}
+            handleInput={handleInput}
           />
         </>
       );

@@ -6,24 +6,8 @@ import "./Search.scss";
 // this contains magnifying glass and search box
 const Search = (props) => {
 
-  //Search function
-  // Setting up the search box
-  const [searchQuery, setSearchQuery] = useState("");
-  console.log(searchQuery + "---query");
-  const [searchTerm, setSearchTerm] = useState("");
-  console.log(searchTerm + "---term");
-  // this handle reads the search text
-  const handleInput = (event) => {
-    setSearchQuery(event.target.value);
-  };
-  console.log(searchQuery + "---query 2");
+  const {searchTerm, handleInput} = props;
 
-  // for the spyglass when clicked
-  const onSearchClick = (event) => {
-      event.preventDefault();
-      setSearchTerm(searchQuery.toLowerCase());
-    };
-    console.log(searchTerm + "---term 2");
 
   return (
         <div className="search">
@@ -35,6 +19,7 @@ const Search = (props) => {
               />
             <input
               type="text"
+              value={searchTerm}
               onInput={handleInput}
               className="search__bar-inputBox"
               placeholder="search..."
