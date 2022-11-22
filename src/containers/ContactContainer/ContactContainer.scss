@@ -1,26 +1,43 @@
 @use "./../../assets/sass/_variables.scss" as *;
-
-
 .contact {
     display: flex;
     flex-direction: column;
     text-align: left;
     font-family: $title-font-family;
     padding-left: 50px;
-
-    .contact__Title {
+    &__Title {
         font-weight: 500;
         color: $color-middle-blue;
         font-size: 12px;
         padding: 20px 0 0 0;
     }
-    
-    .contact__Heading {
+    &__Heading {
         font-weight: 400;
         color: $color-black;
         font-size: 32px;
         padding: 10px 0;
     }
-    
+    &__Search {
+        display: flex;
+        flex-direction: row;
+        width: 95%;
+        justify-content: space-between;
+        font-family: $third-font-family;
+        margin: 5px;
+        padding: 2px;
+        .contact__Search-Text {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 480px;
+            // width: 70%;
+            align-content: center;
+            font-size: 16px;
+            color: $color-font-light-gray;
+        }
+        .contact__Search-bar{
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+        }
+    }
 }
-

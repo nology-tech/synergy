@@ -19,7 +19,7 @@
             color: $color-black;
             font-size: 24px;
             font-weight: 400;
-            padding: 40px 0px 20px 0px;
+            padding: 0px 0px 20px 0px;
         }
         &__details{
             font-family: $third-font-family;
@@ -77,7 +77,7 @@
             
             display: flex;
             justify-content: space-between;
-            padding: 20px 0px;
+            // padding: 20px 0px;
 
             &__rate{
                 display: flex;
@@ -125,7 +125,7 @@
             font-weight: 400;
             font-family: $third-font-family;
             color: $color-font-light-gray;
-            padding: 20px 0px;
+            padding: 5px 0px;
         }
     }
 }
