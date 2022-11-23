@@ -87,10 +87,14 @@
             font-family: $third-font-family;
             font-style: normal;
             font-weight: 400;
-            font-size: 16px;
+            // font-size: 16px;
             line-height: 20px;
             text-align: center;
             color: $color-white;
+
+            justify-content: space-evenly;
+            align-items: center;
+            font-size: 20px;
         }
         &__btn-img {
             padding-top: 12px;

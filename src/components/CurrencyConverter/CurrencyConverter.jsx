@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 import currency from '../../data/currency';
 import { faL } from '@fortawesome/free-solid-svg-icons';
 import convertImage from "../../assets/images/flipbutton.png"
-import convertIcon from "../../assets/images/flipicon.png"
+// import convertIcon from "../../assets/images/flipicon.png"
 import FundsBox from '../FundsBox/FundsBox';
 import userInfo from '../../data/UserInfo.js';
+import Button from '../Button/Button';
+import {BiRefresh} from "react-icons/bi";
 
 const CurrencyConverter = (props) => {
     const {amount,setAmount,baseCurrency,setBaseCurrency,toCurrency,convertedAmount,
@@ -28,6 +30,7 @@ const CurrencyConverter = (props) => {
     const message1To = `1 ${toCurrency.code} = ${Number(1/fxRate).toFixed(4)} ${baseCurrency.code}`;
     // const numericRegExp = /^[0-9]+$/;
     const numericRegExp = /^\d*\.?\d*$/;
+    const convertIcon = <BiRefresh />;
 
     // On re-render, we need to set the secondDisplay to the toCurrency;
     // useEffect(() => {setSecondDisplay(toCurrency)}, []);
@@ -149,10 +152,16 @@ const CurrencyConverter = (props) => {
                       </div>
                   </div>               
               </div>  
-              <button className = "currencyConverter__main__btn" onClick={convertAmount}>
+              {/* <button className = "currencyConverter__main__btn" onClick={convertAmount}>
                 <img src={convertIcon} className="currencyConverter__main__btn-img"/>
                 <span className='currencyConverter__main__btn-span'>Convert</span>
-              </button>
+              </button> */}
+              <Button
+                buttonStyle = {"btn currencyConverter__main__btn"}
+                onClick={convertAmount}
+                buttonImg={convertIcon}
+                buttonText={"Convert"}
+              />
             </div>
               
               <div className=
