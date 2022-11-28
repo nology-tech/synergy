@@ -152,7 +152,7 @@ const CurrencyConverter = (props) => {
                   </div>               
               </div>  
               <Button
-                buttonStyle = {"btn currencyConverter__main__btn"}
+                buttonStyle = {"btn button-convert"}
                 onClick={convertAmount}
                 buttonImg={convertIcon}
                 buttonText={"Convert"}
@@ -169,9 +169,10 @@ const CurrencyConverter = (props) => {
                   <p className="currencyConverter__main__bottom-rate">{message1To}</p>
                 </div>                
                 <Link to="/transfer-fx-transaction">
-                    <Button buttonStyle = {'btn currencyConverter__main__bottom-btn'}
-                                        buttonText={"Make Transfer"}
+                    <Button buttonStyle = {'btn button-white-blue-border'}
+                    buttonText={"Make Transfer"}
                     />
+
                 </Link>
               </div>            
           </div>   

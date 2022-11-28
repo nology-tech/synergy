@@ -2,49 +2,62 @@
 
 .live-rates-head {
     padding-left: 0;
+
     &__h2 {
         font-family: $title-font-family;
         font-style: normal;
         font-weight: 400;
         font-size: 32px;
         // padding: 10px 0;
+    }
+
+    &__search {
+        display: flex;
+        justify-content: space-between;
+        width: 95%;
+
+        &__para {
+            font-family: $third-font-family;
+            width: 580px;
+            height: 72px;
+            font-style: normal;
+            font-size: 16px;
+            // line-height: 150%;
+            margin-top: 0px;
+            // margin-bottom: 30px;
+            color: $color-font-light-gray;
         }
 
-    &__para {
-    font-family: $third-font-family;
-    width: 514px;
-    height: 72px;
-    font-style: normal;
-    font-size: 16px;
-    // line-height: 150%;
-    margin-top: 0px;
-    // margin-bottom: 30px;
-    color: $color-font-light-gray;
+        &__item {
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+        }
     }
 
 }
-    
+
 .currency-row {
     display: flex;
     flex-direction: row;
     width: 90%;
     border-radius: 8px 8px 0 0;
- }
+}
 
- .currency-list__img {
+.currency-list__img {
     width: 28px;
     height: 28px;
     padding-top: 12px;
 }
 
-.currency-list__heading{
-    color:$color-font-gray;
+.currency-list__heading {
+    color: $color-font-gray;
     font-family: $title-font-family;
     font-size: 16px;
     font-weight: 500;
     margin: 10px 0px 20px 0px;
     justify-content: space-between;
-    text-align:left;
+    text-align: left;
     width: 75%;
 }
 
@@ -52,39 +65,39 @@
     background-color: $color-middle-blue;
     color: $color-white;
 }
+
 .row-grey {
-    background-color:$color-light-gray-info-bar;
+    background-color: $color-light-gray-info-bar;
     color: $color-font-light-gray;
 }
 
 
 .currency-list__items {
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
     font-family: $third-font-family;
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
     align-items: center;
- }
+}
 
 .currency-list__name {
-    text-align:left;
+    text-align: left;
     width: 25%;
 }
 
 .currency-list__amount {
-    text-align:left;
+    text-align: left;
     width: 25%;
 }
 
 .currency-list__rate {
-    text-align:left;
+    text-align: left;
     width: 25%;
 }
 
 .button {
     justify-content: center;
 }
-
