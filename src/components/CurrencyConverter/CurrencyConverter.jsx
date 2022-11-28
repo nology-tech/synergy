@@ -1,15 +1,19 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import "./CurrencyConverter.scss";
 import { Link } from "react-router-dom";
 import currency from '../../data/currency';
 import { faL } from '@fortawesome/free-solid-svg-icons';
 import convertImage from "../../assets/images/flipbutton.png"
-import convertIcon from "../../assets/images/flipicon.png"
+import FundsBox from '../FundsBox/FundsBox';
+import userInfo from '../../data/UserInfo.js';
+import Button from '../Button/Button';
+import {BiRefresh} from "react-icons/bi";
 
 const CurrencyConverter = (props) => {
-    const {amount,setAmount,baseCurrency,setBaseCurrency,toCurrency,setToCurrency,convertedAmount,
+    const {amount,setAmount,baseCurrency,setBaseCurrency,toCurrency,convertedAmount,
        setConvertedAmount, fxRate, setFxRate}=props;
+
     const [shouldHide, setShouldHide] = useState(true);
     //const [inverseFXRate,setInverseFXRate] = useState(Number(1/fxRate).toFixed(4));
     const [amountSymbol,setAmountSymbol] = useState(baseCurrency.symbol);
@@ -25,6 +29,12 @@ const CurrencyConverter = (props) => {
     const message1To = `1 ${toCurrency.code} = ${Number(1/fxRate).toFixed(4)} ${baseCurrency.code}`;
     // const numericRegExp = /^[0-9]+$/;
     const numericRegExp = /^\d*\.?\d*$/;
+    const convertIcon = <BiRefresh />;
+
+    // On re-render, we need to set the secondDisplay to the toCurrency;
+    // useEffect(() => {setSecondDisplay(toCurrency)}, []);
+    useEffect(() => {setup()}, [toCurrency]);
+    
     
     
 
@@ -98,7 +108,16 @@ const CurrencyConverter = (props) => {
        <h2 className="currencyConverter__title2">Currency Converter</h2>  
        <p className="currencyConverter__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea dolorem nihil neque laudantium assumenda totam amet alias, sequi fuga officiis asperiores beatae provident iste. Quis ducimus nobis a officia earum.</p>   
        <div className='currencyConverter__main'>
-          <div className='currencyConverter__main__walletTemp'>Wallet Placeholder</div>
+
+          <div className="currencyConverter__main__wallet">
+            <FundsBox 
+                fundsAmount={userInfo[0].accountBalance}
+                fundBoxHeader={"Funds Remaining"}
+                buttonOn={false}
+                converterText={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga laudantium porro sapiente debitis."}
+            />
+
+          </div>
           
           <div className='currencyConverter__main__convertercontainer'>
             <div className='currencyConverter__main__top'>
@@ -132,10 +151,12 @@ const CurrencyConverter = (props) => {
                       </div>
                   </div>               
               </div>  
-              <button className = "currencyConverter__main__btn" onClick={convertAmount}>
-                <img src={convertIcon} className="currencyConverter__main__btn-img"/>
-                <span className='currencyConverter__main__btn-span'>Convert</span>
-              </button>
+              <Button
+                buttonStyle = {"btn button-convert"}
+                onClick={convertAmount}
+                buttonImg={convertIcon}
+                buttonText={"Convert"}
+              />
             </div>
               
               <div className=
@@ -147,10 +168,11 @@ const CurrencyConverter = (props) => {
                   <p className="currencyConverter__main__bottom-rate">{message1From}</p>
                   <p className="currencyConverter__main__bottom-rate">{message1To}</p>
                 </div>                
-                <Link >
-                    <button to="/transfer" className='currencyConverter__main__bottom-btn'>
-                        Make Transfer
-                    </button>
+                <Link to="/transfer-fx-transaction">
+                    <Button buttonStyle = {'btn button-white-blue-border'}
+                    buttonText={"Make Transfer"}
+                    />
+
                 </Link>
               </div>            
           </div>   

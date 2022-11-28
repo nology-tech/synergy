@@ -9,7 +9,7 @@
     left: 15px;
     width: 20px;
     height: 17px;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 20px;
     color:$color-light-gray2;
 }  
@@ -18,32 +18,29 @@
     padding-left: 50px;
 }
 .input-container-amount > input {
-    padding-left: 30px;
+    padding-left: 40px;
     padding-top: 3px;
 }
 
 .currencyConverter{
     min-height: 500px;    
-    margin-left: 5%;
 
     &__title1 {
         font-family: $title-font-family;
         color: $color-middle-blue;
-        margin: 5px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 500;
         font-size: 12px;
-        line-height: 15px;
+        padding-left: 50px;
     }
 
     &__title2 {
         font-family: $title-font-family;
         color: $color-black;
-        margin: 5px;
         font-style: normal;
         font-weight: 400;
         font-size: 32px;
-        line-height: 40px;
+        padding-left: 50px;
     }
 
     &__description {
@@ -57,27 +54,25 @@
         line-height: 150%;
         margin: 0px 0px 30px 5px;
         font-family: $third-font-family;      
+        padding-left: 50px;        
     }
 
     &__main {
         display: grid;
-        grid-template-columns: 280px 1200px;        
+        grid-template-columns: 320px 1200px;        
 
-        &__walletTemp {
-            width: 263px;
-            height: 252px;
-            border: 3px solid $color-border-light-gray;
+        &__wallet {
+            margin: 0;
+            padding: 0;
         }
         &__convertercontainer {
-            //border: 3px solid $color-border-light-gray;
-            min-height: 252px;
-            max-height: 410px;
-
+            // border: 3px solid $color-border-light-gray;
+            height: 380px;
         }
         &__top {
+            padding-top: 20px;
             padding-bottom: 40px;;
-            border-bottom: 3px solid $color-border-light-gray;
-            
+            border-bottom: 3px solid $color-border-light-gray;           
         }
        
         &__btn {
@@ -92,10 +87,14 @@
             font-family: $third-font-family;
             font-style: normal;
             font-weight: 400;
-            font-size: 16px;
+            // font-size: 16px;
             line-height: 20px;
             text-align: center;
             color: $color-white;
+
+            justify-content: space-evenly;
+            align-items: center;
+            font-size: 20px;
         }
         &__btn-img {
             padding-top: 12px;
@@ -178,21 +177,6 @@
         
         &__hidden {
             display: none;
-        }
-
-        &__bottom-btn {
-            width: 141px;
-            height: 48px;
-            background: $color-white;
-            border-radius: 6px;
-            font-family: $title-font-family;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 16px;
-            line-height: 19px;
-            color: $color-middle-blue;
-            border: 1px solid $color-middle-blue;
-            
         }
 
     }
