@@ -1,0 +1,47 @@
+@use "../../assets/sass/_variables.scss" as *;
+.transfer-choose-recipient {
+    background-color: $color-black;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 15%;
+    position: fixed;
+    left: 0%;
+    top: 0%;
+
+    &__main{
+        background-color: $color-white;
+        position: fixed;
+        left: 35%;
+        top: 15%;
+        z-index: 5;
+
+        .blackcross {
+            position: absolute;
+            color: $color-font-light-gray;
+            top: 20px;
+            right: 50px;
+      
+            &:hover {
+              cursor: pointer;
+            }
+          }
+
+          h1 {
+            padding: 40px 0px;
+            font-weight: 400;
+            font-size: 32px;
+            border-bottom: 1px solid $color-background-clear;
+            margin: 0px 60px;
+            color: $color-black;
+          }
+
+          p{
+            font-size: 16px;
+            font-weight: 400;
+            padding: 40px 0px;
+            margin: 0px 60px;
+            color: $color-black;
+          }
+    }
+}

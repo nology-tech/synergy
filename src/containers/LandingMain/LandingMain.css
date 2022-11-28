@@ -1,9 +1,9 @@
 .LandingMain {
-  background-color: #F1FFFF;
+  background-color: #EFFFFF;
 }
 
 .navbar__image {
-  background-color: #F1FFFF;
+  background-color: #EFFFFF;
   width: 100%;
 }
 
@@ -11,7 +11,7 @@
   align-content: center;
   text-align: center;
   align-items: center;
-  background-color: #F1FFFF;
+  background-color: #EFFFFF;
 }
 .backgound__image .landing__image {
   padding-top: 20px;
@@ -65,7 +65,7 @@
   font-family: "Outfit";
   font-style: normal;
   padding-bottom: 80px;
-  background-color: #F1FFFF;
+  background-color: #EFFFFF;
   text-align: center;
 }
 .features__title {
@@ -76,7 +76,7 @@
   line-height: 110%;
 }
 .features__button {
-  background: #F1FFFF;
+  background: #EFFFFF;
   border: 2px solid #00CED4;
   border-radius: 6px;
   color: #00CED4;

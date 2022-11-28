@@ -28,7 +28,7 @@ const NavMenu = () => {
           Menu
           <div className="sidemenu__item">
             <img className="sidemenu__icon" src={walletImg} alt="Wallet" />
-            <Link className="sidemenu__a" to="/dashboard/wallet">
+            <Link className="sidemenu__a" to="/wallet">
               Wallet
             </Link>
           </div>
@@ -60,7 +60,7 @@ const NavMenu = () => {
       </div>
       <div className="sidemenu__signout">
         <Link to="/home">
-          {/* <img className="sidemenu__logout" src={signoutImg} alt="Sign Out" /> */}
+          <img className="sidemenu__logout" src={signoutImg} alt="Sign Out" />
           <Button 
             buttonStyle={"btn button-blue sidemenu__logout"}
             buttonText={"Sign Out"} 
