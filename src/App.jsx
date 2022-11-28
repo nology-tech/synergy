@@ -14,14 +14,12 @@ import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
 import Wallet from "./containers/Wallet/Wallet";
 
-// import Button from "./components/Button/Button"; // to be removed
-// import {SlRefresh} from 'react-icons/sl';  // to be removed
 import CurrencyConverterContainer from "./containers/CurrencyConverterContainer/CurrencyConverterContainer";
 import currency from "./data/currency";
 import TransferMakeTransfer from "./components/TransferMakeTransfer/TransferMakeTransfer";
-import Button from "./components/Button/Button";
 import ContactAdd from "./components/ContactAdd/ContactAdd";
 import Search from "./components/Search/Search";
+
 const App = () => {
   //user Information
   const [username, setUserName] = useState("Samantha Brooks"); //shall be replaced by a function on login
@@ -57,52 +55,6 @@ const App = () => {
   return (
     <Router>
       <div>
-        {/* Button Test */}
-        {/* <div className="button-test">
-          <Button
-            buttonStyle={"btn button-transparent"}
-            buttonText={"Find Out More"}
-          />
-          <Button 
-            buttonStyle={"btn button-blue"}
-            buttonText={"Sign Up"} 
-          />
-          <Button 
-            buttonStyle={"btn button-blue"}
-            buttonText={"Sign Out"} 
-            buttonImg={buttonSignOut}
-          />
-          <Button 
-            buttonStyle={"btn button-blue"}
-            buttonText={"Convert"}
-            buttonImg={buttonConvert}
-          />
-          <Button 
-            buttonStyle={"btn button-blue"}
-            buttonType={"submit"} 
-            buttonText={`Continue ▶`} 
-          />
-          <Button 
-            buttonStyle={"btn button-blue-disabled"}
-            buttonType={"submit"} 
-            buttonText={`Continue ▶`} 
-          />
-          <Button
-            buttonStyle={"btn button-blue-white-border"}
-            buttonText={"Edit"}
-          />
-          <Button
-            buttonStyle={"btn button-dashed"}
-            isDisabled={false}
-            buttonText={"Add Currency"}
-          />
-          <Button
-            buttonStyle={"btn button-white"}
-            isDisabled={false}
-            buttonText={"Manage"}
-          />
-        </div> */}
-
         <Routes>
           <Route path="/" element={<LandingMain />} />
           <Route path="/signup" element={<SignUpMain />} />
