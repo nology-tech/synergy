@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import currency from '../../data/currency';
 import { faL } from '@fortawesome/free-solid-svg-icons';
 import convertImage from "../../assets/images/flipbutton.png"
-// import convertIcon from "../../assets/images/flipicon.png"
 import FundsBox from '../FundsBox/FundsBox';
 import userInfo from '../../data/UserInfo.js';
 import Button from '../Button/Button';
@@ -152,10 +151,6 @@ const CurrencyConverter = (props) => {
                       </div>
                   </div>               
               </div>  
-              {/* <button className = "currencyConverter__main__btn" onClick={convertAmount}>
-                <img src={convertIcon} className="currencyConverter__main__btn-img"/>
-                <span className='currencyConverter__main__btn-span'>Convert</span>
-              </button> */}
               <Button
                 buttonStyle = {"btn currencyConverter__main__btn"}
                 onClick={convertAmount}
@@ -173,10 +168,10 @@ const CurrencyConverter = (props) => {
                   <p className="currencyConverter__main__bottom-rate">{message1From}</p>
                   <p className="currencyConverter__main__bottom-rate">{message1To}</p>
                 </div>                
-                <Link >
-                    <button to="/transfer" className='currencyConverter__main__bottom-btn'>
-                        Make Transfer
-                    </button>
+                <Link to="/transfer-fx-transaction">
+                    <Button buttonStyle = {'btn currencyConverter__main__bottom-btn'}
+                                        buttonText={"Make Transfer"}
+                    />
                 </Link>
               </div>            
           </div>   
