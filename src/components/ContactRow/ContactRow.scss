@@ -2,11 +2,15 @@
 .contactRow {
     // width: 100%;
     display: table-row;
-
+    background-color: red;
+    &:hover {
+        background-color: aqua;
+      }
     &__bankIcon__img {
         width:40px;
     }
     &__delete__icon {
         width: 20px;
+        background-color: transparent;
     }
 }
