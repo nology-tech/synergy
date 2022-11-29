@@ -7,7 +7,7 @@ import ContactRow from "../ContactRow/ContactRow";
 import ContactList from "../ContactList/ContactList";
 import UserContactList from "../../data/UserContactList";
 
-const UserContacts = ({contactsArray}) => {
+const UserContacts = ({contactsArray, onContactClick, onDelete}) => {
   
   // take userId from user credential's user ID
   const loginID = "1234560"; 
@@ -34,7 +34,7 @@ const UserContacts = ({contactsArray}) => {
 
   return (
     <>
-      <ContactList contactsArray={filteredContactsArr} />
+      <ContactList contactsArray={filteredContactsArr} onContactClick={onContactClick} onDelete={onDelete} />
     </>
   )  
 };
