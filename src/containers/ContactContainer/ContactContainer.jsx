@@ -6,9 +6,11 @@ import contacts from "../../data/Contacts";
 import Button from "../../components/Button/Button";
 
 
-const ContactContainer = () => {
+const ContactContainer = (props) => {
   // Setting up the search box
   const [searchTerm, setSearchTerm] = useState("");
+
+  const { onClick } = props;
 
   const handleInput = (event) => {
     const cleanInput=event.target.value.toLowerCase();
@@ -60,9 +62,9 @@ const ContactContainer = () => {
             <Button
             buttonStyle={"button-transparent contactSearch-AddButton"}
             buttonText={"＋ Add"}
-            onClick={addContact}
-            value="Add"
-            type="submit"
+            onClick={onClick}
+            // value="Add"
+            // type="submit"
           />
         </div>
       </div>
