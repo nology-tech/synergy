@@ -17,12 +17,14 @@ const LiveRatesList = (props) => {
     setSearchTerm(cleanInput);
   };
 
+  const baseCurrency = currency[0].code.toLowerCase();
+
   // Filter contact using search
   const filteredCurrencyArray = currency.filter((currencyItem) => {
     const currencyName = currencyItem.name.toLowerCase();
     const currencyCode = currencyItem.code.toLowerCase();
     return (
-      currencyName.includes(searchTerm) || currencyCode.includes(searchTerm)
+      currencyName.includes(searchTerm) || currencyCode.includes(searchTerm) || currencyCode.includes(baseCurrency)
     );
   });
 
