@@ -4,10 +4,10 @@ import "./ContactList.scss";
 
 
 
-const ContactList = ({contactsArray, onClick, onDelete}) => {
+const ContactList = ({contactsArray, onContactClick, onDelete}) => {
 // Map each element of the array
   const contactJSX = contactsArray.map((contact) => (
-      <ContactRow contact={contact} onClick={onClick} onDelete={onDelete} key={contact.account}/>
+      <ContactRow contact={contact} onContactClick={onContactClick} onDelete={onDelete} key={contact.account}/>
 )
 );
 

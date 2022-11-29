@@ -34,7 +34,12 @@
         color: $color-font-light-gray;
         height: 10px;
         font-family:$title-font-family ;
-        font-size: 15px;
+        font-size: 15px; 
+
+    }
+    tbody tr:hover {
+        background-color: $color-middle-blue;
+        color: $color-white;
     }
 
 // th = table heading; td= table details

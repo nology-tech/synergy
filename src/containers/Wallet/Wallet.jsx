@@ -32,7 +32,8 @@ const Wallet = () => {
         </div>
         <div className="wallet-page__contacts">
           {" "}
-          <ContactContainer walletOn />
+          {/* <ContactContainer walletOn /> */}
+          walletOn ? <ContactContainer/>:
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import blackCross from "../../assets/images/black-cross.png";
 import ContactList from "../ContactList/ContactList";
 import "./TransferChooseRecipient.scss";
 import contacts from "../../data/Contacts.js";
+import ContactContainer from "../../containers/ContactContainer/ContactContainer";
 
 const TransferChooseRecipient = (props) => {
 
@@ -38,7 +39,9 @@ const TransferChooseRecipient = (props) => {
       columns 
       the OnClick shall be applied to the name of the contact or contact row
       */}
-      <ContactList contactsArray={filteredContactsArray} onClick={selectContact}/> 
+      {/* Commented out ContactList and went to ContactContainer instead. Functional props will need to be defined in ContactContainer */}
+      {/* <ContactList contactsArray={filteredContactsArray} onClick={selectContact}/>  */}
+      <ContactContainer/> 
       </div>
       </>
   );
