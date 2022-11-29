@@ -68,7 +68,7 @@ const ContactContainer = (props) => {
         </div>
       </div>
       {walletOn
-        ? <UserContacts contactsArray={filteredContactsArray} />
+        ? <UserContacts contactsArray={filteredContactsArray} onContactClick={onContactClick} onDelete={onContactDelete}/>
         : <ContactList contactsArray={filteredContactsArray} onContactClick={onContactClick} onDelete={onContactDelete} />
       }
     </div>
