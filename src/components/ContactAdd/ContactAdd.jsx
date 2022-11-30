@@ -1,57 +1,18 @@
-// on click from <add> button for contact -- open screen that enables user to manually Add Receipient
-// Receipient Name: FirstName LastName
-// Account Type: Business or Personal
-// Account Number: Number of the account
-// Sort Code: six digit code that identifies banks in UK -- in US would be ABA/routing number
-// Button to cancel and clear all fields
-// Button to continue to review
-
 import React from "react";
 import "./ContactAdd.scss";
 import { useState } from "react";
 import TransferAddRecipient from "../TransferAddRecipient/TransferAddRecipient";
 import TransferConfirmRecipient from "../TransferConfirmRecipient/TransferConfirmRecipient";
-import TransferTransactionSend from "../TransferTransactionSend/TransferTransactionSend";
-import ContactContainer from "../../containers/ContactContainer/ContactContainer";
+import ContactListPage from "../ContactListPage/ContactListPage";
 
-const ContactAdd = (props) => {
-  const {
-    transferWorkflowStage,
-    currencyBaseCode,
-    currencyRecipientCode,
-    amountBase,
-    amountReceived,
-    fxRate,
-    fee,
-    username,
-    accountBalance,
-    accountNum,
-    sortCode,
-    searchTerm,
-    handleInput
-  } = props;
-
-  const accountFormTypes = true;
+const ContactAdd = () => {
 
   // handle navigation
   const [workflowStage, setWorkflowStage] = useState("contactContainer");
+
   console.log(workflowStage);
 
-  // //From Send Form Select Recipient
-  // const handleSelectRecipient = (event) => {
-  //   setWorkflowStage("chooseContact");
-  // };
-
-  // //From Choose recipient to Confirmed
-  // const selectContact = (event) => {
-  //   setWorkflowStage("selectContactConfirmed");
-  // };
-
-  // const handleGoBackToChooseContact = (event) => {
-  //   setWorkflowStage("chooseContact");
-  // };
-
-  //From Contact page to Add button clicked 
+  //Contact page to Add button clicked function
   const handleAddContact = (event) => {
     setWorkflowStage("addRecipient");
     setRecipientName("");
@@ -72,7 +33,7 @@ const ContactAdd = (props) => {
     setWorkflowStage("addRecipient");
   };
 
-  // From Submit to go back to contact page
+  // From Submit to go back to the contact page
   const handleSubmit = (event) => {
     setWorkflowStage("contactContainer");
   };
@@ -120,66 +81,49 @@ const ContactAdd = (props) => {
     setSortCodeRecipient(e.target.value.toString());
   };
 
+  //function to display different stages of adding contact
   const displayCurrentView = () => {
-
     if (workflowStage === "contactContainer") {
+      return <ContactListPage handleAddContact={handleAddContact} />;
+    } else if (workflowStage === "addRecipient") {
       return (
-        <ContactContainer
-          onClick = {handleAddContact}
-        />
+        <>
+          <ContactListPage handleAddContact={handleAddContact} />
+          <TransferAddRecipient
+            handleContinueButton={handleContinueButton}
+            handleGoBack={handleGoBack}
+            handleRecipientName={handleRecipientName}
+            handleAccountTypeRecipient={handleAccountTypeRecipient}
+            handleAccountNumRecipient={handleAccountNumRecipient}
+            handleSortCodeRecipient={handleSortCodeRecipient}
+            handleCloseWindow={handleCloseWindow}
+            recipientName={recipientName}
+            accountTypeRecipient={accountTypeRecipient}
+            accountNumRecipient={accountNumRecipient}
+            sortCodeRecipient={sortCodeRecipient}
+          />
+        </>
+      );
+    } else if (workflowStage === "addRecipientConfirmed") {
+      return (
+        <>
+          <ContactListPage handleAddContact={handleAddContact} />
+          <TransferConfirmRecipient
+            recipientName={recipientName}
+            accountTypeRecipient={accountTypeRecipient}
+            accountNumRecipient={accountNumRecipient}
+            sortCodeRecipient={sortCodeRecipient}
+            handleGoBack={handleGoBack}
+            handleCloseWindow={handleCloseWindow}
+            handleSubmit={handleSubmit}
+            workflowStage={workflowStage}
+          />
+        </>
       );
     }
+  };
 
-  else if (workflowStage === "addRecipient") {
-    return (
-      <>
-    
-        <ContactContainer
-          handleAddContact={handleAddContact}
-        />
-        <TransferAddRecipient
-          handleContinueButton={handleContinueButton}
-          handleGoBack={handleGoBack}
-          handleRecipientName={handleRecipientName}
-          handleAccountTypeRecipient={handleAccountTypeRecipient}
-          handleAccountNumRecipient={handleAccountNumRecipient}
-          handleSortCodeRecipient={handleSortCodeRecipient}
-          handleCloseWindow={handleCloseWindow}
-          recipientName={recipientName}
-          accountTypeRecipient={accountTypeRecipient}
-          accountNumRecipient={accountNumRecipient}
-          sortCodeRecipient={sortCodeRecipient}
-        />
-      </>
-    );
-  }else if (workflowStage === "addRecipientConfirmed") {
-    return (
-      <>
-        <TransferConfirmRecipient
-          recipientName={recipientName}
-          accountTypeRecipient={accountTypeRecipient}
-          accountNumRecipient={accountNumRecipient}
-          sortCodeRecipient={sortCodeRecipient}
-          handleGoBack={handleGoBack}
-          handleCloseWindow={handleCloseWindow}
-          handleSubmit= {handleSubmit}
-          workflowStage={workflowStage}
-        />
-      </>
-    );
-  }  
-};
-
-  return (
-    <>
-     {/* Display the screen with Add recipient or Choose Recipient overlapping Send From transaction details */}
-     {transferWorkflowStage === "transferSendFrom" ? (
-          displayCurrentView()
-        ) : (
-          <></>
-        )}
-    </>
-  );
+  return <>{displayCurrentView()};</>;
 };
 
 export default ContactAdd;
