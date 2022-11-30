@@ -5,12 +5,10 @@ import TransferAddRecipient from "../TransferAddRecipient/TransferAddRecipient";
 import TransferConfirmRecipient from "../TransferConfirmRecipient/TransferConfirmRecipient";
 import ContactListPage from "../ContactListPage/ContactListPage";
 
-const ContactAdd = () => {
+const ContactAdd = (onContactClick) => {
 
   // handle navigation
   const [workflowStage, setWorkflowStage] = useState("contactContainer");
-
-  console.log(workflowStage);
 
   //Contact page to Add button clicked function
   const handleAddContact = (event) => {
@@ -84,7 +82,7 @@ const ContactAdd = () => {
   //function to display different stages of adding contact
   const displayCurrentView = () => {
     if (workflowStage === "contactContainer") {
-      return <ContactListPage handleAddContact={handleAddContact} />;
+      return <ContactListPage handleAddContact={handleAddContact} onContactClick={onContactClick}/>;
     } else if (workflowStage === "addRecipient") {
       return (
         <>

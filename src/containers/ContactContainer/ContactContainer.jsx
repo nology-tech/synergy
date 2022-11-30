@@ -13,7 +13,7 @@ const ContactContainer = (props) => {
   // Setting up the search box
   const [searchTerm, setSearchTerm] = useState("");
 
-  const { onClick } = props;
+  const { handleAddContact, onContactClick } = props;
 
   const handleInput = (event) => {
     const cleanInput=event.target.value.toLowerCase();
@@ -33,19 +33,9 @@ const ContactContainer = (props) => {
     );
   });
 
-  // these items are place holders for future work; currently not in use for onclick on contact details
-  // const onContactClick = (accountId) => {
-  //   console.log("Contact clicked for " + accountId);
-  // };
-
   const onContactDelete = (accountId) => {
     console.log("delete clicked for " + accountId);
   };
-
-  const addContact = (event) => {
-    console.log("Add Contact button clicked");
-  };
-  // see above statement
 
   return (
     <div className="contact">
@@ -60,14 +50,11 @@ const ContactContainer = (props) => {
           <Search
             searchTerm={searchTerm}
             handleInput={handleInput}
-            // onSearchClick={onSearchClick}
           />
             <Button
             buttonStyle={"button-transparent contactSearch-AddButton"}
             buttonText={"＋ Add"}
-            onClick={onClick}
-            // value="Add"
-            // type="submit"
+            onClick={handleAddContact}
           />
         </div>
       </div>

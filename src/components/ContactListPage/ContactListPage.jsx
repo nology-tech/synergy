@@ -7,7 +7,7 @@ import DashboardHeader from '../DashboardHeader/DashboardHeader';
 
 const ContactListPage = (props) => {
 
-  const { handleAddContact } = props;
+  const { handleAddContact, onContactClick } = props;
 
   return (
         <div className="dashboardPage">
@@ -15,7 +15,8 @@ const ContactListPage = (props) => {
             <div className='dashboardPage__right'>
                 <DashboardHeader  />
                 <ContactContainer 
-                  onClick = {handleAddContact}
+                  handleAddContact = {handleAddContact}
+                  onContactClick={onContactClick}
                 />
             </div>
         </div>

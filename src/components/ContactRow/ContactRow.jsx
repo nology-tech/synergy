@@ -13,7 +13,7 @@ const ContactRow = ({contact, onContactClick, onDelete}) => {
                 alt={contact.name}
                 />
             </td>
-            <td className="contact__name" onClick={() => onContactClick(contact.account)}>{contact.firstName + " " + contact.lastName}</td>
+            <td className="contact__name" onClick={onContactClick(contact.account)}>{contact.firstName + " " + contact.lastName}</td>
             <td className="contact__sortCode" onClick={() => onContactClick(contact.account)}>{contact.sortCode}</td>
             <td className="contact__account" onClick={() => onContactClick(contact.account)}>{contact.account}</td>
             <td className="contact__bankName" onClick={() => onContactClick(contact.account)}>{contact.bankName}</td>
