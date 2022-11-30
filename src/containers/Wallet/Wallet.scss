@@ -1,13 +1,12 @@
-.wallet-page{
-    display: grid;
-    grid-template-columns: 1fr 7fr;
-    
-    &__menu{
-        border-right: 3px ridge light-gray;
-        display: flex;
-        flex-direction:column;
-        align-items: center;
-        padding:5% 0 0 0;
-    }
+@use "../../assets/sass/_variables.scss"as *;
+.greetings__wave{
+    padding-left: 15px;
+}
+.greeting__firstName{
+    font-family: $title-font-family;
+    font-weight: normal;
+    padding-top: 30px;
+    margin-left: 45px;
+    width: 220px;
 }
 

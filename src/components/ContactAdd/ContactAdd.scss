@@ -1,1 +1,79 @@
 @use "../../assets/sass/_variables.scss" as *;
+
+.add-contacts {
+  margin: 25% 40%;
+
+  &__title {
+    font-family: $title-font-family;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: left;
+    color: $color-black;
+  }
+  &__close {
+    // need to figure out x placement once the form is finalized
+    position: absolute;
+    color: $color-font-light-gray;
+    top: 395px;
+    right: 695px;
+
+    
+  }
+
+  &__label {
+    margin: 10px;
+    height: 20px;
+    font-family: $title-font-family;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: $color-black;
+  }
+
+  &__input-box {
+    box-sizing: border-box;
+    margin: 10px;
+    width: 337px;
+    height: 45px;
+    left: 62px;
+    background: $color-light-gray-info-bar;
+    border: 1px solid $color-border-light-gray;
+    border-radius: 8px;
+  }
+
+  &__cancel-button {
+    margin: 35px 15px;
+    width: 70px;
+    height: 25px;
+
+    font-family: $third-font-family;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    text-decoration: underline dotted $color-font-light-gray;
+
+    color: $color-font-light-gray;
+    background-color: $color-white;
+    border: none;
+  }
+  &__continue-button {
+    width: 116px;
+    height: 48px;
+
+    background: $color-middle-blue;
+    border-radius: 6px;
+    border: none;
+
+    font-family: $third-font-family;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+
+    color: $color-white;
+  }
+}
