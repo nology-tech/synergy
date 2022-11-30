@@ -36,6 +36,10 @@ const BankDetails = () => {
     setSortCode(e.target.value.toString());
   };
 
+  const currencyJSX = currency.map((currency) => (
+    <option name={currency.code}> {currency.code} - {currency.name}</option>
+  ));
+
   return (
     <>
       <SignInNav title="Login" />
@@ -70,11 +74,13 @@ const BankDetails = () => {
               </div>
               <div className="bankDetailsForm__div">
                 <label>Account Currency</label>
-                <input
-                  onInput={handleAccountCurr}
+                <select
+                  onChange={handleAccountCurr}
                   className="input"
                   value={accountCurr}
-                />
+                >
+                  {currencyJSX}
+                </select>
               </div>
               <div className="bankDetailsForm__div">
                 <label>Sort Code</label>
