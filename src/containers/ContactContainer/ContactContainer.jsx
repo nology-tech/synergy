@@ -4,9 +4,12 @@ import "./ContactContainer.scss";
 import ContactList from "../../components/ContactList/ContactList";
 import contacts from "../../data/Contacts";
 import Button from "../../components/Button/Button";
+import UserContacts from "../../components/UserContacts/UserContacts";
 
 
 const ContactContainer = (props) => {
+  const {walletOn} = props;
+  
   // Setting up the search box
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -68,11 +71,10 @@ const ContactContainer = (props) => {
           />
         </div>
       </div>
-      <ContactList
-        contactsArray={filteredContactsArray}
-        onClick={onContactClick}
-        onDelete={onContactDelete}
-      />
+      {walletOn
+        ? <UserContacts contactsArray={filteredContactsArray} onContactClick={onContactClick} onDelete={onContactDelete}/>
+        : <ContactList contactsArray={filteredContactsArray} onContactClick={onContactClick} onDelete={onContactDelete} />
+      }
     </div>
   );
 };
