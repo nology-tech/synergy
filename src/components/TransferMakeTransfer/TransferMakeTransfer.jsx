@@ -24,7 +24,11 @@ const TransferMakeTransfer = (props) => {
     accountNum,
     sortCode,
     searchTerm,
-    handleInput
+    handleInput,
+    contactRecipientName,
+    accountTypeContactRecipient,
+    accountNumContactRecipient,
+    sortCodeContactRecipient
   } = props;
 
   const accountFormTypes = true;
@@ -89,13 +93,13 @@ const TransferMakeTransfer = (props) => {
     setSortCodeRecipient("");
   };
 
-  //Add Recepient
+  //Add Recipient
   const [recipientName, setRecipientName] = useState("");
   const [accountTypeRecipient, setAccountTypeRecipient] = useState();
   const [accountNumRecipient, setAccountNumRecipient] = useState();
   const [sortCodeRecipient, setSortCodeRecipient] = useState("");
 
-  // Handling the recipeint name input field change
+  // Handling the recipient name input field change
   const handleRecipientName = (e) => {
     e.preventDefault();
     setRecipientName(e.target.value.toString());
@@ -118,7 +122,7 @@ const TransferMakeTransfer = (props) => {
     e.preventDefault();
     setSortCodeRecipient(e.target.value.toString());
   };
-
+  
   const displayCurrentView = () => {
     if (workflowStage === "sendForm") {
       return (
@@ -220,7 +224,11 @@ const TransferMakeTransfer = (props) => {
             accountNum={accountNum}
             sortCode={sortCode}
           />
-          <TransferConfirmRecipient
+          <TransferConfirmRecipient    
+            recipientName={contactRecipientName}
+            accountTypeRecipient={accountTypeContactRecipient}
+            accountNumRecipient={accountNumContactRecipient}
+            sortCodeRecipient={sortCodeContactRecipient}           
             handleGoBackToChooseContact={handleGoBackToChooseContact}
             handleCloseWindow={handleCloseWindow}
             handleSubmit= {handleSubmit}

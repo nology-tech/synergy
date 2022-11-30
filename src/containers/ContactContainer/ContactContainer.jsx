@@ -30,9 +30,9 @@ const ContactContainer = (props) => {
   });
 
   // these items are place holders for future work; currently not in use for onclick on contact details
-  const onContactClick = (accountId) => {
-    console.log("Contact clicked for " + accountId);
-  };
+  // const onContactClick = (accountId) => {
+  //   console.log("Contact clicked for " + accountId);
+  // };
 
   const onContactDelete = (accountId) => {
     console.log("delete clicked for " + accountId);

@@ -27,7 +27,6 @@ const App = () => {
   const [sortCode, setSortCode] = useState("012345"); // shall be replaced by a function on login
 
   //Details of the  transfer
-  
   const [baseCurrency, setBaseCurrency] = useState(currency[0]);
   const [toCurrency, setToCurrency] = useState(currency[1]);
   const [amount, setAmount] = useState("");
@@ -37,6 +36,20 @@ const App = () => {
   // list below shall be replaced from API
   const fee = 0;
 
+   // useStates for Choose Recipient
+   const [contactRecipientName, setContactRecipientName] = useState("");
+   const [accountTypeContactRecipient, setAccountTypeContactRecipient] = useState();
+   const [accountNumContactRecipient, setAccountNumContactRecipient] = useState();
+   const [sortCodeContactRecipient, setSortCodeContactRecipient] = useState("");
+
+   const onContactClick = (event) => {
+    setContactRecipientName(contactRecipientName);
+    setAccountTypeContactRecipient(accountTypeContactRecipient);
+    setAccountNumContactRecipient(accountNumContactRecipient);
+    setSortCodeContactRecipient(sortCodeContactRecipient);
+    // console.log("Contact clicked for " + accountId);
+  };
+ 
   //Details of the Wallet
   // list below shall be replaced from wallet
   const accountBalance = 15210;
@@ -63,8 +76,7 @@ const App = () => {
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
           <Route path="/wallet" element={<Wallet />} />
-          <Route path="/contactadd" element={<ContactAdd />} />
-          <Route path="/contacts" element={<ContactListPage />} />
+          <Route path="/contacts" element={<ContactAdd onContactClick={onContactClick}/>} />
           <Route path="/liverates" element={<LiveRates />} />
           <Route path="/signin" element={<LoginFlowWelcome />} />
           <Route path="/userprofile" element={<Wallet />} />
@@ -145,6 +157,10 @@ const App = () => {
                 sortCode={sortCode}
                 searchTerm={searchTerm}
                 handleInput={handleInput}
+                contactRecipientName={contactRecipientName}
+                accountTypeContactRecipient={accountTypeContactRecipient}
+                accountNumContactRecipient={accountNumContactRecipient}
+                sortCodeContactRecipient={sortCodeContactRecipient}    
               />
             }
           />
