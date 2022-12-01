@@ -23,6 +23,7 @@ const ContactList = ({contactsArray, onContactClick, onDelete}) => {
             <th scope="col">Name</th>
             <th scope="col">Sort Code</th>
             <th scope="col">Account No</th>
+            <th scope="col">Currency</th>
             <th scope="col">Bank</th>
             <th scope="col">IBAN</th>
             <th scope="col"></th>

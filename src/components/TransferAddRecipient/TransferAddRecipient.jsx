@@ -2,21 +2,30 @@ import React from "react";
 import "./TransferAddRecipient.scss";
 import blackcross from "../../assets/images/black-cross.png";
 import Button from "../Button/Button";
+import currency from "../../data/currency.js";
+
 
 const TransferAddRecipient = (props) => {
   const {
     recipientName,
     accountTypeRecipient,
     accountNumRecipient,
+    currencyRecipient,
+    bankRecipient,
     sortCodeRecipient,
     handleContinueButton,
     handleCloseWindow,
     handleRecipientName,
     handleAccountTypeRecipient,
     handleAccountNumRecipient,
+    handleCurrencyRecipient,
+    handleBankRecipient,
     handleSortCodeRecipient,
   } = props;
 
+  const currencyJSX = currency.map((currency) => (
+    <option name={currency.code}> {currency.code} - {currency.name}</option>
+  ));
 
   return (
     <>
@@ -44,6 +53,20 @@ const TransferAddRecipient = (props) => {
             className="input"
             value={accountNumRecipient}
           />
+          <h3>Account Currency</h3>
+          {/* <input onChange={handleCurrencyRecipient} className="input" 
+          value={currencyRecipient}
+           /> */}
+          <select
+            onChange={handleCurrencyRecipient} className="input"
+            value={currencyRecipient}
+          >
+            {currencyJSX}
+          </select>
+          <h3>Bank</h3>
+          <input onChange={handleBankRecipient} className="input" 
+          value={bankRecipient}
+           />
           <h3>Sort Code</h3>
           <input onChange={handleSortCodeRecipient} className="input" 
           value={sortCodeRecipient}
