@@ -3,6 +3,8 @@ import "./TransferAddRecipient.scss";
 import blackcross from "../../assets/images/black-cross.png";
 import Button from "../Button/Button";
 import currency from "../../data/currency.js";
+import banks from "../../data/banks.js";
+
 
 
 const TransferAddRecipient = (props) => {
@@ -26,6 +28,11 @@ const TransferAddRecipient = (props) => {
   const currencyJSX = currency.map((currency) => (
     <option name={currency.code}> {currency.code} - {currency.name}</option>
   ));
+
+  const bankJSX = banks.map((bank) => (
+    <option name={bank.bankName}>{bank.bankName}</option>
+  ));
+
 
   return (
     <>
@@ -64,9 +71,15 @@ const TransferAddRecipient = (props) => {
             {currencyJSX}
           </select>
           <h3>Bank</h3>
-          <input onChange={handleBankRecipient} className="input" 
+          {/* <input onChange={handleBankRecipient} className="input" 
           value={bankRecipient}
-           />
+           /> */}
+           <select
+            onChange={handleBankRecipient} className="input"
+            value={bankRecipient}
+          >
+            {bankJSX}
+          </select>
           <h3>Sort Code</h3>
           <input onChange={handleSortCodeRecipient} className="input" 
           value={sortCodeRecipient}
