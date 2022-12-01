@@ -170,6 +170,8 @@ const TransferMakeTransfer = (props) => {
             handleRecipientName={handleRecipientName}
             handleAccountTypeRecipient={handleAccountTypeRecipient}
             handleAccountNumRecipient={handleAccountNumRecipient}
+            handleCurrencyRecipient={handleCurrencyRecipient}
+            handleBankRecipient={handleBankRecipient}
             handleSortCodeRecipient={handleSortCodeRecipient}
             handleCloseWindow={handleCloseWindow}
             recipientName={recipientName}
