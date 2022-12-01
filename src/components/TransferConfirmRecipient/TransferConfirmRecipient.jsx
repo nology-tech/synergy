@@ -8,6 +8,8 @@ const TransferConfirmRecepient = (props) => {
     recipientName,
     accountTypeRecipient,
     accountNumRecipient,
+    currencyRecipient,
+    bankRecipient,
     sortCodeRecipient,
     handleGoBackToChooseContact,
     handleCloseWindow,
@@ -56,6 +58,10 @@ const TransferConfirmRecepient = (props) => {
           <p>{accountTypeRecipient}</p>
           <h3>Account Number</h3>
           <p>{accountNumRecipient}</p>
+          <h3>Account Currency</h3>
+          <p>{currencyRecipient}</p>
+          <h3>Bank</h3>
+          <p>{bankRecipient}</p>
           <h3>Sort Code</h3>
           <p>{sortCodeRecipient}</p>
         </div>

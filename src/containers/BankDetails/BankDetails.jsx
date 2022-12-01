@@ -5,10 +5,12 @@ import "./BankDetails.scss";
 import synergyLogo from "../../assets/images/synergy_main_logo.png";
 import SignInNav from "../../components/SignInNav/SignInNav";
 import Button from "../../components/Button/Button";
+import currency from "../../data/currency.js";
 
 const BankDetails = () => {
   const [accountName, setAccountName] = useState("");
   const [accountNum, setAccountNum] = useState();
+  const [accountCurr, setAccountCurr] = useState();
   const [sortCode, setSortCode] = useState("");
 
   // Handling the account name input field change
@@ -23,11 +25,20 @@ const BankDetails = () => {
     setAccountNum(e.target.value);
   };
 
+  const handleAccountCurr = (e) => {
+    e.preventDefault();
+    setAccountCurr(e.target.value);
+  };
+
   // Handling the sort code input field change
   const handleSortCode = (e) => {
     e.preventDefault();
     setSortCode(e.target.value.toString());
   };
+
+  const currencyJSX = currency.map((currency) => (
+    <option name={currency.code}> {currency.code} - {currency.name}</option>
+  ));
 
   return (
     <>
@@ -61,7 +72,16 @@ const BankDetails = () => {
                   value={accountNum}
                 />
               </div>
-
+              <div className="bankDetailsForm__div">
+                <label>Account Currency</label>
+                <select
+                  onChange={handleAccountCurr}
+                  className="input"
+                  value={accountCurr}
+                >
+                  {currencyJSX}
+                </select>
+              </div>
               <div className="bankDetailsForm__div">
                 <label>Sort Code</label>
                 <input
