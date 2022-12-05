@@ -56,6 +56,7 @@ const CurrencyConverter = (props) => {
     };
     const flip = () => {
       if (amountSymbol===baseCurrency.symbol){
+      // if (toCurrency.code===baseCurrency.code){
         setAmountSymbol(toCurrency.symbol);
         setFirstDisplay(toCurrency);
         setSecondDisplay(baseCurrency);
@@ -74,7 +75,8 @@ const CurrencyConverter = (props) => {
       }      
     } 
     const setup = () => {
-      if (amountSymbol===toCurrency.symbol){
+      // if (amountSymbol===toCurrency.symbol){
+      if (toCurrency.code===baseCurrency.code){        
         setAmountSymbol(toCurrency.symbol);
         setFirstDisplay(toCurrency);
         setSecondDisplay(baseCurrency);

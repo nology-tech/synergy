@@ -5,13 +5,13 @@ import HeaderNav from "../../components/DashboardHeader/DashboardHeader"
 import LiveRatesList from '../../components/LiveRatesList/LiveRatesList';
 // import LiveRates from '../../components/LiveRates/LiveRates';
 import CurrencyConverter from '../../components/CurrencyConverter/CurrencyConverter';
-import currency from '../../data/currency.js'
+// import currency from '../../data/currency.js'
 import "../../assets/sass/_dashboard.scss"
 
 const CurrencyConverterContainer = (props) => {
-  const {amount,setAmount,baseCurrency,setBaseCurrency,convertedAmount, setConvertedAmount, fxRate, setFxRate}=props;
-  
-  const [toCurrency, setToCurrency] = useState(currency[1]);
+  const {amount,setAmount,baseCurrency,toCurrency, setToCurrency, setBaseCurrency,convertedAmount, setConvertedAmount, fxRate, setFxRate, currency}=props;
+   
+  // const [toCurrency, setToCurrency] = useState(currency[1]);
   
   const selectToCurrency = (currency) => {
     console.log("selected currency: ");
@@ -25,16 +25,15 @@ const CurrencyConverterContainer = (props) => {
       <div className='dashboardPage__right'>
         <HeaderNav />    
         <CurrencyConverter 
-                  amount={amount} 
-                  setAmount={setAmount} 
-                  baseCurrency={baseCurrency}
-                  setBaseCurrency = {setBaseCurrency}
-                  toCurrency={toCurrency}
-                  // setToCurrency = {setToCurrency}
-                  convertedAmount={convertedAmount}
-                  setConvertedAmount={setConvertedAmount}
-                  fxRate={fxRate}
-                  setFxRate={setFxRate}/>
+                          amount={amount} 
+                          setAmount={setAmount} 
+                          baseCurrency={baseCurrency}
+                          setBaseCurrency = {setBaseCurrency}
+                          toCurrency={toCurrency}
+                          convertedAmount={convertedAmount}
+                          setConvertedAmount={setConvertedAmount}
+                          fxRate={fxRate}
+                          setFxRate={setFxRate}/>
         <div className='liveRates'>
           <LiveRatesList currency={currency} onSelect={selectToCurrency}/>
         </div>                  
