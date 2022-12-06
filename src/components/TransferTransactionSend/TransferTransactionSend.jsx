@@ -29,13 +29,7 @@ const TransferTransactionSend = (props) => {
   } = props;
 
   const buttonSend = <FiSend />;
-  // const currencyBase = currencies.filter((currency) => {
-  //   return currency.code === currencyBaseCode;
-  // });
-
-  // const currencyRecipient = currencies.filter((currency) => {
-  //   return currency.code === currencyRecipientCode;
-  // });
+  
 
   const totalToPay = Number(amountBase) + Number(fee);
 

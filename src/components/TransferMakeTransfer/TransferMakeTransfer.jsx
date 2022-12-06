@@ -32,6 +32,7 @@ const TransferMakeTransfer = (props) => {
   const currencyRecipientCode = currencyTo.code;
   const fxRate = currencyTo.rate;
   const currencyToSymbol = currencyBase.symbol;
+  const currencyRecipient = currencyTo.code + " - "+ currencyTo.symbol;
   
   // const {currencyRecipientCode, setCurrencyRecipientCode} = useState(currencyTo.code);
   // const {fxRate, setFxRate} = useState(currencyTo.rate);
@@ -63,7 +64,7 @@ const TransferMakeTransfer = (props) => {
     setRecipientName("");
     setAccountTypeRecipient("");
     setAccountNumRecipient("");
-    setCurrencyRecipient("");
+    // setCurrencyRecipient("");
     setBankRecipient("");
     setSortCodeRecipient("");
   };
@@ -98,7 +99,7 @@ const TransferMakeTransfer = (props) => {
     setRecipientName("");
     setAccountTypeRecipient("");
     setAccountNumRecipient("");
-    setCurrencyRecipient("");
+    // setCurrencyRecipient("");
     setBankRecipient("");
     setSortCodeRecipient("");
   };
@@ -107,7 +108,7 @@ const TransferMakeTransfer = (props) => {
   const [recipientName, setRecipientName] = useState("");
   const [accountTypeRecipient, setAccountTypeRecipient] = useState();
   const [accountNumRecipient, setAccountNumRecipient] = useState();
-  const [currencyRecipient, setCurrencyRecipient] = useState();
+  // const [currencyRecipient, setCurrencyRecipient] = useState();
   const [bankRecipient, setBankRecipient] = useState();
   const [sortCodeRecipient, setSortCodeRecipient] = useState("");
 
@@ -130,10 +131,10 @@ const TransferMakeTransfer = (props) => {
   };
 
   // Handling the account currency input field change
-  const handleCurrencyRecipient = (e) => {
-    e.preventDefault();
-    setCurrencyRecipient(e.target.value);
-  };
+  // const handleCurrencyRecipient = (e) => {
+  //   e.preventDefault();
+  //   setCurrencyRecipient(e.target.value);
+  // };
   
   // Handling the account currency input field change
   const handleBankRecipient = (e) => {
@@ -181,7 +182,7 @@ const TransferMakeTransfer = (props) => {
             handleRecipientName={handleRecipientName}
             handleAccountTypeRecipient={handleAccountTypeRecipient}
             handleAccountNumRecipient={handleAccountNumRecipient}
-            handleCurrencyRecipient={handleCurrencyRecipient}
+            // handleCurrencyRecipient={handleCurrencyRecipient}
             handleBankRecipient={handleBankRecipient}
             handleSortCodeRecipient={handleSortCodeRecipient}
             handleCloseWindow={handleCloseWindow}
@@ -269,6 +270,7 @@ const TransferMakeTransfer = (props) => {
           <div className="transfer-transaction-send">
             <TransferTransactionSend
               currencyBaseCode={currencyBaseCode}
+              fxRate={fxRate}
               amountBase={amountBase}
               accountFormTypes={accountFormTypes}
               username={username}

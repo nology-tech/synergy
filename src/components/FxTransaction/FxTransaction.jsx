@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./FxTransaction.scss";
 import Button from "../Button/Button";
-// import currencies from "../../data/currency.js";
 import infosign from "../../assets/images/infosign.png";
 
 const FxTransaction = (props) => {
@@ -14,13 +13,7 @@ const FxTransaction = (props) => {
     fee
   } = props;
 
-  // const currencyBase = currencies.filter((currency) => {
-  //   return currency.code === currencyBaseCode;
-  // });
-
-  // const currencyRecipient = currencies.filter((currency) => {
-  //   return currency.code === currencyRecipientCode;
-  // });
+ 
 
   
   return (

@@ -127,8 +127,6 @@ const setBaseAndToCurrencies = (json) => {
                   currencyTo={toCurrency}
                   amountBase={amount}
                   amountReceived={convertedAmount}
-                  // fxRate={fxRate}
-                  // fxRate={toCurrency.rate}
                   fee={fee}
                   username={username}
                   accountBalance={accountBalance}
@@ -147,7 +145,6 @@ const setBaseAndToCurrencies = (json) => {
                   currencyTo={toCurrency}
                   amountBase={amount}
                   amountReceived={convertedAmount}
-                  // fxRate={fxRate}
                   fee={fee}
                   username={username}
                   accountBalance={accountBalance}
