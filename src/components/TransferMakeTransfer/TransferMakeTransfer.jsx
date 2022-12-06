@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import NavMenu from "../NavMenu/NavMenu";
 import FxTransaction from "../FxTransaction/FxTransaction";
@@ -26,6 +26,33 @@ const TransferMakeTransfer = (props) => {
     searchTerm,
     handleInput
   } = props;
+
+  const [banks, setBanks] = useState(
+    //   [
+    //   {
+    //     bankName: "",
+    //     bankLogo: "",
+    //   },
+    // ]
+    );
+  
+    const getBanks = () => {
+      
+      //e.preventDefault();
+      fetch("http://localhost:8080/banks", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+       
+      })
+        .then((response) => response.json())
+        .then((json) => setBanks(json))
+        .catch((err) => console.log(err));
+      //e.target.reset();
+    };
+  
+   useEffect (() => getBanks(),[]);
 
   const accountFormTypes = true;
 
@@ -179,6 +206,7 @@ const TransferMakeTransfer = (props) => {
             accountNumRecipient={accountNumRecipient}
             currencyRecipient={currencyRecipient}
             bankRecipient={bankRecipient}
+            banks={banks}
             sortCodeRecipient={sortCodeRecipient}
           />
         </>
@@ -314,7 +342,7 @@ const TransferMakeTransfer = (props) => {
 
         {/* Display the screen with Add recipient or Choose Recipient overlapping Send From transaction details */}
         {transferWorkflowStage === "transferSendFrom" ? (
-          displayCurrentView()
+         banks && displayCurrentView()
         ) : (
           <></>
         )}
