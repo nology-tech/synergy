@@ -17,13 +17,15 @@ const CurrencyConverter = (props) => {
     const [shouldHide, setShouldHide] = useState(true);
     //const [inverseFXRate,setInverseFXRate] = useState(Number(1/fxRate).toFixed(4));
     const [amountSymbol,setAmountSymbol] = useState(baseCurrency.symbol);
+    const [amountCode,setAmountCode] = useState(baseCurrency.code);
     const [firstDisplay,setFirstDisplay] = useState(baseCurrency);
     const [secondDisplay,setSecondDisplay] = useState(toCurrency);
     const [firstLabel,setFirstLabel] = useState("From");
     const [secondLabel,setSecondLabel] = useState("To");
     const [firstMessage,setFirstMessage] = useState(`${amount} ${baseCurrency.name} =`)
     const [secondMessage,setSecondMessage] = useState(`${Number(amount * fxRate).toFixed(4)} ${toCurrency.name}`);
-    const [flippedFxAmount,setflippedFxAmount] = useState(amount * Number(1/fxRate).toFixed(4));
+    const [originalAmount,setOriginalAmount] = useState();
+    const [originalConvertedAmount,setOriginalConvertedAmount] = useState();
     
     const message1From = `1 ${baseCurrency.code} = ${1 * fxRate} ${toCurrency.code}`;
     const message1To = `1 ${toCurrency.code} = ${Number(1/fxRate).toFixed(4)} ${baseCurrency.code}`;
@@ -35,16 +37,15 @@ const CurrencyConverter = (props) => {
     // useEffect(() => {setSecondDisplay(toCurrency)}, []);
     useEffect(() => {setup()}, [toCurrency]);
     
-    
-    
-
     const handleAmount = (e) => {      
       e.preventDefault();
       const amount = e.target.value.toLowerCase();
       if (amount === '' || numericRegExp.test(amount)) {
         setAmount(amount); 
         setConvertedAmount (Number(amount * fxRate).toFixed(4)); 
-        if (amountSymbol===baseCurrency.symbol){
+        setOriginalAmount(amount); 
+        setOriginalConvertedAmount (Number(amount * fxRate).toFixed(4)); 
+        if (amountCode===baseCurrency.code){
           setFirstMessage(`${amount} ${baseCurrency.name} =`); 
           setSecondMessage(`${Number(amount * fxRate).toFixed(4)} ${toCurrency.name}`);
         } 
@@ -55,43 +56,55 @@ const CurrencyConverter = (props) => {
       }         
     };
     const flip = () => {
-      if (amountSymbol===baseCurrency.symbol){
-      // if (toCurrency.code===baseCurrency.code){
+      if (amountCode===baseCurrency.code){
         setAmountSymbol(toCurrency.symbol);
+        setAmountCode(toCurrency.code);
         setFirstDisplay(toCurrency);
         setSecondDisplay(baseCurrency);
         setFirstLabel("To");
         setSecondLabel("From");
         setFirstMessage(`${amount} ${toCurrency.name} =`);
-        setSecondMessage(`${Number(amount * 1/fxRate).toFixed(4)} ${baseCurrency.name}`)
+        setSecondMessage(`${Number(amount * 1/fxRate).toFixed(4)} ${baseCurrency.name}`);
+        //setConvertedAmount(originalAmount);
+        //setAmount(originalConvertedAmount);        
+        
       } else {
         setAmountSymbol(baseCurrency.symbol);
+        setAmountCode(baseCurrency.code);
         setFirstDisplay(baseCurrency);
         setSecondDisplay(toCurrency);
         setFirstLabel("From");
         setSecondLabel("To");
         setFirstMessage(`${amount} ${baseCurrency.name} =`);
         setSecondMessage(`${Number(amount * fxRate).toFixed(4)} ${toCurrency.name}`);
+        //setConvertedAmount(originalAmount.toFixed(4));
+        //setAmount(Number(originalAmount * 1/fxRate).toFixed(4));
+        
       }      
     } 
     const setup = () => {
-      // if (amountSymbol===toCurrency.symbol){
-      if (toCurrency.code===baseCurrency.code){        
+      if (amountCode.code===toCurrency.code){        
         setAmountSymbol(toCurrency.symbol);
+        setAmountCode(toCurrency.code);
         setFirstDisplay(toCurrency);
         setSecondDisplay(baseCurrency);
         setFirstLabel("To");
         setSecondLabel("From");
         setFirstMessage(`${amount} ${toCurrency.name} =`);
-        setSecondMessage(`${Number(amount * 1/fxRate).toFixed(4)} ${baseCurrency.name}`)
+        setSecondMessage(`${Number(amount * 1/fxRate).toFixed(4)} ${baseCurrency.name}`);
+        //console.log(convertedAmount);
       } else {
         setAmountSymbol(baseCurrency.symbol);
+        setAmountCode(baseCurrency.code);
         setFirstDisplay(baseCurrency);
         setSecondDisplay(toCurrency);
         setFirstLabel("From");
         setSecondLabel("To");
         setFirstMessage(`${amount} ${baseCurrency.name} =`);
         setSecondMessage(`${Number(amount * fxRate).toFixed(4)} ${toCurrency.name}`);
+        // bug fix for selecting a different currency
+        setConvertedAmount(Number(amount * fxRate).toFixed(4));
+        //console.log(convertedAmount);
       }      
     }   
     const convertAmount = () => {
@@ -101,8 +114,6 @@ const CurrencyConverter = (props) => {
       setConvertedAmount(Number(amount * fxRate).toFixed(4)); 
       
     }
-
- 
 
   return (
     <div className='currencyConverter'>

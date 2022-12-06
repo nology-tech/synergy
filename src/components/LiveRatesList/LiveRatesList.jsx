@@ -35,7 +35,7 @@ const LiveRatesList = (props) => {
           ? "currency-row currency-list__items row-blue"
           : "currency-row currency-list__items row-grey"
       }
-      key={currency.id}
+      key={currency.code}
     >
       <img
         className="currency-list__img"
