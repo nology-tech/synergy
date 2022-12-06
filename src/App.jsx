@@ -41,7 +41,6 @@ const setBaseAndToCurrencies = (json) => {
     setBaseCurrency(json[0]);
     setToCurrency(json[1]);
     setFxRate(json[1].rate)
-    console.log(baseCurrency);
 }
 
 
@@ -124,11 +123,12 @@ const setBaseAndToCurrencies = (json) => {
               element={
                 <TransferMakeTransfer
                   transferWorkflowStage="fxTransaction"
-                  currencyBaseCode={baseCurrency.code}
-                  currencyRecipientCode={toCurrency.code}
+                  currencyBase={baseCurrency}
+                  currencyTo={toCurrency}
                   amountBase={amount}
                   amountReceived={convertedAmount}
-                  fxRate={fxRate}
+                  // fxRate={fxRate}
+                  // fxRate={toCurrency.rate}
                   fee={fee}
                   username={username}
                   accountBalance={accountBalance}
@@ -143,11 +143,11 @@ const setBaseAndToCurrencies = (json) => {
               element={
                 <TransferMakeTransfer
                   transferWorkflowStage="transferSendFrom"
-                  currencyBaseCode={baseCurrency.code}
-                  currencyRecipientCode={toCurrency.code}
+                  currencyBase={baseCurrency}
+                  currencyTo={toCurrency}
                   amountBase={amount}
                   amountReceived={convertedAmount}
-                  fxRate={fxRate}
+                  // fxRate={fxRate}
                   fee={fee}
                   username={username}
                   accountBalance={accountBalance}

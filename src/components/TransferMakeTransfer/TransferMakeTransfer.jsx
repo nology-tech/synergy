@@ -13,11 +13,10 @@ import TransferTransactionSend from "../TransferTransactionSend/TransferTransact
 const TransferMakeTransfer = (props) => {
   const {
     transferWorkflowStage,
-    currencyBaseCode,
-    currencyRecipientCode,
+    currencyBase,
+    currencyTo,
     amountBase,
     amountReceived,
-    fxRate,
     fee,
     username,
     accountBalance,
@@ -26,6 +25,17 @@ const TransferMakeTransfer = (props) => {
     searchTerm,
     handleInput
   } = props;
+
+  const currencyBaseCode = currencyBase.code;
+  const currencyBaseSymbol = currencyBase.symbol;
+  
+  const currencyRecipientCode = currencyTo.code;
+  const fxRate = currencyTo.rate;
+  const currencyToSymbol = currencyBase.symbol;
+  
+  // const {currencyRecipientCode, setCurrencyRecipientCode} = useState(currencyTo.code);
+  // const {fxRate, setFxRate} = useState(currencyTo.rate);
+  // const {currencyToSymbol, setCurrencyToSymbol} = useState(currencyTo.symbol);
 
   const accountFormTypes = true;
 
@@ -163,7 +173,8 @@ const TransferMakeTransfer = (props) => {
             username={username}
             accountNum={accountNum}
             sortCode={sortCode}
-          />
+            currencyBaseSymbol={currencyBaseSymbol}
+            />
           <TransferAddRecipient
             handleContinueButton={handleContinueButton}
             handleGoBack={handleGoBack}
@@ -194,6 +205,7 @@ const TransferMakeTransfer = (props) => {
             username={username}
             accountNum={accountNum}
             sortCode={sortCode}
+            currencyBaseSymbol={currencyBaseSymbol}
           />
 
           <TransferConfirmRecipient
@@ -273,6 +285,8 @@ const TransferMakeTransfer = (props) => {
               amountReceived={amountReceived}
               handleCancel={handleCancel }
               handleSend= {handleSend}
+              currencyBaseSymbol={currencyBaseSymbol}
+              currencyToSymbol={currencyToSymbol}
             />
           </div>
         </>
@@ -301,11 +315,10 @@ const TransferMakeTransfer = (props) => {
         {/* Display the screen with FX transaction details */}
         {transferWorkflowStage === "fxTransaction" ? (
           <FxTransaction
-            currencyBaseCode={currencyBaseCode}
-            currencyRecipientCode={currencyRecipientCode}
+            currencyBase={currencyBase}
+            currencyRecipient={currencyTo}
             amountBase={amountBase}
             amountReceived={amountReceived}
-            fxRate={fxRate}
             fee={fee}
           />
         ) : (

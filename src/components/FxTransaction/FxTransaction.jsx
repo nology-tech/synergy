@@ -2,26 +2,25 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./FxTransaction.scss";
 import Button from "../Button/Button";
-import currencies from "../../data/currency.js";
+// import currencies from "../../data/currency.js";
 import infosign from "../../assets/images/infosign.png";
 
 const FxTransaction = (props) => {
   const {
-    currencyBaseCode,
-    currencyRecipientCode,
+    currencyBase,
+    currencyRecipient,
     amountBase,
     amountReceived,
-    fxRate,
-    fee,
+    fee
   } = props;
 
-  const currencyBase = currencies.filter((currency) => {
-    return currency.code === currencyBaseCode;
-  });
+  // const currencyBase = currencies.filter((currency) => {
+  //   return currency.code === currencyBaseCode;
+  // });
 
-  const currencyRecipient = currencies.filter((currency) => {
-    return currency.code === currencyRecipientCode;
-  });
+  // const currencyRecipient = currencies.filter((currency) => {
+  //   return currency.code === currencyRecipientCode;
+  // });
 
   
   return (
@@ -32,15 +31,15 @@ const FxTransaction = (props) => {
           <div className="fx-transaction__amount__details__currency">
             <img
               className="fx-transaction__amount__img"
-              src={currencyBase[0].img}
+              src={currencyBase.img}
               alt="US currency"
             />
             <div className="fx-transaction__amount__name">
-              {currencyBase[0].code} - {currencyBase[0].name}
+              {currencyBase.code} - {currencyBase.name}
             </div>
           </div>
           <div className="fx-transaction__amount__amount">
-            {currencyBase[0].symbol}
+            {currencyBase.symbol}
             {Number(amountBase).toFixed(2)}
           </div>
         </div>
@@ -51,15 +50,15 @@ const FxTransaction = (props) => {
           <div className="fx-transaction__amount__details__currency">
             <img
               className="fx-transaction__amount__img"
-              src={currencyRecipient[0].img}
+              src={currencyRecipient.img}
               alt="US currency"
             />
             <div className="fx-transaction__amount__name">
-              {currencyRecipient[0].code} - {currencyRecipient[0].name}
+              {currencyRecipient.code} - {currencyRecipient.name}
             </div>
           </div>
           <div className="fx-transaction__amount__amount">
-            {currencyRecipient[0].symbol}
+            {currencyRecipient.symbol}
             {Number(amountReceived).toFixed(2)}
           </div>
         </div>
@@ -69,11 +68,11 @@ const FxTransaction = (props) => {
           <h3 className="fx-transaction__fee__details__rate">
             Rate <img className="infosign" src={infosign} alt="more info" />
           </h3>
-          <p>{Number(fxRate).toFixed(4)}</p>
+          <p>{Number(currencyRecipient.rate).toFixed(4)}</p>
         </div>
         <div className="fx-transaction__fee__details">
           <h3>Fee</h3>
-          <p>{currencyBase[0].symbol}{Number(fee).toFixed(2)}</p>
+          <p>{currencyBase.symbol}{Number(fee).toFixed(2)}</p>
         </div>
         <div className="fx-transaction__fee__details">
           <h3>Delivery</h3>
@@ -84,7 +83,7 @@ const FxTransaction = (props) => {
         <div className="fx-transaction__total-amount">
           <h3>Total</h3>
           <p>
-            {currencyBase[0].symbol}
+            {currencyBase.symbol}
             {Number(amountBase).toFixed(2)}
           </p>
         </div>

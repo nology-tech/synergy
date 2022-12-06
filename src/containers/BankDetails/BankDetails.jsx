@@ -1,11 +1,10 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./BankDetails.scss";
 import synergyLogo from "../../assets/images/synergy_main_logo.png";
 import SignInNav from "../../components/SignInNav/SignInNav";
 import Button from "../../components/Button/Button";
-import currency from "../../data/currency.js";
 
 const BankDetails = () => {
   const [accountName, setAccountName] = useState("");
@@ -36,8 +35,24 @@ const BankDetails = () => {
     setSortCode(e.target.value.toString());
   };
 
+  // Details for Live Rates
+  const [currency, setCurrency] = useState([]);
+  const getCurrency = () => {
+    fetch("http://localhost:8080/currencies")
+      .then(res => res.json())
+      .then(json => setCurrencyArray(json))
+      .catch(err => console.log(err))
+  }
+
+  useEffect(() => {getCurrency();}, []);
+
+  const setCurrencyArray = (json) => {
+    setCurrency(json)
+  }
+
+
   const currencyJSX = currency.map((currency) => (
-    <option name={currency.code}> {currency.code} - {currency.name}</option>
+    <option name={currency.code}> {currency.code} - {currency.currency}</option>
   ));
 
   return (
@@ -46,7 +61,7 @@ const BankDetails = () => {
       <div className="BankDetails">
         <div className="bank-form-box">
           <div className="bank-details-header">
-            <img src={synergyLogo} />
+            <img src={synergyLogo} alt="synergylogo" />
           </div>
           <div>
             <h1>Add Bank Details</h1>
@@ -79,7 +94,7 @@ const BankDetails = () => {
                   className="input"
                   value={accountCurr}
                 >
-                  {currencyJSX}
+                  {currency?currencyJSX:""}
                 </select>
               </div>
               <div className="bankDetailsForm__div">
