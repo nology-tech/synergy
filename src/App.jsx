@@ -57,6 +57,7 @@ const setBaseAndToCurrencies = (json) => {
   // fx should come from Live rates on Send button click, temporary setting to EUR rate from data file
   // const [fxRate, setFxRate] = useState(currency[1].rate);
   const [fxRate, setFxRate] = useState(1);
+  const [amountCode, setAmountCode] = useState("");
   // list below shall be replaced from API
   const fee = 0;
 
@@ -113,6 +114,8 @@ const setBaseAndToCurrencies = (json) => {
                   fxRate={toCurrency.rate}
                   setFxRate={setFxRate}
                   currency={currency}
+                  amountCode={baseCurrency.code}
+                  setAmountCode={setAmountCode}
                 />
               }
             ></Route>    :""}
@@ -125,8 +128,8 @@ const setBaseAndToCurrencies = (json) => {
                   transferWorkflowStage="fxTransaction"
                   currencyBase={baseCurrency}
                   currencyTo={toCurrency}
-                  amountBase={amount}
-                  amountReceived={convertedAmount}
+                  amountBase={amountCode===baseCurrency.code?amount:Number(amount * 1/fxRate).toFixed(4)}
+                  amountReceived={amountCode===baseCurrency.code?convertedAmount:amount}
                   fee={fee}
                   username={username}
                   accountBalance={accountBalance}
