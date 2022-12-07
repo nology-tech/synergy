@@ -1,5 +1,5 @@
 import React from "react";
-import currencies from "../../data/currency.js";
+// import currencies from "../../data/currency.js";
 import "./TransferAccountForm.scss";
 
 const TransferAccountForm = (props) => {
@@ -10,12 +10,13 @@ const TransferAccountForm = (props) => {
     username,
     accountNum,
     sortCode,
+    currencyBaseSymbol
   } = props;
 
   let fundsRemaining = accountBalance - amountBase;
-  const currencyBase = currencies.filter((currency) => {
-    return currency.code === currencyBaseCode;
-  });
+  // const currencyBase = currencies.filter((currency) => {
+  //   return currency.code === currencyBaseCode;
+  // });
 
   return (
     <div className="account-form">
@@ -32,14 +33,14 @@ const TransferAccountForm = (props) => {
         <div className="account-form__total__amount">
           <h3>Total </h3>
           <p>
-            {currencyBase[0].symbol}
+            {currencyBaseSymbol}
             {Number(amountBase).toFixed(2)}
           </p>
         </div>
         <div className="account-form__total__funds-rem">
           <h3>Funds Remaining:</h3>
           <p>
-            {currencyBase[0].symbol}
+            {currencyBaseSymbol}
             {Number(fundsRemaining).toFixed(2)}
           </p>
         </div>

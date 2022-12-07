@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button/Button";
 import TransferAccountForm from "../TransferAccountForm/TransferAccountForm";
-import currencies from "../../data/currency.js";
+// import currencies from "../../data/currency.js";
 import infosign from "../../assets/images/infosign.png";
 import "./TransferTransactionSend.scss";
 import { FiSend } from "react-icons/fi";
@@ -24,16 +24,12 @@ const TransferTransactionSend = (props) => {
     amountReceived,
     handleCancel,
     handleSend,
+    currencyBaseSymbol,
+    currencyToSymbol
   } = props;
 
   const buttonSend = <FiSend />;
-  const currencyBase = currencies.filter((currency) => {
-    return currency.code === currencyBaseCode;
-  });
-
-  const currencyRecipient = currencies.filter((currency) => {
-    return currency.code === currencyRecipientCode;
-  });
+  
 
   const totalToPay = Number(amountBase) + Number(fee);
 
@@ -52,7 +48,7 @@ const TransferTransactionSend = (props) => {
         />
         <h2>To</h2>
         <div className="transfer-transaction-send__account-recipient">
-          <h3 className="transfer-transaction-send__account-recipient__username">
+          <h3 className="transfer-transaction-send__account-recipient__recusername">
             {recipientName}
           </h3>
           <div className="transfer-transaction-send__account-recipient__details">
@@ -76,7 +72,7 @@ const TransferTransactionSend = (props) => {
           <div className="transfer-transaction-send__fee__details">
             <h3>Fee</h3>
             <p>
-              {currencyBase[0].symbol}
+              {currencyBaseSymbol}
               {Number(fee).toFixed(2)}
             </p>
           </div>
@@ -90,14 +86,14 @@ const TransferTransactionSend = (props) => {
           <div className="transfer-transaction-send__total_pay-amount">
             <h3>Total to Pay</h3>
             <p>
-              {currencyBase[0].symbol}
+              {currencyBaseSymbol}
               {Number(totalToPay).toFixed(2)}
             </p>
           </div>
           <div className="transfer-transaction-send__total__funds-recipient">
             <h3>Recipient Receives:</h3>
             <p>
-              {currencyRecipient[0].symbol}
+              {currencyToSymbol}
               {Number(amountReceived).toFixed(2)}
             </p>
           </div>
