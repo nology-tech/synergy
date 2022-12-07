@@ -21,7 +21,7 @@
 
   .transfer-transaction-send__account-recipient {
     background: $color-light-gray3;
-    padding: 15px 20px;
+    padding: 10px 20px;
     border: 1px solid $color-light-gray3;
     border-radius: 8px;
     margin: 20px 0px;
@@ -29,11 +29,10 @@
     height: fit-content;
     font-family: $title-font-family;
 
-    &__username {
+    &__recusername {
       color: $color-middle-blue;
-      font-size: 16px;
       font-weight: 500;
-      font-size: 16px bold;
+      font-size: 18px bold;
     }
 
     &__details {
@@ -42,13 +41,13 @@
 
       p,
       h3 {
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 400;
         color: $color-font-light-gray;
       }
 
       &__sort-code {
-        padding-bottom: 10px;
+        padding-bottom: 5px;
       }
     }
   }
@@ -56,7 +55,7 @@
   &__fee {
     border-bottom: 1px solid $color-background-clear;
     width: 100%;
-    padding: 20px 0px;
+    padding: 5px 0px;
 
     p {
       font-size: 16px;

@@ -48,7 +48,7 @@ const TransferTransactionSend = (props) => {
         />
         <h2>To</h2>
         <div className="transfer-transaction-send__account-recipient">
-          <h3 className="transfer-transaction-send__account-recipient__username">
+          <h3 className="transfer-transaction-send__account-recipient__recusername">
             {recipientName}
           </h3>
           <div className="transfer-transaction-send__account-recipient__details">
