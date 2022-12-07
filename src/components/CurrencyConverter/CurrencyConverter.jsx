@@ -43,8 +43,6 @@ const CurrencyConverter = (props) => {
       if (amount === '' || numericRegExp.test(amount)) {
         setAmount(amount); 
         setConvertedAmount (Number(amount * fxRate).toFixed(4)); 
-        //setOriginalAmount(amount); 
-        //setOriginalConvertedAmount (Number(amount * fxRate).toFixed(4)); 
         if (amountCode===baseCurrency.code){
           setFirstMessage(`${amount} ${baseCurrency.name} =`); 
           setSecondMessage(`${Number(amount * fxRate).toFixed(4)} ${toCurrency.name}`);
@@ -66,8 +64,7 @@ const CurrencyConverter = (props) => {
         setSecondLabel("From");
         setFirstMessage(`${amount} ${toCurrency.name} =`);
         setSecondMessage(`${Number(amount * 1/fxRate).toFixed(4)} ${baseCurrency.name}`);
-        //setConvertedAmount(originalAmount);
-        //setAmount(originalConvertedAmount);        
+              
         
       } else {
         setAmountSymbol(baseCurrency.symbol);
@@ -77,9 +74,7 @@ const CurrencyConverter = (props) => {
         setFirstLabel("From");
         setSecondLabel("To");
         setFirstMessage(`${amount} ${baseCurrency.name} =`);
-        setSecondMessage(`${Number(amount * fxRate).toFixed(4)} ${toCurrency.name}`);
-        //setConvertedAmount(originalAmount.toFixed(4));
-        //setAmount(Number(originalAmount * 1/fxRate).toFixed(4));
+        setSecondMessage(`${Number(amount * fxRate).toFixed(4)} ${toCurrency.name}`);       
         
       }      
     } 
@@ -93,7 +88,7 @@ const CurrencyConverter = (props) => {
         setSecondLabel("From");
         setFirstMessage(`${amount} ${toCurrency.name} =`);
         setSecondMessage(`${Number(amount * 1/fxRate).toFixed(4)} ${baseCurrency.name}`);
-        //console.log(convertedAmount);
+        
       } else {
         setAmountSymbol(baseCurrency.symbol);
         setAmountCode(baseCurrency.code);
@@ -105,7 +100,7 @@ const CurrencyConverter = (props) => {
         setSecondMessage(`${Number(amount * fxRate).toFixed(4)} ${toCurrency.name}`);
         // bug fix for selecting a different currency
         setConvertedAmount(Number(amount * fxRate).toFixed(4));
-        //console.log(convertedAmount);
+        
       }      
     }   
     const convertAmount = () => {

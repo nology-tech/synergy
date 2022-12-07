@@ -32,7 +32,7 @@ const TransferMakeTransfer = (props) => {
   const currencyBaseSymbol = currencyBase.symbol;
   const currencyRecipientCode = currencyTo.code;
   const fxRate = currencyTo.rate;
-  const currencyToSymbol = currencyBase.symbol;
+  const currencyToSymbol = currencyTo.symbol;
   const currencyRecipient = currencyTo.code + " - "+ currencyTo.symbol;
   
   const accountFormTypes = true;
