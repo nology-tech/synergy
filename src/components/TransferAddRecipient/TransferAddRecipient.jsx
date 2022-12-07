@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import Select from "react-select";
 import "./TransferAddRecipient.scss";
 import blackcross from "../../assets/images/black-cross.png";
 import Button from "../Button/Button";
 import currency from "../../data/currency.js";
+
 //import banks from "../../data/banks.js";
 
 const TransferAddRecipient = (props) => {
@@ -24,8 +26,6 @@ const TransferAddRecipient = (props) => {
     handleSortCodeRecipient,
   } = props;
 
- 
-
   const currencyJSX = currency.map((currency) => (
     <option name={currency.code}>
       {" "}
@@ -33,13 +33,7 @@ const TransferAddRecipient = (props) => {
     </option>
   ));
 
- const bankJSX = banks.map((bank) => (
-    <option> 
-     
-    {bank.bankName}
-    
-    </option>
-  ));
+  
 
   return (
     <>
@@ -87,13 +81,22 @@ const TransferAddRecipient = (props) => {
           {/* <input onChange={handleBankRecipient} className="input" 
           value={bankRecipient}
            /> */}
-          <select
-            onChange={handleBankRecipient}
+          
+          <Select
             className="input"
-            value={bankRecipient}
-          >
-            {banks && bankJSX}
-          </select>
+            options={banks}
+            formatOptionLabel={(bank) => (
+              <div 
+                onChange={handleBankRecipient}
+                value={bankRecipient}>
+                <img className="bank-option" src={bank.bankLogo} alt="bank-logo" />
+                <span>{bank.bankName}</span>
+              </div>
+            )}
+          />
+          
+          
+
           <h3>Sort Code</h3>
           <input
             onChange={handleSortCodeRecipient}

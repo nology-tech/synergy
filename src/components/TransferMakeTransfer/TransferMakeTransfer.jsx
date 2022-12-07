@@ -28,12 +28,12 @@ const TransferMakeTransfer = (props) => {
   } = props;
 
   const [banks, setBanks] = useState(
-    //   [
-    //   {
-    //     bankName: "",
-    //     bankLogo: "",
-    //   },
-    // ]
+      [
+      {
+        bankName: "",
+        bankLogo: "",
+      },
+    ]
     );
   
     const getBanks = () => {
@@ -152,7 +152,7 @@ const TransferMakeTransfer = (props) => {
     setCurrencyRecipient(e.target.value);
   };
   
-  // Handling the account currency input field change
+  // Handling the bank input field change
   const handleBankRecipient = (e) => {
     e.preventDefault();
     setBankRecipient(e.target.value);
