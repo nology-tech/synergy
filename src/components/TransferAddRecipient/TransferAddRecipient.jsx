@@ -86,11 +86,11 @@ const TransferAddRecipient = (props) => {
             className="input"
             options={banks}
             formatOptionLabel={(bank) => (
-              <div 
+              <div className="bank-input"
                 onChange={handleBankRecipient}
                 value={bankRecipient}>
-                <img className="bank-option" src={bank.bankLogo} alt="bank-logo" />
-                <span>{bank.bankName}</span>
+                <img className="bank-input__image" src={bank.bankLogo} alt="bank-logo" />
+                <span className="bank-input__name">{bank.bankName}</span>
               </div>
             )}
           />

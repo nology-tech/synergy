@@ -49,8 +49,12 @@ const TransferMakeTransfer = (props) => {
         .then((response) => response.json())
         .then((json) => setBanks(json))
         .catch((err) => console.log(err));
+
+        
       //e.target.reset();
     };
+
+    
   
    useEffect (() => getBanks(),[]);
 
