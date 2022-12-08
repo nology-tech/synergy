@@ -8,7 +8,7 @@ import Button from "../../components/Button/Button";
 import currency from "../../data/currency.js";
 
 const BankDetails = (props) => {
-  const {accountName, handleAccountName}=props;
+  const {accountFirstName, handleAccountFirstName, accountLastName, handleAccountLastName}=props;
   const [accountNum, setAccountNum] = useState();
   const [accountCurr, setAccountCurr] = useState();
   const [sortCode, setSortCode] = useState("");
@@ -51,11 +51,21 @@ const BankDetails = (props) => {
             <form className="bankDetailsForm">
               {/* Labels and inputs for form data */}
               <div className="bankDetailsForm__div">
-                <label>Account Name</label>
+                <label>Account First Name</label>
                 <input
-                  onChange={handleAccountName}
+                  onChange={handleAccountFirstName}
                   className="input"
-                  value={accountName}
+                  value={accountFirstName}
+                  type="text"
+                />
+              </div>
+               {/* Labels and inputs for form data */}
+               <div className="bankDetailsForm__div">
+                <label>Account Last Name</label>
+                <input
+                  onChange={handleAccountLastName}
+                  className="input"
+                  value={accountLastName}
                   type="text"
                 />
               </div>
@@ -94,7 +104,7 @@ const BankDetails = (props) => {
                   </button>
                 </Link>
                 <Link to="/billingaddress">
-                {console.log(accountName)}
+                {console.log(accountFirstName)}
                   <Button 
                     buttonStyle={"btn button-blue"}
                     buttonType={"submit"} 

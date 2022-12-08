@@ -9,13 +9,15 @@ import "../../assets/sass/_dashboard.scss"
 import UserContacts from '../../components/UserContacts/UserContacts';
 import "./Wallet.scss"
 
-const Wallet = () => {
+const Wallet = (props) => {
+
+  const {accountFirstName, accountLastName}=props;
   const [walletOn, setWalletOn] = useState(true);
   return (
     <div className="dashboardPage wallet-page">
       <NavMenu />
       <div className="dashboardPage__right">
-        <DashboardHeader />
+        <DashboardHeader accountFirstName={accountFirstName} accountLastName = {accountLastName}/>
         <div className="wallet-page__main">
           <div className="greeting__firstName">
             <h2>

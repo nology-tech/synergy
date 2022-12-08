@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from "react";
 
 import "./App.scss";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, redirect } from "react-router-dom";
 import SignUpMain from "./components/SignUp/SignUpMain";
 import ForgottenPassword from "./components/ForgottenPassword/ForgottenPassword";
 import LoginFlowChangePsw from "./components/LoginFlowChangePsw/LoginFlowChangePsw";
@@ -22,8 +22,9 @@ import Search from "./components/Search/Search";
 
 const App = () => {
   //user Information
-  const [email, setEmail] = useState("");
-  const [accountName, setAccountName] = useState("");
+  const [userEmail, setEmail] = useState("");
+  const [accountFirstName, setAccountFirstName] = useState("");
+  const [accountLastName, setAccountLastName] = useState("");
   const [validEmail, setValidEmail] = useState(false);
   const [username, setUserName] = useState("Samantha Brooks"); //shall be replaced by a function on login
   const [accountNum, setAccountNum] = useState("123456789"); // shall be replaced by a function on login
@@ -44,18 +45,18 @@ const App = () => {
   const [city, setCity] = useState("");
   const [postcode, setPostcode] = useState("");
 
-  const [account, setAccount]=useState({userID:"",
-  firstName:"",
-  lastName:"",
-  email:"",
-  address_houseNum:"",
-  address_streetName:"",
-  address_city:"",
-  address_state:"",
-  address_postCode:"",
-  contactFlag: 0
-}
-)
+//   const [account, setAccount]=useState({userID:"",
+//   firstName:"",
+//   lastName:"",
+//   email:"",
+//   address_houseNum:"",
+//   address_streetName:"",
+//   address_city:"",
+//   address_state:"",
+//   address_postCode:"",
+//   contactFlag: 0
+// }
+// )
 
   // Handling the street name input field change
   const handleStreetName = (e) => {
@@ -107,9 +108,16 @@ const App = () => {
   };
   
 // Handling the account name input field change
-const handleAccountName = (e) => {
+const handleAccountFirstName = (e) => {
   e.preventDefault();
-  setAccountName(e.target.value.toString());
+  setAccountFirstName(e.target.value.toString());
+};
+
+  
+// Handling the account name input field change
+const handleAccountLastName = (e) => {
+  e.preventDefault();
+  setAccountLastName(e.target.value.toString());
 };
 
   // this handle reads the search text  
@@ -118,32 +126,37 @@ const handleAccountName = (e) => {
     setSearchTerm(cleanInput);
   };
 
-  const handleCreateAccount = () => {
-    setAccount({
-      firstName:accountName,
-      lastName:"",
-      email:email,
-      address_houseNum:houseNum,
-      address_streetName:streetName,
-      address_city:city,
-      address_state:"NY",
-      address_postCode:postcode,
-      contactFlag: 0
-    });
+  const handleCreateAccount = (e) => {
+    
+    // setAccount();    
     postCreateAccount()
  
   };
 
   const postCreateAccount=()=>{
-    fetch('http://localhost:8080/createContact', {
+    console.log(userEmail)
+    fetch('http://localhost:8080/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(account)
+      body: JSON.stringify({
+        userID: "",
+        firstName:accountFirstName,
+        lastName:accountLastName,
+        email:userEmail,
+        address_houseNum:houseNum,
+        address_streetName:streetName,
+        address_city:city,
+        address_state:"NY",
+        address_postCode:postcode,
+        contactFlag: 0
+      })
     })
     .then((response) => response.json())
-    .then((json => console.log(json)))
+    .then((json => {
+      console.log(json)
+    }))
     .catch(err => console.log(err))
   }
 
@@ -153,13 +166,15 @@ const handleAccountName = (e) => {
         <Routes>
           <Route path="/" element={<LandingMain />} />
           <Route path="/signup" element={<SignUpMain 
-          email={email}
+          email={userEmail}
           handleEmail={handleEmail}
           validEmail={validEmail}
           />} />
           <Route path="/bankdetails" element={<BankDetails 
-            accountName={accountName}
-            handleAccountName={handleAccountName}
+            accountFirstName={accountFirstName}
+            handleAccountFirstName={handleAccountFirstName}
+            accountLastName={accountLastName}
+            handleAccountLastName={handleAccountLastName}
           />} />
           <Route path="/billingaddress" element={<BillingAddress 
             houseNum={houseNum}
@@ -174,12 +189,12 @@ const handleAccountName = (e) => {
           />} />
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
-          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/wallet" element={<Wallet accountFirstName={accountFirstName} accountLastName = {accountLastName}/>} />
           <Route path="/contacts" element={<ContactAdd />} />
           <Route path="/liverates" element={<LiveRates />} />
           <Route path="/signin" element={<LoginFlowWelcome />} />
-          <Route path="/userprofile" element={<Wallet />} />
-          <Route path="/dashboard" element={<Wallet />} />
+          <Route path="/userprofile" element={<Wallet accountFirstName={accountFirstName} accountLastName = {accountLastName}/>} />
+          <Route path="/dashboard" element={<Wallet accountFirstName={accountFirstName} accountLastName = {accountLastName}/>} />
           <Route path="/home" element={<LandingMain />}></Route>
           <Route path="/features" element={<LandingMain />}></Route>
           <Route path="/about" element={<LandingMain />}></Route>

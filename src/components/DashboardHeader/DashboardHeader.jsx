@@ -5,10 +5,11 @@ import chevron from "../../assets/images/charm_chevron-down.png";
 import { Link } from "react-router-dom";
 
 
-const DashboardHeader = () => {
+const DashboardHeader = (props) => {
+  const {accountFirstName, accountLastName}=props;
     
     let profileImg = profile;
-    let profileName = "Samantha Brooks";
+    let profileName = accountFirstName + " " + accountLastName;
     const downImg = chevron;
 
   return (
