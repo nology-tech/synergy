@@ -23,8 +23,8 @@ import Search from "./components/Search/Search";
 const App = () => {
   //user Information
   const [userEmail, setEmail] = useState("");
-  const [accountFirstName, setAccountFirstName] = useState("");
-  const [accountLastName, setAccountLastName] = useState("");
+  const [accountName, setAccountName] =  useState("");
+  //  const [accountLastName, setAccountLastName] = useState("");
   const [validEmail, setValidEmail] = useState(false);
   const [username, setUserName] = useState("Samantha Brooks"); //shall be replaced by a function on login
   const [accountNum, setAccountNum] = useState("123456789"); // shall be replaced by a function on login
@@ -45,18 +45,7 @@ const App = () => {
   const [city, setCity] = useState("");
   const [postcode, setPostcode] = useState("");
 
-//   const [account, setAccount]=useState({userID:"",
-//   firstName:"",
-//   lastName:"",
-//   email:"",
-//   address_houseNum:"",
-//   address_streetName:"",
-//   address_city:"",
-//   address_state:"",
-//   address_postCode:"",
-//   contactFlag: 0
-// }
-// )
+
 
   // Handling the street name input field change
   const handleStreetName = (e) => {
@@ -108,17 +97,17 @@ const App = () => {
   };
   
 // Handling the account name input field change
-const handleAccountFirstName = (e) => {
+const handleAccountName = (e) => {
   e.preventDefault();
-  setAccountFirstName(e.target.value.toString());
+  setAccountName(e.target.value.toString());
 };
 
   
 // Handling the account name input field change
-const handleAccountLastName = (e) => {
-  e.preventDefault();
-  setAccountLastName(e.target.value.toString());
-};
+// const handleAccountLastName = (e) => {
+//   e.preventDefault();
+//   setAccountLastName(e.target.value.toString());
+// };
 
   // this handle reads the search text  
   const handleInput = (event) => {
@@ -142,8 +131,8 @@ const handleAccountLastName = (e) => {
       },
       body: JSON.stringify({
         userID: "",
-        firstName:accountFirstName,
-        lastName:accountLastName,
+        firstName:accountName,
+        lastName:"",
         email:userEmail,
         address_houseNum:houseNum,
         address_streetName:streetName,
@@ -171,10 +160,10 @@ const handleAccountLastName = (e) => {
           validEmail={validEmail}
           />} />
           <Route path="/bankdetails" element={<BankDetails 
-            accountFirstName={accountFirstName}
-            handleAccountFirstName={handleAccountFirstName}
-            accountLastName={accountLastName}
-            handleAccountLastName={handleAccountLastName}
+            accountName={accountName}
+            handleAccountName={handleAccountName}
+            // accountLastName={accountLastName}
+            // handleAccountLastName={handleAccountLastName}
           />} />
           <Route path="/billingaddress" element={<BillingAddress 
             houseNum={houseNum}
@@ -189,12 +178,12 @@ const handleAccountLastName = (e) => {
           />} />
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
-          <Route path="/wallet" element={<Wallet accountFirstName={accountFirstName} accountLastName = {accountLastName}/>} />
+          <Route path="/wallet" element={<Wallet accountName={accountName} />} />
           <Route path="/contacts" element={<ContactAdd />} />
           <Route path="/liverates" element={<LiveRates />} />
           <Route path="/signin" element={<LoginFlowWelcome />} />
-          <Route path="/userprofile" element={<Wallet accountFirstName={accountFirstName} accountLastName = {accountLastName}/>} />
-          <Route path="/dashboard" element={<Wallet accountFirstName={accountFirstName} accountLastName = {accountLastName}/>} />
+          <Route path="/userprofile" element={<Wallet accountName={accountName} />} />
+          <Route path="/dashboard" element={<Wallet accountName={accountName}/>} />
           <Route path="/home" element={<LandingMain />}></Route>
           <Route path="/features" element={<LandingMain />}></Route>
           <Route path="/about" element={<LandingMain />}></Route>
