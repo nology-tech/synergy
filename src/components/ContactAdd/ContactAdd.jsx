@@ -36,7 +36,27 @@ const ContactAdd = () => {
   // From Submit to go back to the contact page
   const handleSubmit = (event) => {
     setWorkflowStage("contactContainer");
+    postCreateAccount()
   };
+
+  const postCreateAccount=()=>{
+    fetch('http://localhost:8080/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        userID: "",
+        firstName:recipientName,
+        contactFlag: 1
+      })
+    })
+    .then((response) => response.json())
+    .then((json => {
+      console.log(json)
+    }))
+    .catch(err => console.log(err))
+  }
 
   const handleCancel = (event) => {
     setWorkflowStage("contactContainer");

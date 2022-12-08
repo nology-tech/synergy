@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./TransferAddRecipient.scss";
 import blackcross from "../../assets/images/black-cross.png";
 import Button from "../Button/Button";
@@ -22,6 +22,17 @@ const TransferAddRecipient = (props) => {
     handleBankRecipient,
     handleSortCodeRecipient,
   } = props;
+
+  const [contact, setContact] = useState({
+    firstName: recipientName,
+    lastName: "",
+    email:"",
+    address_houseNum:"",
+    address_streetName:"",
+    address_city:"",
+    address_postCode:"",
+    contactFlag:1
+  })
 
   const currencyJSX = currency.map((currency) => (
     <option name={currency.code}>
