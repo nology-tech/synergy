@@ -8,7 +8,8 @@ import Button from "../../components/Button/Button";
 import currency from "../../data/currency.js";
 
 const BankDetails = (props) => {
-  const {accountFirstName, handleAccountFirstName, accountLastName, handleAccountLastName}=props;
+  const {accountName, handleAccountName}=props;
+ // const {accountName, handleAccountName, accountLastName, handleAccountLastName}=props;
   const [accountNum, setAccountNum] = useState();
   const [accountCurr, setAccountCurr] = useState();
   const [sortCode, setSortCode] = useState("");
@@ -51,16 +52,16 @@ const BankDetails = (props) => {
             <form className="bankDetailsForm">
               {/* Labels and inputs for form data */}
               <div className="bankDetailsForm__div">
-                <label>Account First Name</label>
+                <label>Account Name</label>
                 <input
-                  onChange={handleAccountFirstName}
+                  onChange={handleAccountName}
                   className="input"
-                  value={accountFirstName}
+                  value={accountName}
                   type="text"
                 />
               </div>
                {/* Labels and inputs for form data */}
-               <div className="bankDetailsForm__div">
+               {/* <div className="bankDetailsForm__div">
                 <label>Account Last Name</label>
                 <input
                   onChange={handleAccountLastName}
@@ -68,7 +69,7 @@ const BankDetails = (props) => {
                   value={accountLastName}
                   type="text"
                 />
-              </div>
+              </div> */}
               <div className="bankDetailsForm__div">
                 <label>Account Number</label>
                 <input
@@ -104,7 +105,7 @@ const BankDetails = (props) => {
                   </button>
                 </Link>
                 <Link to="/billingaddress">
-                {console.log(accountFirstName)}
+                {console.log(accountName)}
                   <Button 
                     buttonStyle={"btn button-blue"}
                     buttonType={"submit"} 
