@@ -2,27 +2,48 @@ import React from "react";
 import "./TransferAddRecipient.scss";
 import blackcross from "../../assets/images/black-cross.png";
 import Button from "../Button/Button";
+import currency from "../../data/currency.js";
+import banks from "../../data/banks.js";
 
 const TransferAddRecipient = (props) => {
   const {
     recipientName,
     accountTypeRecipient,
     accountNumRecipient,
+    currencyRecipient,
+    bankRecipient,
     sortCodeRecipient,
     handleContinueButton,
     handleCloseWindow,
     handleRecipientName,
     handleAccountTypeRecipient,
     handleAccountNumRecipient,
+    handleCurrencyRecipient,
+    handleBankRecipient,
     handleSortCodeRecipient,
   } = props;
 
+  const currencyJSX = currency.map((currency) => (
+    <option name={currency.code}>
+      {" "}
+      {currency.code} - {currency.name}
+    </option>
+  ));
+
+  const bankJSX = banks.map((bank) => (
+    <option name={bank.bankName}>{bank.bankName}</option>
+  ));
 
   return (
     <>
       <div className="transfer-add-recipient"></div>
       <div className="transfer-add-recipient__main">
-          <img src={blackcross} alt="Close menu" className="blackcross" onClick={handleCloseWindow} />
+        <img
+          src={blackcross}
+          alt="Close menu"
+          className="blackcross"
+          onClick={handleCloseWindow}
+        />
         <h1>Add Recipient</h1>
         <div className="transfer-add-recipient__main__details">
           <h3>Recipient Name</h3>
@@ -44,10 +65,39 @@ const TransferAddRecipient = (props) => {
             className="input"
             value={accountNumRecipient}
           />
+          <h3>Account Currency</h3>
+          {/* <input onChange={handleCurrencyRecipient} className="input" 
+          value={currencyRecipient}
+           /> */}
+          {currencyRecipient ? (
+            <p>{currencyRecipient}</p>
+          ) : (
+            <select
+              onChange={handleCurrencyRecipient}
+              className="input"
+              value={currencyRecipient}
+            >
+              {currencyJSX}
+            </select>
+          )}
+
+          <h3>Bank</h3>
+          {/* <input onChange={handleBankRecipient} className="input" 
+          value={bankRecipient}
+           /> */}
+          <select
+            onChange={handleBankRecipient}
+            className="input"
+            value={bankRecipient}
+          >
+            {bankJSX}
+          </select>
           <h3>Sort Code</h3>
-          <input onChange={handleSortCodeRecipient} className="input" 
-          value={sortCodeRecipient}
-           />
+          <input
+            onChange={handleSortCodeRecipient}
+            className="input"
+            value={sortCodeRecipient}
+          />
         </div>
         <div className="transfer-add-recipient__main__options">
           <a

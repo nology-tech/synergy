@@ -13,11 +13,10 @@ import TransferTransactionSend from "../TransferTransactionSend/TransferTransact
 const TransferMakeTransfer = (props) => {
   const {
     transferWorkflowStage,
-    currencyBaseCode,
-    currencyRecipientCode,
+    currencyBase,
+    currencyTo,
     amountBase,
     amountReceived,
-    fxRate,
     fee,
     username,
     accountBalance,
@@ -31,6 +30,15 @@ const TransferMakeTransfer = (props) => {
     sortCodeContactRecipient
   } = props;
 
+  //set variables for previous code when passing transfer currencies on an array format
+  // (CurrencyBase & CurrencyTo)
+  const currencyBaseCode = currencyBase.code;
+  const currencyBaseSymbol = currencyBase.symbol;
+  const currencyRecipientCode = currencyTo.code;
+  const fxRate = currencyTo.rate;
+  const currencyToSymbol = currencyTo.symbol;
+  const currencyRecipient = currencyTo.code + " - "+ currencyTo.symbol;
+  
   const accountFormTypes = true;
 
   // handle navigation
@@ -57,6 +65,7 @@ const TransferMakeTransfer = (props) => {
     setRecipientName("");
     setAccountTypeRecipient("");
     setAccountNumRecipient("");
+    setBankRecipient("");
     setSortCodeRecipient("");
   };
 
@@ -90,6 +99,7 @@ const TransferMakeTransfer = (props) => {
     setRecipientName("");
     setAccountTypeRecipient("");
     setAccountNumRecipient("");
+    setBankRecipient("");
     setSortCodeRecipient("");
   };
 
@@ -97,6 +107,7 @@ const TransferMakeTransfer = (props) => {
   const [recipientName, setRecipientName] = useState("");
   const [accountTypeRecipient, setAccountTypeRecipient] = useState();
   const [accountNumRecipient, setAccountNumRecipient] = useState();
+  const [bankRecipient, setBankRecipient] = useState();
   const [sortCodeRecipient, setSortCodeRecipient] = useState("");
 
   // Handling the recipient name input field change
@@ -115,6 +126,13 @@ const TransferMakeTransfer = (props) => {
   const handleAccountNumRecipient = (e) => {
     e.preventDefault();
     setAccountNumRecipient(e.target.value);
+  };
+
+  
+  // Handling the account currency input field change
+  const handleBankRecipient = (e) => {
+    e.preventDefault();
+    setBankRecipient(e.target.value);
   };
 
   // Handling the sort code input field change
@@ -149,18 +167,22 @@ const TransferMakeTransfer = (props) => {
             username={username}
             accountNum={accountNum}
             sortCode={sortCode}
-          />
+            currencyBaseSymbol={currencyBaseSymbol}
+            />
           <TransferAddRecipient
             handleContinueButton={handleContinueButton}
             handleGoBack={handleGoBack}
             handleRecipientName={handleRecipientName}
             handleAccountTypeRecipient={handleAccountTypeRecipient}
             handleAccountNumRecipient={handleAccountNumRecipient}
+            handleBankRecipient={handleBankRecipient}
             handleSortCodeRecipient={handleSortCodeRecipient}
             handleCloseWindow={handleCloseWindow}
             recipientName={recipientName}
             accountTypeRecipient={accountTypeRecipient}
             accountNumRecipient={accountNumRecipient}
+            currencyRecipient={currencyRecipient}
+            bankRecipient={bankRecipient}
             sortCodeRecipient={sortCodeRecipient}
           />
         </>
@@ -176,12 +198,15 @@ const TransferMakeTransfer = (props) => {
             username={username}
             accountNum={accountNum}
             sortCode={sortCode}
+            currencyBaseSymbol={currencyBaseSymbol}
           />
 
           <TransferConfirmRecipient
             recipientName={recipientName}
             accountTypeRecipient={accountTypeRecipient}
             accountNumRecipient={accountNumRecipient}
+            currencyRecipient={currencyRecipient}
+            bankRecipient={bankRecipient}
             sortCodeRecipient={sortCodeRecipient}
             handleGoBack={handleGoBack}
             handleCloseWindow={handleCloseWindow}
@@ -241,6 +266,7 @@ const TransferMakeTransfer = (props) => {
           <div className="transfer-transaction-send">
             <TransferTransactionSend
               currencyBaseCode={currencyBaseCode}
+              fxRate={fxRate}
               amountBase={amountBase}
               accountFormTypes={accountFormTypes}
               username={username}
@@ -251,10 +277,14 @@ const TransferMakeTransfer = (props) => {
               currencyRecipientCode={currencyRecipientCode}
               recipientName={recipientName}
               accountNumRecipient={accountNumRecipient}
+              currencyRecipient={currencyRecipient}
+              bankRecipient={bankRecipient}  
               sortCodeRecipient={sortCodeRecipient}
               amountReceived={amountReceived}
               handleCancel={handleCancel }
               handleSend= {handleSend}
+              currencyBaseSymbol={currencyBaseSymbol}
+              currencyToSymbol={currencyToSymbol}
             />
           </div>
         </>
@@ -283,11 +313,10 @@ const TransferMakeTransfer = (props) => {
         {/* Display the screen with FX transaction details */}
         {transferWorkflowStage === "fxTransaction" ? (
           <FxTransaction
-            currencyBaseCode={currencyBaseCode}
-            currencyRecipientCode={currencyRecipientCode}
+            currencyBase={currencyBase}
+            currencyRecipient={currencyTo}
             amountBase={amountBase}
             amountReceived={amountReceived}
-            fxRate={fxRate}
             fee={fee}
           />
         ) : (
