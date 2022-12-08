@@ -7,18 +7,13 @@ import SignInNav from "../../components/SignInNav/SignInNav";
 import Button from "../../components/Button/Button";
 import currency from "../../data/currency.js";
 
-const BankDetails = () => {
-  const [accountName, setAccountName] = useState("");
+const BankDetails = (props) => {
+  const {accountName, handleAccountName}=props;
   const [accountNum, setAccountNum] = useState();
   const [accountCurr, setAccountCurr] = useState();
   const [sortCode, setSortCode] = useState("");
 
-  // Handling the account name input field change
-  const handleAccountName = (e) => {
-    e.preventDefault();
-    setAccountName(e.target.value.toString());
-  };
-
+  
   // Handling the account number input field change
   const handleAccountNum = (e) => {
     e.preventDefault();
@@ -99,6 +94,7 @@ const BankDetails = () => {
                   </button>
                 </Link>
                 <Link to="/billingaddress">
+                {console.log(accountName)}
                   <Button 
                     buttonStyle={"btn button-blue"}
                     buttonType={"submit"} 

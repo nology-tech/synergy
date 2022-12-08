@@ -9,25 +9,18 @@ import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import synergyLogo from "../../assets/images/synergy_main_logo.png";
 
-const CreateAccount = () => {
-  const [email, setEmail] = useState("");
+const CreateAccount = (props) => {
+  const {email, handleEmail, validEmail}=props;
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
   const [passwordType, setPasswordType] = useState("password");
   const [ConfirmedPasswordType, setConfirmedPasswordType] = useState("password");
 
-  const [validEmail, setValidEmail] = useState(false);
+ 
   const [validPassword, setValidPassword] = useState(false);
   const [validConfirmedPassword, setValidConfirmedPassword] = useState(false);
 
-  // Handling the email input field change
-  const handleEmail = (e) => {
-    e.preventDefault();
-    const tempEmail = e.target.value.toString();
-    setEmail(tempEmail);
-    // calls the validateEmail function and sets the boolean flag
-    validateEmail(tempEmail) ? setValidEmail(true) : setValidEmail(false);
-  };
+
 
   // Handling the password input field change
   const handlePassword = (e) => {
@@ -48,10 +41,7 @@ const CreateAccount = () => {
       : setValidConfirmedPassword(false);
   };
 
-  // validates whether the email address contains @
-  const validateEmail = (email) => {
-    return email.toString().includes("@");
-  };
+
 
   // validates whether the password contains 8 chars and 1 uppercase letter
   const validatePassword = (password) => {
@@ -181,6 +171,7 @@ const CreateAccount = () => {
                 }
                 buttonText={`Continue ▶`} 
               /> */}
+              {console.log(email)}
               <button
                 className="CreateAccountForm__btn"
                 type="submit"
