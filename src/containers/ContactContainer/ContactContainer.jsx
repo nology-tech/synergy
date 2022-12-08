@@ -8,12 +8,11 @@ import UserContacts from "../../components/UserContacts/UserContacts";
 
 
 const ContactContainer = (props) => {
-  const {walletOn} = props;
+  const {walletOn, onClick} = props;
   
   // Setting up the search box
   const [searchTerm, setSearchTerm] = useState("");
 
-  const { onClick } = props;
 
   const handleInput = (event) => {
     const cleanInput=event.target.value.toLowerCase();
@@ -62,6 +61,7 @@ const ContactContainer = (props) => {
             handleInput={handleInput}
             // onSearchClick={onSearchClick}
           />
+          {onClick ? (
             <Button
             buttonStyle={"button-transparent contactSearch-AddButton"}
             buttonText={"＋ Add"}
@@ -69,6 +69,9 @@ const ContactContainer = (props) => {
             // value="Add"
             // type="submit"
           />
+          ) :<></>
+          }
+
         </div>
       </div>
       {walletOn
