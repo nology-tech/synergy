@@ -10,7 +10,7 @@ import LoginFlowWelcome from "./components/LoginFlowWelcome/LoginFlowWelcome";
 import BankDetails from "./containers/BankDetails/BankDetails";
 import BillingAddress from "./containers/BillingAddress/BillingAddress";
 import LandingMain from "./containers/LandingMain/LandingMain";
-import ContactListPage from "./components/ContactListPage/ContactListPage";
+// import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
 import Wallet from "./containers/Wallet/Wallet";
 
@@ -18,7 +18,7 @@ import CurrencyConverterContainer from "./containers/CurrencyConverterContainer/
 import currency from "./data/currency";
 import TransferMakeTransfer from "./components/TransferMakeTransfer/TransferMakeTransfer";
 import ContactAdd from "./components/ContactAdd/ContactAdd";
-import Search from "./components/Search/Search";
+// import Search from "./components/Search/Search";
 
 const App = () => {
   //user Information
@@ -178,12 +178,12 @@ const handleAccountName = (e) => {
           />} />
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
-          <Route path="/wallet" element={<Wallet accountName={accountName} />} />
+          <Route path="/wallet" element={<Wallet username={username} />} />
           <Route path="/contacts" element={<ContactAdd />} />
           <Route path="/liverates" element={<LiveRates />} />
           <Route path="/signin" element={<LoginFlowWelcome />} />
-          <Route path="/userprofile" element={<Wallet accountName={accountName} />} />
-          <Route path="/dashboard" element={<Wallet accountName={accountName}/>} />
+          <Route path="/userprofile" element={<Wallet username={username} />} />
+          <Route path="/dashboard" element={<Wallet username={username}/>} />
           <Route path="/home" element={<LandingMain />}></Route>
           <Route path="/features" element={<LandingMain />}></Route>
           <Route path="/about" element={<LandingMain />}></Route>

@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 
 
 const DashboardHeader = (props) => {
-  const {accountFirstName, accountLastName}=props;
+  const {username}=props;
     
     let profileImg = profile;
-    let profileName = accountFirstName + " " + accountLastName;
+    let profileName = username;
     const downImg = chevron;
 
   return (

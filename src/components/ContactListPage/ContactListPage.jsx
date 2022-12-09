@@ -7,13 +7,13 @@ import DashboardHeader from '../DashboardHeader/DashboardHeader';
 
 const ContactListPage = (props) => {
 
-  const { handleAddContact } = props;
+  const { handleAddContact,username } = props;
 
   return (
         <div className="dashboardPage">
                 <NavMenu />
             <div className='dashboardPage__right'>
-                <DashboardHeader  />
+                <DashboardHeader username={username} />
                 <ContactContainer 
                   onClick = {handleAddContact}
                 />
