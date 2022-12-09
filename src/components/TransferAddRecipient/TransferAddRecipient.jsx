@@ -1,11 +1,15 @@
+
 import React, { useState } from "react";
 import Select from "react-select";
+
 import "./TransferAddRecipient.scss";
 import blackcross from "../../assets/images/black-cross.png";
 import Button from "../Button/Button";
 import currency from "../../data/currency.js";
 
+
 //import banks from "../../data/banks.js";
+
 
 const TransferAddRecipient = (props) => {
   const {
@@ -26,14 +30,27 @@ const TransferAddRecipient = (props) => {
     handleSortCodeRecipient,
   } = props;
 
+  const [contact, setContact] = useState({
+    firstName: recipientName,
+    lastName: "",
+    email:"",
+    address_houseNum:"",
+    address_streetName:"",
+    address_city:"",
+    address_postCode:"",
+    contactFlag:1
+  })
+
   const currencyJSX = currency.map((currency) => (
     <option name={currency.code}>
       {" "}
       {currency.code} - {currency.name}
     </option>
+
   ));
 
   
+
 
   return (
     <>
@@ -70,17 +87,24 @@ const TransferAddRecipient = (props) => {
           {/* <input onChange={handleCurrencyRecipient} className="input" 
           value={currencyRecipient}
            /> */}
-          <select
-            onChange={handleCurrencyRecipient}
-            className="input"
-            value={currencyRecipient}
-          >
-            {currencyJSX}
-          </select>
+
+          {currencyRecipient ? (
+            <p>{currencyRecipient}</p>
+          ) : (
+            <select
+              onChange={handleCurrencyRecipient}
+              className="input"
+              value={currencyRecipient}
+            >
+              {currencyJSX}
+            </select>
+          )}
+
           <h3>Bank</h3>
           {/* <input onChange={handleBankRecipient} className="input" 
           value={bankRecipient}
            /> */}
+
           
           <Select
             className="input"
@@ -96,6 +120,7 @@ const TransferAddRecipient = (props) => {
           />
           
           
+
 
           <h3>Sort Code</h3>
           <input

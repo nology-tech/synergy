@@ -6,36 +6,8 @@ import synergyLogo from "../../assets/images/synergy_main_logo.png";
 import SignInNav from "../../components/SignInNav/SignInNav";
 import Button from "../../components/Button/Button";
 
-const BillingAddress = () => {
-  const [houseNum, setHouseNum] = useState();
-  const [streetName, setStreetName] = useState("");
-  const [city, setCity] = useState("");
-  const [postcode, setPostcode] = useState("");
-
-  // Handling the street name input field change
-  const handleStreetName = (e) => {
-    e.preventDefault();
-    setStreetName(e.target.value.toString());
-  };
-
-  // Handling the house number input field change
-  const handleHouseNum = (e) => {
-    e.preventDefault();
-    setHouseNum(e.target.value);
-  };
-
-  // Handling the city input field change
-  const handleCity = (e) => {
-    e.preventDefault();
-    setCity(e.target.value.toString());
-  };
-
-  // Handling the postcode input field change
-  const handlePostCode = (e) => {
-    e.preventDefault();
-    setPostcode(e.target.value.toString());
-  };
-
+const BillingAddress = (props) => {
+  const {houseNum, handleHouseNum, streetName, handleStreetName,city,handleCity, postcode,handlePostCode,handleCreateAccount}=props;
   return (
     <>
       <SignInNav title="Login" />
@@ -95,7 +67,9 @@ const BillingAddress = () => {
                     Go Back
                   </button>
                 </Link>
-                <Button buttonStyle={"btn button-blue billingAddressForm__btn"} type="submit" buttonText={"Create Account"} />
+                <Link to="/dashboard">
+                    <Button buttonStyle={"btn button-blue billingAddressForm__btn"} buttonText={"Create Account"} onClick={handleCreateAccount}/>
+                </Link>
                 {/* <button className="billingAddressForm__btn" type="submit">
                   Create Account
                 </button> */}

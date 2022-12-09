@@ -4,7 +4,6 @@ import "./Button.scss";
 const Button = (props) => {
 
   const { buttonStyle, isDisabled, onClick, buttonType, buttonImg, buttonText } = props;
-  console.log(buttonText);
 
   if (buttonText == 'Sign Out') {
   return (
