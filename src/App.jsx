@@ -22,6 +22,9 @@ import Search from "./components/Search/Search";
 
 const App = () => {
   //user Information
+  const [email, setEmail] = useState("");
+  const [accountName, setAccountName] = useState("");
+  const [validEmail, setValidEmail] = useState(false);
   const [username, setUserName] = useState("Samantha Brooks"); //shall be replaced by a function on login
   const [accountNum, setAccountNum] = useState("123456789"); // shall be replaced by a function on login
   const [sortCode, setSortCode] = useState("012345"); // shall be replaced by a function on login
@@ -43,17 +46,56 @@ const setBaseAndToCurrencies = (json) => {
     setFxRate(json[1].rate)
 }
 
+const [houseNum, setHouseNum] = useState();
+  const [streetName, setStreetName] = useState("");
+  const [city, setCity] = useState("");
+  const [postcode, setPostcode] = useState("");
+
+  const [account, setAccount]=useState({userID:"",
+  firstName:"",
+  lastName:"",
+  email:"",
+  address_houseNum:"",
+  address_streetName:"",
+  address_city:"",
+  address_state:"",
+  address_postCode:"",
+  contactFlag: 0
+}
+)
 
   useEffect(() => {getCurrencyLiveRates();}, []);
 
+     // Handling the street name input field change
+     const handleStreetName = (e) => {
+      e.preventDefault();
+      setStreetName(e.target.value.toString());
+    };
+  
+    // Handling the house number input field change
+    const handleHouseNum = (e) => {
+      e.preventDefault();
+      setHouseNum(e.target.value);
+    };
+
+    // Handling the city input field change
+    const handleCity = (e) => {
+      e.preventDefault();
+      setCity(e.target.value.toString());
+    };
 
   //Details of the  transfer
-
   const [baseCurrency, setBaseCurrency] = useState("");
   const [toCurrency, setToCurrency] = useState("");
-
   const [amount, setAmount] = useState("");
   const [convertedAmount, setConvertedAmount] = useState("");
+
+  // Handling the postcode input field change
+  const handlePostCode = (e) => {
+    e.preventDefault();
+    setPostcode(e.target.value.toString());
+  };
+
   // fx should come from Live rates on Send button click, temporary setting to EUR rate from data file
   // const [fxRate, setFxRate] = useState(currency[1].rate);
   const [fxRate, setFxRate] = useState(1);
@@ -69,21 +111,90 @@ const setBaseAndToCurrencies = (json) => {
   // Setting up the search box
   const [searchTerm, setSearchTerm] = useState("");
 
+    // Handling the email input field change
+    const handleEmail = (e) => {
+      e.preventDefault();
+      const tempEmail = e.target.value.toString();
+      setEmail(tempEmail);
+      // calls the validateEmail function and sets the boolean flag
+      validateEmail(tempEmail) ? setValidEmail(true) : setValidEmail(false);
+    };
+  
+      // validates whether the email address contains @
+  const validateEmail = (email) => {
+    return email.toString().includes("@");
+  };
+  
+  // Handling the account name input field change
+  const handleAccountName = (e) => {
+  e.preventDefault();
+  setAccountName(e.target.value.toString());
+  };
+
+
   // this handle reads the search text  
   const handleInput = (event) => {
     const cleanInput=event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
   };
 
-//hola
+  const handleCreateAccount = () => {
+    setAccount({
+      firstName:accountName,
+      lastName:"",
+      email:email,
+      address_houseNum:houseNum,
+      address_streetName:streetName,
+      address_city:city,
+      address_state:"NY",
+      address_postCode:postcode,
+      contactFlag: 0
+    });
+    postCreateAccount()
+
+  };
+
+  const postCreateAccount=()=>{
+    fetch('http://localhost:8080/createContact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(account)
+    })
+    .then((response) => response.json())
+    .then((json => console.log(json)))
+    .catch(err => console.log(err))
+  }
+
   return (
     <Router>
       <div>
         <Routes>
           <Route path="/" element={<LandingMain />} />
-          <Route path="/signup" element={<SignUpMain />} />
-          <Route path="/bankdetails" element={<BankDetails />} />
-          <Route path="/billingaddress" element={<BillingAddress />} />
+          {/* <Route path="/signup" element={<SignUpMain />} /> */}
+          <Route path="/signup" element={<SignUpMain 
+          email={email}
+          handleEmail={handleEmail}
+          validEmail={validEmail}
+          />} />
+          {/* <Route path="/bankdetails" element={<BankDetails />} /> */}
+          <Route path="/bankdetails" element={<BankDetails 
+            accountName={accountName}
+            handleAccountName={handleAccountName}
+          />} />
+          {/* <Route path="/billingaddress" element={<BillingAddress />} /> */}
+          <Route path="/billingaddress" element={<BillingAddress 
+            houseNum={houseNum}
+            handleHouseNum={handleHouseNum}
+            streetName={streetName}
+            handleStreetName={handleStreetName}
+            city={city}
+            handleCity={handleCity}
+            postcode={postcode}
+            handlePostCode={handlePostCode}
+            handleCreateAccount={handleCreateAccount}
+          />} />
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
           <Route path="/wallet" element={<Wallet />} />
