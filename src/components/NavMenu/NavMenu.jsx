@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import {FiLogOut} from "react-icons/fi";
 
-const NavMenu = () => {
+const NavMenu = (props) => {
   const walletImg = wallet;
   const ratesImg = liverates;
   const convertImg = convert;
@@ -19,6 +19,12 @@ const NavMenu = () => {
   const transferImg = transfer;
   const signoutImg = signout;
   const buttonSignOut = <FiLogOut />; 
+
+  const {username} = props;
+  const handleNameReset=() => {
+    const username = "";
+    console.log (username);
+  }
 
   return (
     <div className="sidemenu-wrapper" id="slide">
@@ -65,6 +71,7 @@ const NavMenu = () => {
             buttonStyle={"btn button-blue sidemenu__logout"}
             buttonText={"Sign Out"} 
             buttonImg={buttonSignOut}
+            onClick={handleNameReset}
           />
         </Link>
       </div>
