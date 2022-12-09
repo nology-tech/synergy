@@ -116,7 +116,7 @@ const handleAccountName = (e) => {
   };
 
   const handleCreateAccount = (e) => {
-    
+    setUserName(accountName)
     // setAccount();    
     postCreateAccount()
  
