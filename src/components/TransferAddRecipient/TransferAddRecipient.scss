@@ -75,6 +75,25 @@
       }
     }
 
+    .bank-input{
+      display: flex;
+      justify-content: flex-start;
+
+      &__image {
+        width: 60px;
+        text-align: center;
+        margin-right: 5px;
+      }
+      &__name {
+        padding: 10px;
+        font-family: $title-font-family;
+        font-size: 25px;
+        text-align: center;
+        margin-left: 5px;
+      }
+
+    }
+
     &__options {
       text-align: right;
       margin: 20px 60px;

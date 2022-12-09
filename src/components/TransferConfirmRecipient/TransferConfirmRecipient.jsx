@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./TransferConfirmRecipient.scss";
 import Button from "../Button/Button";
 import blackcross from "../../assets/images/black-cross.png";
@@ -17,6 +17,9 @@ const TransferConfirmRecepient = (props) => {
     workflowStage,
     handleSubmit,
   } = props;
+
+  
+
 
   const displayConfirmRecipient = () => {
     if (workflowStage === "addRecipientConfirmed") {
@@ -67,11 +70,12 @@ const TransferConfirmRecepient = (props) => {
         </div>
         <div className="transfer-confirm-recepient__main__options">
           {displayConfirmRecipient()}
-          <Button
-            buttonStyle={"btn button-blue"}
-            buttonText={"Submit"}
-            onClick={handleSubmit}
-          />
+            <Button
+              buttonStyle={"btn button-blue"}
+              buttonText={"Submit"}
+              onClick={handleSubmit}
+              // onClick={handleContactSubmit}
+            />
         </div>
       </div>
     </>
