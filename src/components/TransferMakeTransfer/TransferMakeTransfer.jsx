@@ -290,7 +290,7 @@ const TransferMakeTransfer = (props) => {
         <NavMenu />
       </div>
       <main className="transfer-currency__main">
-        <DashboardHeader />
+        <DashboardHeader username={username} />
         <div className="transfer-currency__main__header">
           <h2>Transfer</h2>
           <h1>Make Transfer</h1>

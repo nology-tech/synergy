@@ -8,7 +8,8 @@ const SignUpMain = (props) => {
     // <div className="signup-main-container">
     <div className="signin__page">
       <SignInNav title="Login" />
-      <div className="signupmain__container"><CreateAccount 
+      <div className="signupmain__container">
+        <CreateAccount 
                 email={email}
                 handleEmail={handleEmail}
                 validEmail={validEmail}

@@ -8,7 +8,7 @@ import DashboardHeader from '../DashboardHeader/DashboardHeader';
 const ContactListPage = (props) => {
 
   const { handleAddContact,username } = props;
-
+  console.log (username);
   return (
         <div className="dashboardPage">
                 <NavMenu />

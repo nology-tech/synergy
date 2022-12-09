@@ -179,7 +179,7 @@ const handleAccountName = (e) => {
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
           <Route path="/wallet" element={<Wallet username={username} />} />
-          <Route path="/contacts" element={<ContactAdd />} />
+          <Route path="/contacts" element={<ContactAdd username={username}/>} />
           <Route path="/liverates" element={<LiveRates />} />
           <Route path="/signin" element={<LoginFlowWelcome />} />
           <Route path="/userprofile" element={<Wallet username={username} />} />

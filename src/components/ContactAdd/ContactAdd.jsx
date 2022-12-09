@@ -5,10 +5,12 @@ import TransferAddRecipient from "../TransferAddRecipient/TransferAddRecipient";
 import TransferConfirmRecipient from "../TransferConfirmRecipient/TransferConfirmRecipient";
 import ContactListPage from "../ContactListPage/ContactListPage";
 
-const ContactAdd = () => {
+const ContactAdd = (props) => {
 
   // handle navigation
   const [workflowStage, setWorkflowStage] = useState("contactContainer");
+  const {username} = props; 
+  console.log (username);
 
   console.log(workflowStage);
 
@@ -104,11 +106,11 @@ const ContactAdd = () => {
   //function to display different stages of adding contact
   const displayCurrentView = () => {
     if (workflowStage === "contactContainer") {
-      return <ContactListPage handleAddContact={handleAddContact} />;
+      return <ContactListPage handleAddContact={handleAddContact} username={username}/>;
     } else if (workflowStage === "addRecipient") {
       return (
         <>
-          <ContactListPage handleAddContact={handleAddContact} />
+          <ContactListPage handleAddContact={handleAddContact} username={username}/>
           <TransferAddRecipient
             handleContinueButton={handleContinueButton}
             handleGoBack={handleGoBack}
@@ -127,7 +129,7 @@ const ContactAdd = () => {
     } else if (workflowStage === "addRecipientConfirmed") {
       return (
         <>
-          <ContactListPage handleAddContact={handleAddContact} />
+          <ContactListPage handleAddContact={handleAddContact} username={username}/>
           <TransferConfirmRecipient
             recipientName={recipientName}
             accountTypeRecipient={accountTypeRecipient}
