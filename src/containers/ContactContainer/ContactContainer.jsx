@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Search from "../../components/Search/Search";
 import "./ContactContainer.scss";
 import ContactList from "../../components/ContactList/ContactList";
-import contacts from "../../data/Contacts";
+// import contacts from "../../data/Contacts";
 import Button from "../../components/Button/Button";
 import UserContacts from "../../components/UserContacts/UserContacts";
 
@@ -19,9 +19,19 @@ const ContactContainer = (props) => {
     setSearchTerm(cleanInput);
   };
   
+  const [contacts, setContacts] = useState([]);
+  
+  const getContacts = () => {
+      fetch("http://localhost:8080/contacts/1000000")
+        .then(res => res.json())
+        .then(json => setContacts(json))
+        .catch(err => console.log(err))
+    }
+  useEffect(() => {getContacts();}, []);
+
+  
   // Filter contact using search
   const filteredContactsArray = contacts.filter((contact) => {
-    console.log(`SearchTerm = ${searchTerm}`);
     const contactfirstName = contact.firstName.toLowerCase();
     const contactLastName = contact.lastName.toLowerCase();
     const contactBank = contact.bankName.toLowerCase();
@@ -74,10 +84,11 @@ const ContactContainer = (props) => {
 
         </div>
       </div>
-      {walletOn
-        ? <UserContacts contactsArray={filteredContactsArray} onContactClick={onContactClick} onDelete={onContactDelete}/>
-        : <ContactList contactsArray={filteredContactsArray} onContactClick={onContactClick} onDelete={onContactDelete} />
-      }
+        {/* {walletOn
+          ? <UserContacts contactsArray={filteredContactsArray} onContactClick={onContactClick} onDelete={onContactDelete}/>
+          : <ContactList contactsArray={filteredContactsArray} onContactClick={onContactClick} onDelete={onContactDelete} />
+        } */}
+        {contacts ? <ContactList contactsArray={filteredContactsArray} onContactClick={onContactClick} onDelete={onContactDelete} /> : ""}
     </div>
   );
 };
