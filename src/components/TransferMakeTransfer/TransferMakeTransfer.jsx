@@ -265,6 +265,7 @@ const TransferMakeTransfer = (props) => {
             workflowStage={workflowStage}
             searchTerm={searchTerm}
             handleInput={handleInput}
+            currencyRecipientCode={currencyRecipientCode}
           />
         </>
       );
