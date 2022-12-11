@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./UserContacts.scss";
-import userContacts from '../../data/UserContactList';
-import users from '../../data/Users';
-import contacts from '../../data/Contacts';
-import ContactRow from "../ContactRow/ContactRow";    
+// import userContacts from '../../data/UserContactList';
+// import users from '../../data/Users';
+// import contacts from '../../data/Contacts';
+// import ContactRow from "../ContactRow/ContactRow";    
 import ContactList from "../ContactList/ContactList";
 import UserContactList from "../../data/UserContactList";
 
