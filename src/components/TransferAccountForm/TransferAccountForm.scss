@@ -13,9 +13,8 @@
 
   &__username {
     color: $color-middle-blue;
-    font-size: 16px;
     font-weight: 500;
-    font-size: 16px bold;
+    font-size: 18px bold;
   }
 
   &__details {
@@ -24,7 +23,7 @@
 
     p,
     h3 {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 400;
       color: $color-font-light-gray;
     }
@@ -37,7 +36,7 @@
   &__total {
     border-top: 1px solid $color-background-clear;
     width: 100%;
-    padding-top: 10px;
+    padding-top: 12px;
     padding-bottom: 0px;
 
     &__amount {
@@ -46,7 +45,7 @@
 
       h3,
       p {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 400;
         text-align: right;
         color: $color-black;
@@ -57,7 +56,7 @@
       display: flex;
       justify-content: space-between;
       // padding-top: 10px;
-      font-size: 12px;
+      font-size: 14px;
       text-align: right;
       color: $color-font-light-gray;
 

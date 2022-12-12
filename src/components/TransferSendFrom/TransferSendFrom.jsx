@@ -14,7 +14,8 @@ const TransferSendFrom = (props) => {
     accountNum,
     sortCode,
     handlePaySomeOneNew,
-    onClick
+    onClick,
+    currencyBaseSymbol
   } = props;
 
   return (
@@ -28,6 +29,7 @@ const TransferSendFrom = (props) => {
       username={username}
       accountNum={accountNum}
       sortCode={sortCode}
+      currencyBaseSymbol={currencyBaseSymbol}
     />
     <div className="transfer-send-form__to">
       <h2>To</h2>

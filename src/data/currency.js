@@ -1,6 +1,5 @@
 const currency = [
     {
-        "id": 1,
         "img": "https://flagcdn.com/16x12/us.png",
 
         "name": "US Dollar",        
@@ -10,7 +9,6 @@ const currency = [
         "symbol": "$"
     },
     {    
-        "id": 2,
         "img": "https://flagcdn.com/16x12/eu.png",
         "name": "Euro",
         "code": "EUR",

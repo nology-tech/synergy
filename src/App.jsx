@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 
 import "./App.scss";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, redirect } from "react-router-dom";
 import SignUpMain from "./components/SignUp/SignUpMain";
 import ForgottenPassword from "./components/ForgottenPassword/ForgottenPassword";
 import LoginFlowChangePsw from "./components/LoginFlowChangePsw/LoginFlowChangePsw";
@@ -10,76 +10,103 @@ import LoginFlowWelcome from "./components/LoginFlowWelcome/LoginFlowWelcome";
 import BankDetails from "./containers/BankDetails/BankDetails";
 import BillingAddress from "./containers/BillingAddress/BillingAddress";
 import LandingMain from "./containers/LandingMain/LandingMain";
-import ContactListPage from "./components/ContactListPage/ContactListPage";
+// import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
 import Wallet from "./containers/Wallet/Wallet";
 
 import CurrencyConverterContainer from "./containers/CurrencyConverterContainer/CurrencyConverterContainer";
-import currency from "./data/currency";
+// import currency from "./data/currency";
 import TransferMakeTransfer from "./components/TransferMakeTransfer/TransferMakeTransfer";
 import ContactAdd from "./components/ContactAdd/ContactAdd";
-import Search from "./components/Search/Search";
+// import Search from "./components/Search/Search";
 
 const App = () => {
   //user Information
-  const [email, setEmail] = useState("");
+  const [userEmail, setEmail] = useState("");
   const [accountName, setAccountName] = useState("");
+
+//  const [userEmail, setEmail] = useState("");
+  //  const [accountLastName, setAccountLastName] = useState("");
+
   const [validEmail, setValidEmail] = useState(false);
   const [username, setUserName] = useState("Samantha Brooks"); //shall be replaced by a function on login
   const [accountNum, setAccountNum] = useState("123456789"); // shall be replaced by a function on login
   const [sortCode, setSortCode] = useState("012345"); // shall be replaced by a function on login
-
-
-  //Details of the  transfer
-  
-  const [baseCurrency, setBaseCurrency] = useState(currency[0]);
-  const [toCurrency, setToCurrency] = useState(currency[1]);
-  const [amount, setAmount] = useState("");
-  const [convertedAmount, setConvertedAmount] = useState("");
-  // fx should come from Live rates on Send button click, temporary setting to EUR rate from data file
-  const [fxRate, setFxRate] = useState(currency[1].rate);
 
   const [houseNum, setHouseNum] = useState();
   const [streetName, setStreetName] = useState("");
   const [city, setCity] = useState("");
   const [postcode, setPostcode] = useState("");
 
-  const [account, setAccount]=useState({userID:"",
-  firstName:"",
-  lastName:"",
-  email:"",
-  address_houseNum:"",
-  address_streetName:"",
-  address_city:"",
-  address_state:"",
-  address_postCode:"",
-  contactFlag: 0
-}
-)
+  //Details of the  transfer
+    
+   const [baseCurrency, setBaseCurrency] = useState("");
+   const [toCurrency, setToCurrency] = useState("");
+   const [amount, setAmount] = useState("");
+   const [convertedAmount, setConvertedAmount] = useState("");
+ 
+   
+  // fx should come from Live rates on Send button click, temporary setting to EUR rate from data file
+    const [fxRate, setFxRate] = useState(1);
+    const [amountCode, setAmountCode] = useState("");
 
-  // Handling the street name input field change
-  const handleStreetName = (e) => {
-    e.preventDefault();
-    setStreetName(e.target.value.toString());
-  };
+  // Details for Live Rates
+  const [currency, setCurrency] = useState([]);
+  const getCurrencyLiveRates = async() => {
+    fetch("http://localhost:8080/currencyrates")
+      .then(res => res.json())
+      .then(json => setBaseAndToCurrencies(json))
+      .catch(err => console.log(err))
+  }
 
-  // Handling the house number input field change
-  const handleHouseNum = (e) => {
-    e.preventDefault();
-    setHouseNum(e.target.value);
-  };
+  const setBaseAndToCurrencies = (json) => {
+    setCurrency(json)
+    setBaseCurrency(json[0]);
+    setToCurrency(json[1]);
+    setFxRate(json[1].rate)
+  }
 
-  // Handling the city input field change
-  const handleCity = (e) => {
-    e.preventDefault();
-    setCity(e.target.value.toString());
-  };
+  useEffect(() => {getCurrencyLiveRates();}, []);
+
+    const [account, setAccount]=useState({userID:"",
+      firstName:"",
+      lastName:"",
+      email:"",
+      address_houseNum:"",
+      address_streetName:"",
+      address_city:"",
+      address_state:"",
+      address_postCode:"",
+      contactFlag: 0
+      })
+
+
+     // Handling the street name input field change
+     const handleStreetName = (e) => {
+      e.preventDefault();
+      setStreetName(e.target.value.toString());
+    };
+  
+    // Handling the house number input field change
+    const handleHouseNum = (e) => {
+      e.preventDefault();
+      setHouseNum(e.target.value);
+    };
+
+    // Handling the city input field change
+    const handleCity = (e) => {
+      e.preventDefault();
+      setCity(e.target.value.toString());
+    };
+
+ 
 
   // Handling the postcode input field change
   const handlePostCode = (e) => {
     e.preventDefault();
     setPostcode(e.target.value.toString());
   };
+
 
   // list below shall be replaced from API
   const fee = 0;
@@ -106,11 +133,14 @@ const App = () => {
     return email.toString().includes("@");
   };
   
-// Handling the account name input field change
-const handleAccountName = (e) => {
+
+  // Handling the account name input field change
+  const handleAccountName = (e) => {
   e.preventDefault();
   setAccountName(e.target.value.toString());
-};
+  };
+
+
 
   // this handle reads the search text  
   const handleInput = (event) => {
@@ -118,49 +148,60 @@ const handleAccountName = (e) => {
     setSearchTerm(cleanInput);
   };
 
-  const handleCreateAccount = () => {
-    setAccount({
-      firstName:accountName,
-      lastName:"",
-      email:email,
-      address_houseNum:houseNum,
-      address_streetName:streetName,
-      address_city:city,
-      address_state:"NY",
-      address_postCode:postcode,
-      contactFlag: 0
-    });
+  const handleCreateAccount = (e) => {
+    setUserName(accountName)
+    // setAccount();    
     postCreateAccount()
  
   };
 
   const postCreateAccount=()=>{
-    fetch('http://localhost:8080/createContact', {
+    console.log(userEmail)
+    fetch('http://localhost:8080/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(account)
+      body: JSON.stringify({
+        userID: "",
+        firstName:accountName.split(" ",2)[0],
+        lastName:  accountName.split(" ",2)[1],
+        email:userEmail,
+        address_houseNum:houseNum,
+        address_streetName:streetName,
+        address_city:city,
+        address_state:"NY",
+        address_postCode:postcode,
+        contactFlag: 0
+      })
     })
     .then((response) => response.json())
-    .then((json => console.log(json)))
+    .then((json => {
+      console.log(json)
+    }))
     .catch(err => console.log(err))
   }
+
 
   return (
     <Router>
       <div>
         <Routes>
-          <Route path="/" element={<LandingMain />} />
+          <Route path="/" element={<LandingMain username={username}/>} />
+
+          {/* <Route path="/signup" element={<SignUpMain />} /> */}
           <Route path="/signup" element={<SignUpMain 
-          email={email}
+          email={userEmail}
           handleEmail={handleEmail}
           validEmail={validEmail}
           />} />
+          {/* <Route path="/bankdetails" element={<BankDetails />} /> */}
           <Route path="/bankdetails" element={<BankDetails 
             accountName={accountName}
             handleAccountName={handleAccountName}
           />} />
+          {/* <Route path="/billingaddress" element={<BillingAddress />} /> */}
+
           <Route path="/billingaddress" element={<BillingAddress 
             houseNum={houseNum}
             handleHouseNum={handleHouseNum}
@@ -174,91 +215,83 @@ const handleAccountName = (e) => {
           />} />
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
-          <Route path="/wallet" element={<Wallet />} />
-          <Route path="/contacts" element={<ContactAdd />} />
-          <Route path="/liverates" element={<LiveRates />} />
-          <Route path="/signin" element={<LoginFlowWelcome />} />
-          <Route path="/userprofile" element={<Wallet />} />
-          <Route path="/dashboard" element={<Wallet />} />
+          <Route path="/wallet" element={<Wallet username={username} />} />
+          <Route path="/contacts" element={<ContactAdd username={username}/>} />
+          {currency[0]?
+          <Route path="/liverates" element={<LiveRates currency={currency} username={username}/>} />:""}
+          <Route path="/signin" element= {<LoginFlowWelcome />} />
+          <Route path="/userprofile" element={<Wallet username={username} />} />
+          <Route path="/dashboard" element={<Wallet username={username}/>} />
           <Route path="/home" element={<LandingMain />}></Route>
           <Route path="/features" element={<LandingMain />}></Route>
           <Route path="/about" element={<LandingMain />}></Route>
           <Route path="/contact" element={<LandingMain />}></Route>
           <Route path="/" element={<LandingMain />}></Route>
-          <Route
-            path="/currencyconverter"
-            element={
-              <CurrencyConverterContainer
-                amount={amount}
-                setAmount={setAmount}
-                baseCurrency={baseCurrency}
-                setBaseCurrency={setBaseCurrency}
-                toCurrency={toCurrency}
-                setToCurrency={setToCurrency}
-                convertedAmount={convertedAmount}
-                setConvertedAmount={setConvertedAmount}
-                fxRate={fxRate}
-                setFxRate={setFxRate}
-              />
-            }
-          ></Route>
+          {baseCurrency ? 
+            <Route
+              path="/currencyconverter"
+              element={
+                <CurrencyConverterContainer
+                  username={username}
+                  amount={amount}
+                  setAmount={setAmount}
+                  baseCurrency={baseCurrency}
+                  setBaseCurrency={setBaseCurrency}
+                  toCurrency={toCurrency}
+                  setToCurrency={setToCurrency}
+                  convertedAmount={convertedAmount}
+                  setConvertedAmount={setConvertedAmount}
+                  fxRate={toCurrency.rate}
+                  setFxRate={setFxRate}
+                  currency={currency}
+                  amountCode={amountCode}
+                  setAmountCode={setAmountCode}
+                />
+              }
+            ></Route> : ""}
 
-          <Route
-            path="/currencyconverter"
-            element={
-              <CurrencyConverterContainer
-                amount={amount}
-                setAmount={setAmount}
-                baseCurrency={baseCurrency}
-                setBaseCurrency={setBaseCurrency}
-                toCurrency={toCurrency}
-                setToCurrency={setToCurrency}
-                convertedAmount={convertedAmount}
-                setConvertedAmount={setConvertedAmount}
-                fxRate={fxRate}
-                setFxRate={setFxRate}
-              />
-            }
-          ></Route>
+          {baseCurrency ? 
+            <Route
+              path="/transfer-fx-transaction"
+              element={
+                <TransferMakeTransfer
+                  transferWorkflowStage="fxTransaction"
+                  currencyBase={baseCurrency}
+                  currencyTo={toCurrency}
+                  amountBase={amountCode===baseCurrency.code?amount:Number(amount * 1/fxRate).toFixed(4)}
+                  amountReceived={amountCode===baseCurrency.code?convertedAmount:amount}
+                  fee={fee}
+                  username={username}
+                  accountBalance={accountBalance}
+                  accountNum={accountNum}
+                  sortCode={sortCode}
+                  searchTerm={searchTerm}
+                  handleInput={handleInput}
 
-          <Route
-            path="/transfer-fx-transaction"
-            element={
-              <TransferMakeTransfer
-                transferWorkflowStage="fxTransaction"
-                currencyBaseCode={baseCurrency.code}
-                currencyRecipientCode={toCurrency.code}
-                amountBase={amount}
-                amountReceived={convertedAmount}
-                fxRate={fxRate}
-                fee={fee}
-                username={username}
-                accountBalance={accountBalance}
-                accountNum={accountNum}
-                sortCode={sortCode}
-              />
-            }
-          />
-          <Route
-            path="/transfer-send-from"
-            element={
-              <TransferMakeTransfer
-                transferWorkflowStage="transferSendFrom"
-                currencyBaseCode={baseCurrency.code}
-                currencyRecipientCode={toCurrency.code}
-                amountBase={amount}
-                amountReceived={convertedAmount}
-                fxRate={fxRate}
-                fee={fee}
-                username={username}
-                accountBalance={accountBalance}
-                accountNum={accountNum}
-                sortCode={sortCode}
-                searchTerm={searchTerm}
-                handleInput={handleInput}
-              />
-            }
-          />
+                />
+              }
+            /> : ""}
+
+          {baseCurrency ? 
+            <Route
+              path="/transfer-send-from"
+              element={
+                <TransferMakeTransfer
+                  transferWorkflowStage="transferSendFrom"
+                  currencyBase={baseCurrency}
+                  currencyTo={toCurrency}
+                  amountBase={amountCode===baseCurrency.code?amount:Number(amount * 1/fxRate).toFixed(4)}
+                  amountReceived={amountCode===baseCurrency.code?convertedAmount:amount}
+                  fee={fee}
+                  username={username}
+                  accountBalance={accountBalance}
+                  accountNum={accountNum}
+                  sortCode={sortCode}
+                  searchTerm={searchTerm}
+                  handleInput={handleInput}
+                />
+              }
+            /> : ""}
         </Routes>
       </div>
     </Router>

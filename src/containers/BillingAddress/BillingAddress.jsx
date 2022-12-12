@@ -67,7 +67,7 @@ const BillingAddress = (props) => {
                     Go Back
                   </button>
                 </Link>
-                <Link to="/wallet">
+                <Link to="/dashboard">
                     <Button buttonStyle={"btn button-blue billingAddressForm__btn"} buttonText={"Create Account"} onClick={handleCreateAccount}/>
                 </Link>
                 {/* <button className="billingAddressForm__btn" type="submit">

@@ -6,20 +6,24 @@ import ContactContainer from '../ContactContainer/ContactContainer';
 import DashboardHeader from '../../components/DashboardHeader/DashboardHeader';
 import highFive from "../../assets/images/Emojihand.png";
 import "../../assets/sass/_dashboard.scss"
-import UserContacts from '../../components/UserContacts/UserContacts';
+// import UserContacts from '../../components/UserContacts/UserContacts';
 import "./Wallet.scss"
 
-const Wallet = () => {
+const Wallet = (props) => {
+
+  const {username}=props;
   const [walletOn, setWalletOn] = useState(true);
+  const firstname=(username.split(" ",2))[0];
   return (
     <div className="dashboardPage wallet-page">
       <NavMenu />
       <div className="dashboardPage__right">
-        <DashboardHeader />
+        <DashboardHeader username={username} />
         <div className="wallet-page__main">
           <div className="greeting__firstName">
             <h2>
-              {"Hey " + userInfo[0].firstName}
+              {/* {"Hey " + userInfo[0].firstName} */}
+              {"Hey " + firstname}
               <img className="greetings__wave" src={highFive} alt="highFiveWave" />
             </h2>
           </div>

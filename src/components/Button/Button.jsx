@@ -3,8 +3,7 @@ import "./Button.scss";
 
 const Button = (props) => {
 
-  const { buttonStyle, isDisabled, onClick, buttonType, buttonImg, buttonText } = props;
-  console.log(buttonText);
+  const { buttonStyle, isDisabled, onClick, buttonType, buttonImg, buttonText} = props;
 
   if (buttonText == 'Sign Out') {
   return (
@@ -13,7 +12,8 @@ const Button = (props) => {
       className = {buttonStyle} 
       type = {buttonType} 
       onClick = {onClick}
-      disabled = {isDisabled}> 
+      disabled = {isDisabled}
+      >
       {buttonText}  {buttonImg}
     </button>
     </>
@@ -25,7 +25,8 @@ const Button = (props) => {
       className = {buttonStyle} 
       type = {buttonType} 
       onClick = {onClick}
-      disabled = {isDisabled}> 
+      disabled = {isDisabled}
+      > 
       {buttonImg}   {buttonText}
     </button>
     </>

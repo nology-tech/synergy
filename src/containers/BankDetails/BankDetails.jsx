@@ -14,6 +14,7 @@ const BankDetails = (props) => {
   const [sortCode, setSortCode] = useState("");
 
   
+  
   // Handling the account number input field change
   const handleAccountNum = (e) => {
     e.preventDefault();
@@ -59,6 +60,16 @@ const BankDetails = (props) => {
                   type="text"
                 />
               </div>
+               {/* Labels and inputs for form data */}
+               {/* <div className="bankDetailsForm__div">
+                <label>Account Last Name</label>
+                <input
+                  onChange={handleAccountLastName}
+                  className="input"
+                  value={accountLastName}
+                  type="text"
+                />
+              </div> */}
               <div className="bankDetailsForm__div">
                 <label>Account Number</label>
                 <input
