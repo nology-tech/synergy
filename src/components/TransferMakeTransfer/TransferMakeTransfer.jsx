@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import NavMenu from "../NavMenu/NavMenu";
 import FxTransaction from "../FxTransaction/FxTransaction";
@@ -26,6 +26,39 @@ const TransferMakeTransfer = (props) => {
     handleInput
   } = props;
 
+
+  const [banks, setBanks] = useState(
+      [
+      {
+        bankName: "",
+        bankLogo: "",
+      },
+    ]
+    );
+  
+    const getBanks = () => {
+      
+      //e.preventDefault();
+      fetch("http://localhost:8080/banks", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+       
+      })
+        .then((response) => response.json())
+        .then((json) => setBanks(json))
+        .catch((err) => console.log(err));
+
+        
+      //e.target.reset();
+    };
+
+    
+  
+   useEffect (() => getBanks(),[]);
+
+
   //set variables for previous code when passing transfer currencies on an array format
   // (CurrencyBase & CurrencyTo)
   const currencyBaseCode = currencyBase.code;
@@ -35,6 +68,7 @@ const TransferMakeTransfer = (props) => {
   const currencyToSymbol = currencyTo.symbol;
   const currencyRecipient = currencyTo.code + " - "+ currencyTo.symbol;
   
+
   const accountFormTypes = true;
 
   // handle navigation
@@ -125,7 +159,7 @@ const TransferMakeTransfer = (props) => {
   };
 
   
-  // Handling the account currency input field change
+  // Handling the bank input field change
   const handleBankRecipient = (e) => {
     e.preventDefault();
     setBankRecipient(e.target.value);
@@ -179,6 +213,7 @@ const TransferMakeTransfer = (props) => {
             accountNumRecipient={accountNumRecipient}
             currencyRecipient={currencyRecipient}
             bankRecipient={bankRecipient}
+            banks={banks}
             sortCodeRecipient={sortCodeRecipient}
           />
         </>
@@ -317,7 +352,7 @@ const TransferMakeTransfer = (props) => {
 
         {/* Display the screen with Add recipient or Choose Recipient overlapping Send From transaction details */}
         {transferWorkflowStage === "transferSendFrom" ? (
-          displayCurrentView()
+         banks && displayCurrentView()
         ) : (
           <></>
         )}

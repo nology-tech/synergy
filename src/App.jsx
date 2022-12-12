@@ -33,13 +33,10 @@ const App = () => {
   const [accountNum, setAccountNum] = useState("123456789"); // shall be replaced by a function on login
   const [sortCode, setSortCode] = useState("012345"); // shall be replaced by a function on login
 
-  const [houseNum, setHouseNum] = useState();
-  const [streetName, setStreetName] = useState("");
-  const [city, setCity] = useState("");
-  const [postcode, setPostcode] = useState("");
 
   //Details of the  transfer
     
+   //Details of the  transfer
    const [baseCurrency, setBaseCurrency] = useState("");
    const [toCurrency, setToCurrency] = useState("");
    const [amount, setAmount] = useState("");
@@ -68,6 +65,7 @@ const App = () => {
 
   useEffect(() => {getCurrencyLiveRates();}, []);
 
+
     const [account, setAccount]=useState({userID:"",
       firstName:"",
       lastName:"",
@@ -79,6 +77,12 @@ const App = () => {
       address_postCode:"",
       contactFlag: 0
       })
+
+
+    const [houseNum, setHouseNum] = useState();
+    const [streetName, setStreetName] = useState("");
+    const [city, setCity] = useState("");
+    const [postcode, setPostcode] = useState("");
 
 
      // Handling the street name input field change
@@ -148,24 +152,46 @@ const App = () => {
     setSearchTerm(cleanInput);
   };
 
-  const handleCreateAccount = (e) => {
-    setUserName(accountName)
-    // setAccount();    
+
+  const handleCreateAccount = () => {
+    setAccount({
+      firstName:accountName,
+      lastName:"",
+      email:userEmail,
+      address_houseNum:houseNum,
+      address_streetName:streetName,
+      address_city:city,
+      address_state:"NY",
+      address_postCode:postcode,
+      contactFlag: 0
+    });
     postCreateAccount()
- 
+
   };
 
   const postCreateAccount=()=>{
-    console.log(userEmail)
-    fetch('http://localhost:8080/users', {
+    fetch('http://localhost:8080/createContact', {
+
+ // const handleCreateAccount = (e) => {
+ //   setUserName(accountName)
+    // setAccount();    
+ //   postCreateAccount()
+ 
+ // };
+
+ // const postCreateAccount=()=>{
+ //   console.log(userEmail)
+ //   fetch('http://localhost:8080/users', {
+
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         userID: "",
-        firstName:accountName.split(" ",2)[0],
-        lastName:  accountName.split(" ",2)[1],
+        firstName: accountName,
+        // firstName:accountName.split(" ",2)[0],
+        // lastName:  accountName.split(" ",2)[1],
         email:userEmail,
         address_houseNum:houseNum,
         address_streetName:streetName,
@@ -176,9 +202,26 @@ const App = () => {
       })
     })
     .then((response) => response.json())
-    .then((json => {
-      console.log(json)
-    }))
+    .then((json => console.log(json)))
+
+   //   body: JSON.stringify({
+   //     userID: "",
+   //     firstName:accountName,
+   //     lastName:"",
+   //     email:userEmail,
+   //     address_houseNum:houseNum,
+   //     address_streetName:streetName,
+   //     address_city:city,
+   //     address_state:"NY",
+   //     address_postCode:postcode,
+   //     contactFlag: 0
+   //   })
+   // })
+   // .then((response) => response.json())
+  //  .then((json => {
+    //  console.log(json)
+  //  }))
+
     .catch(err => console.log(err))
   }
 
@@ -187,7 +230,7 @@ const App = () => {
     <Router>
       <div>
         <Routes>
-          <Route path="/" element={<LandingMain username={username}/>} />
+          <Route path="/" element={<LandingMain username={accountName}/>} />
 
           {/* <Route path="/signup" element={<SignUpMain />} /> */}
           <Route path="/signup" element={<SignUpMain 

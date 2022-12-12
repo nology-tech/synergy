@@ -16,18 +16,10 @@ const CreateAccount = (props) => {
   const [passwordType, setPasswordType] = useState("password");
   const [ConfirmedPasswordType, setConfirmedPasswordType] = useState("password");
 
-  const [validEmail, setValidEmail] = useState(false);
-  const [validPassword, setValidPassword] = useState(false);
+   const [validPassword, setValidPassword] = useState(false);
   const [validConfirmedPassword, setValidConfirmedPassword] = useState(false);
 
-  // Handling the email input field change
-  const handleEmail = (e) => {
-    e.preventDefault();
-    const tempEmail = e.target.value.toString();
-    setEmail(tempEmail);
-    // calls the validateEmail function and sets the boolean flag
-    validateEmail(tempEmail) ? setValidEmail(true) : setValidEmail(false);
-  };
+
 
   // Handling the password input field change
   const handlePassword = (e) => {
@@ -46,11 +38,6 @@ const CreateAccount = (props) => {
     validateConfirmedPassword(confPass)
       ? setValidConfirmedPassword(true)
       : setValidConfirmedPassword(false);
-  };
-
-  // validates whether the email address contains @
-  const validateEmail = (email) => {
-    return email.toString().includes("@");
   };
 
   // validates whether the password contains 8 chars and 1 uppercase letter

@@ -1,9 +1,15 @@
-import React, {useState} from "react";
+
+import React, { useState } from "react";
+import Select from "react-select";
+
 import "./TransferAddRecipient.scss";
 import blackcross from "../../assets/images/black-cross.png";
 import Button from "../Button/Button";
 import currency from "../../data/currency.js";
-import banks from "../../data/banks.js";
+
+
+//import banks from "../../data/banks.js";
+
 
 const TransferAddRecipient = (props) => {
   const {
@@ -12,6 +18,7 @@ const TransferAddRecipient = (props) => {
     accountNumRecipient,
     currencyRecipient,
     bankRecipient,
+    banks,
     sortCodeRecipient,
     handleContinueButton,
     handleCloseWindow,
@@ -39,11 +46,11 @@ const TransferAddRecipient = (props) => {
       {" "}
       {currency.code} - {currency.name}
     </option>
+
   ));
 
-  const bankJSX = banks.map((bank) => (
-    <option name={bank.bankName}>{bank.bankName}</option>
-  ));
+  
+
 
   return (
     <>
@@ -80,6 +87,7 @@ const TransferAddRecipient = (props) => {
           {/* <input onChange={handleCurrencyRecipient} className="input" 
           value={currencyRecipient}
            /> */}
+
           {currencyRecipient ? (
             <p>{currencyRecipient}</p>
           ) : (
@@ -96,13 +104,24 @@ const TransferAddRecipient = (props) => {
           {/* <input onChange={handleBankRecipient} className="input" 
           value={bankRecipient}
            /> */}
-          <select
-            onChange={handleBankRecipient}
+
+          
+          <Select
             className="input"
-            value={bankRecipient}
-          >
-            {bankJSX}
-          </select>
+            options={banks}
+            formatOptionLabel={(bank) => (
+              <div className="bank-input"
+                onChange={handleBankRecipient}
+                value={bankRecipient}>
+                <img className="bank-input__image" src={bank.bankLogo} alt="bank-logo" />
+                <span className="bank-input__name">{bank.bankName}</span>
+              </div>
+            )}
+          />
+          
+          
+
+
           <h3>Sort Code</h3>
           <input
             onChange={handleSortCodeRecipient}

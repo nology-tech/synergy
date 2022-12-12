@@ -2,9 +2,9 @@ import React from "react";
 import { useState } from "react";
 import Search from "../Search/Search";
 import blackCross from "../../assets/images/black-cross.png";
-import ContactList from "../ContactList/ContactList";
+// import ContactList from "../ContactList/ContactList";
 import "./TransferChooseRecipient.scss";
-import contacts from "../../data/Contacts.js";
+// import contacts from "../../data/Contacts.js";
 import ContactContainer from "../../containers/ContactContainer/ContactContainer";
 
 const TransferChooseRecipient = (props) => {
@@ -13,16 +13,16 @@ const TransferChooseRecipient = (props) => {
   selectContact, searchTerm, handleInput} = props;
 
   // Filter contact using search
-  const filteredContactsArray = contacts.filter((contact) => {
-    const contactfirstName = contact.firstName.toLowerCase();
-    const contactLastName = contact.lastName.toLowerCase();
-    const contactBank = contact.bankName.toLowerCase();
-    return (
-      contactfirstName.includes(searchTerm) ||
-      contactLastName.includes(searchTerm) ||
-      contactBank.includes(searchTerm)
-    );
-  });
+  // const filteredContactsArray = contacts.filter((contact) => {
+  //   const contactfirstName = contact.firstName.toLowerCase();
+  //   const contactLastName = contact.lastName.toLowerCase();
+  //   const contactBank = contact.bankName.toLowerCase();
+  //   return (
+  //     contactfirstName.includes(searchTerm) ||
+  //     contactLastName.includes(searchTerm) ||
+  //     contactBank.includes(searchTerm)
+  //   );
+  // });
 
   return (
     <>
