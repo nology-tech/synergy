@@ -9,7 +9,7 @@ const TransferConfirmRecepient = (props) => {
     accountTypeRecipient,
     accountNumRecipient,
     currencyRecipient,
-    //bankRecipient,
+    bankRecipient,
     value,
     sortCodeRecipient,
     handleGoBackToChooseContact,
@@ -18,6 +18,8 @@ const TransferConfirmRecepient = (props) => {
     workflowStage,
     handleSubmit,
   } = props;
+
+  console.log(props);
 
   const displayConfirmRecipient = () => {
     if (workflowStage === "addRecipientConfirmed") {
