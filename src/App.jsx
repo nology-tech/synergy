@@ -154,44 +154,23 @@ const App = () => {
 
 
   const handleCreateAccount = () => {
-    setAccount({
-      firstName:accountName,
-      lastName:"",
-      email:userEmail,
-      address_houseNum:houseNum,
-      address_streetName:streetName,
-      address_city:city,
-      address_state:"NY",
-      address_postCode:postcode,
-      contactFlag: 0
-    });
-    postCreateAccount()
-
+    postCreateAccount();
+    setUserName(accountName);
   };
 
+  
+
   const postCreateAccount=()=>{
-    fetch('http://localhost:8080/createContact', {
-
- // const handleCreateAccount = (e) => {
- //   setUserName(accountName)
-    // setAccount();    
- //   postCreateAccount()
- 
- // };
-
- // const postCreateAccount=()=>{
- //   console.log(userEmail)
- //   fetch('http://localhost:8080/users', {
-
+    console.log(userEmail)
+    fetch('http://localhost:8080/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         userID: "",
-        firstName: accountName,
-        // firstName:accountName.split(" ",2)[0],
-        // lastName:  accountName.split(" ",2)[1],
+        firstName:accountName.split(" ",2)[0],
+        lastName:  accountName.split(" ",2)[1],
         email:userEmail,
         address_houseNum:houseNum,
         address_streetName:streetName,
@@ -203,25 +182,7 @@ const App = () => {
     })
     .then((response) => response.json())
     .then((json => console.log(json)))
-
-   //   body: JSON.stringify({
-   //     userID: "",
-   //     firstName:accountName,
-   //     lastName:"",
-   //     email:userEmail,
-   //     address_houseNum:houseNum,
-   //     address_streetName:streetName,
-   //     address_city:city,
-   //     address_state:"NY",
-   //     address_postCode:postcode,
-   //     contactFlag: 0
-   //   })
-   // })
-   // .then((response) => response.json())
-  //  .then((json => {
-    //  console.log(json)
-  //  }))
-
+    .then((data => console.log(data.userID)))
     .catch(err => console.log(err))
   }
 
@@ -230,7 +191,7 @@ const App = () => {
     <Router>
       <div>
         <Routes>
-          <Route path="/" element={<LandingMain username={accountName}/>} />
+          <Route path="/" element={<LandingMain username={username} setUserName={setUserName}/>} />
 
           {/* <Route path="/signup" element={<SignUpMain />} /> */}
           <Route path="/signup" element={<SignUpMain 
@@ -265,11 +226,11 @@ const App = () => {
           <Route path="/signin" element= {<LoginFlowWelcome />} />
           <Route path="/userprofile" element={<Wallet username={username} />} />
           <Route path="/dashboard" element={<Wallet username={username}/>} />
-          <Route path="/home" element={<LandingMain />}></Route>
-          <Route path="/features" element={<LandingMain />}></Route>
-          <Route path="/about" element={<LandingMain />}></Route>
-          <Route path="/contact" element={<LandingMain />}></Route>
-          <Route path="/" element={<LandingMain />}></Route>
+          <Route path="/home" element={<LandingMain  username={username} setUserName={setUserName}/>}></Route>
+          <Route path="/features" element={<LandingMain  username={username} setUserName={setUserName}/>}></Route>
+          <Route path="/about" element={<LandingMain  username={username} setUserName={setUserName}/>}></Route>
+          <Route path="/contact" element={<LandingMain  username={username} setUserName={setUserName}/>}></Route>
+          <Route path="/" element={<LandingMain  username={username} setUserName={setUserName}/>}></Route>
           {baseCurrency ? 
             <Route
               path="/currencyconverter"
