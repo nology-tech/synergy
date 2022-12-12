@@ -16,9 +16,9 @@ const CreateAccount = (props) => {
   const [passwordType, setPasswordType] = useState("password");
   const [ConfirmedPasswordType, setConfirmedPasswordType] = useState("password");
 
-  // const [validEmail, setValidEmail] = useState(false);
-  const [validPassword, setValidPassword] = useState(false);
+   const [validPassword, setValidPassword] = useState(false);
   const [validConfirmedPassword, setValidConfirmedPassword] = useState(false);
+
 
 
   // Handling the password input field change
@@ -39,7 +39,6 @@ const CreateAccount = (props) => {
       ? setValidConfirmedPassword(true)
       : setValidConfirmedPassword(false);
   };
-
 
   // validates whether the password contains 8 chars and 1 uppercase letter
   const validatePassword = (password) => {
@@ -169,6 +168,7 @@ const CreateAccount = (props) => {
                 }
                 buttonText={`Continue ▶`} 
               /> */}
+              {console.log(email)}
               <button
                 className="CreateAccountForm__btn"
                 type="submit"

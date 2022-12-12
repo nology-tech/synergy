@@ -7,9 +7,10 @@ import LiveRatesList from '../../components/LiveRatesList/LiveRatesList';
 import CurrencyConverter from '../../components/CurrencyConverter/CurrencyConverter';
 // import currency from '../../data/currency.js'
 import "../../assets/sass/_dashboard.scss"
+import DashboardHeader from "../../components/DashboardHeader/DashboardHeader";
 
 const CurrencyConverterContainer = (props) => {
-  const {amount,setAmount,baseCurrency,toCurrency, setToCurrency, setBaseCurrency,convertedAmount, setConvertedAmount, fxRate, setFxRate, currency,amountCode,setAmountCode}
+  const {username,amount,setAmount,baseCurrency,toCurrency, setToCurrency, setBaseCurrency,convertedAmount, setConvertedAmount, fxRate, setFxRate, currency,amountCode,setAmountCode}
   =props;
    
   // const [toCurrency, setToCurrency] = useState(currency[1]);
@@ -24,7 +25,8 @@ const CurrencyConverterContainer = (props) => {
     <div className='dashboardPage'>
       <NavMenu />
       <div className='dashboardPage__right'>
-        <HeaderNav />    
+        {/* <HeaderNav />     */}
+        <DashboardHeader username={username} />
         <CurrencyConverter 
                           amount={amount} 
                           setAmount={setAmount} 

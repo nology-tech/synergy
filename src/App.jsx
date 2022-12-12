@@ -22,11 +22,10 @@ import ContactAdd from "./components/ContactAdd/ContactAdd";
 
 const App = () => {
   //user Information
-  const [email, setEmail] = useState("");
+  const [userEmail, setEmail] = useState("");
   const [accountName, setAccountName] = useState("");
 
 //  const [userEmail, setEmail] = useState("");
-//  const [accountName, setAccountName] =  useState("");
   //  const [accountLastName, setAccountLastName] = useState("");
 
   const [validEmail, setValidEmail] = useState(false);
@@ -67,12 +66,6 @@ const App = () => {
   useEffect(() => {getCurrencyLiveRates();}, []);
 
 
-
-    const [houseNum, setHouseNum] = useState();
-    const [streetName, setStreetName] = useState("");
-    const [city, setCity] = useState("");
-    const [postcode, setPostcode] = useState("");
-
     const [account, setAccount]=useState({userID:"",
       firstName:"",
       lastName:"",
@@ -84,6 +77,12 @@ const App = () => {
       address_postCode:"",
       contactFlag: 0
       })
+
+
+    const [houseNum, setHouseNum] = useState();
+    const [streetName, setStreetName] = useState("");
+    const [city, setCity] = useState("");
+    const [postcode, setPostcode] = useState("");
 
 
      // Handling the street name input field change
@@ -158,7 +157,7 @@ const App = () => {
     setAccount({
       firstName:accountName,
       lastName:"",
-      email:email,
+      email:userEmail,
       address_houseNum:houseNum,
       address_streetName:streetName,
       address_city:city,
@@ -188,8 +187,19 @@ const App = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-
-      body: JSON.stringify(account)
+      body: JSON.stringify({
+        userID: "",
+        firstName: accountName,
+        // firstName:accountName.split(" ",2)[0],
+        // lastName:  accountName.split(" ",2)[1],
+        email:userEmail,
+        address_houseNum:houseNum,
+        address_streetName:streetName,
+        address_city:city,
+        address_state:"NY",
+        address_postCode:postcode,
+        contactFlag: 0
+      })
     })
     .then((response) => response.json())
     .then((json => console.log(json)))
@@ -215,15 +225,16 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
+
   return (
     <Router>
       <div>
         <Routes>
-          <Route path="/" element={<LandingMain />} />
+          <Route path="/" element={<LandingMain username={accountName}/>} />
 
           {/* <Route path="/signup" element={<SignUpMain />} /> */}
           <Route path="/signup" element={<SignUpMain 
-          email={email}
+          email={userEmail}
           handleEmail={handleEmail}
           validEmail={validEmail}
           />} />
@@ -250,8 +261,8 @@ const App = () => {
           <Route path="/wallet" element={<Wallet username={username} />} />
           <Route path="/contacts" element={<ContactAdd username={username}/>} />
           {currency[0]?
-          <Route path="/liverates" element={<LiveRates currency={currency}/>} />:""}
-          <Route path="/signin" element={<LoginFlowWelcome />} />
+          <Route path="/liverates" element={<LiveRates currency={currency} username={username}/>} />:""}
+          <Route path="/signin" element= {<LoginFlowWelcome />} />
           <Route path="/userprofile" element={<Wallet username={username} />} />
           <Route path="/dashboard" element={<Wallet username={username}/>} />
           <Route path="/home" element={<LandingMain />}></Route>
@@ -264,6 +275,7 @@ const App = () => {
               path="/currencyconverter"
               element={
                 <CurrencyConverterContainer
+                  username={username}
                   amount={amount}
                   setAmount={setAmount}
                   baseCurrency={baseCurrency}

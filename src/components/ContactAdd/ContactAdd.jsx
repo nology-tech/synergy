@@ -50,7 +50,8 @@ const ContactAdd = (props) => {
       },
       body: JSON.stringify({
         userID: "",
-        firstName:recipientName,
+        firstName:recipientName.split(" ",2)[0],
+        lastName:recipientName.split(" ",2)[1],
         contactFlag: 1
       })
     })
