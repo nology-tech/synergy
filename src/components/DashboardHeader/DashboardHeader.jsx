@@ -11,7 +11,7 @@ const DashboardHeader = (props) => {
     let profileImg = profile;
     let profileName = username;
     const downImg = chevron;
-    console.log (profileName)
+    console.log (profileName);
 
   return (
     <div className="dashboardheader">

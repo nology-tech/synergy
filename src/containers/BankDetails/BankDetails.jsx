@@ -9,11 +9,11 @@ import currency from "../../data/currency.js";
 
 const BankDetails = (props) => {
   const {accountName, handleAccountName}=props;
- // const {accountName, handleAccountName, accountLastName, handleAccountLastName}=props;
   const [accountNum, setAccountNum] = useState();
   const [accountCurr, setAccountCurr] = useState();
   const [sortCode, setSortCode] = useState("");
 
+  
   
   // Handling the account number input field change
   const handleAccountNum = (e) => {
