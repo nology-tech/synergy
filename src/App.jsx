@@ -301,7 +301,7 @@ const App = () => {
                   transferWorkflowStage="fxTransaction"
                   currencyBase={baseCurrency}
                   currencyTo={toCurrency}
-                  amountBase={amountCode===baseCurrency.code?amount:Number(amount * 1/fxRate).toFixed(4)}
+                  amountBase={amountCode===baseCurrency.code?amount:Number(amount * 1/toCurrency.rate).toFixed(4)}
                   amountReceived={amountCode===baseCurrency.code?convertedAmount:amount}
                   fee={fee}
                   username={username}
@@ -323,7 +323,7 @@ const App = () => {
                   transferWorkflowStage="transferSendFrom"
                   currencyBase={baseCurrency}
                   currencyTo={toCurrency}
-                  amountBase={amountCode===baseCurrency.code?amount:Number(amount * 1/fxRate).toFixed(4)}
+                  amountBase={amountCode===baseCurrency.code?amount:Number(amount * 1/toCurrency.rate).toFixed(4)}
                   amountReceived={amountCode===baseCurrency.code?convertedAmount:amount}
                   fee={fee}
                   username={username}

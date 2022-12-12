@@ -8,11 +8,10 @@ import UserContacts from "../../components/UserContacts/UserContacts";
 
 
 const ContactContainer = (props) => {
-  const {walletOn, onClick} = props;
+  const {walletOn, onClick, currencyRecipientCode} = props;
   
   // Setting up the search box
   const [searchTerm, setSearchTerm] = useState("");
-
 
   const handleInput = (event) => {
     const cleanInput=event.target.value.toLowerCase();
@@ -35,10 +34,12 @@ const ContactContainer = (props) => {
     const contactfirstName = contact.firstName.toLowerCase();
     const contactLastName = contact.lastName.toLowerCase();
     const contactBank = contact.bankName.toLowerCase();
+    const currencyTo = currencyRecipientCode || "";
     return (
-      contactfirstName.includes(searchTerm) ||
+      contact.account_currency.includes(currencyTo) &&
+      (contactfirstName.includes(searchTerm) ||
       contactLastName.includes(searchTerm) ||
-      contactBank.includes(searchTerm)
+      contactBank.includes(searchTerm))
     );
   });
 
