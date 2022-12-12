@@ -186,6 +186,19 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
+  // console.log ("Username: "+username);
+  // const getUserByEmail = () => {
+  //   fetch(`http://localhost:8080/users?email=${userEmail}`)
+  //     .then(res => res.json())
+  //     .then(json => setEmail(json))
+  //     .then(data => setUserName(data.firstName))
+  //     .then(json => { console.log(json) })
+  //     .catch(err => console.log(err))
+  // }
+
+  // const handleLoginByEmail = () => {
+  //   getUserByEmail();
+  // };
 
   return (
     <Router>
@@ -223,7 +236,7 @@ const App = () => {
           <Route path="/contacts" element={<ContactAdd username={username}/>} />
           {currency[0]?
           <Route path="/liverates" element={<LiveRates currency={currency} username={username}/>} />:""}
-          <Route path="/signin" element= {<LoginFlowWelcome />} />
+          <Route path="/signin" element= {<LoginFlowWelcome username={username} setUserName={setUserName}/>} />
           <Route path="/userprofile" element={<Wallet username={username} />} />
           <Route path="/dashboard" element={<Wallet username={username}/>} />
           <Route path="/home" element={<LandingMain  username={username} setUserName={setUserName}/>}></Route>

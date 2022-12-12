@@ -13,7 +13,7 @@ const Wallet = (props) => {
 
   const {username}=props;
   const [walletOn, setWalletOn] = useState(true);
-  const firstname=(username.split(" ",2))[0];
+  const firstname=(username);
   return (
     <div className="dashboardPage wallet-page">
       <NavMenu />
