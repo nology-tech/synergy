@@ -9,7 +9,8 @@ const TransferConfirmRecepient = (props) => {
     accountTypeRecipient,
     accountNumRecipient,
     currencyRecipient,
-    bankRecipient,
+    //bankRecipient,
+    value,
     sortCodeRecipient,
     handleGoBackToChooseContact,
     handleCloseWindow,
@@ -17,9 +18,6 @@ const TransferConfirmRecepient = (props) => {
     workflowStage,
     handleSubmit,
   } = props;
-
-  
-
 
   const displayConfirmRecipient = () => {
     if (workflowStage === "addRecipientConfirmed") {
@@ -74,7 +72,6 @@ const TransferConfirmRecepient = (props) => {
               buttonStyle={"btn button-blue"}
               buttonText={"Submit"}
               onClick={handleSubmit}
-              // onClick={handleContactSubmit}
             />
         </div>
       </div>
