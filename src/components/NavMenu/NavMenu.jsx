@@ -18,11 +18,12 @@ const NavMenu = (props) => {
   const contactsImg = contacts;
   const transferImg = transfer;
   const signoutImg = signout;
-  const buttonSignOut = <FiLogOut />; 
+  const buttonSignOut = <FiLogOut/>; 
 
   const {username} = props;
+
   const handleNameReset=() => {
-    const username = "";
+    const username="";
     console.log (username);
   }
 
