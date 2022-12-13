@@ -8,11 +8,10 @@ import UserContacts from "../../components/UserContacts/UserContacts";
 
 
 const ContactContainer = (props) => {
-  const {walletOn, onClick} = props;
+  const {walletOn, onClick, currencyRecipientCode, contact, setContact, onContactClick} = props;
   
   // Setting up the search box
   const [searchTerm, setSearchTerm] = useState("");
-
 
   const handleInput = (event) => {
     const cleanInput=event.target.value.toLowerCase();
@@ -35,17 +34,20 @@ const ContactContainer = (props) => {
     const contactfirstName = contact.firstName.toLowerCase();
     const contactLastName = contact.lastName.toLowerCase();
     const contactBank = contact.bankName.toLowerCase();
+    const currencyTo = currencyRecipientCode || "";
     return (
-      contactfirstName.includes(searchTerm) ||
+      contact.account_currency.includes(currencyTo) &&
+      (contactfirstName.includes(searchTerm) ||
       contactLastName.includes(searchTerm) ||
-      contactBank.includes(searchTerm)
+      contactBank.includes(searchTerm))
     );
   });
 
-  // these items are place holders for future work; currently not in use for onclick on contact details
-  const onContactClick = (accountId) => {
-    console.log("Contact clicked for " + accountId);
-  };
+  // // these items are place holders for future work; currently not in use for onclick on contact details
+  // const onContactClick = (contact) => {
+  //   console.log("Contact clicked for " + contact.account);
+  //   setContact(contact);
+  // };
 
   const onContactDelete = (accountId) => {
     console.log("delete clicked for " + accountId);

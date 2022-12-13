@@ -82,13 +82,24 @@ const TransferMakeTransfer = (props) => {
   };
 
   //From Choose recipient to Confirmed
-  const selectContact = (event) => {
+  const selectContact = (contactTo) => {
+    console.log("contact selected")
+    setContactTo(contactTo);
+    setRecipientName(contactTo.firstName+" "+contactTo.lastName);
+    setAccountTypeRecipient(contactTo.accountType);
+    setAccountNumRecipient(contactTo.account);
+    setBankRecipient(contactTo.bankName);
+    setSortCodeRecipient(contactTo.sortCode);
     setWorkflowStage("selectContactConfirmed");
   };
 
   const handleGoBackToChooseContact = (event) => {
     setWorkflowStage("chooseContact");
   };
+
+  // From Choose Recipient from existing contact
+  const [contactTo, setContactTo] = useState({account:"", firstName:"", lastName:"", accountType:"", sortCode:"", bankName:"", accountCurrency:""});
+  console.log(`Contact to: ${contactTo.account} ${contactTo.firstName} ${contactTo.lastName} ${contactTo.accountType} ${contactTo.sortCode}`);
 
   //From Send Form Pay SomeOneNew
   const handlePaySomeOneNew = (event) => {
@@ -269,6 +280,9 @@ const TransferMakeTransfer = (props) => {
             workflowStage={workflowStage}
             searchTerm={searchTerm}
             handleInput={handleInput}
+            currencyRecipientCode={currencyRecipientCode}
+            contactTo={contactTo}
+            setContactTo={setContactTo}
           />
         </>
       );
@@ -285,6 +299,12 @@ const TransferMakeTransfer = (props) => {
             sortCode={sortCode}
           />
           <TransferConfirmRecipient
+            recipientName={recipientName}
+            accountTypeRecipient={accountTypeRecipient}
+            accountNumRecipient={accountNumRecipient}
+            currencyRecipient={currencyRecipient}
+            bankRecipient={bankRecipient}
+            sortCodeRecipient={sortCodeRecipient}       
             handleGoBackToChooseContact={handleGoBackToChooseContact}
             handleCloseWindow={handleCloseWindow}
             handleSubmit= {handleSubmit}

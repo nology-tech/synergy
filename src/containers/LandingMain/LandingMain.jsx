@@ -7,7 +7,15 @@ import FooterNav from "../../components/FooterNav/FooterNav";
 import "./LandingMain.scss";
 import Button from "../../components/Button/Button";
 
-const LandingMain = () => {
+const LandingMain = (props) => {
+  const {username, setUserName} =props;
+
+  const handleResetName = () => {
+    setUserName("");
+  };
+
+  handleResetName();
+
   return (
     <div className="LandingMain">
       <HeaderNav />
