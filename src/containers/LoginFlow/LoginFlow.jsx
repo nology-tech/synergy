@@ -16,6 +16,8 @@ const LoginFlow = (props) => {
     inputBox_psw,
     inputBox_confirmpsw,
     buttonText,
+    username,
+    setUserName
   } = props;
 
   const [passwordType, setPasswordType] = useState("password"); //displays stars or text on a input field
@@ -71,6 +73,28 @@ const LoginFlow = (props) => {
     return pass === password;
   };
 
+  const [userEmail, setEmail] = useState("");
+
+  const getUserByEmail = () => {
+    console.log (userEmail);
+    fetch(`http://localhost:8080/userbyemail?email=${userEmail}`)
+    .then(res => {return res.json()})
+    .then(data => {
+      setUserName(data.firstName+" "+data.lastName)
+      console.log(data.userID)
+    })
+    .catch(err => console.log(err))
+  }
+
+  const handleLoginByEmail = () => {
+    getUserByEmail();
+  };
+
+  const handleEmail = (e) => {
+    e.preventDefault();
+    const tempEmail = e.target.value.toString();
+    setEmail(tempEmail);
+  };
 
   return (
     <>
@@ -113,7 +137,7 @@ const LoginFlow = (props) => {
                   <h2 className="loginFlow__credentials__header">
                     {inputBox_email}
                   </h2>
-                  <input className="loginFlow__inputbox" type="text"></input>
+                  <input className="loginFlow__inputbox" type="text" onChange={handleEmail}></input>
                 </>
               ) : (
                 <></>
@@ -213,7 +237,7 @@ const LoginFlow = (props) => {
                 <Button buttonStyle={"btn button-blue-disabled button-blue"} buttonText={buttonText} disabled={resetToggle} />
               ) : (
                 <Link to="/dashboard">
-                  <Button buttonStyle={"btn button-blue"} buttonText={buttonText} disabled={false} />
+                  <Button buttonStyle={"btn button-blue"} buttonText={buttonText} disabled={false} onClick={handleLoginByEmail}  />
                 </Link>
               )}
             </div>
