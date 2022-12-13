@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import Select from "react-select";
-
+import { ActionMeta } from "react-select";
 import "./TransferAddRecipient.scss";
 import blackcross from "../../assets/images/black-cross.png";
 import Button from "../Button/Button";
@@ -84,9 +84,7 @@ const TransferAddRecipient = (props) => {
             value={accountNumRecipient}
           />
           <h3>Account Currency</h3>
-          {/* <input onChange={handleCurrencyRecipient} className="input" 
-          value={currencyRecipient}
-           /> */}
+          
 
           {currencyRecipient ? (
             <p>{currencyRecipient}</p>
@@ -101,18 +99,17 @@ const TransferAddRecipient = (props) => {
           )}
 
           <h3>Bank</h3>
-          {/* <input onChange={handleBankRecipient} className="input" 
-          value={bankRecipient}
-           /> */}
+          
 
           
           <Select
             className="input"
+            onChange={(value,action) => handleBankRecipient(value) }
+            value={bankRecipient}
             options={banks}
             formatOptionLabel={(bank) => (
-              <div className="bank-input"
-                onChange={handleBankRecipient}
-                value={bankRecipient}>
+              <div className="bank-input">
+                                                   
                 <img className="bank-input__image" src={bank.bankLogo} alt="bank-logo" />
                 <span className="bank-input__name">{bank.bankName}</span>
               </div>
@@ -124,9 +121,9 @@ const TransferAddRecipient = (props) => {
 
           <h3>Sort Code</h3>
           <input
-            onChange={handleSortCodeRecipient}
+            // onChange={handleSortCodeRecipient}
             className="input"
-            value={sortCodeRecipient}
+            value={bankRecipient ? bankRecipient.sortCode: ""}
           />
         </div>
         <div className="transfer-add-recipient__main__options">

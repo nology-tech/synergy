@@ -78,28 +78,33 @@ const ContactAdd = (props) => {
   const [bankRecipient, setBankRecipient] = useState();
   const [sortCodeRecipient, setSortCodeRecipient] = useState("");
 
-  const [banks, setBanks] = useState([
-    {
-      bankName: "",
-      bankLogo: "",
-    },
-  ]);
-
-  const getBanks = () => {
-    //e.preventDefault();
-    fetch("http://localhost:8080/banks", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
+    const [banks, setBanks] = useState(
+      [
+      {
+        bankName: "",
+        bankLogo: "",
+        sortCode: "",
       },
-    })
-      .then((response) => response.json())
-      .then((json) => setBanks(json))
-      .catch((err) => console.log(err));
-    //e.target.reset();
-  };
-
-  useEffect(() => getBanks(), []);
+    ]
+    );
+  
+    const getBanks = () => {
+      
+      //e.preventDefault();
+      fetch("http://localhost:8080/banks", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+       
+      })
+        .then((response) => response.json())
+        .then((json) => setBanks(json))
+        .catch((err) => console.log(err));
+      //e.target.reset();
+    };
+  
+   useEffect (() => getBanks(),[]);
 
   // Handling the recipeint name input field change
   const handleRecipientName = (e) => {
@@ -131,10 +136,11 @@ const ContactAdd = (props) => {
     setCurrencyRecipient(e.target.value);
   };
 
-  // Handling the bank input field change
-  const handleBankRecipient = (e) => {
-    e.preventDefault();
-    setBankRecipient(e.target.value);
+   // Handling the bank input field change
+   const handleBankRecipient = (value) => {
+    console.log(value);
+    setBankRecipient(value);
+    
   };
 
   //function to display different stages of adding contact
@@ -184,6 +190,8 @@ const ContactAdd = (props) => {
             recipientName={recipientName}
             accountTypeRecipient={accountTypeRecipient}
             accountNumRecipient={accountNumRecipient}
+            currencyRecipient={currencyRecipient}
+            bankRecipient={bankRecipient}
             sortCodeRecipient={sortCodeRecipient}
             handleGoBack={handleGoBack}
             handleCloseWindow={handleCloseWindow}
