@@ -1,0 +1,55 @@
+@use "../../assets/sass/_variables.scss" as *;
+
+
+.contact-details{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: $color-light-gray-info-bar;
+  padding: 20px 40px;
+  border: 1px solid $color-light-gray-info-bar;
+  border-radius: 8px;
+  // margin: 0px 0px;
+  width: 600px;
+  height: fit-content;
+  align-items: center;
+
+  h2 {
+    color: $color-black;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  .__account-recipient {
+    background: $color-light-gray3;
+    padding: 10px 20px;
+    border: 1px solid $color-light-gray3;
+    border-radius: 8px;
+    margin: 20px 0px;
+    width: 480px;
+    height: fit-content;
+    font-family: $title-font-family;
+
+    &__recusername {
+      color: $color-middle-blue;
+      font-weight: 500;
+      font-size: 18px bold;
+    }
+
+    &__details {
+      display: flex;
+      justify-content: space-between;
+
+      p,
+      h3 {
+        font-size: 14px;
+        font-weight: 400;
+        color: $color-font-light-gray;
+      }
+
+      &__sort-code {
+        padding-bottom: 5px;
+      }
+    }
+  }
+}

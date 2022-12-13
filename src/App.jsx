@@ -2,7 +2,12 @@ import { useState, useEffect } from "react";
 import React from "react";
 
 import "./App.scss";
-import { BrowserRouter as Router, Routes, Route, redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  redirect,
+} from "react-router-dom";
 import SignUpMain from "./components/SignUp/SignUpMain";
 import ForgottenPassword from "./components/ForgottenPassword/ForgottenPassword";
 import LoginFlowChangePsw from "./components/LoginFlowChangePsw/LoginFlowChangePsw";
@@ -18,6 +23,7 @@ import CurrencyConverterContainer from "./containers/CurrencyConverterContainer/
 // import currency from "./data/currency";
 import TransferMakeTransfer from "./components/TransferMakeTransfer/TransferMakeTransfer";
 import ContactAdd from "./components/ContactAdd/ContactAdd";
+import ContactDetails from "./components/ContactDetails/ContactDetails";
 // import Search from "./components/Search/Search";
 
 const App = () => {
@@ -25,7 +31,7 @@ const App = () => {
   const [userEmail, setEmail] = useState("");
   const [accountName, setAccountName] = useState("");
 
-//  const [userEmail, setEmail] = useState("");
+  //  const [userEmail, setEmail] = useState("");
   //  const [accountLastName, setAccountLastName] = useState("");
 
   const [validEmail, setValidEmail] = useState(false);
@@ -33,84 +39,79 @@ const App = () => {
   const [accountNum, setAccountNum] = useState("123456789"); // shall be replaced by a function on login
   const [sortCode, setSortCode] = useState("012345"); // shall be replaced by a function on login
 
+  //Details of the  transfer
 
   //Details of the  transfer
-    
-   //Details of the  transfer
-   const [baseCurrency, setBaseCurrency] = useState("");
-   const [toCurrency, setToCurrency] = useState("");
-   const [amount, setAmount] = useState("");
-   const [convertedAmount, setConvertedAmount] = useState("");
- 
-   
+  const [baseCurrency, setBaseCurrency] = useState("");
+  const [toCurrency, setToCurrency] = useState("");
+  const [amount, setAmount] = useState("");
+  const [convertedAmount, setConvertedAmount] = useState("");
+
   // fx should come from Live rates on Send button click, temporary setting to EUR rate from data file
-    const [fxRate, setFxRate] = useState(1);
-    const [amountCode, setAmountCode] = useState("");
+  const [fxRate, setFxRate] = useState(1);
+  const [amountCode, setAmountCode] = useState("");
 
   // Details for Live Rates
   const [currency, setCurrency] = useState([]);
-  const getCurrencyLiveRates = async() => {
+  const getCurrencyLiveRates = async () => {
     fetch("http://localhost:8080/currencyrates")
-      .then(res => res.json())
-      .then(json => setBaseAndToCurrencies(json))
-      .catch(err => console.log(err))
-  }
+      .then((res) => res.json())
+      .then((json) => setBaseAndToCurrencies(json))
+      .catch((err) => console.log(err));
+  };
 
   const setBaseAndToCurrencies = (json) => {
-    setCurrency(json)
+    setCurrency(json);
     setBaseCurrency(json[0]);
     setToCurrency(json[1]);
-    setFxRate(json[1].rate)
-  }
+    setFxRate(json[1].rate);
+  };
 
-  useEffect(() => {getCurrencyLiveRates();}, []);
+  useEffect(() => {
+    getCurrencyLiveRates();
+  }, []);
 
+  const [account, setAccount] = useState({
+    userID: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    address_houseNum: "",
+    address_streetName: "",
+    address_city: "",
+    address_state: "",
+    address_postCode: "",
+    contactFlag: 0,
+  });
 
-    const [account, setAccount]=useState({userID:"",
-      firstName:"",
-      lastName:"",
-      email:"",
-      address_houseNum:"",
-      address_streetName:"",
-      address_city:"",
-      address_state:"",
-      address_postCode:"",
-      contactFlag: 0
-      })
+  const [houseNum, setHouseNum] = useState();
+  const [streetName, setStreetName] = useState("");
+  const [city, setCity] = useState("");
+  const [postcode, setPostcode] = useState("");
 
+  // Handling the street name input field change
+  const handleStreetName = (e) => {
+    e.preventDefault();
+    setStreetName(e.target.value.toString());
+  };
 
-    const [houseNum, setHouseNum] = useState();
-    const [streetName, setStreetName] = useState("");
-    const [city, setCity] = useState("");
-    const [postcode, setPostcode] = useState("");
+  // Handling the house number input field change
+  const handleHouseNum = (e) => {
+    e.preventDefault();
+    setHouseNum(e.target.value);
+  };
 
-
-     // Handling the street name input field change
-     const handleStreetName = (e) => {
-      e.preventDefault();
-      setStreetName(e.target.value.toString());
-    };
-  
-    // Handling the house number input field change
-    const handleHouseNum = (e) => {
-      e.preventDefault();
-      setHouseNum(e.target.value);
-    };
-
-    // Handling the city input field change
-    const handleCity = (e) => {
-      e.preventDefault();
-      setCity(e.target.value.toString());
-    };
-
- 
+  // Handling the city input field change
+  const handleCity = (e) => {
+    e.preventDefault();
+    setCity(e.target.value.toString());
+  };
 
   // Handling the postcode input field change
   const handlePostCode = (e) => {
     e.preventDefault();
     setPostcode(e.target.value.toString());
   };
-
 
   // list below shall be replaced from API
   const fee = 0;
@@ -123,154 +124,172 @@ const App = () => {
   // Setting up the search box
   const [searchTerm, setSearchTerm] = useState("");
 
-    // Handling the email input field change
-    const handleEmail = (e) => {
-      e.preventDefault();
-      const tempEmail = e.target.value.toString();
-      setEmail(tempEmail);
-      // calls the validateEmail function and sets the boolean flag
-      validateEmail(tempEmail) ? setValidEmail(true) : setValidEmail(false);
-    };
+  // Handling the email input field change
+  const handleEmail = (e) => {
+    e.preventDefault();
+    const tempEmail = e.target.value.toString();
+    setEmail(tempEmail);
+    // calls the validateEmail function and sets the boolean flag
+    validateEmail(tempEmail) ? setValidEmail(true) : setValidEmail(false);
+  };
 
-      // validates whether the email address contains @
+  // validates whether the email address contains @
   const validateEmail = (email) => {
     return email.toString().includes("@");
   };
-  
 
   // Handling the account name input field change
   const handleAccountName = (e) => {
-  e.preventDefault();
-  setAccountName(e.target.value.toString());
+    e.preventDefault();
+    setAccountName(e.target.value.toString());
   };
 
-
-
-  // this handle reads the search text  
+  // this handle reads the search text
   const handleInput = (event) => {
-    const cleanInput=event.target.value.toLowerCase();
+    const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
   };
 
-
   const handleCreateAccount = () => {
     setAccount({
-      firstName:accountName,
-      lastName:"",
-      email:userEmail,
-      address_houseNum:houseNum,
-      address_streetName:streetName,
-      address_city:city,
-      address_state:"NY",
-      address_postCode:postcode,
-      contactFlag: 0
+      firstName: accountName,
+      lastName: "",
+      email: userEmail,
+      address_houseNum: houseNum,
+      address_streetName: streetName,
+      address_city: city,
+      address_state: "NY",
+      address_postCode: postcode,
+      contactFlag: 0,
     });
-    postCreateAccount()
-
+    postCreateAccount();
   };
 
-  const postCreateAccount=()=>{
-    fetch('http://localhost:8080/createContact', {
+  const postCreateAccount = () => {
+    fetch("http://localhost:8080/createContact", {
+      // const handleCreateAccount = (e) => {
+      //   setUserName(accountName)
+      // setAccount();
+      //   postCreateAccount()
 
- // const handleCreateAccount = (e) => {
- //   setUserName(accountName)
-    // setAccount();    
- //   postCreateAccount()
- 
- // };
+      // };
 
- // const postCreateAccount=()=>{
- //   console.log(userEmail)
- //   fetch('http://localhost:8080/users', {
+      // const postCreateAccount=()=>{
+      //   console.log(userEmail)
+      //   fetch('http://localhost:8080/users', {
 
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         userID: "",
         firstName: accountName,
         // firstName:accountName.split(" ",2)[0],
         // lastName:  accountName.split(" ",2)[1],
-        email:userEmail,
-        address_houseNum:houseNum,
-        address_streetName:streetName,
-        address_city:city,
-        address_state:"NY",
-        address_postCode:postcode,
-        contactFlag: 0
-      })
+        email: userEmail,
+        address_houseNum: houseNum,
+        address_streetName: streetName,
+        address_city: city,
+        address_state: "NY",
+        address_postCode: postcode,
+        contactFlag: 0,
+      }),
     })
-    .then((response) => response.json())
-    .then((json => console.log(json)))
+      .then((response) => response.json())
+      .then((json) => console.log(json))
 
-   //   body: JSON.stringify({
-   //     userID: "",
-   //     firstName:accountName,
-   //     lastName:"",
-   //     email:userEmail,
-   //     address_houseNum:houseNum,
-   //     address_streetName:streetName,
-   //     address_city:city,
-   //     address_state:"NY",
-   //     address_postCode:postcode,
-   //     contactFlag: 0
-   //   })
-   // })
-   // .then((response) => response.json())
-  //  .then((json => {
-    //  console.log(json)
-  //  }))
+      //   body: JSON.stringify({
+      //     userID: "",
+      //     firstName:accountName,
+      //     lastName:"",
+      //     email:userEmail,
+      //     address_houseNum:houseNum,
+      //     address_streetName:streetName,
+      //     address_city:city,
+      //     address_state:"NY",
+      //     address_postCode:postcode,
+      //     contactFlag: 0
+      //   })
+      // })
+      // .then((response) => response.json())
+      //  .then((json => {
+      //  console.log(json)
+      //  }))
 
-    .catch(err => console.log(err))
-  }
-
+      .catch((err) => console.log(err));
+  };
 
   return (
     <Router>
       <div>
         <Routes>
-          <Route path="/" element={<LandingMain username={accountName}/>} />
+          <Route path="/" element={<LandingMain username={accountName} />} />
 
           {/* <Route path="/signup" element={<SignUpMain />} /> */}
-          <Route path="/signup" element={<SignUpMain 
-          email={userEmail}
-          handleEmail={handleEmail}
-          validEmail={validEmail}
-          />} />
+          <Route
+            path="/signup"
+            element={
+              <SignUpMain
+                email={userEmail}
+                handleEmail={handleEmail}
+                validEmail={validEmail}
+              />
+            }
+          />
           {/* <Route path="/bankdetails" element={<BankDetails />} /> */}
-          <Route path="/bankdetails" element={<BankDetails 
-            accountName={accountName}
-            handleAccountName={handleAccountName}
-          />} />
+          <Route
+            path="/bankdetails"
+            element={
+              <BankDetails
+                accountName={accountName}
+                handleAccountName={handleAccountName}
+              />
+            }
+          />
           {/* <Route path="/billingaddress" element={<BillingAddress />} /> */}
 
-          <Route path="/billingaddress" element={<BillingAddress 
-            houseNum={houseNum}
-            handleHouseNum={handleHouseNum}
-            streetName={streetName}
-            handleStreetName={handleStreetName}
-            city={city}
-            handleCity={handleCity}
-            postcode={postcode}
-            handlePostCode={handlePostCode}
-            handleCreateAccount={handleCreateAccount}
-          />} />
+          <Route
+            path="/billingaddress"
+            element={
+              <BillingAddress
+                houseNum={houseNum}
+                handleHouseNum={handleHouseNum}
+                streetName={streetName}
+                handleStreetName={handleStreetName}
+                city={city}
+                handleCity={handleCity}
+                postcode={postcode}
+                handlePostCode={handlePostCode}
+                handleCreateAccount={handleCreateAccount}
+              />
+            }
+          />
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
           <Route path="/wallet" element={<Wallet username={username} />} />
-          <Route path="/contacts" element={<ContactAdd username={username}/>} />
-          {currency[0]?
-          <Route path="/liverates" element={<LiveRates currency={currency} username={username}/>} />:""}
-          <Route path="/signin" element= {<LoginFlowWelcome />} />
+          <Route
+            path="/contacts"
+            element={<ContactAdd username={username} />}
+          />
+          {currency[0] ? (
+            <Route
+              path="/liverates"
+              element={<LiveRates currency={currency} username={username} />}
+            />
+          ) : (
+            ""
+          )}
+          <Route path="/signin" element={<LoginFlowWelcome />} />
           <Route path="/userprofile" element={<Wallet username={username} />} />
-          <Route path="/dashboard" element={<Wallet username={username}/>} />
+          <Route path="/dashboard" element={<Wallet username={username} />} />
           <Route path="/home" element={<LandingMain />}></Route>
           <Route path="/features" element={<LandingMain />}></Route>
           <Route path="/about" element={<LandingMain />}></Route>
           <Route path="/contact" element={<LandingMain />}></Route>
+          <Route path="/contact-details" component={<ContactDetails  username={username}/>}></Route>
           <Route path="/" element={<LandingMain />}></Route>
-          {baseCurrency ? 
+          {baseCurrency ? (
             <Route
               path="/currencyconverter"
               element={
@@ -291,9 +310,12 @@ const App = () => {
                   setAmountCode={setAmountCode}
                 />
               }
-            ></Route> : ""}
+            ></Route>
+          ) : (
+            ""
+          )}
 
-          {baseCurrency ? 
+          {baseCurrency ? (
             <Route
               path="/transfer-fx-transaction"
               element={
@@ -301,8 +323,14 @@ const App = () => {
                   transferWorkflowStage="fxTransaction"
                   currencyBase={baseCurrency}
                   currencyTo={toCurrency}
-                  amountBase={amountCode===baseCurrency.code?amount:Number(amount * 1/toCurrency.rate).toFixed(4)}
-                  amountReceived={amountCode===baseCurrency.code?convertedAmount:amount}
+                  amountBase={
+                    amountCode === baseCurrency.code
+                      ? amount
+                      : Number((amount * 1) / toCurrency.rate).toFixed(4)
+                  }
+                  amountReceived={
+                    amountCode === baseCurrency.code ? convertedAmount : amount
+                  }
                   fee={fee}
                   username={username}
                   accountBalance={accountBalance}
@@ -310,12 +338,14 @@ const App = () => {
                   sortCode={sortCode}
                   searchTerm={searchTerm}
                   handleInput={handleInput}
-
                 />
               }
-            /> : ""}
+            />
+          ) : (
+            ""
+          )}
 
-          {baseCurrency ? 
+          {baseCurrency ? (
             <Route
               path="/transfer-send-from"
               element={
@@ -323,8 +353,14 @@ const App = () => {
                   transferWorkflowStage="transferSendFrom"
                   currencyBase={baseCurrency}
                   currencyTo={toCurrency}
-                  amountBase={amountCode===baseCurrency.code?amount:Number(amount * 1/toCurrency.rate).toFixed(4)}
-                  amountReceived={amountCode===baseCurrency.code?convertedAmount:amount}
+                  amountBase={
+                    amountCode === baseCurrency.code
+                      ? amount
+                      : Number((amount * 1) / toCurrency.rate).toFixed(4)
+                  }
+                  amountReceived={
+                    amountCode === baseCurrency.code ? convertedAmount : amount
+                  }
                   fee={fee}
                   username={username}
                   accountBalance={accountBalance}
@@ -334,7 +370,10 @@ const App = () => {
                   handleInput={handleInput}
                 />
               }
-            /> : ""}
+            />
+          ) : (
+            ""
+          )}
         </Routes>
       </div>
     </Router>

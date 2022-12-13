@@ -63,6 +63,12 @@ const NavMenu = (props) => {
               Contacts
             </Link>
           </div>
+          <div className="sidemenu__item">
+            <img className="sidemenu__icon" src={contactsImg} alt="Contacts" />
+            <Link className="sidemenu__a" to="/contacts-details">
+              Contacts-Details
+            </Link>
+          </div>
         </div>
       </div>
       <div className="sidemenu__signout">
