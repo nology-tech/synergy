@@ -32,7 +32,8 @@ const TransferMakeTransfer = (props) => {
       {
         bankName: "",
         bankLogo: "",
-      },
+        sortCode: ""
+            },
     ]
     );
   
@@ -166,14 +167,17 @@ const TransferMakeTransfer = (props) => {
   // Handling the account number input field change
   const handleAccountNumRecipient = (e) => {
     e.preventDefault();
+    console.log("Handling account number");
     setAccountNumRecipient(e.target.value);
+    
   };
 
   
   // Handling the bank input field change
-  const handleBankRecipient = (e) => {
-    e.preventDefault();
-    setBankRecipient(e.target.value);
+  const handleBankRecipient = (value) => {
+    console.log(value);
+    setBankRecipient(value);
+    
   };
 
   // Handling the sort code input field change
