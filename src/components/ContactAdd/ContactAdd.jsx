@@ -88,6 +88,7 @@ const ContactAdd = (props) => {
       {
         bankName: "",
         bankLogo: "",
+        sortCode: "",
       },
     ]
     );
@@ -187,6 +188,8 @@ const ContactAdd = (props) => {
             recipientName={recipientName}
             accountTypeRecipient={accountTypeRecipient}
             accountNumRecipient={accountNumRecipient}
+            currencyRecipient={currencyRecipient}
+            bankRecipient={bankRecipient}
             sortCodeRecipient={sortCodeRecipient}
             handleGoBack={handleGoBack}
             handleCloseWindow={handleCloseWindow}

@@ -64,9 +64,9 @@ const TransferConfirmRecepient = (props) => {
           <h3>Account Currency</h3>
           <p>{currencyRecipient}</p>
           <h3>Bank</h3>
-          <p>{bankRecipient}</p>
+          <p>{bankRecipient.bankName}</p>
           <h3>Sort Code</h3>
-          <p>{sortCodeRecipient}</p>
+          <p>{bankRecipient.sortCode}</p>
         </div>
         <div className="transfer-confirm-recepient__main__options">
           {displayConfirmRecipient()}
