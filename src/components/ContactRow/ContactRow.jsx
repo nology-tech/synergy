@@ -5,7 +5,7 @@ const ContactRow = ({contact, onContactClick, onDelete}) => {
    // Table of contacts tr = table row; td = table details
     return (
         <tr className="contactRow" key={contact.account}  
-        onClick={() => onContactClick(contact.account)}
+        onClick={() => onContactClick(contact)}
         >
             <td className="contactRow__bankIcon">
                 <img

@@ -8,7 +8,7 @@ import UserContacts from "../../components/UserContacts/UserContacts";
 
 
 const ContactContainer = (props) => {
-  const {walletOn, onClick, currencyRecipientCode} = props;
+  const {walletOn, onClick, currencyRecipientCode, contact, setContact, onContactClick} = props;
   
   // Setting up the search box
   const [searchTerm, setSearchTerm] = useState("");
@@ -43,10 +43,11 @@ const ContactContainer = (props) => {
     );
   });
 
-  // these items are place holders for future work; currently not in use for onclick on contact details
-  const onContactClick = (accountId) => {
-    console.log("Contact clicked for " + accountId);
-  };
+  // // these items are place holders for future work; currently not in use for onclick on contact details
+  // const onContactClick = (contact) => {
+  //   console.log("Contact clicked for " + contact.account);
+  //   setContact(contact);
+  // };
 
   const onContactDelete = (accountId) => {
     console.log("delete clicked for " + accountId);
