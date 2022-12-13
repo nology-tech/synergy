@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button/Button";
 import TransferAccountForm from "../TransferAccountForm/TransferAccountForm";
-// import currencies from "../../data/currency.js";
+
 import infosign from "../../assets/images/infosign.png";
 import "./TransferTransactionSend.scss";
 import { FiSend } from "react-icons/fi";
@@ -25,11 +25,10 @@ const TransferTransactionSend = (props) => {
     handleCancel,
     handleSend,
     currencyBaseSymbol,
-    currencyToSymbol
+    currencyToSymbol,
   } = props;
 
   const buttonSend = <FiSend />;
-  
 
   const totalToPay = Number(amountBase) + Number(fee);
 
@@ -99,19 +98,13 @@ const TransferTransactionSend = (props) => {
           </div>
         </div>
         <div className="transfer-transaction-send__main__options">
-          <a
-            // className="transfer-transaction-send__main__options__cancel"
-            onClick={handleCancel}
-          >
-            Cancel
-          </a>
+          <a onClick={handleCancel}>Cancel</a>
           <Button
             buttonStyle={"btn button-blue"}
             buttonText={"Send"}
             buttonImg={buttonSend}
             onClick={handleSend}
           />
-          {/* </Link>          */}
         </div>
       </div>
     </>

@@ -23,42 +23,33 @@ const TransferMakeTransfer = (props) => {
     accountNum,
     sortCode,
     searchTerm,
-    handleInput
+    handleInput,
   } = props;
 
+  const [banks, setBanks] = useState([
+    {
+      bankName: "",
+      bankLogo: "",
+      sortCode: "",
+    },
+  ]);
 
-  const [banks, setBanks] = useState(
-      [
-      {
-        bankName: "",
-        bankLogo: "",
-        sortCode: ""
-            },
-    ]
-    );
-  
-    const getBanks = () => {
-      
-      //e.preventDefault();
-      fetch("http://localhost:8080/banks", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-       
-      })
-        .then((response) => response.json())
-        .then((json) => setBanks(json))
-        .catch((err) => console.log(err));
+  const getBanks = () => {
+    //e.preventDefault();
+    fetch("http://localhost:8080/banks", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => setBanks(json))
+      .catch((err) => console.log(err));
 
-        
-      //e.target.reset();
-    };
+    //e.target.reset();
+  };
 
-    
-  
-   useEffect (() => getBanks(),[]);
-
+  useEffect(() => getBanks(), []);
 
   //set variables for previous code when passing transfer currencies on an array format
   // (CurrencyBase & CurrencyTo)
@@ -67,14 +58,12 @@ const TransferMakeTransfer = (props) => {
   const currencyRecipientCode = currencyTo.code;
   const fxRate = currencyTo.rate;
   const currencyToSymbol = currencyTo.symbol;
-  const currencyRecipient = currencyTo.code + " - "+ currencyTo.symbol;
-  
+  const currencyRecipient = currencyTo.code + " - " + currencyTo.symbol;
 
   const accountFormTypes = true;
 
   // handle navigation
   const [workflowStage, setWorkflowStage] = useState("sendForm");
-  console.log(workflowStage);
 
   //From Send Form Select Recipient
   const handleSelectRecipient = (event) => {
@@ -83,9 +72,8 @@ const TransferMakeTransfer = (props) => {
 
   //From Choose recipient to Confirmed
   const selectContact = (contactTo) => {
-    console.log("contact selected")
     setContactTo(contactTo);
-    setRecipientName(contactTo.firstName+" "+contactTo.lastName);
+    setRecipientName(contactTo.firstName + " " + contactTo.lastName);
     setAccountTypeRecipient(contactTo.accountType);
     setAccountNumRecipient(contactTo.account);
     setBankRecipient(contactTo.bankName);
@@ -98,8 +86,15 @@ const TransferMakeTransfer = (props) => {
   };
 
   // From Choose Recipient from existing contact
-  const [contactTo, setContactTo] = useState({account:"", firstName:"", lastName:"", accountType:"", sortCode:"", bankName:"", accountCurrency:""});
-  console.log(`Contact to: ${contactTo.account} ${contactTo.firstName} ${contactTo.lastName} ${contactTo.accountType} ${contactTo.sortCode}`);
+  const [contactTo, setContactTo] = useState({
+    account: "",
+    firstName: "",
+    lastName: "",
+    accountType: "",
+    sortCode: "",
+    bankName: "",
+    accountCurrency: "",
+  });
 
   //From Send Form Pay SomeOneNew
   const handlePaySomeOneNew = (event) => {
@@ -128,11 +123,11 @@ const TransferMakeTransfer = (props) => {
   const handleCancel = (event) => {
     setWorkflowStage("sendForm");
   };
-  
+
   // The handleSend should go back to wallet. Currently its on send form
   const handleSend = (event) => {
     setWorkflowStage("sendForm");
-    window.open('/wallet', '_blank')
+    window.open("/wallet", "_blank");
   };
 
   //Handle black cross
@@ -167,17 +162,13 @@ const TransferMakeTransfer = (props) => {
   // Handling the account number input field change
   const handleAccountNumRecipient = (e) => {
     e.preventDefault();
-    console.log("Handling account number");
+
     setAccountNumRecipient(e.target.value);
-    
   };
 
-  
   // Handling the bank input field change
   const handleBankRecipient = (value) => {
-    console.log(value);
     setBankRecipient(value);
-    
   };
 
   // Handling the sort code input field change
@@ -213,7 +204,7 @@ const TransferMakeTransfer = (props) => {
             accountNum={accountNum}
             sortCode={sortCode}
             currencyBaseSymbol={currencyBaseSymbol}
-            />
+          />
           <TransferAddRecipient
             handleContinueButton={handleContinueButton}
             handleGoBack={handleGoBack}
@@ -256,7 +247,7 @@ const TransferMakeTransfer = (props) => {
             sortCodeRecipient={sortCodeRecipient}
             handleGoBack={handleGoBack}
             handleCloseWindow={handleCloseWindow}
-            handleSubmit= {handleSubmit}
+            handleSubmit={handleSubmit}
             workflowStage={workflowStage}
           />
         </>
@@ -304,10 +295,10 @@ const TransferMakeTransfer = (props) => {
             accountNumRecipient={accountNumRecipient}
             currencyRecipient={currencyRecipient}
             bankRecipient={bankRecipient}
-            sortCodeRecipient={sortCodeRecipient}       
+            sortCodeRecipient={sortCodeRecipient}
             handleGoBackToChooseContact={handleGoBackToChooseContact}
             handleCloseWindow={handleCloseWindow}
-            handleSubmit= {handleSubmit}
+            handleSubmit={handleSubmit}
           />
         </>
       );
@@ -329,11 +320,11 @@ const TransferMakeTransfer = (props) => {
               recipientName={recipientName}
               accountNumRecipient={accountNumRecipient}
               currencyRecipient={currencyRecipient}
-              bankRecipient={bankRecipient}  
+              bankRecipient={bankRecipient}
               sortCodeRecipient={sortCodeRecipient}
               amountReceived={amountReceived}
-              handleCancel={handleCancel }
-              handleSend= {handleSend}
+              handleCancel={handleCancel}
+              handleSend={handleSend}
               currencyBaseSymbol={currencyBaseSymbol}
               currencyToSymbol={currencyToSymbol}
             />
@@ -376,7 +367,7 @@ const TransferMakeTransfer = (props) => {
 
         {/* Display the screen with Add recipient or Choose Recipient overlapping Send From transaction details */}
         {transferWorkflowStage === "transferSendFrom" ? (
-         banks && displayCurrentView()
+          banks && displayCurrentView()
         ) : (
           <></>
         )}

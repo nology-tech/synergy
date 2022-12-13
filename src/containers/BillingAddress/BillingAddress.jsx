@@ -7,7 +7,17 @@ import SignInNav from "../../components/SignInNav/SignInNav";
 import Button from "../../components/Button/Button";
 
 const BillingAddress = (props) => {
-  const {houseNum, handleHouseNum, streetName, handleStreetName,city,handleCity, postcode,handlePostCode,handleCreateAccount}=props;
+  const {
+    houseNum,
+    handleHouseNum,
+    streetName,
+    handleStreetName,
+    city,
+    handleCity,
+    postcode,
+    handlePostCode,
+    handleCreateAccount,
+  } = props;
   return (
     <>
       <SignInNav title="Login" />
@@ -68,11 +78,12 @@ const BillingAddress = (props) => {
                   </button>
                 </Link>
                 <Link to="/dashboard">
-                    <Button buttonStyle={"btn button-blue billingAddressForm__btn"} buttonText={"Create Account"} onClick={handleCreateAccount}/>
+                  <Button
+                    buttonStyle={"btn button-blue billingAddressForm__btn"}
+                    buttonText={"Create Account"}
+                    onClick={handleCreateAccount}
+                  />
                 </Link>
-                {/* <button className="billingAddressForm__btn" type="submit">
-                  Create Account
-                </button> */}
               </div>
             </form>
           </div>

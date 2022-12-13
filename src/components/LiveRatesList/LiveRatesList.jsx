@@ -24,7 +24,9 @@ const LiveRatesList = (props) => {
     const currencyName = currencyItem.name.toLowerCase();
     const currencyCode = currencyItem.code.toLowerCase();
     return (
-      currencyName.includes(searchTerm) || currencyCode.includes(searchTerm) || currencyCode.includes(baseCurrency)
+      currencyName.includes(searchTerm) ||
+      currencyCode.includes(searchTerm) ||
+      currencyCode.includes(baseCurrency)
     );
   });
 
@@ -54,7 +56,6 @@ const LiveRatesList = (props) => {
         buttonText={index === 0 ? "" : "Select"}
         onClick={() => onSelect(currency)}
       />
-      {/* <button className="button primary">{index===0?"Edit":"Send"}</button> */}
     </div>
   ));
   return (
@@ -71,7 +72,6 @@ const LiveRatesList = (props) => {
           <div className="live-rates-head__search__item">
             <Search searchTerm={searchTerm} handleInput={handleInput} />
           </div>
-
         </div>
       </div>
 

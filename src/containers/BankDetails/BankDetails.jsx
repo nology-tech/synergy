@@ -8,13 +8,11 @@ import Button from "../../components/Button/Button";
 import currency from "../../data/currency.js";
 
 const BankDetails = (props) => {
-  const {accountName, handleAccountName}=props;
+  const { accountName, handleAccountName } = props;
   const [accountNum, setAccountNum] = useState();
   const [accountCurr, setAccountCurr] = useState();
   const [sortCode, setSortCode] = useState("");
 
-  
-  
   // Handling the account number input field change
   const handleAccountNum = (e) => {
     e.preventDefault();
@@ -33,7 +31,10 @@ const BankDetails = (props) => {
   };
 
   const currencyJSX = currency.map((currency) => (
-    <option name={currency.code}> {currency.code} - {currency.name}</option>
+    <option name={currency.code}>
+      {" "}
+      {currency.code} - {currency.name}
+    </option>
   ));
 
   return (
@@ -60,16 +61,7 @@ const BankDetails = (props) => {
                   type="text"
                 />
               </div>
-               {/* Labels and inputs for form data */}
-               {/* <div className="bankDetailsForm__div">
-                <label>Account Last Name</label>
-                <input
-                  onChange={handleAccountLastName}
-                  className="input"
-                  value={accountLastName}
-                  type="text"
-                />
-              </div> */}
+
               <div className="bankDetailsForm__div">
                 <label>Account Number</label>
                 <input
@@ -105,18 +97,11 @@ const BankDetails = (props) => {
                   </button>
                 </Link>
                 <Link to="/billingaddress">
-                {console.log(accountName)}
-                  <Button 
+                  <Button
                     buttonStyle={"btn button-blue"}
-                    buttonType={"submit"} 
-                    buttonText={`Continue ▶`} 
+                    buttonType={"submit"}
+                    buttonText={`Continue ▶`}
                   />
-                  {/* <button
-                    className="bankDetailsForm__continueBtn"
-                    type="submit"
-                  >
-                    Continue &#9654;
-                  </button> */}
                 </Link>
               </div>
             </form>

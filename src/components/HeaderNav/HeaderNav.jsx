@@ -30,7 +30,7 @@ const HeaderNav = () => {
           <Link to="/signin" className="signin" value="Sign In">
             Sign In
           </Link>
-          
+
           <Link to="/signup" className="signup" value="Sign Up">
             <Button buttonStyle={"btn button-blue"} buttonText={"Sign Up"} />
           </Link>

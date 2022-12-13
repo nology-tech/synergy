@@ -76,12 +76,10 @@ const LoginFlow = (props) => {
   const [userEmail, setEmail] = useState("");
 
   const getUserByEmail = () => {
-    console.log (userEmail);
     fetch(`http://localhost:8080/userbyemail?email=${userEmail}`)
     .then(res => {return res.json()})
     .then(data => {
       setUserName(data.firstName+" "+data.lastName)
-      console.log(data.userID)
     })
     .catch(err => console.log(err))
   }
@@ -112,7 +110,6 @@ const LoginFlow = (props) => {
           <div className="loginFlow__main">
             <div className="loginFlow__main__header">
               <h1>{loginFlow_header}</h1>
-              {/* Show HandWave emoji only for Welcome screen  */}
               {loginFlow_header === "Welcome Back!" ? (
                 <img
                   src={emojihand}

@@ -11,9 +11,7 @@ const ContactAdd = (props) => {
   // handle navigation
   const [workflowStage, setWorkflowStage] = useState("contactContainer");
   const {username} = props; 
-  console.log (username);
 
-  console.log(workflowStage);
 
   //Contact page to Add button clicked function
   const handleAddContact = (event) => {
@@ -24,7 +22,6 @@ const ContactAdd = (props) => {
     setSortCodeRecipient("");
   };
 
-  console.log(setWorkflowStage);
   
   //From Add recipient to Confirm Details press continue
   const handleContinueButton = (event) => {
@@ -95,7 +92,7 @@ const ContactAdd = (props) => {
   
     const getBanks = () => {
       
-      //e.preventDefault();
+     
       fetch("http://localhost:8080/banks", {
         method: "GET",
         headers: {
@@ -106,7 +103,7 @@ const ContactAdd = (props) => {
         .then((response) => response.json())
         .then((json) => setBanks(json))
         .catch((err) => console.log(err));
-      //e.target.reset();
+      
     };
   
    useEffect (() => getBanks(),[]);
@@ -143,7 +140,6 @@ const ContactAdd = (props) => {
 
    // Handling the bank input field change
    const handleBankRecipient = (value) => {
-    console.log(value);
     setBankRecipient(value);
     
   };

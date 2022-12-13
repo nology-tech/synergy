@@ -1,5 +1,5 @@
 import React from "react";
-// import "./LandingNav.scss";
+
 import HeaderNav from "../HeaderNav/HeaderNav";
 import FooterNav from "../FooterNav/FooterNav";
 

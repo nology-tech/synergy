@@ -10,16 +10,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import synergyLogo from "../../assets/images/synergy_main_logo.png";
 
 const CreateAccount = (props) => {
-  const {email, handleEmail, validEmail} =props;
+  const { email, handleEmail, validEmail } = props;
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
   const [passwordType, setPasswordType] = useState("password");
-  const [ConfirmedPasswordType, setConfirmedPasswordType] = useState("password");
+  const [ConfirmedPasswordType, setConfirmedPasswordType] =
+    useState("password");
 
-   const [validPassword, setValidPassword] = useState(false);
+  const [validPassword, setValidPassword] = useState(false);
   const [validConfirmedPassword, setValidConfirmedPassword] = useState(false);
-
-
 
   // Handling the password input field change
   const handlePassword = (e) => {
@@ -78,7 +77,6 @@ const CreateAccount = (props) => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </p>
           <form className="CreateAccountForm">
-            {/* Labels and inputs for form data */}
             <div className="CreateAccountForm__div">
               <label>Email</label>
               <input
@@ -87,10 +85,14 @@ const CreateAccount = (props) => {
                 value={email}
                 type="text"
               />
-             {email === ""?<p></p>:validEmail ? (
+              {email === "" ? (
+                <p></p>
+              ) : validEmail ? (
                 <p className="valid"> &#x1F5F9; Successful email entered</p>
               ) : (
-                <p className="invalid"> &#128712; Error - Your email must contain an @ symbol
+                <p className="invalid">
+                  {" "}
+                  &#128712; Error - Your email must contain an @ symbol
                 </p>
               )}
             </div>
@@ -110,12 +112,14 @@ const CreateAccount = (props) => {
                   onClick={togglePassword}
                 />
               </div>
-              {password === ""?<p></p>:validPassword ? (
+              {password === "" ? (
+                <p></p>
+              ) : validPassword ? (
                 <p className="valid">&#x1F5F9; Password meets requirements</p>
               ) : (
                 <p className="invalid">
-                  &#128712; Error - password must contain at least 8 characters & one
-                  uppercase letter
+                  &#128712; Error - password must contain at least 8 characters
+                  & one uppercase letter
                 </p>
               )}
             </div>
@@ -135,11 +139,14 @@ const CreateAccount = (props) => {
                   onClick={toggleConfirmedPassword}
                 />
               </div>
-              {/* #128712 is Unicode for the circle with exclamation mark */}
-              {confirmedPassword===""?<p></p>:validConfirmedPassword ? (
+              {confirmedPassword === "" ? (
+                <p></p>
+              ) : validConfirmedPassword ? (
                 <p className="valid">&#x1F5F9; Passwords match</p>
               ) : (
-                <p className="invalid">&#128712; Error - passwords do not match!</p>
+                <p className="invalid">
+                  &#128712; Error - passwords do not match!
+                </p>
               )}
             </div>
 
@@ -148,27 +155,19 @@ const CreateAccount = (props) => {
               <p className="CreateAccountForm__hasAccount__question">
                 Already have an account?&nbsp;
                 <span>
-                  <Link className="CreateAccountForm__hasAccount__login" to="/signin">
+                  <Link
+                    className="CreateAccountForm__hasAccount__login"
+                    to="/signin"
+                  >
                     Login
                   </Link>
                 </span>
               </p>
             </div>
 
-            <div className="CreateAccountForm__separator">
-            </div>
+            <div className="CreateAccountForm__separator"></div>
 
             <Link to="/bankdetails">
-              {/* <Button 
-                buttonStyle={"btn button-blue-disabled button-blue CreateAccountForm__btn"}
-                type="submit"
-                buttonType={"submit"} 
-                disabled={
-                  !(validEmail && validPassword && validConfirmedPassword)
-                }
-                buttonText={`Continue ▶`} 
-              /> */}
-              {console.log(email)}
               <button
                 className="CreateAccountForm__btn"
                 type="submit"
@@ -176,7 +175,7 @@ const CreateAccount = (props) => {
                   !(validEmail && validPassword && validConfirmedPassword)
                 }
               >
-                  Continue &#9654;
+                Continue &#9654;
               </button>
             </Link>
           </form>

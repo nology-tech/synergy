@@ -5,17 +5,9 @@ import Button from "../Button/Button";
 import infosign from "../../assets/images/infosign.png";
 
 const FxTransaction = (props) => {
-  const {
-    currencyBase,
-    currencyRecipient,
-    amountBase,
-    amountReceived,
-    fee
-  } = props;
+  const { currencyBase, currencyRecipient, amountBase, amountReceived, fee } =
+    props;
 
- 
-
-  
   return (
     <div className="fx-transaction">
       <div className="fx-transaction__amount">
@@ -65,7 +57,10 @@ const FxTransaction = (props) => {
         </div>
         <div className="fx-transaction__fee__details">
           <h3>Fee</h3>
-          <p>{currencyBase.symbol}{Number(fee).toFixed(2)}</p>
+          <p>
+            {currencyBase.symbol}
+            {Number(fee).toFixed(2)}
+          </p>
         </div>
         <div className="fx-transaction__fee__details">
           <h3>Delivery</h3>
@@ -82,9 +77,9 @@ const FxTransaction = (props) => {
         </div>
         <div>
           <Link to="/transfer-send-from">
-          <Button buttonStyle={"btn button-blue"} buttonText={`Continue ▶`} />
+            <Button buttonStyle={"btn button-blue"} buttonText={`Continue ▶`} />
           </Link>
-          </div>
+        </div>
       </div>
     </div>
   );

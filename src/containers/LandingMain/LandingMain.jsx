@@ -8,7 +8,7 @@ import "./LandingMain.scss";
 import Button from "../../components/Button/Button";
 
 const LandingMain = (props) => {
-  const {username, setUserName} =props;
+  const { username, setUserName } = props;
 
   const handleResetName = () => {
     setUserName("");
@@ -29,40 +29,37 @@ const LandingMain = (props) => {
         />
       </div>
 
-    
-        <div className="bankClients">
-          <h1 className="bankClients__title">
-            Trusted by over 3,000 banks worldwide
-          </h1>
-          <div className="bankLogosImg">
-            <img
-              className="bankLogosImg__one"
-              src={require("../../assets/images/logoipsum.png")}
-              alt="main page image"
-            />
-            <img
-              className="bankLogosImg__two"
-              src={require("../../assets/images/logoipsum2.png")}
-              alt="main page image"
-            />
-            <img
-              className="bankLogosImg__three"
-              src={require("../../assets/images/logoipsum3.png")}
-              alt="main page image"
-            />
-          </div>
-        </div>
-
-        <div className="features">
-          <h2 className="features__title">Our Award-Winning Features</h2>
-          <FeaturesTile features={features} />
-          <Button
-            buttonStyle={"btn button-transparent"}
-            buttonText={"Find Out More"}
+      <div className="bankClients">
+        <h1 className="bankClients__title">
+          Trusted by over 3,000 banks worldwide
+        </h1>
+        <div className="bankLogosImg">
+          <img
+            className="bankLogosImg__one"
+            src={require("../../assets/images/logoipsum.png")}
+            alt="main page image"
           />
-          {/* <button className="features__button">Find Out More</button> */}
+          <img
+            className="bankLogosImg__two"
+            src={require("../../assets/images/logoipsum2.png")}
+            alt="main page image"
+          />
+          <img
+            className="bankLogosImg__three"
+            src={require("../../assets/images/logoipsum3.png")}
+            alt="main page image"
+          />
         </div>
-     
+      </div>
+
+      <div className="features">
+        <h2 className="features__title">Our Award-Winning Features</h2>
+        <FeaturesTile features={features} />
+        <Button
+          buttonStyle={"btn button-transparent"}
+          buttonText={"Find Out More"}
+        />
+      </div>
 
       <div className="converter">
         <h1 className="converter__title">Make A Conversation </h1>

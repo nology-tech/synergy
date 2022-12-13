@@ -6,7 +6,6 @@ const FeatureCard = (props) => {
     feature_id,
     feature_name,
     feature_description,
-    // feature_image, -- this will needed when get to the API
     feature_tagline,
   } = props;
 
