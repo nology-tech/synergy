@@ -151,36 +151,6 @@ const App = () => {
   };
 
   const handleCreateAccount = () => {
-<<<<<<< HEAD
-    setAccount({
-      firstName: accountName,
-      lastName: "",
-      email: userEmail,
-      address_houseNum: houseNum,
-      address_streetName: streetName,
-      address_city: city,
-      address_state: "NY",
-      address_postCode: postcode,
-      contactFlag: 0,
-    });
-    postCreateAccount();
-  };
-
-  const postCreateAccount = () => {
-    fetch("http://localhost:8080/createContact", {
-      // const handleCreateAccount = (e) => {
-      //   setUserName(accountName)
-      // setAccount();
-      //   postCreateAccount()
-
-      // };
-
-      // const postCreateAccount=()=>{
-      //   console.log(userEmail)
-      //   fetch('http://localhost:8080/users', {
-
-      method: "POST",
-=======
     postCreateAccount();
     setUserName(accountName);
   };
@@ -191,49 +161,11 @@ const App = () => {
     console.log(userEmail)
     fetch('http://localhost:8080/users', {
       method: 'POST',
->>>>>>> 2ae834fb57cc08f0f9324abb5f1595b93b3cda32
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         userID: "",
-<<<<<<< HEAD
-        firstName: accountName,
-        // firstName:accountName.split(" ",2)[0],
-        // lastName:  accountName.split(" ",2)[1],
-        email: userEmail,
-        address_houseNum: houseNum,
-        address_streetName: streetName,
-        address_city: city,
-        address_state: "NY",
-        address_postCode: postcode,
-        contactFlag: 0,
-      }),
-    })
-      .then((response) => response.json())
-      .then((json) => console.log(json))
-
-      //   body: JSON.stringify({
-      //     userID: "",
-      //     firstName:accountName,
-      //     lastName:"",
-      //     email:userEmail,
-      //     address_houseNum:houseNum,
-      //     address_streetName:streetName,
-      //     address_city:city,
-      //     address_state:"NY",
-      //     address_postCode:postcode,
-      //     contactFlag: 0
-      //   })
-      // })
-      // .then((response) => response.json())
-      //  .then((json => {
-      //  console.log(json)
-      //  }))
-
-      .catch((err) => console.log(err));
-  };
-=======
         firstName:accountName.split(" ",2)[0],
         lastName:  accountName.split(" ",2)[1],
         email:userEmail,
@@ -263,17 +195,12 @@ const App = () => {
   // const handleLoginByEmail = () => {
   //   getUserByEmail();
   // };
->>>>>>> 2ae834fb57cc08f0f9324abb5f1595b93b3cda32
 
   return (
     <Router>
       <div>
         <Routes>
-<<<<<<< HEAD
-          <Route path="/" element={<LandingMain username={accountName} />} />
-=======
           <Route path="/" element={<LandingMain username={username} setUserName={setUserName}/>} />
->>>>>>> 2ae834fb57cc08f0f9324abb5f1595b93b3cda32
 
           {/* <Route path="/signup" element={<SignUpMain />} /> */}
           <Route
@@ -311,36 +238,10 @@ const App = () => {
                 postcode={postcode}
                 handlePostCode={handlePostCode}
                 handleCreateAccount={handleCreateAccount}
-              />
-            }
-          />
+              />}/>
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
           <Route path="/wallet" element={<Wallet username={username} />} />
-<<<<<<< HEAD
-          <Route
-            path="/contacts"
-            element={<ContactAdd username={username} />}
-          />
-          {currency[0] ? (
-            <Route
-              path="/liverates"
-              element={<LiveRates currency={currency} username={username} />}
-            />
-          ) : (
-            ""
-          )}
-          <Route path="/signin" element={<LoginFlowWelcome />} />
-          <Route path="/userprofile" element={<Wallet username={username} />} />
-          <Route path="/dashboard" element={<Wallet username={username} />} />
-          <Route path="/home" element={<LandingMain />}></Route>
-          <Route path="/features" element={<LandingMain />}></Route>
-          <Route path="/about" element={<LandingMain />}></Route>
-          <Route path="/contact" element={<LandingMain />}></Route>
-          <Route path="/contact-details" component={<ContactDetails  username={username}/>}></Route>
-          <Route path="/" element={<LandingMain />}></Route>
-          {baseCurrency ? (
-=======
           <Route path="/contacts" element={<ContactAdd username={username}/>} />
           {currency[0]?
           <Route path="/liverates" element={<LiveRates currency={currency} username={username}/>} />:""}
@@ -353,7 +254,6 @@ const App = () => {
           <Route path="/contact" element={<LandingMain  username={username} setUserName={setUserName}/>}></Route>
           <Route path="/" element={<LandingMain  username={username} setUserName={setUserName}/>}></Route>
           {baseCurrency ? 
->>>>>>> 2ae834fb57cc08f0f9324abb5f1595b93b3cda32
             <Route
               path="/currencyconverter"
               element={
@@ -374,10 +274,7 @@ const App = () => {
                   setAmountCode={setAmountCode}
                 />
               }
-            ></Route>
-          ) : (
-            ""
-          )}
+              ></Route> : ""}
 
           {baseCurrency ? (
             <Route
