@@ -78,11 +78,12 @@ const LoginFlow = (props) => {
   const getUserByEmail = () => {
     console.log (userEmail);
     fetch(`http://localhost:8080/userbyemail?email=${userEmail}`)
-      .then(res => {console.log(res.json())})
-      // .then(data => setUserName(data.json.firstName))
-      .then(data => { console.log(data)})
-      // .then(json => { console.log(json) })
-      // .catch(err => console.log(err))
+    .then(res => {return res.json()})
+    .then(data => {
+      setUserName(data.firstName+" "+data.lastName)
+      console.log(data.userID)
+    })
+    .catch(err => console.log(err))
   }
 
   const handleLoginByEmail = () => {

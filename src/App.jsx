@@ -180,8 +180,7 @@ const App = () => {
         contactFlag: 0
       })
     })
-    .then((response) => response.json())
-    .then((json => console.log(json)))
+    .then((res) => {return res.json()})
     .then((data => console.log(data.userID)))
     .catch(err => console.log(err))
   }
