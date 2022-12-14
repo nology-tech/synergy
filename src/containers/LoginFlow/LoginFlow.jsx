@@ -18,7 +18,9 @@ const LoginFlow = (props) => {
     inputBox_confirmpsw,
     buttonText,
     username,
-    setUserName
+    setUserName,
+    userID,
+    setUserID
   } = props;
 
   const [passwordType, setPasswordType] = useState("password"); //displays stars or text on a input field
@@ -82,6 +84,7 @@ const LoginFlow = (props) => {
     .then(res => {return res.json()})
     .then(data => {
       setUserName(data.firstName+" "+data.lastName)
+      setUserID(data.userID)
       console.log(data.userID)
     })
     .catch(err => console.log(err))
