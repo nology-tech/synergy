@@ -18,7 +18,16 @@ const ContactContainer = (props) => {
     const cleanInput=event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
   };
-  
+  const handleContactDelete = (event) => {
+    deleteUserContact();
+  };
+  const deleteUserContact=()=>{
+    fetch(`${apiurl}/deleteUserContact/${userID}/${contactID}`)
+    .then(res => res.json())
+    .then(json => setContacts(json))
+    .catch(err => console.log(err))
+
+  };
   const [contacts, setContacts] = useState([]);
   
   const getContacts = () => {
