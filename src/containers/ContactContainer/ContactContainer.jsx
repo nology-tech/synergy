@@ -5,6 +5,7 @@ import ContactList from "../../components/ContactList/ContactList";
 // import contacts from "../../data/Contacts";
 import Button from "../../components/Button/Button";
 import UserContacts from "../../components/UserContacts/UserContacts";
+import apiurl from "../../config/url";
 
 
 const ContactContainer = (props) => {
@@ -21,7 +22,7 @@ const ContactContainer = (props) => {
   const [contacts, setContacts] = useState([]);
   
   const getContacts = () => {
-      fetch("http://localhost:8080/contacts/1000000")
+      fetch(`${apiurl}/contacts/1000000`)
         .then(res => res.json())
         .then(json => setContacts(json))
         .catch(err => console.log(err))

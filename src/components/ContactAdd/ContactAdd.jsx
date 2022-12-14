@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import TransferAddRecipient from "../TransferAddRecipient/TransferAddRecipient";
 import TransferConfirmRecipient from "../TransferConfirmRecipient/TransferConfirmRecipient";
 import ContactListPage from "../ContactListPage/ContactListPage";
+import apiurl from "../../config/url";
 
 const ContactAdd = (props) => {
 
@@ -43,7 +44,7 @@ const ContactAdd = (props) => {
   };
 
   const postCreateAccount=()=>{
-    fetch('http://localhost:8080/users', {
+    fetch(`${apiurl}/users`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -96,7 +97,7 @@ const ContactAdd = (props) => {
     const getBanks = () => {
       
       //e.preventDefault();
-      fetch("http://localhost:8080/banks", {
+      fetch(`${apiurl}/banks`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

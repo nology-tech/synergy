@@ -18,6 +18,7 @@ import CurrencyConverterContainer from "./containers/CurrencyConverterContainer/
 // import currency from "./data/currency";
 import TransferMakeTransfer from "./components/TransferMakeTransfer/TransferMakeTransfer";
 import ContactAdd from "./components/ContactAdd/ContactAdd";
+import apiurl from "./config/url";
 // import Search from "./components/Search/Search";
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
    const [toCurrency, setToCurrency] = useState("");
    const [amount, setAmount] = useState("");
    const [convertedAmount, setConvertedAmount] = useState("");
+
  
    
   // fx should come from Live rates on Send button click, temporary setting to EUR rate from data file
@@ -50,7 +52,7 @@ const App = () => {
   // Details for Live Rates
   const [currency, setCurrency] = useState([]);
   const getCurrencyLiveRates = async() => {
-    fetch("http://localhost:8080/currencyrates")
+    fetch(`${apiurl}/currencyrates`)
       .then(res => res.json())
       .then(json => setBaseAndToCurrencies(json))
       .catch(err => console.log(err))
@@ -151,7 +153,7 @@ const App = () => {
     const cleanInput=event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
   };
-
+users
 
   const handleCreateAccount = () => {
     postCreateAccount();
@@ -162,7 +164,7 @@ const App = () => {
 
   const postCreateAccount=()=>{
     console.log(userEmail)
-    fetch('http://localhost:8080/users', {
+    fetch(`${apiurl}/users`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -187,7 +189,7 @@ const App = () => {
 
   // console.log ("Username: "+username);
   // const getUserByEmail = () => {
-  //   fetch(`http://localhost:8080/users?email=${userEmail}`)
+  //   fetch(`${apiurl}/users?email=${userEmail}`)
   //     .then(res => res.json())
   //     .then(json => setEmail(json))
   //     .then(data => setUserName(data.firstName))
