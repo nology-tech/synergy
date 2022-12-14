@@ -243,7 +243,7 @@ const ContactAdd = (props) => {
   //function to display different stages of adding contact
   const displayCurrentView = () => {
     if (workflowStage === "contactContainer") {
-      return <ContactListPage handleAddContact={handleAddContact} username={username}/>;
+      return <ContactListPage handleAddContact={handleAddContact} username={username} userID={userID}/>;
     } else if (workflowStage === "addRecipient") {
       return (
         <>

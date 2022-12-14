@@ -9,7 +9,7 @@ import apiurl from "../../config/url";
 
 
 const ContactContainer = (props) => {
-  const {walletOn, onClick, currencyRecipientCode, contact, setContact, onContactClick} = props;
+  const {walletOn, onClick, currencyRecipientCode, contact, setContact, onContactClick, userID} = props;
   
   // Setting up the search box
   const [searchTerm, setSearchTerm] = useState("");
@@ -22,7 +22,7 @@ const ContactContainer = (props) => {
   const [contacts, setContacts] = useState([]);
   
   const getContacts = () => {
-      fetch(`${apiurl}/contacts/1000000`)
+      fetch(`${apiurl}/contacts/${userID}`)
         .then(res => res.json())
         .then(json => setContacts(json))
         .catch(err => console.log(err))
