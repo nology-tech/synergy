@@ -1,7 +1,7 @@
 import garbage from "./../../assets/images/garbage.png";
 import "./ContactRow.scss";
 
-const ContactRow = ({contact, onContactClick, onDelete}) => {
+const ContactRow = ({contact, onContactClick, onDelete, contactID, setContactID}) => {
    // Table of contacts tr = table row; td = table details
     return (
         <tr className="contactRow" key={contact.account}  

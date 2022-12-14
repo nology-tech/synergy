@@ -9,7 +9,7 @@ import apiurl from "../../config/url";
 
 
 const ContactContainer = (props) => {
-  const {walletOn, onClick, currencyRecipientCode, contact, setContact, onContactClick} = props;
+  const {walletOn, onClick, currencyRecipientCode, contact, setContact, onContactClick, userID} = props;
   
   // Setting up the search box
   const [searchTerm, setSearchTerm] = useState("");
@@ -18,17 +18,18 @@ const ContactContainer = (props) => {
     const cleanInput=event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
   };
-  
+
   const [contacts, setContacts] = useState([]);
   
   const getContacts = () => {
-      fetch(`${apiurl}/contacts/1000000`)
+      fetch(`${apiurl}/contacts/${userID}`)
         .then(res => res.json())
         .then(json => setContacts(json))
         .catch(err => console.log(err))
     }
   useEffect(() => {getContacts();}, []);
 
+  const [contactID, setContactID] = useState("");
   
   // Filter contact using search
   const filteredContactsArray = contacts.filter((contact) => {
@@ -36,6 +37,7 @@ const ContactContainer = (props) => {
     const contactLastName = contact.lastName.toLowerCase();
     const contactBank = contact.bankName.toLowerCase();
     const currencyTo = currencyRecipientCode || "";
+
     return (
       contact.account_currency.includes(currencyTo) &&
       (contactfirstName.includes(searchTerm) ||
@@ -44,6 +46,15 @@ const ContactContainer = (props) => {
     );
   });
 
+  const deleteUserContact=()=>{
+    fetch(`${apiurl}/deleteUserContact/${userID}/${contactID}` , {
+      method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(json => setContacts(json))
+    .catch(err => console.log(err))
+  };
+
   // // these items are place holders for future work; currently not in use for onclick on contact details
   // const onContactClick = (contact) => {
   //   console.log("Contact clicked for " + contact.account);
@@ -51,6 +62,7 @@ const ContactContainer = (props) => {
   // };
 
   const onContactDelete = (accountId) => {
+    deleteUserContact()
     console.log("delete clicked for " + accountId);
   };
 
@@ -91,7 +103,8 @@ const ContactContainer = (props) => {
           ? <UserContacts contactsArray={filteredContactsArray} onContactClick={onContactClick} onDelete={onContactDelete}/>
           : <ContactList contactsArray={filteredContactsArray} onContactClick={onContactClick} onDelete={onContactDelete} />
         } */}
-        {contacts ? <ContactList contactsArray={filteredContactsArray} onContactClick={onContactClick} onDelete={onContactDelete} /> : ""}
+        {contacts 
+          ? <ContactList contactsArray={filteredContactsArray} onContactClick={onContactClick} onDelete={onContactDelete} contactID={contactID} setContactID={setContactID} /> : ""}
     </div>
   );
 };

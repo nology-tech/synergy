@@ -7,7 +7,7 @@ import DashboardHeader from '../DashboardHeader/DashboardHeader';
 
 const ContactListPage = (props) => {
 
-  const { handleAddContact,username } = props;
+  const { handleAddContact,username, userID } = props;
   console.log (username);
 
     // From Choose Recipient from existing contact
@@ -29,6 +29,7 @@ const ContactListPage = (props) => {
                   onContactClick = {onContactClick}
                   contact = {contact}
                   setContact = {setContact}
+                  userID={userID}
                 />
             </div>
         </div>
