@@ -18,12 +18,14 @@ import LandingMain from "./containers/LandingMain/LandingMain";
 // import ContactListPage from "./components/ContactListPage/ContactListPage";
 import LiveRates from "./components/LiveRates/LiveRates";
 import Wallet from "./containers/Wallet/Wallet";
+import transactionsArray from "./data/transaction"
 
 import CurrencyConverterContainer from "./containers/CurrencyConverterContainer/CurrencyConverterContainer";
 // import currency from "./data/currency";
 import TransferMakeTransfer from "./components/TransferMakeTransfer/TransferMakeTransfer";
 import ContactAdd from "./components/ContactAdd/ContactAdd";
-import ContactDetails from "./components/ContactDetails/ContactDetails";
+import ContactDetailsTransactions from "./containers/ContactDetailsTransactions/ContactDetailsTransactions";
+
 // import Search from "./components/Search/Search";
 
 const App = () => {
@@ -252,6 +254,7 @@ const App = () => {
           <Route path="/features" element={<LandingMain  username={username} setUserName={setUserName}/>}></Route>
           <Route path="/about" element={<LandingMain  username={username} setUserName={setUserName}/>}></Route>
           <Route path="/contact" element={<LandingMain  username={username} setUserName={setUserName}/>}></Route>
+          <Route path="/contactsdetails" element={<ContactDetailsTransactions transactionsArray={transactionsArray} username = {username} />}></Route>
           <Route path="/" element={<LandingMain  username={username} setUserName={setUserName}/>}></Route>
           {baseCurrency ? 
             <Route

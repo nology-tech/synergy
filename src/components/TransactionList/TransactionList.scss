@@ -1,0 +1,52 @@
+@use "./../../assets/sass/_variables.scss" as *;
+
+ 
+.transactionList {
+    margin: 0 5px;
+    padding: 0 5px;
+  
+
+.transactionTable {
+
+    table-layout: fixed;
+    width:100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    
+
+
+    thead tr {
+        color: $color-font-gray;
+        font-size: 15px;
+      
+    }
+    // code below is assigning the spacing in the table columns
+    thead th:nth-child(1) {width: 5%};
+    thead th:nth-child(2) {width: 18%};
+    thead th:nth-child(3) {width: 18%};
+    thead th:nth-child(4) {width: 18%};
+    thead th:nth-child(5) {width: 8%};
+    thead th:nth-child(6) {width: 18%};
+    thead th:nth-child(7) {width: 5%};
+
+
+    tbody tr {
+        background-color:  $color-light-gray-info-bar;
+        color: $color-font-light-gray;
+        height: 10px;
+        font-family:$title-font-family ;
+        font-size: 15px; 
+
+    }
+    tbody tr:hover {
+        background-color: $color-middle-blue;
+        color: $color-white;
+    }
+
+// th = table heading; td= table details
+    th, td {padding: 5px;};
+
+    
+}
+
+} 

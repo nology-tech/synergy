@@ -12,14 +12,18 @@
   // margin: 0px 0px;
   width: 600px;
   height: fit-content;
-  align-items: center;
+  align-items: left;
 
   h2 {
     color: $color-black;
     font-size: 24px;
     font-weight: 400;
   }
+  .transaction-details_main {
+    display: flex;
+    flex-direction: row;
 
+  
   .__account-recipient {
     background: $color-light-gray3;
     padding: 10px 20px;
@@ -52,4 +56,5 @@
       }
     }
   }
+}
 }
