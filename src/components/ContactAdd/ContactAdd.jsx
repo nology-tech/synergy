@@ -179,6 +179,7 @@ const ContactAdd = (props) => {
       {
         bankName: "",
         bankLogo: "",
+        sortCode: "",
       },
     ]
     );
@@ -232,9 +233,10 @@ const ContactAdd = (props) => {
   };
 
    // Handling the bank input field change
-   const handleBankRecipient = (e) => {
-    e.preventDefault();
-    setBankRecipient(e.target.value);
+   const handleBankRecipient = (value) => {
+    console.log(value);
+    setBankRecipient(value);
+    
   };
 
   //function to display different stages of adding contact
@@ -277,6 +279,8 @@ const ContactAdd = (props) => {
             recipientName={recipientName}
             accountTypeRecipient={accountTypeRecipient}
             accountNumRecipient={accountNumRecipient}
+            currencyRecipient={currencyRecipient}
+            bankRecipient={bankRecipient}
             sortCodeRecipient={sortCodeRecipient}
             handleGoBack={handleGoBack}
             handleCloseWindow={handleCloseWindow}
