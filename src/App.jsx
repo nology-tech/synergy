@@ -155,7 +155,6 @@ const App = () => {
     const cleanInput=event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
   };
-users
 
   const handleCreateAccount = () => {
     postCreateAccount();
