@@ -129,10 +129,34 @@ const TransferMakeTransfer = (props) => {
   const handleCancel = (event) => {
     setWorkflowStage("sendForm");
   };
+
+  const postTransaction=()=>{
+
+    fetch(`${apiurl}/transactions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        payeeAccountId:parseInt(accountNum),
+        recipientAccountId:parseInt(accountNumRecipient),
+        txnExchangeRate:parseFloat(fxRate),
+        payeeAmount:parseFloat(amountBase),
+        recipientAmount:parseFloat(amountReceived),
+        payeeFees:parseFloat(fee),
+        payeeTotalAmountCharged:parseFloat(amountBase + fee)
+      })
+    })
+    .then((res) => {return res.json()})
+    .then(console.log(accountNum))
+    .catch(err => console.log(err))
+
+  }
   
   // The handleSend should go back to wallet. Currently its on send form
   const handleSend = (event) => {
     setWorkflowStage("sendForm");
+    postTransaction();
     window.open('/wallet', '_blank')
   };
 

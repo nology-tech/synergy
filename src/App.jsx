@@ -161,8 +161,6 @@ const App = () => {
     setUserName(accountName);
   };
 
-  
-
   const postCreateAccount=()=>{
     console.log(userEmail)
     fetch(`${apiurl}/users`, {
