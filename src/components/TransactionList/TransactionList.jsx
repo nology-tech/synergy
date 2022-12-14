@@ -1,22 +1,17 @@
-
 import TransactionRow from "../TransactionsRow/TransactionRow";
 import "./TransactionList.scss";
 
-
-
-const TransactionList = ({transactionsArray}) => {
-// Map each element of the array
+const TransactionList = ({ transactionsArray }) => {
+  // Map each element of the array
   const transactionJSX = transactionsArray.map((transaction) => (
-      <TransactionRow transaction={transaction} key={transaction.txnId}/>
-)
-);
+    <TransactionRow transaction={transaction} key={transaction.txnId} />
+  ));
 
-// Transaction table: tr = table row; th = table heading;
-  
+  // Transaction table: tr = table row; th = table heading;
+
   return (
-    
     <div className="transactionList">
-        <table className="transactionTable">
+      <table className="transactionTable">
         <thead className="transactionList__head">
           <tr>
             <th scope="col"> </th>
@@ -28,12 +23,10 @@ const TransactionList = ({transactionsArray}) => {
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody className="transactionList__body">
-          {transactionJSX}
-        </tbody>
+        <tbody className="transactionList__body">{transactionJSX}</tbody>
       </table>
     </div>
-  )  
+  );
 };
 
 export default TransactionList;

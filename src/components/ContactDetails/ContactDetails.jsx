@@ -28,7 +28,7 @@ const ContactDetails = (props) => {
       <div className="contact-details-transactions__main">
         <div className="contact-details">
           <div className="contact-details__account-recipient">
-            <h3 className="contact-details__account-recipient__recusername">
+            <h3 className="contact-details__account-recipient__details">
               {recipientName}
             </h3>
             <div className="contact-details__account-recipient__details">
@@ -44,6 +44,7 @@ const ContactDetails = (props) => {
               <p>{accountIBANRecipient}</p>
             </div>
           </div>
+          <div className="contact-details__blankSpace"></div>
           <div className="contact-details__buttons">
             <h2>{"Want to make transfer?"}</h2>
             <Link to="/currencyconverter">
@@ -51,6 +52,7 @@ const ContactDetails = (props) => {
             </Link>
           </div>
         </div>
+        <div className="contact-details__blankSpace"></div>
         <div className="transaction-details">
           <TransactionList transactionsArray={transactionsArray} />
         </div>
