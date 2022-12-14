@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import SignInNav from "../../components/SignInNav/SignInNav";
+import apiurl from "../../config/url";
 
 const LoginFlow = (props) => {
   const {
@@ -17,7 +18,9 @@ const LoginFlow = (props) => {
     inputBox_confirmpsw,
     buttonText,
     username,
-    setUserName
+    setUserName,
+    userID,
+    setUserID
   } = props;
 
   const [passwordType, setPasswordType] = useState("password"); //displays stars or text on a input field
@@ -77,10 +80,11 @@ const LoginFlow = (props) => {
 
   const getUserByEmail = () => {
     console.log (userEmail);
-    fetch(`http://localhost:8080/userbyemail?email=${userEmail}`)
+    fetch(`${apiurl}/userbyemail?email=${userEmail}`)
     .then(res => {return res.json()})
     .then(data => {
       setUserName(data.firstName+" "+data.lastName)
+      setUserID(data.userID)
       console.log(data.userID)
     })
     .catch(err => console.log(err))

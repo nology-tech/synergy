@@ -9,6 +9,7 @@ import TransferConfirmRecipient from "../TransferConfirmRecipient/TransferConfir
 import "./TransferMakeTransfer.scss";
 import DashboardHeader from "../DashboardHeader/DashboardHeader";
 import TransferTransactionSend from "../TransferTransactionSend/TransferTransactionSend";
+import apiurl from "../../config/url";
 
 const TransferMakeTransfer = (props) => {
   const {
@@ -40,7 +41,7 @@ const TransferMakeTransfer = (props) => {
     const getBanks = () => {
       
       //e.preventDefault();
-      fetch("http://localhost:8080/banks", {
+      fetch(`${apiurl}/banks`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

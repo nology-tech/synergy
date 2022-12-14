@@ -18,11 +18,13 @@ import CurrencyConverterContainer from "./containers/CurrencyConverterContainer/
 // import currency from "./data/currency";
 import TransferMakeTransfer from "./components/TransferMakeTransfer/TransferMakeTransfer";
 import ContactAdd from "./components/ContactAdd/ContactAdd";
+import apiurl from "./config/url";
 // import Search from "./components/Search/Search";
 
 const App = () => {
   //user Information
   const [userEmail, setEmail] = useState("");
+  const [userID, setUserID] = useState("");
   const [accountName, setAccountName] = useState("");
 
 //  const [userEmail, setEmail] = useState("");
@@ -41,6 +43,7 @@ const App = () => {
    const [toCurrency, setToCurrency] = useState("");
    const [amount, setAmount] = useState("");
    const [convertedAmount, setConvertedAmount] = useState("");
+
  
    
   // fx should come from Live rates on Send button click, temporary setting to EUR rate from data file
@@ -50,7 +53,7 @@ const App = () => {
   // Details for Live Rates
   const [currency, setCurrency] = useState([]);
   const getCurrencyLiveRates = async() => {
-    fetch("http://localhost:8080/currencyrates")
+    fetch(`${apiurl}/currencyrates`)
       .then(res => res.json())
       .then(json => setBaseAndToCurrencies(json))
       .catch(err => console.log(err))
@@ -75,7 +78,8 @@ const App = () => {
       address_city:"",
       address_state:"",
       address_postCode:"",
-      contactFlag: 0
+      contactFlag: 0,
+  
       })
 
 
@@ -151,7 +155,7 @@ const App = () => {
     const cleanInput=event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
   };
-
+users
 
   const handleCreateAccount = () => {
     postCreateAccount();
@@ -162,7 +166,7 @@ const App = () => {
 
   const postCreateAccount=()=>{
     console.log(userEmail)
-    fetch('http://localhost:8080/users', {
+    fetch(`${apiurl}/users`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -177,17 +181,23 @@ const App = () => {
         address_city:city,
         address_state:"NY",
         address_postCode:postcode,
-        contactFlag: 0
+        contactFlag: 0,
+        sortCode: "02",
+        accountType: "Checking",
+        currencyID: "USD"
       })
     })
     .then((res) => {return res.json()})
-    .then((data => console.log(data.userID)))
+    .then((data => {
+      console.log(data.userID)
+      setUserID(data.userID)
+    }))
     .catch(err => console.log(err))
   }
 
   // console.log ("Username: "+username);
   // const getUserByEmail = () => {
-  //   fetch(`http://localhost:8080/users?email=${userEmail}`)
+  //   fetch(`${apiurl}/users?email=${userEmail}`)
   //     .then(res => res.json())
   //     .then(json => setEmail(json))
   //     .then(data => setUserName(data.firstName))
@@ -232,10 +242,10 @@ const App = () => {
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
           <Route path="/wallet" element={<Wallet username={username} />} />
-          <Route path="/contacts" element={<ContactAdd username={username}/>} />
+          <Route path="/contacts" element={<ContactAdd username={username} userID={userID}/>} />
           {currency[0]?
           <Route path="/liverates" element={<LiveRates currency={currency} username={username}/>} />:""}
-          <Route path="/signin" element= {<LoginFlowWelcome username={username} setUserName={setUserName}/>} />
+          <Route path="/signin" element= {<LoginFlowWelcome username={username} setUserName={setUserName} userID={userID} setUserID={setUserID}/>} />
           <Route path="/userprofile" element={<Wallet username={username} />} />
           <Route path="/dashboard" element={<Wallet username={username}/>} />
           <Route path="/home" element={<LandingMain  username={username} setUserName={setUserName}/>}></Route>
