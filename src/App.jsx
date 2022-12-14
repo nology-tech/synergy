@@ -23,6 +23,7 @@ import ContactAdd from "./components/ContactAdd/ContactAdd";
 const App = () => {
   //user Information
   const [userEmail, setEmail] = useState("");
+  const [userID, setUserID] = useState("");
   const [accountName, setAccountName] = useState("");
 
 //  const [userEmail, setEmail] = useState("");
@@ -75,7 +76,8 @@ const App = () => {
       address_city:"",
       address_state:"",
       address_postCode:"",
-      contactFlag: 0
+      contactFlag: 0,
+  
       })
 
 
@@ -177,11 +179,17 @@ const App = () => {
         address_city:city,
         address_state:"NY",
         address_postCode:postcode,
-        contactFlag: 0
+        contactFlag: 0,
+        sortCode: "02",
+        accountType: "Checking",
+        currencyID: "USD"
       })
     })
     .then((res) => {return res.json()})
-    .then((data => console.log(data.userID)))
+    .then((data => {
+      console.log(data.userID)
+      setUserID(data.userID)
+    }))
     .catch(err => console.log(err))
   }
 
@@ -232,10 +240,10 @@ const App = () => {
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
           <Route path="/wallet" element={<Wallet username={username} />} />
-          <Route path="/contacts" element={<ContactAdd username={username}/>} />
+          <Route path="/contacts" element={<ContactAdd username={username} userID={userID}/>} />
           {currency[0]?
           <Route path="/liverates" element={<LiveRates currency={currency} username={username}/>} />:""}
-          <Route path="/signin" element= {<LoginFlowWelcome username={username} setUserName={setUserName}/>} />
+          <Route path="/signin" element= {<LoginFlowWelcome username={username} setUserName={setUserName} userID={userID} setUserID={setUserID}/>} />
           <Route path="/userprofile" element={<Wallet username={username} />} />
           <Route path="/dashboard" element={<Wallet username={username}/>} />
           <Route path="/home" element={<LandingMain  username={username} setUserName={setUserName}/>}></Route>
