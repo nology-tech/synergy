@@ -4,7 +4,7 @@ import "./ContactRow.scss";
 const ContactRow = ({contact, onContactClick, onDelete, contactID, setContactID}) => {
 
     console.log(contact)
-    setContactID(contact.userID);
+    setContactID(contact.contactUserId);
     console.log(contactID);
    // Table of contacts tr = table row; td = table details
     return (

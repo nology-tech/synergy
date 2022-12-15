@@ -39,60 +39,58 @@ const ContactAdd = (props) => {
   const handleSubmit = (event) => {
     setWorkflowStage("contactContainer");
     postCreateAccount();
-    // postCreateUserContactLink();
   };
 
   const [contactID, setContactID] = useState("");
-  const postCreateAccount=()=>{
-    fetch(`${apiurl}/users`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        userID: "",
-        firstName:recipientName.split(" ",2)[0],
-        lastName:recipientName.split(" ",2)[1],
-        contactFlag: 1,
-        sortCode: sortCodeRecipient,
-        accountType: accountTypeRecipient,
-        currencyID:currencyRecipient
-      })
-    })
-    .then((res) => {return res.json()})
-    .then((data => {
-      console.log(userID)
-      console.log(data.userID)
-      setContactID(data.userID)
-    }))
-    .catch(err => console.log(err))
-
-  }
-  //   const postCreateAccount=()=>{
-
-  //     fetch(`http://localhost:8080/users/${userID}`, {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       },
-  //       body: JSON.stringify({
-  //         userID: "",
-  //         firstName:recipientName.split(" ",2)[0],
-  //         lastName:recipientName.split(" ",2)[1],
-  //         contactFlag: 1,
-  //         sortCode: sortCodeRecipient,
-  //         accountType: accountTypeRecipient,
-  //         currencyID:currencyRecipient
-  //       })
+  // const postCreateAccount=()=>{
+  //   fetch(`${apiurl}/users`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       userID: "",
+  //       firstName:recipientName.split(" ",2)[0],
+  //       lastName:recipientName.split(" ",2)[1],
+  //       contactFlag: 1,
+  //       sortCode: sortCodeRecipient,
+  //       accountType: accountTypeRecipient,
+  //       currencyID:currencyRecipient
   //     })
-  //     .then((res) => {return res.json()})
-  //     .then((data => {
-  //       console.log(data.userID)
-  //       setContactID(data.userID)
-  //     }))
-  //     .catch(err => console.log(err))
+  //   })
+  //   .then((res) => {return res.json()})
+  //   .then((data => {
+  //     console.log(userID)
+  //     console.log(data.userID)
+  //     setContactID(data.userID)
+  //   }))
+  //   .catch(err => console.log(err))
 
   // }
+    const postCreateAccount=()=>{
+
+      fetch(`${apiurl}/users/${userID}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userID: "",
+          firstName:recipientName.split(" ",2)[0],
+          lastName:recipientName.split(" ",2)[1],
+          contactFlag: 1,
+          sortCode: sortCodeRecipient,
+          accountType: accountTypeRecipient,
+          currencyID:currencyRecipient
+        })
+      })
+      .then((res) => {return res.json()})
+      .then((data => {
+        console.log(data.userID)
+        setContactID(data.userID)
+      }))
+      .catch(err => console.log(err))
+  }
 
 
   const handleCancel = (event) => {
@@ -188,7 +186,7 @@ const ContactAdd = (props) => {
     } else if (workflowStage === "addRecipient") {
       return (
         <>
-          <ContactListPage handleAddContact={handleAddContact} username={username}/>
+          <ContactListPage handleAddContact={handleAddContact} username={username} userID={userID}/>
           <TransferAddRecipient
           recipientName={recipientName}
           accountTypeRecipient={accountTypeRecipient}
@@ -216,7 +214,7 @@ const ContactAdd = (props) => {
     } else if (workflowStage === "addRecipientConfirmed") {
       return (
         <>
-          <ContactListPage handleAddContact={handleAddContact} username={username}/>
+          <ContactListPage handleAddContact={handleAddContact} username={username} userID={userID}/>
           <TransferConfirmRecipient
             recipientName={recipientName}
             accountTypeRecipient={accountTypeRecipient}
