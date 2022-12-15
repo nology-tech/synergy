@@ -37,7 +37,6 @@ const ContactContainer = (props) => {
     const contactLastName = contact.lastName.toLowerCase();
     const contactBank = contact.bankName.toLowerCase();
     const currencyTo = currencyRecipientCode || "";
-
     return (
       contact.account_currency.includes(currencyTo) &&
       (contactfirstName.includes(searchTerm) ||
@@ -62,6 +61,8 @@ const ContactContainer = (props) => {
   // };
 
   const onContactDelete = (accountId) => {
+    console.log(userID);
+    console.log(contactID);
     deleteUserContact()
     console.log("delete clicked for " + accountId);
   };

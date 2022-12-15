@@ -290,7 +290,7 @@ const App = () => {
                   sortCode={sortCode}
                   searchTerm={searchTerm}
                   handleInput={handleInput}
-
+                  userID={userID}
                 />
               }
             /> : ""}
@@ -312,6 +312,7 @@ const App = () => {
                   sortCode={sortCode}
                   searchTerm={searchTerm}
                   handleInput={handleInput}
+                  userID={userID}
                 />
               }
             /> : ""}

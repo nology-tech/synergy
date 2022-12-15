@@ -24,7 +24,8 @@ const TransferMakeTransfer = (props) => {
     accountNum,
     sortCode,
     searchTerm,
-    handleInput
+    handleInput,
+    userID
   } = props;
 
 
@@ -308,6 +309,7 @@ const TransferMakeTransfer = (props) => {
             currencyRecipientCode={currencyRecipientCode}
             contactTo={contactTo}
             setContactTo={setContactTo}
+            userID={userID}
           />
         </>
       );
