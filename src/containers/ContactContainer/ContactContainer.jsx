@@ -71,7 +71,6 @@ const ContactContainer = (props) => {
     console.log("Add Contact button clicked");
   };
   // see above statement
-
   return (
     <div className="contact">
       <h2 className="contact__Title">Contacts</h2>
