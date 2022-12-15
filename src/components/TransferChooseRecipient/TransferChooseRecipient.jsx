@@ -8,7 +8,7 @@ import ContactContainer from "../../containers/ContactContainer/ContactContainer
 const TransferChooseRecipient = (props) => {
 
   const {handleCloseWindow, 
-  selectContact, searchTerm, handleInput, currencyRecipientCode, contactTo, setContactTo} = props;
+  selectContact, searchTerm, handleInput, currencyRecipientCode, contactTo, setContactTo, userID} = props;
 
   return (
     <>
@@ -27,7 +27,7 @@ const TransferChooseRecipient = (props) => {
       */}
       {/* Commented out ContactList and went to ContactContainer instead. Functional props will need to be defined in ContactContainer */}
       {/* <ContactList contactsArray={filteredContactsArray} onClick={selectContact}/>  */}
-      <ContactContainer currencyRecipientCode={currencyRecipientCode} onContactClick={selectContact} contact={contactTo} setContact={setContactTo}/> 
+      <ContactContainer currencyRecipientCode={currencyRecipientCode} onContactClick={selectContact} contact={contactTo} setContact={setContactTo} userID={userID}/> 
       </div>
       </>
   );

@@ -94,65 +94,6 @@ const ContactAdd = (props) => {
 
   // }
 
-//   const [accUser, setAccUser] = useState({
-//     userID:"",
-//       firstName:"",
-//       lastName:"",
-//       email:"",
-//       address_houseNum:"",
-//       address_streetName:"",
-//       address_city:"",
-//       address_state:"",
-//       address_postCode:"",
-//       contactFlag: 0,
-
-//   })
-//   const [contactUser, setContactUser] = useState({
-//     userID:"",
-//       firstName:"",
-//       lastName:"",
-//       email:"",
-//       address_houseNum:"",
-//       address_streetName:"",
-//       address_city:"",
-//       address_state:"",
-//       address_postCode:"",
-//       contactFlag: 0,
-
-//   })
-//   const postCreateUserContactLink=()=>{
-//     console.log(contactID);
-//     console.log(userID);
-//     fetch(`http://localhost:8080/users?uid=${userID}`)
-//       .then(res => res.json())
-//       .then(json => setAccUser(json))
-//       .catch(err => console.log(err))
-  
-//   fetch(`http://localhost:8080/users?uid=${contactID}`)
-//       .then(res => res.json())
-//       .then(json => setContactUser(json))
-//       .catch(err => console.log(err))
-
-//       console.log(accUser)
-//       console.log(contactUser)
-
-//     fetch(`http://localhost:8080/addUserContact`, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({
-//         user: accUser,
-//         user2: contactUser
-//       })
-//     })
-//     .then((res) => {return res.json()})
-//     .then((data=>console.log(data)))
-//     .catch(err => console.log(err))
-  
-// }
-
-
 
   const handleCancel = (event) => {
     setWorkflowStage("contactContainer");
