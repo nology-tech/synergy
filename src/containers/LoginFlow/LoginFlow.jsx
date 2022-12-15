@@ -20,7 +20,9 @@ const LoginFlow = (props) => {
     username,
     setUserName,
     userID,
-    setUserID
+    setUserID,
+    accountNum,
+    setAccountNum
   } = props;
 
   const [passwordType, setPasswordType] = useState("password"); //displays stars or text on a input field
@@ -85,13 +87,35 @@ const LoginFlow = (props) => {
     .then(data => {
       setUserName(data.firstName+" "+data.lastName)
       setUserID(data.userID)
-      console.log(data.userID)
+      console.log("this is user id from API " + data.userID)
+      
     })
     .catch(err => console.log(err))
   }
 
+  const getAccountByUser=()=>{
+    //console.log("this is user id " + userID)
+    fetch(`${apiurl}/accountbyuser?userid=${userID}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }      
+    })
+    .then((res) => {return res.json()})
+    .then((data => {
+      console.log("This is account id from API " + data.accountID)
+      setAccountNum(data.accountID)
+    }))
+    .catch(err => console.log(err))
+  }
+
+
+
   const handleLoginByEmail = () => {
     getUserByEmail();
+    console.log("this is user id in UI " + userID);
+    getAccountByUser();
+    console.log("this is accountNum in UI " + accountNum);
   };
 
   const handleEmail = (e) => {

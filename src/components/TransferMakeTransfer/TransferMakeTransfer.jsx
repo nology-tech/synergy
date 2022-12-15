@@ -131,7 +131,7 @@ const TransferMakeTransfer = (props) => {
   };
 
   const postTransaction=()=>{
-
+    console.log("This is the start of a postTransaction function" + accountNum)
     fetch(`${apiurl}/transactions`, {
       method: 'POST',
       headers: {
@@ -145,10 +145,11 @@ const TransferMakeTransfer = (props) => {
         recipientAmount:parseFloat(amountReceived),
         payeeFees:parseFloat(fee),
         payeeTotalAmountCharged:parseFloat(amountBase + fee)
+
       })
     })
     .then((res) => {return res.json()})
-    .then(console.log(accountNum))
+    .then(console.log("account num" + accountNum))
     .catch(err => console.log(err))
 
   }

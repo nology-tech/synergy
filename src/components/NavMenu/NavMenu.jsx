@@ -24,7 +24,7 @@ const NavMenu = (props) => {
 
   const handleNameReset=() => {
     const username="";
-    console.log (username);
+    //console.log (username);
   }
 
   return (
