@@ -24,6 +24,7 @@ const Wallet = (props) => {
   console.log("Contact clicked for " + contact.account);
   setContact(contact);
   };
+
   return (
     <div className="dashboardPage wallet-page">
       <NavMenu />
