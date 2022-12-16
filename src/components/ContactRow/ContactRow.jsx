@@ -4,7 +4,7 @@ import "./ContactRow.scss";
 const ContactRow = ({contact, onContactClick, onDelete, contactID, setContactID}) => {
 
     console.log(contact)
-    setContactID(contact.contactUserId);
+    // setContactID(contact.contactUserId);
     console.log(contactID);
    // Table of contacts tr = table row; td = table details
     return (
@@ -29,7 +29,7 @@ const ContactRow = ({contact, onContactClick, onDelete, contactID, setContactID}
                 className="contactRow__delete__icon"
                 src={garbage}
                 alt="delete"
-                onClick={() => onDelete(contact.account)}
+                onClick={() => onDelete(contact.contactUserId)}
                 />
             </td>
         </tr>

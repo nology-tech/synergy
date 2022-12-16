@@ -34,7 +34,7 @@ const ContactContainer = (props) => {
   // Filter contact using search
   const filteredContactsArray = contacts.filter((contact) => {
     const contactfirstName = contact.firstName.toLowerCase();
-    const contactLastName = contact.lastName.toLowerCase();
+    const contactLastName = contact.lastName ;
     const contactBank = contact.bankName.toLowerCase();
     const currencyTo = currencyRecipientCode || "";
     return (
@@ -46,7 +46,7 @@ const ContactContainer = (props) => {
   });
 
   const deleteUserContact=()=>{
-    fetch(`${apiurl}/deleteUserContact/${userID}/${contactID}` , {
+    fetch(`${apiurl}/users/${userID}/${contactID}` , {
       method: 'DELETE'
     })
     .then(res => res.json())
@@ -60,11 +60,13 @@ const ContactContainer = (props) => {
   //   setContact(contact);
   // };
 
-  const onContactDelete = (accountId) => {
+  const onContactDelete = (contactUserId) => {
+    console.log(contactUserId);
+    setContactID(contactUserId);
     console.log(userID);
     console.log(contactID);
     deleteUserContact()
-    console.log("delete clicked for " + accountId);
+    console.log("delete clicked for " + contactID);
   };
 
   const addContact = (event) => {
