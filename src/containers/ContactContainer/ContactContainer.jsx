@@ -19,6 +19,7 @@ const ContactContainer = (props) => {
     setSearchTerm(cleanInput);
   };
 
+  // Contacts of the current user
   const [contacts, setContacts] = useState([]);
   
   const getContacts = () => {
@@ -29,7 +30,24 @@ const ContactContainer = (props) => {
     }
   useEffect(() => {getContacts();}, []);
 
+  
+  // All Contacts
+  // const [allContacts, setAllContacts] = useState([]);
+  
+  // const getAllContacts = () => {
+  //     fetch(`${apiurl}/contacts`)
+  //       .then(res => res.json())
+  //       .then(json => setAllContacts(json))
+  //       .catch(err => console.log(err))
+  //   }
+  // useEffect(() => {getAllContacts();}, []);
+
+  // if (currencyRecipientCode) setContacts(allContacts);
+  // console.log(contacts);
+  // console.log(allContacts);
+
   const [contactID, setContactID] = useState("");
+
   
   // Filter contact using search
   const filteredContactsArray = contacts.filter((contact) => {
@@ -37,8 +55,10 @@ const ContactContainer = (props) => {
     const contactLastName = contact.lastName ;
     const contactBank = contact.bankName.toLowerCase();
     const currencyTo = currencyRecipientCode || "";
+    // const userFilter = currencyRecipientCode?"":userID;
     return (
       contact.account_currency.includes(currencyTo) &&
+      // contact.contactUserId.includes(userID) &&
       (contactfirstName.includes(searchTerm) ||
       contactLastName.includes(searchTerm) ||
       contactBank.includes(searchTerm))

@@ -42,31 +42,6 @@ const ContactAdd = (props) => {
   };
 
   const [contactID, setContactID] = useState("");
-  // const postCreateAccount=()=>{
-  //   fetch(`${apiurl}/users`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       userID: "",
-  //       firstName:recipientName.split(" ",2)[0],
-  //       lastName:recipientName.split(" ",2)[1],
-  //       contactFlag: 1,
-  //       sortCode: sortCodeRecipient,
-  //       accountType: accountTypeRecipient,
-  //       currencyID:currencyRecipient
-  //     })
-  //   })
-  //   .then((res) => {return res.json()})
-  //   .then((data => {
-  //     console.log(userID)
-  //     console.log(data.userID)
-  //     setContactID(data.userID)
-  //   }))
-  //   .catch(err => console.log(err))
-
-  // }
     const postCreateAccount=()=>{
 
       fetch(`${apiurl}/users/${userID}`, {
@@ -79,6 +54,7 @@ const ContactAdd = (props) => {
           firstName:recipientName.split(" ",2)[0],
           lastName:recipientName.split(" ",2)[1],
           contactFlag: 1,
+          email: "unknown@test.com",
           sortCode: bankRecipient.sortCode,
           accountType: accountTypeRecipient,
           currencyID:currencyRecipient
