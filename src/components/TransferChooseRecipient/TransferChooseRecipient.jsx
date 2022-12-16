@@ -9,7 +9,8 @@ const TransferChooseRecipient = (props) => {
 
   const {handleCloseWindow, 
   selectContact, searchTerm, handleInput, currencyRecipientCode, contactTo, setContactTo, userID} = props;
-  const [walletOn, setWalletOn] = useState(true);
+  // const [walletOn, setWalletOn] = useState(true);
+  const [walletOn, setWalletOn] = useState(false);
 
   return (
     <>
