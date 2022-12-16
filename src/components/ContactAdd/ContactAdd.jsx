@@ -79,7 +79,7 @@ const ContactAdd = (props) => {
           firstName:recipientName.split(" ",2)[0],
           lastName:recipientName.split(" ",2)[1],
           contactFlag: 1,
-          sortCode: sortCodeRecipient,
+          sortCode: bankRecipient.sortCode,
           accountType: accountTypeRecipient,
           currencyID:currencyRecipient
         })
