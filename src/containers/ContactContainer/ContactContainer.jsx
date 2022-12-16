@@ -32,17 +32,20 @@ const ContactContainer = (props) => {
 
   
   // All Contacts
-  // const [allContacts, setAllContacts] = useState([]);
-  
-  // const getAllContacts = () => {
-  //     fetch(`${apiurl}/contacts`)
-  //       .then(res => res.json())
-  //       .then(json => setAllContacts(json))
-  //       .catch(err => console.log(err))
-  //   }
-  // useEffect(() => {getAllContacts();}, []);
+  const getAllContacts = () => {
+      fetch(`${apiurl}/contacts`)
+        .then(res => res.json())
+        .then(json => setAllContacts(json))
+        .catch(err => console.log(err))
+    }
+  useEffect(() => {getAllContacts();}, [currencyRecipientCode]);
 
-  // if (currencyRecipientCode) setContacts(allContacts);
+  const setAllContacts = (json) => {
+    console.log("WalletOn = " + walletOn)
+    if (!walletOn) setContacts(json);
+    console.log(json);
+  }
+
   // console.log(contacts);
   // console.log(allContacts);
 
@@ -55,10 +58,12 @@ const ContactContainer = (props) => {
     const contactLastName = contact.lastName ;
     const contactBank = contact.bankName.toLowerCase();
     const currencyTo = currencyRecipientCode || "";
-    // const userFilter = currencyRecipientCode?"":userID;
+    const userFilter = currencyRecipientCode?userID:"";
+    console.log("userFilter = " | userFilter);
+
     return (
       contact.account_currency.includes(currencyTo) &&
-      // contact.contactUserId.includes(userID) &&
+      // contact.contactUserId.includes(userFilter) &&
       (contactfirstName.includes(searchTerm) ||
       contactLastName.includes(searchTerm) ||
       contactBank.includes(searchTerm))

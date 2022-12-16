@@ -124,8 +124,9 @@ const TransferMakeTransfer = (props) => {
 
   // From Confirm Details to Send Transfer
   const handleSubmit = (event) => {
+    if (workflowStage === "addRecipientConfirmed") postCreateAccount();
     setWorkflowStage("confirmTransferDetails");
-    postCreateAccount();
+    
   };
 
   const handleCancel = (event) => {
