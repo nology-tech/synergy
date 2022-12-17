@@ -131,7 +131,7 @@ const ContactContainer = (props) => {
           : <ContactList contactsArray={filteredContactsArray} onContactClick={onContactClick} onDelete={onContactDelete} />
         } */}
         {contacts 
-          ? <ContactList contactsArray={filteredContactsArray} onContactClick={onContactClick} onDelete={onContactDelete} contactID={contactID} setContactID={setContactID} /> : ""}
+          ? <ContactList contactsArray={filteredContactsArray} onContactClick={onContactClick} onDelete={onContactDelete} contactID={contactID} setContactID={setContactID} walletOn={walletOn}/> : ""}
     </div>
   );
 };

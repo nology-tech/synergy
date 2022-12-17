@@ -57,7 +57,7 @@ const ContactAdd = (props) => {
           email: "unknown@test.com",
           sortCode: bankRecipient.sortCode,
           accountType: accountTypeRecipient,
-          currencyID:currencyRecipient
+          currencyID:currencyRecipient.split(" ",2)[0]
         })
       })
       .then((res) => {return res.json()})

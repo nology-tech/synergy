@@ -1,8 +1,8 @@
 import garbage from "./../../assets/images/garbage.png";
 import "./ContactRow.scss";
 
-const ContactRow = ({contact, onContactClick, onDelete, contactID, setContactID}) => {
-
+const ContactRow = ({contact, onContactClick, onDelete, contactID, setContactID, walletOn}) => {
+    
     console.log(contact)
     // setContactID(contact.contactUserId);
     console.log(contactID);
@@ -25,12 +25,15 @@ const ContactRow = ({contact, onContactClick, onDelete, contactID, setContactID}
             <td className="contact__bankName">{contact.bankName}</td>
             <td className="contact__iban">{contact.iban}</td>
             <td className="contact__delete">
-                <img
-                className="contactRow__delete__icon"
-                src={garbage}
-                alt="delete"
-                onClick={() => onDelete(contact.contactUserId)}
-                />
+                {walletOn && 
+                    <img
+                        className="contactRow__delete__icon"
+                        src={garbage}
+                        alt="delete"
+                        onClick={() => onDelete(contact.contactUserId)}
+                    />
+                || ""
+                }
             </td>
         </tr>
   );
