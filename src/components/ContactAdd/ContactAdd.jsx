@@ -39,119 +39,34 @@ const ContactAdd = (props) => {
   const handleSubmit = (event) => {
     setWorkflowStage("contactContainer");
     postCreateAccount();
-    // postCreateUserContactLink();
   };
 
   const [contactID, setContactID] = useState("");
-  const postCreateAccount=()=>{
-    fetch(`${apiurl}/users`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        userID: "",
-        firstName:recipientName.split(" ",2)[0],
-        lastName:recipientName.split(" ",2)[1],
-        contactFlag: 1,
-        sortCode: sortCodeRecipient,
-        accountType: accountTypeRecipient,
-        currencyID:currencyRecipient
+    const postCreateAccount=()=>{
+
+      fetch(`${apiurl}/users/${userID}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userID: "",
+          firstName:recipientName.split(" ",2)[0],
+          lastName:recipientName.split(" ",2)[1],
+          contactFlag: 1,
+          email: "unknown@test.com",
+          sortCode: bankRecipient.sortCode,
+          accountType: accountTypeRecipient,
+          currencyID:currencyRecipient.split(" ",2)[0]
+        })
       })
-    })
-    .then((res) => {return res.json()})
-    .then((data => {
-      console.log(userID)
-      console.log(data.userID)
-      setContactID(data.userID)
-    }))
-    .catch(err => console.log(err))
-
+      .then((res) => {return res.json()})
+      .then((data => {
+        console.log(data.userID)
+        setContactID(data.userID)
+      }))
+      .catch(err => console.log(err))
   }
-  //   const postCreateAccount=()=>{
-
-  //     fetch(`http://localhost:8080/users/${userID}`, {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       },
-  //       body: JSON.stringify({
-  //         userID: "",
-  //         firstName:recipientName.split(" ",2)[0],
-  //         lastName:recipientName.split(" ",2)[1],
-  //         contactFlag: 1,
-  //         sortCode: sortCodeRecipient,
-  //         accountType: accountTypeRecipient,
-  //         currencyID:currencyRecipient
-  //       })
-  //     })
-  //     .then((res) => {return res.json()})
-  //     .then((data => {
-  //       console.log(data.userID)
-  //       setContactID(data.userID)
-  //     }))
-  //     .catch(err => console.log(err))
-
-  // }
-
-//   const [accUser, setAccUser] = useState({
-//     userID:"",
-//       firstName:"",
-//       lastName:"",
-//       email:"",
-//       address_houseNum:"",
-//       address_streetName:"",
-//       address_city:"",
-//       address_state:"",
-//       address_postCode:"",
-//       contactFlag: 0,
-
-//   })
-//   const [contactUser, setContactUser] = useState({
-//     userID:"",
-//       firstName:"",
-//       lastName:"",
-//       email:"",
-//       address_houseNum:"",
-//       address_streetName:"",
-//       address_city:"",
-//       address_state:"",
-//       address_postCode:"",
-//       contactFlag: 0,
-
-//   })
-//   const postCreateUserContactLink=()=>{
-//     console.log(contactID);
-//     console.log(userID);
-//     fetch(`http://localhost:8080/users?uid=${userID}`)
-//       .then(res => res.json())
-//       .then(json => setAccUser(json))
-//       .catch(err => console.log(err))
-  
-//   fetch(`http://localhost:8080/users?uid=${contactID}`)
-//       .then(res => res.json())
-//       .then(json => setContactUser(json))
-//       .catch(err => console.log(err))
-
-//       console.log(accUser)
-//       console.log(contactUser)
-
-//     fetch(`http://localhost:8080/addUserContact`, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({
-//         user: accUser,
-//         user2: contactUser
-//       })
-//     })
-//     .then((res) => {return res.json()})
-//     .then((data=>console.log(data)))
-//     .catch(err => console.log(err))
-  
-// }
-
 
 
   const handleCancel = (event) => {
@@ -243,11 +158,11 @@ const ContactAdd = (props) => {
   //function to display different stages of adding contact
   const displayCurrentView = () => {
     if (workflowStage === "contactContainer") {
-      return <ContactListPage handleAddContact={handleAddContact} username={username}/>;
+      return <ContactListPage handleAddContact={handleAddContact} username={username} userID={userID}/>;
     } else if (workflowStage === "addRecipient") {
       return (
         <>
-          <ContactListPage handleAddContact={handleAddContact} username={username}/>
+          <ContactListPage handleAddContact={handleAddContact} username={username} userID={userID}/>
           <TransferAddRecipient
           recipientName={recipientName}
           accountTypeRecipient={accountTypeRecipient}
@@ -275,7 +190,7 @@ const ContactAdd = (props) => {
     } else if (workflowStage === "addRecipientConfirmed") {
       return (
         <>
-          <ContactListPage handleAddContact={handleAddContact} username={username}/>
+          <ContactListPage handleAddContact={handleAddContact} username={username} userID={userID}/>
           <TransferConfirmRecipient
             recipientName={recipientName}
             accountTypeRecipient={accountTypeRecipient}

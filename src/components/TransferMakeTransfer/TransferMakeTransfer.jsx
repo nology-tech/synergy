@@ -24,7 +24,8 @@ const TransferMakeTransfer = (props) => {
     accountNum,
     sortCode,
     searchTerm,
-    handleInput
+    handleInput,
+    userID
   } = props;
 
 
@@ -123,12 +124,40 @@ const TransferMakeTransfer = (props) => {
 
   // From Confirm Details to Send Transfer
   const handleSubmit = (event) => {
+    if (workflowStage === "addRecipientConfirmed") postCreateAccount();
     setWorkflowStage("confirmTransferDetails");
+    
   };
 
   const handleCancel = (event) => {
     setWorkflowStage("sendForm");
   };
+
+  const postCreateAccount=()=>{
+
+    fetch(`${apiurl}/users/${userID}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        userID: "",
+        firstName:recipientName.split(" ",2)[0],
+        lastName:recipientName.split(" ",2)[1],
+        contactFlag: 1,
+        email: "unknown@test.com",
+        sortCode: bankRecipient.sortCode,
+        accountType: accountTypeRecipient,
+        currencyID:currencyRecipient
+      })
+    })
+    .then((res) => {return res.json()})
+    .then((data => {
+      console.log(data.userID)
+    }))
+    .catch(err => console.log(err))
+}
+
 
   const postTransaction=()=>{
     console.log("This is the start of a postTransaction function" + accountNum)
@@ -309,6 +338,7 @@ const TransferMakeTransfer = (props) => {
             currencyRecipientCode={currencyRecipientCode}
             contactTo={contactTo}
             setContactTo={setContactTo}
+            userID={userID}
           />
         </>
       );

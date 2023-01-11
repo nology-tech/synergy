@@ -11,7 +11,7 @@ import "./Wallet.scss"
 
 const Wallet = (props) => {
 
-  const {username}=props;
+  const {username, userID}=props;
   const [walletOn, setWalletOn] = useState(true);
   const firstname=(username.split(" ",2))[0];
 
@@ -24,6 +24,7 @@ const Wallet = (props) => {
   console.log("Contact clicked for " + contact.account);
   setContact(contact);
   };
+
   return (
     <div className="dashboardPage wallet-page">
       <NavMenu />
@@ -50,6 +51,7 @@ const Wallet = (props) => {
                   onContactClick = {onContactClick}
                   contact = {contact}
                   setContact = {setContact}
+                  userID = {userID}
           />
           {/* {walletOn ? <ContactContainer/>:} */}
         </div>

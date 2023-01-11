@@ -7,8 +7,9 @@ import DashboardHeader from '../DashboardHeader/DashboardHeader';
 
 const ContactListPage = (props) => {
 
-  const { handleAddContact,username } = props;
+  const { handleAddContact,username, userID } = props;
   console.log (username);
+  const [walletOn, setWalletOn] = useState(false);
 
     // From Choose Recipient from existing contact
     const [contact, setContact] = useState({account:"", firstName:"", lastName:"", accountType:"", sortCode:"", bankName:"", accountCurrency:""});
@@ -29,6 +30,8 @@ const ContactListPage = (props) => {
                   onContactClick = {onContactClick}
                   contact = {contact}
                   setContact = {setContact}
+                  userID={userID}
+                  walletOn={walletOn}
                 />
             </div>
         </div>

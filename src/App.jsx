@@ -238,13 +238,19 @@ const App = () => {
           />} />
           <Route path="/forgotten-password" element={<ForgottenPassword />} />
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
-          <Route path="/wallet" element={<Wallet username={username} />} />
+          <Route path="/wallet" element={<Wallet username={username} userID={userID}/>} />
           <Route path="/contacts" element={<ContactAdd username={username} userID={userID}/>} />
           {currency[0]?
           <Route path="/liverates" element={<LiveRates currency={currency} username={username}/>} />:""}
+<<<<<<< HEAD
           <Route path="/signin" element= {<LoginFlowWelcome username={username} setUserName={setUserName} userID={userID} setUserID={setUserID} accountNum={accountNum} setAccountNum={setAccountNum}/>} />
           <Route path="/userprofile" element={<Wallet username={username} />} />
           <Route path="/dashboard" element={<Wallet username={username}/>} />
+=======
+          <Route path="/signin" element= {<LoginFlowWelcome username={username} setUserName={setUserName} userID={userID} setUserID={setUserID}/>} />
+          <Route path="/userprofile" element={<Wallet username={username} userID={userID}/>} />
+          <Route path="/dashboard" element={<Wallet username={username} userID={userID}/>} />
+>>>>>>> 4d7ade1c818690eb8bb6fa76ef885c92e91d5e68
           <Route path="/home" element={<LandingMain  username={username} setUserName={setUserName}/>}></Route>
           <Route path="/features" element={<LandingMain  username={username} setUserName={setUserName}/>}></Route>
           <Route path="/about" element={<LandingMain  username={username} setUserName={setUserName}/>}></Route>
@@ -291,7 +297,7 @@ const App = () => {
                   sortCode={sortCode}
                   searchTerm={searchTerm}
                   handleInput={handleInput}
-
+                  userID={userID}
                 />
               }
             /> : ""}
@@ -313,6 +319,7 @@ const App = () => {
                   sortCode={sortCode}
                   searchTerm={searchTerm}
                   handleInput={handleInput}
+                  userID={userID}
                 />
               }
             /> : ""}

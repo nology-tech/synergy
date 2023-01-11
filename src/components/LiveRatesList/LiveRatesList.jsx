@@ -8,7 +8,7 @@ import Search from "../Search/Search";
 // FUTURE  STATE: Edit button needs to enable choice of primary currency
 
 const LiveRatesList = (props) => {
-  const { currency, onSelect } = props;
+  const { currency, onSelect} = props;
 
   const [searchTerm, setSearchTerm] = useState("");
 

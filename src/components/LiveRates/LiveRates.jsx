@@ -21,7 +21,7 @@ const LiveRates = (props) => {
         </div>
         <div className="live-rates">
           <h4 className="live-rates__h4">Transfer</h4>
-          <LiveRatesList className="live-rates__list" currency={currency} />
+          <LiveRatesList className="live-rates__list" currency={currency}/>
         </div>
       </div>
     </div>
