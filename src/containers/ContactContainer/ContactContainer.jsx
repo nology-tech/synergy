@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import Search from "../../components/Search/Search";
 import "./ContactContainer.scss";
 import ContactList from "../../components/ContactList/ContactList";
-// import contacts from "../../data/Contacts";
 import Button from "../../components/Button/Button";
-import UserContacts from "../../components/UserContacts/UserContacts";
 import apiurl from "../../config/url";
 
 
@@ -23,12 +21,15 @@ const ContactContainer = (props) => {
   const [contacts, setContacts] = useState([]);
   
   const getContacts = () => {
-      fetch(`${apiurl}/contacts/${userID}`)
+      console.log("UserID: " + userID)
+      if (userID) {
+        fetch(`${apiurl}/contacts/${userID}`)
         .then(res => res.json())
         .then(json => setContacts(json))
         .catch(err => console.log(err))
+      }
     }
-  useEffect(() => {getContacts();}, []);
+  useEffect(() => {getContacts();}, [userID]);
 
   
   // All Contacts
@@ -46,9 +47,6 @@ const ContactContainer = (props) => {
     console.log(json);
   }
 
-  // console.log(contacts);
-  // console.log(allContacts);
-
   const [contactID, setContactID] = useState("");
 
   
@@ -59,7 +57,6 @@ const ContactContainer = (props) => {
     const contactBank = contact.bankName.toLowerCase();
     const currencyTo = currencyRecipientCode || "";
     const userFilter = currencyRecipientCode?userID:"";
-    console.log("userFilter = " | userFilter);
 
     return (
       contact.account_currency.includes(currencyTo) &&
@@ -86,17 +83,14 @@ const ContactContainer = (props) => {
   // };
 
   const onContactDelete = (contactUserId) => {
-    console.log(contactUserId);
     setContactID(contactUserId);
-    console.log(userID);
-    console.log(contactID);
     deleteUserContact()
     console.log("delete clicked for " + contactID);
   };
 
-  const addContact = (event) => {
-    console.log("Add Contact button clicked");
-  };
+  // const addContact = (event) => {
+  //   console.log("Add Contact button clicked");
+  // };
   // see above statement
   return (
     <div className="contact">
