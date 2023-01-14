@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import NavMenu from "../NavMenu/NavMenu";
 import FxTransaction from "../FxTransaction/FxTransaction";
 import TransferAddRecipient from "../TransferAddRecipient/TransferAddRecipient";
@@ -39,6 +40,7 @@ const TransferMakeTransfer = (props) => {
     ]
     );
   
+    const navigate = useNavigate();
     const getBanks = () => {
       
       //e.preventDefault();
@@ -186,7 +188,8 @@ const TransferMakeTransfer = (props) => {
   const handleSend = (event) => {
     setWorkflowStage("sendForm");
     postTransaction();
-    window.open('/wallet', '_blank')
+    navigate("/wallet");
+    // window.open('/wallet', '_blank')
   };
 
   //Handle black cross

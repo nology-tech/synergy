@@ -3,9 +3,6 @@ import "./ContactRow.scss";
 
 const ContactRow = ({contact, onContactClick, onDelete, contactID, setContactID, walletOn}) => {
     
-    console.log(contact)
-    // setContactID(contact.contactUserId);
-    console.log(contactID);
    // Table of contacts tr = table row; td = table details
     return (
         <tr className="contactRow" key={contact.account}  
