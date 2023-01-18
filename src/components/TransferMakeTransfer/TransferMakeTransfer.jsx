@@ -126,7 +126,9 @@ const TransferMakeTransfer = (props) => {
 
   // From Confirm Details to Send Transfer
   const handleSubmit = (event) => {
+    console.log("inhandel submit")
     if (workflowStage === "addRecipientConfirmed") postCreateAccount();
+    console.log(sortCodeRecipient);
     setWorkflowStage("confirmTransferDetails");
     
   };
@@ -233,7 +235,6 @@ const TransferMakeTransfer = (props) => {
   
   // Handling the bank input field change
   const handleBankRecipient = (value) => {
-    console.log(value);
     setBankRecipient(value);
     
   };
@@ -279,7 +280,7 @@ const TransferMakeTransfer = (props) => {
             handleAccountTypeRecipient={handleAccountTypeRecipient}
             handleAccountNumRecipient={handleAccountNumRecipient}
             handleBankRecipient={handleBankRecipient}
-            handleSortCodeRecipient={handleSortCodeRecipient}
+            // handleSortCodeRecipient={handleSortCodeRecipient}
             handleCloseWindow={handleCloseWindow}
             recipientName={recipientName}
             accountTypeRecipient={accountTypeRecipient}
@@ -287,7 +288,7 @@ const TransferMakeTransfer = (props) => {
             currencyRecipient={currencyRecipient}
             bankRecipient={bankRecipient}
             banks={banks}
-            sortCodeRecipient={sortCodeRecipient}
+            // sortCodeRecipient={sortCodeRecipient}
           />
         </>
       );
@@ -389,7 +390,7 @@ const TransferMakeTransfer = (props) => {
               accountNumRecipient={accountNumRecipient}
               currencyRecipient={currencyRecipient}
               bankRecipient={bankRecipient}  
-              sortCodeRecipient={sortCodeRecipient}
+              // sortCodeRecipient={sortCodeRecipient}
               amountReceived={amountReceived}
               handleCancel={handleCancel }
               handleSend= {handleSend}

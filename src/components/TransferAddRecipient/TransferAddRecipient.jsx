@@ -19,15 +19,13 @@ const TransferAddRecipient = (props) => {
     currencyRecipient,
     bankRecipient,
     banks,
-    sortCodeRecipient,
     handleContinueButton,
     handleCloseWindow,
     handleRecipientName,
     handleAccountTypeRecipient,
     handleAccountNumRecipient,
     handleCurrencyRecipient,
-    handleBankRecipient,
-    handleSortCodeRecipient,
+    handleBankRecipient
   } = props;
 
   const [contact, setContact] = useState({
@@ -108,8 +106,7 @@ const TransferAddRecipient = (props) => {
             value={bankRecipient}
             options={banks}
             formatOptionLabel={(bank) => (
-              <div className="bank-input">
-                                                   
+              <div className="bank-input">                                  
                 <img className="bank-input__image" src={bank.bankLogo} alt="bank-logo" />
                 <span className="bank-input__name">{bank.bankName}</span>
               </div>
