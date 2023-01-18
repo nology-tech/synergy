@@ -35,7 +35,7 @@ const TransferTransactionSend = (props) => {
 
   return (
     <>
-      <div clasName="transfer-transaction-send">
+      <div className="transfer-transaction-send">
         <h2>Send From</h2>
         <TransferAccountForm
           currencyBaseCode={currencyBaseCode}
