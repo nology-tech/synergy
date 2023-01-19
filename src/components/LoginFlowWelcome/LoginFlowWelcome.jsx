@@ -3,7 +3,7 @@ import LoginFlow from "../../containers/LoginFlow/LoginFlow";
 
 
 const LoginFlowWelcome = (props) => {
-  const {handleLoginByEmail, username, setUserName, userID, setUserID} = props;
+  const {handleLoginByEmail, username, setUserName, userID, setUserID,accountNum, setAccountNum} = props;
   return (
     
     <LoginFlow
@@ -11,11 +11,13 @@ const LoginFlowWelcome = (props) => {
       inputBox_email="Email"
       inputBox_psw="Password"
       buttonText="Login"
-      handleLoginByEmail={handleLoginByEmail}
+      //handleLoginByEmail={handleLoginByEmail}
       username={username} 
       setUserName={setUserName}
       userID={userID}
       setUserID={setUserID}
+      accountNum={accountNum} 
+      setAccountNum={setAccountNum}
     />
   );
 };

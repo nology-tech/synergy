@@ -27,7 +27,7 @@
     background-color: $color-white;
     border: 2px solid $color-white;
     border-radius: 10px;
-    position: fixed;
+    position: absolute;
     left: 35%;
     top: 20%;
     z-index: 5;
@@ -52,7 +52,7 @@
 
       .loginFlow__main__header {
         display: flex;
-        align-content: center;
+        // align-content: center;
 
         h1 {
           font-size: 32px;
@@ -60,7 +60,7 @@
         }
 
         .loginFlow__main__img {
-          padding: 30px;
+          padding-left: 30px;
           
         }
       }

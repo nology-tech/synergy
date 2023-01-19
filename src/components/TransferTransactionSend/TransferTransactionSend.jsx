@@ -17,7 +17,6 @@ const TransferTransactionSend = (props) => {
     accountBalance,
     accountNum,
     sortCode,
-    currencyRecipientCode,
     recipientName,
     accountNumRecipient,
     sortCodeRecipient,

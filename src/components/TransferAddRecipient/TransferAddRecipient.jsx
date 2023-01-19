@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Select from "react-select";
 import { ActionMeta } from "react-select";
@@ -8,9 +7,6 @@ import Button from "../Button/Button";
 import currency from "../../data/currency.js";
 
 
-//import banks from "../../data/banks.js";
-
-
 const TransferAddRecipient = (props) => {
   const {
     recipientName,
@@ -18,16 +14,16 @@ const TransferAddRecipient = (props) => {
     accountNumRecipient,
     currencyRecipient,
     bankRecipient,
-    banks,
+    bankDefaultRecipient,
     sortCodeRecipient,
+    banks,
     handleContinueButton,
     handleCloseWindow,
     handleRecipientName,
     handleAccountTypeRecipient,
     handleAccountNumRecipient,
     handleCurrencyRecipient,
-    handleBankRecipient,
-    handleSortCodeRecipient,
+    handleBankRecipient
   } = props;
 
   const [contact, setContact] = useState({
@@ -49,9 +45,6 @@ const TransferAddRecipient = (props) => {
 
   ));
 
-  
-
-
   return (
     <>
       <div className="transfer-add-recipient"></div>
@@ -68,20 +61,20 @@ const TransferAddRecipient = (props) => {
           <input
             onChange={handleRecipientName}
             className="input"
-            value={recipientName}
+            defaultValue={recipientName}
             type="text"
           />
           <h3>Account Type</h3>
           <input
             onInput={handleAccountTypeRecipient}
             className="input"
-            value={accountTypeRecipient}
+            defaultValue={accountTypeRecipient}
           />
           <h3>Account Number</h3>
           <input
             onInput={handleAccountNumRecipient}
             className="input"
-            value={accountNumRecipient}
+            defaultValue={accountNumRecipient}
           />
           <h3>Account Currency</h3>
           
@@ -92,38 +85,32 @@ const TransferAddRecipient = (props) => {
             <select
               onChange={handleCurrencyRecipient}
               className="input"
-              value={currencyRecipient}
+              defaultValue={currencyRecipient}
             >
               {currencyJSX}
             </select>
           )}
 
           <h3>Bank</h3>
-          
 
           
           <Select
             className="input"
             onChange={(value,action) => handleBankRecipient(value) }
-            value={bankRecipient}
+            defaultValue={bankDefaultRecipient}
             options={banks}
             formatOptionLabel={(bank) => (
-              <div className="bank-input">
-                                                   
+              <div className="bank-input">                                  
                 <img className="bank-input__image" src={bank.bankLogo} alt="bank-logo" />
                 <span className="bank-input__name">{bank.bankName}</span>
               </div>
             )}
           />
-          
-          
-
 
           <h3>Sort Code</h3>
           <input
-            // onChange={handleSortCodeRecipient}
             className="input"
-            value={bankRecipient ? bankRecipient.sortCode: ""}
+            defaultValue={bankRecipient ? sortCodeRecipient: ""}
           />
         </div>
         <div className="transfer-add-recipient__main__options">
