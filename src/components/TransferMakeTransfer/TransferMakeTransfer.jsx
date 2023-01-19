@@ -24,12 +24,10 @@ const TransferMakeTransfer = (props) => {
     accountBalance,
     accountNum,
     sortCode,
-    searchTerm,
-    handleInput,
     userID
   } = props;
 
-
+// fetch all the banks
   const [banks, setBanks] = useState(
       [
       {
@@ -39,11 +37,12 @@ const TransferMakeTransfer = (props) => {
             },
     ]
     );
-  
+
     const navigate = useNavigate();
+
+//accessing API to get the list of banks
+
     const getBanks = () => {
-      
-      //e.preventDefault();
       fetch(`${apiurl}/banks`, {
         method: "GET",
         headers: {
@@ -54,13 +53,8 @@ const TransferMakeTransfer = (props) => {
         .then((response) => response.json())
         .then((json) => setBanks(json))
         .catch((err) => console.log(err));
-
-        
-      //e.target.reset();
     };
 
-    
-  
    useEffect (() => getBanks(),[]);
 
 
@@ -78,7 +72,6 @@ const TransferMakeTransfer = (props) => {
 
   // handle navigation
   const [workflowStage, setWorkflowStage] = useState("sendForm");
-  console.log(workflowStage);
 
   //From Send Form Select Recipient
   const handleSelectRecipient = (event) => {
@@ -87,7 +80,6 @@ const TransferMakeTransfer = (props) => {
 
   //From Choose recipient to Confirmed
   const selectContact = (contactTo) => {
-    console.log("contact selected")
     setContactTo(contactTo);
     setRecipientName(contactTo.firstName+" "+contactTo.lastName);
     setAccountTypeRecipient(contactTo.accountType);
@@ -103,7 +95,6 @@ const TransferMakeTransfer = (props) => {
 
   // From Choose Recipient from existing contact
   const [contactTo, setContactTo] = useState({account:"", firstName:"", lastName:"", accountType:"", sortCode:"", bankName:"", accountCurrency:""});
-  console.log(`Contact to: ${contactTo.account} ${contactTo.firstName} ${contactTo.lastName} ${contactTo.accountType} ${contactTo.sortCode}`);
 
   //From Send Form Pay SomeOneNew
   const handlePaySomeOneNew = (event) => {
@@ -126,10 +117,8 @@ const TransferMakeTransfer = (props) => {
 
   // From Confirm Details to Send Transfer
   const handleSubmit = (event) => {
-    console.log("inhandel submit")
-    if (workflowStage === "addRecipientConfirmed") postCreateAccount();
-    console.log(sortCodeRecipient);
-    setWorkflowStage("confirmTransferDetails");
+       if (workflowStage === "addRecipientConfirmed") postCreateAccount();
+      setWorkflowStage("confirmTransferDetails");
     
   };
 
@@ -164,7 +153,6 @@ const TransferMakeTransfer = (props) => {
 
 
   const postTransaction=()=>{
-    console.log("This is the start of a postTransaction function" + accountNum)
     fetch(`${apiurl}/transactions`, {
       method: 'POST',
       headers: {
@@ -202,6 +190,7 @@ const TransferMakeTransfer = (props) => {
     setAccountTypeRecipient("");
     setAccountNumRecipient("");
     setBankRecipient("");
+    setBankDefaultRecipient("");
     setSortCodeRecipient("");
   };
 
@@ -209,7 +198,8 @@ const TransferMakeTransfer = (props) => {
   const [recipientName, setRecipientName] = useState("");
   const [accountTypeRecipient, setAccountTypeRecipient] = useState();
   const [accountNumRecipient, setAccountNumRecipient] = useState();
-  const [bankRecipient, setBankRecipient] = useState();
+  const [bankRecipient, setBankRecipient] = useState("");
+  const [bankDefaultRecipient, setBankDefaultRecipient] = useState();
   const [sortCodeRecipient, setSortCodeRecipient] = useState("");
 
   // Handling the recipient name input field change
@@ -227,16 +217,15 @@ const TransferMakeTransfer = (props) => {
   // Handling the account number input field change
   const handleAccountNumRecipient = (e) => {
     e.preventDefault();
-    console.log("Handling account number");
     setAccountNumRecipient(e.target.value);
     
   };
-
   
   // Handling the bank input field change
   const handleBankRecipient = (value) => {
-    setBankRecipient(value);
-    
+    setBankRecipient(value.bankName);
+    setSortCodeRecipient(value.sortCode);
+    setBankDefaultRecipient(value);
   };
 
   // Handling the sort code input field change
@@ -280,15 +269,15 @@ const TransferMakeTransfer = (props) => {
             handleAccountTypeRecipient={handleAccountTypeRecipient}
             handleAccountNumRecipient={handleAccountNumRecipient}
             handleBankRecipient={handleBankRecipient}
-            // handleSortCodeRecipient={handleSortCodeRecipient}
             handleCloseWindow={handleCloseWindow}
             recipientName={recipientName}
             accountTypeRecipient={accountTypeRecipient}
             accountNumRecipient={accountNumRecipient}
             currencyRecipient={currencyRecipient}
             bankRecipient={bankRecipient}
+            bankDefaultRecipient={bankDefaultRecipient}
             banks={banks}
-            // sortCodeRecipient={sortCodeRecipient}
+            sortCodeRecipient={sortCodeRecipient}
           />
         </>
       );
@@ -337,8 +326,6 @@ const TransferMakeTransfer = (props) => {
             handleCloseWindow={handleCloseWindow}
             selectContact={selectContact}
             workflowStage={workflowStage}
-            searchTerm={searchTerm}
-            handleInput={handleInput}
             currencyRecipientCode={currencyRecipientCode}
             contactTo={contactTo}
             setContactTo={setContactTo}
@@ -374,7 +361,7 @@ const TransferMakeTransfer = (props) => {
     } else if (workflowStage === "confirmTransferDetails") {
       return (
         <>
-          <div className="transfer-transaction-send">
+          {/* <div className="transfer-transaction-send"> */}
             <TransferTransactionSend
               currencyBaseCode={currencyBaseCode}
               fxRate={fxRate}
@@ -390,14 +377,14 @@ const TransferMakeTransfer = (props) => {
               accountNumRecipient={accountNumRecipient}
               currencyRecipient={currencyRecipient}
               bankRecipient={bankRecipient}  
-              // sortCodeRecipient={sortCodeRecipient}
+              sortCodeRecipient={sortCodeRecipient}
               amountReceived={amountReceived}
               handleCancel={handleCancel }
               handleSend= {handleSend}
               currencyBaseSymbol={currencyBaseSymbol}
               currencyToSymbol={currencyToSymbol}
             />
-          </div>
+          {/* </div> */}
         </>
       );
     }

@@ -19,7 +19,7 @@ const TransferTransactionSend = (props) => {
     sortCode,
     recipientName,
     accountNumRecipient,
-    bankRecipient,
+    sortCodeRecipient,
     amountReceived,
     handleCancel,
     handleSend,
@@ -58,7 +58,7 @@ const TransferTransactionSend = (props) => {
             <h3 className="transfer-transaction-send__account-recipient__details__sort-code">
               Sort Code:
             </h3>
-            <p>{bankRecipient.sortCode}</p>
+            <p>{sortCodeRecipient}</p>
           </div>
         </div>
         <div className="transfer-transaction-send__fee">

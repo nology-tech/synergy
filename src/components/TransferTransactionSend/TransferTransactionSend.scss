@@ -3,7 +3,6 @@
 .transfer-transaction-send {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   background-color: $color-light-gray-info-bar;
   padding: 20px 40px;
   border: 1px solid $color-light-gray-info-bar;
@@ -17,6 +16,9 @@
     color: $color-black;
     font-size: 24px;
     font-weight: 400;
+    width: 100%;
+    text-align: left;
+    padding-left: 80px;
   }
 
   .transfer-transaction-send__account-recipient {
@@ -54,7 +56,7 @@
 
   &__fee {
     border-bottom: 1px solid $color-background-clear;
-    width: 100%;
+    width: 520px;
     padding: 5px 0px;
 
     p {
@@ -104,7 +106,7 @@
   &__total {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 520px;
     border-bottom: 1px solid $color-background-clear;
 
     &_pay-amount {
@@ -145,6 +147,7 @@
 
   &__main__options {
     text-align: right;
+    width: 520px;
     margin: 20px 0px;
 
     button {
