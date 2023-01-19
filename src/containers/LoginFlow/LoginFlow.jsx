@@ -139,7 +139,7 @@ const LoginFlow = (props) => {
           </div>
           <div className="loginFlow__main">
             <div className="loginFlow__main__header">
-              <h1>{loginFlow_header}</h1>
+              <h1>{loginFlow_header}
               {/* Show HandWave emoji only for Welcome screen  */}
               {loginFlow_header === "Welcome Back!" ? (
                 <img
@@ -150,6 +150,7 @@ const LoginFlow = (props) => {
               ) : (
                 <></>
               )}
+              </h1>
             </div>
 
             <div className="loginFlow__credentials">

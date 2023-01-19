@@ -361,7 +361,6 @@ const TransferMakeTransfer = (props) => {
     } else if (workflowStage === "confirmTransferDetails") {
       return (
         <>
-          {/* <div className="transfer-transaction-send"> */}
             <TransferTransactionSend
               currencyBaseCode={currencyBaseCode}
               fxRate={fxRate}
@@ -384,7 +383,6 @@ const TransferMakeTransfer = (props) => {
               currencyBaseSymbol={currencyBaseSymbol}
               currencyToSymbol={currencyToSymbol}
             />
-          {/* </div> */}
         </>
       );
     }
