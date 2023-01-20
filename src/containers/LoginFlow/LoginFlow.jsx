@@ -17,12 +17,11 @@ const LoginFlow = (props) => {
     inputBox_psw,
     inputBox_confirmpsw,
     buttonText,
-    username,
     setUserName,
     userID,
     setUserID,
     accountNum,
-    setAccountNum
+    setAccountNum,
   } = props;
 
   const [passwordType, setPasswordType] = useState("password"); //displays stars or text on a input field
@@ -81,35 +80,36 @@ const LoginFlow = (props) => {
   const [userEmail, setEmail] = useState("");
 
   const getUserByEmail = () => {
-    console.log (userEmail);
+    console.log(userEmail);
     fetch(`${apiurl}/userbyemail?email=${userEmail}`)
-    .then(res => {return res.json()})
-    .then(data => {
-      setUserName(data.firstName+" "+data.lastName)
-      setUserID(data.userID)
-      console.log("this is user id from API " + data.userID)
-      
-    })
-    .catch(err => console.log(err))
-  }
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setUserName(data.firstName + " " + data.lastName);
+        setUserID(data.userID);
+        console.log("this is user id from API " + data.userID);
+      })
+      .catch((err) => console.log(err));
+  };
 
-  const getAccountByUser=()=>{
+  const getAccountByUser = () => {
     //console.log("this is user id " + userID)
     fetch(`${apiurl}/accountbyuser?userid=${userID}`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json'
-      }      
+        "Content-Type": "application/json",
+      },
     })
-    .then((res) => {return res.json()})
-    .then((data => {
-      console.log("This is account id from API " + data.accountID)
-      setAccountNum(data.accountID)
-    }))
-    .catch(err => console.log(err))
-  }
-
-
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log("This is account id from API " + data.accountID);
+        setAccountNum(data.accountID);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const handleLoginByEmail = () => {
     getUserByEmail();
@@ -130,26 +130,29 @@ const LoginFlow = (props) => {
       <main className="loginFlow__background">
         <div className="loginFlow">
           <div className="loginFlow__synergyIcon">
-            <img
-              src={synergy}
-              alt="Synergy icon"
-              className="loginFlow__synergyImg"
-            />
-            <h1>Synergy</h1>
+          <img
+                src={synergy}
+                alt="Synergy icon"
+                className="loginFlow__synergyImg"
+              />
+            <h1>
+              Synergy
+            </h1>
           </div>
           <div className="loginFlow__main">
             <div className="loginFlow__main__header">
-              <h1>{loginFlow_header}
-              {/* Show HandWave emoji only for Welcome screen  */}
-              {loginFlow_header === "Welcome Back!" ? (
-                <img
-                  src={emojihand}
-                  alt="Handwave"
-                  className="loginFlow__main__img"
-                />
-              ) : (
-                <></>
-              )}
+              <h1>
+                {loginFlow_header}
+                {/* Show HandWave emoji only for Welcome screen  */}
+                {loginFlow_header === "Welcome Back!" ? (
+                  <img
+                    src={emojihand}
+                    alt="Handwave"
+                    className="loginFlow__main__img"
+                  />
+                ) : (
+                  <></>
+                )}
               </h1>
             </div>
 
@@ -166,7 +169,11 @@ const LoginFlow = (props) => {
                   <h2 className="loginFlow__credentials__header">
                     {inputBox_email}
                   </h2>
-                  <input className="loginFlow__inputbox" type="text" onChange={handleEmail}></input>
+                  <input
+                    className="loginFlow__inputbox"
+                    type="text"
+                    onChange={handleEmail}
+                  ></input>
                 </>
               ) : (
                 <></>
@@ -263,10 +270,19 @@ const LoginFlow = (props) => {
 
             <div className="loginFlow__button">
               {loginFlow_header === "Change Password" ? (
-                <Button buttonStyle={"btn button-blue-disabled button-blue"} buttonText={buttonText} disabled={resetToggle} />
+                <Button
+                  buttonStyle={"btn button-blue-disabled button-blue"}
+                  buttonText={buttonText}
+                  disabled={resetToggle}
+                />
               ) : (
                 <Link to="/dashboard">
-                  <Button buttonStyle={"btn button-blue"} buttonText={buttonText} disabled={false} onClick={handleLoginByEmail}  />
+                  <Button
+                    buttonStyle={"btn button-blue"}
+                    buttonText={buttonText}
+                    disabled={false}
+                    onClick={handleLoginByEmail}
+                  />
                 </Link>
               )}
             </div>

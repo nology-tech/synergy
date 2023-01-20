@@ -228,11 +228,11 @@ const TransferMakeTransfer = (props) => {
     setBankDefaultRecipient(value);
   };
 
-  // Handling the sort code input field change
-  const handleSortCodeRecipient = (e) => {
-    e.preventDefault();
-    setSortCodeRecipient(e.target.value.toString());
-  };
+  // // Handling the sort code input field change
+  // const handleSortCodeRecipient = (e) => {
+  //   e.preventDefault();
+  //   setSortCodeRecipient(e.target.value.toString());
+  // };
 
   const displayCurrentView = () => {
     if (workflowStage === "sendForm") {
