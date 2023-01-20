@@ -11,7 +11,7 @@ import "./Wallet.scss"
 
 const Wallet = (props) => {
 
-  const {username, userID}=props;
+  const {username, userID, accountBalance}=props;
   const [walletOn, setWalletOn] = useState(true);
   const firstname=(username.split(" ",2))[0];
 
@@ -40,7 +40,7 @@ const Wallet = (props) => {
           </div>
 
           <FundsBox
-            fundsAmount={userInfo[0].accountBalance}
+            fundsAmount={accountBalance}
             fundBoxHeader={"Your Funds:"}
             buttonOn={true}
           />

@@ -21,7 +21,9 @@ const LoginFlow = (props) => {
     userID,
     setUserID,
     accountNum,
+    accountBalance,
     setAccountNum,
+    setAccountBalance,
   } = props;
 
   const [passwordType, setPasswordType] = useState("password"); //displays stars or text on a input field
@@ -86,13 +88,15 @@ const LoginFlow = (props) => {
         return res.json();
       })
       .then((data) => {
-        setUserName(data.firstName + " " + data.lastName);
-        setUserID(data.userID);
-        console.log("this is user id from API " + data.userID);
+        setUserDetails(data);
       })
       .catch((err) => console.log(err));
   };
-
+  const setUserDetails = (userData) => {
+    setUserName(userData.firstName + " " + userData.lastName);
+    setUserID(userData.userID);
+    console.log("this is user id from API " + userData.userID);
+  };
   const getAccountByUser = () => {
     //console.log("this is user id " + userID)
     fetch(`${apiurl}/accountbyuser?userid=${userID}`, {
@@ -105,10 +109,16 @@ const LoginFlow = (props) => {
         return res.json();
       })
       .then((data) => {
-        console.log("This is account id from API " + data.accountID);
-        setAccountNum(data.accountID);
+        setAccountDetails(data);
       })
       .catch((err) => console.log(err));
+  };
+
+  const setAccountDetails = (accountData) => {
+    console.log("This is account id from API " + accountData.accountID);
+    setAccountBalance(accountData.accountBalance);
+    console.log(accountData);
+    setAccountNum(accountData.accountID);
   };
 
   const handleLoginByEmail = () => {
@@ -116,6 +126,7 @@ const LoginFlow = (props) => {
     console.log("this is user id in UI " + userID);
     getAccountByUser();
     console.log("this is accountNum in UI " + accountNum);
+    console.log("this is accountBalance in UI " + accountBalance);
   };
 
   const handleEmail = (e) => {
@@ -130,14 +141,12 @@ const LoginFlow = (props) => {
       <main className="loginFlow__background">
         <div className="loginFlow">
           <div className="loginFlow__synergyIcon">
-          <img
-                src={synergy}
-                alt="Synergy icon"
-                className="loginFlow__synergyImg"
-              />
-            <h1>
-              Synergy
-            </h1>
+            <img
+              src={synergy}
+              alt="Synergy icon"
+              className="loginFlow__synergyImg"
+            />
+            <h1>Synergy</h1>
           </div>
           <div className="loginFlow__main">
             <div className="loginFlow__main__header">

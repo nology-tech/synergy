@@ -21,6 +21,7 @@ const CurrencyConverter = (props) => {
     // setFxRate,
     amountCode,
     setAmountCode,
+    accountBalance,
   } = props;
 
   const [shouldHide, setShouldHide] = useState(true);
@@ -141,7 +142,7 @@ const CurrencyConverter = (props) => {
       <div className="currencyConverter__main">
         <div className="currencyConverter__main__wallet">
           <FundsBox
-            fundsAmount={userInfo[0].accountBalance}
+            fundsAmount={accountBalance}
             fundBoxHeader={"Funds Remaining"}
             buttonOn={false}
             converterText={
