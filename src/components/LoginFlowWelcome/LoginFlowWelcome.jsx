@@ -19,7 +19,7 @@ const LoginFlowWelcome = (props) => {
       accountNum={accountNum} 
       setAccountNum={setAccountNum}
       accountBalance={accountBalance} 
-      setAccountBalnce={setAccountBalance}
+      setAccountBalance={setAccountBalance}
     />
   );
 };
