@@ -35,16 +35,16 @@
 
     &__synergyIcon {
       display: flex;
-      align-content: center;
 
       h1 {
         font-size: 20px;
         font-weight: 500;
-        padding: 10px;
+        padding: 10px 0px;
       }
       .loginFlow__synergyImg {
-        padding: 5px;
+        padding: 20px 10px ;
       }
+      
     }
 
     .loginFlow__main {
