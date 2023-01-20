@@ -17,7 +17,6 @@ const LoginFlow = (props) => {
     inputBox_psw,
     inputBox_confirmpsw,
     buttonText,
-    username,
     setUserName,
     userID,
     setUserID,

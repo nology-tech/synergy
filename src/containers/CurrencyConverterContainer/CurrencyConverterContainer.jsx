@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./CurrencyConverterContainer.scss";
 import NavMenu from "../../components/NavMenu/NavMenu";
 import LiveRatesList from "../../components/LiveRatesList/LiveRatesList";
