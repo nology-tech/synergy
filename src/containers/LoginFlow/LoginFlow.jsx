@@ -94,49 +94,17 @@ const LoginFlow = (props) => {
   useEffect(() => {getUserByEmail();}, []);
 
   const setUserDetails = (userData) => {
+    console.log("this is user id from API " + userData.userID);
+    console.log("account id: " +  userData.accountID + " with balance of: " + userData.accountBalance)
     setUserName(userData.firstName + " " + userData.lastName);
     setUserID(userData.userID);
-    console.log("this is user id from API " + userData.userID);
-  };
-
-  const getAccountByUser = () => {
-    console.log("this is user id " + userID)
-    if (userID) {
-      fetch(`${apiurl}/accountbyuser?userid=${userID}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          setAccountDetails(data);
-        })
-        .catch((err) => console.log(err));
- 
-    }
-  };
-
-  useEffect(() => {getAccountByUser();}, []);
-
-  const setAccountDetails = (accountData) => {
-    console.log("This is account id from API " + accountData.accountID);
-    setAccountBalance(accountData.accountBalance);
-    console.log(accountData);
-    setAccountNum(accountData.accountID);
+    setAccountBalance(userData.accountBalance);
+    setAccountNum(userData.accountID);
   };
 
   const handleLoginByEmail = () => {
     getUserByEmail();
-    console.log("this is user id in UI " + userID);
-    getAccountByUser();
-    console.log("this is accountNum in UI " + accountNum);
-    console.log("this is accountBalance in UI " + accountBalance);
   };
-
-  // useEffect(() => {handleLoginByEmail();}, [userID,userEmail]);
 
 
   const handleEmail = (e) => {
