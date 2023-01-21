@@ -366,6 +366,7 @@ const App = () => {
                   fee={fee}
                   username={username}
                   accountBalance={accountBalance}
+                  setAccountBalance={setAccountBalance}
                   accountNum={accountNum}
                   sortCode={sortCode}
                   searchTerm={searchTerm}
@@ -397,6 +398,7 @@ const App = () => {
                   fee={fee}
                   username={username}
                   accountBalance={accountBalance}
+                  setAccountBalance={setAccountBalance}
                   accountNum={accountNum}
                   sortCode={sortCode}
                   searchTerm={searchTerm}

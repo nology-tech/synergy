@@ -22,6 +22,7 @@ const TransferMakeTransfer = (props) => {
     fee,
     username,
     accountBalance,
+    setAccountBalance,
     accountNum,
     sortCode,
     userID
@@ -179,6 +180,7 @@ const TransferMakeTransfer = (props) => {
   const handleSend = (event) => {
     setWorkflowStage("sendForm");
     postTransaction();
+    setAccountBalance(accountBalance - amountBase);
     navigate("/wallet");
     // window.open('/wallet', '_blank')
   };

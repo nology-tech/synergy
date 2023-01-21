@@ -97,8 +97,8 @@ const LoginFlow = (props) => {
     setUserName(userData.firstName + " " + userData.lastName);
     setUserID(userData.userID);
     console.log("this is user id from API " + userData.userID);
-    getAccountByUser();
   };
+
   const getAccountByUser = () => {
     console.log("this is user id " + userID)
     if (userID) {
@@ -131,7 +131,7 @@ const LoginFlow = (props) => {
   const handleLoginByEmail = () => {
     getUserByEmail();
     console.log("this is user id in UI " + userID);
-    // getAccountByUser();
+    getAccountByUser();
     console.log("this is accountNum in UI " + accountNum);
     console.log("this is accountBalance in UI " + accountBalance);
   };
