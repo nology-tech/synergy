@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./LoginFlow.scss";
 import emojihand from "../../assets/images/Emojihand.png";
 import synergy from "../../assets/images/synergy.png";
@@ -21,7 +21,9 @@ const LoginFlow = (props) => {
     userID,
     setUserID,
     accountNum,
+    accountBalance,
     setAccountNum,
+    setAccountBalance,
   } = props;
 
   const [passwordType, setPasswordType] = useState("password"); //displays stars or text on a input field
@@ -81,42 +83,29 @@ const LoginFlow = (props) => {
 
   const getUserByEmail = () => {
     console.log(userEmail);
-    fetch(`${apiurl}/userbyemail?email=${userEmail}`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setUserName(data.firstName + " " + data.lastName);
-        setUserID(data.userID);
-        console.log("this is user id from API " + data.userID);
-      })
+    if (userEmail) {
+      fetch(`${apiurl}/userbyemail?email=${userEmail}`)
+      .then((res) => {        return res.json();      })
+      .then((data) => {        setUserDetails(data);  })
       .catch((err) => console.log(err));
+    }
   };
 
-  const getAccountByUser = () => {
-    //console.log("this is user id " + userID)
-    fetch(`${apiurl}/accountbyuser?userid=${userID}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log("This is account id from API " + data.accountID);
-        setAccountNum(data.accountID);
-      })
-      .catch((err) => console.log(err));
+  useEffect(() => {getUserByEmail();}, []);
+
+  const setUserDetails = (userData) => {
+    console.log("this is user id from API " + userData.userID);
+    console.log("account id: " +  userData.accountID + " with balance of: " + userData.accountBalance)
+    setUserName(userData.firstName + " " + userData.lastName);
+    setUserID(userData.userID);
+    setAccountBalance(userData.accountBalance);
+    setAccountNum(userData.accountID);
   };
 
   const handleLoginByEmail = () => {
     getUserByEmail();
-    console.log("this is user id in UI " + userID);
-    getAccountByUser();
-    console.log("this is accountNum in UI " + accountNum);
   };
+
 
   const handleEmail = (e) => {
     e.preventDefault();
@@ -130,14 +119,12 @@ const LoginFlow = (props) => {
       <main className="loginFlow__background">
         <div className="loginFlow">
           <div className="loginFlow__synergyIcon">
-          <img
-                src={synergy}
-                alt="Synergy icon"
-                className="loginFlow__synergyImg"
-              />
-            <h1>
-              Synergy
-            </h1>
+            <img
+              src={synergy}
+              alt="Synergy icon"
+              className="loginFlow__synergyImg"
+            />
+            <h1>Synergy</h1>
           </div>
           <div className="loginFlow__main">
             <div className="loginFlow__main__header">

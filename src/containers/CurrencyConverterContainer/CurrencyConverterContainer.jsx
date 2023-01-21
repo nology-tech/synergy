@@ -22,6 +22,7 @@ const CurrencyConverterContainer = (props) => {
     currency,
     amountCode,
     setAmountCode,
+    accountBalance,
   } = props;
 
   const selectToCurrency = (currency) => {
@@ -36,6 +37,7 @@ const CurrencyConverterContainer = (props) => {
         <CurrencyConverter
           amount={amount}
           setAmount={setAmount}
+          accountBalance={accountBalance}
           baseCurrency={baseCurrency}
           setBaseCurrency={setBaseCurrency}
           toCurrency={toCurrency}

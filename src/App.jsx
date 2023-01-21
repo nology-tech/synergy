@@ -35,7 +35,8 @@ const App = () => {
   const [username, setUserName] = useState("Samantha Brooks"); //shall be replaced by a function on login
   const [accountNum, setAccountNum] = useState("123456789"); // shall be replaced by a function on login
   const [sortCode, setSortCode] = useState("012345"); // shall be replaced by a function on login
-
+  const [accountBalance, setAccountBalance] = useState(4750000); // shall be replaced by a function on login
+  
   //Details of the  transfer
   const [baseCurrency, setBaseCurrency] = useState("");
   const [toCurrency, setToCurrency] = useState("");
@@ -111,9 +112,7 @@ const App = () => {
   // list below shall be replaced from API
   const fee = 0;
 
-  //Details of the Wallet
-  // list below shall be replaced from wallet
-  const accountBalance = 15210;
+ 
 
   //Search function
   // Setting up the search box
@@ -250,7 +249,7 @@ const App = () => {
           <Route path="/change-password" element={<LoginFlowChangePsw />} />
           <Route
             path="/wallet"
-            element={<Wallet username={username} userID={userID} />}
+            element={<Wallet username={username} userID={userID} accountBalance={accountBalance}/>}
           />
           <Route
             path="/contacts"
@@ -275,16 +274,18 @@ const App = () => {
                 setUserID={setUserID}
                 accountNum={accountNum}
                 setAccountNum={setAccountNum}
+                accountBalance={accountBalance}
+                setAccountBalance={setAccountBalance}
               />
             }
           />
           <Route
             path="/userprofile"
-            element={<Wallet username={username} userID={userID} />}
+            element={<Wallet username={username} userID={userID} accountBalance={accountBalance} />}
           />
           <Route
             path="/dashboard"
-            element={<Wallet username={username} userID={userID} />}
+            element={<Wallet username={username} userID={userID} accountBalance={accountBalance}/>}
           />
 
           <Route
@@ -337,6 +338,8 @@ const App = () => {
                   amountCode={amountCode}
                   setAmountCode={setAmountCode}
                   accountNum={accountNum}
+                  accountBalance={accountBalance}
+                  setAccountBalance={setAccountBalance}
                 />
               }
             ></Route>
@@ -363,6 +366,7 @@ const App = () => {
                   fee={fee}
                   username={username}
                   accountBalance={accountBalance}
+                  setAccountBalance={setAccountBalance}
                   accountNum={accountNum}
                   sortCode={sortCode}
                   searchTerm={searchTerm}
@@ -394,6 +398,7 @@ const App = () => {
                   fee={fee}
                   username={username}
                   accountBalance={accountBalance}
+                  setAccountBalance={setAccountBalance}
                   accountNum={accountNum}
                   sortCode={sortCode}
                   searchTerm={searchTerm}
