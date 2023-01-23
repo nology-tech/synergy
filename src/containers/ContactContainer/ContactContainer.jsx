@@ -21,7 +21,7 @@ const ContactContainer = (props) => {
   const [contacts, setContacts] = useState([]);
   
   const getContacts = () => {
-      console.log("UserID: " + userID)
+      // console.log("UserID: " + userID)
       if (userID) {
         fetch(`${apiurl}/contacts/${userID}`)
         .then(res => res.json())
@@ -42,9 +42,9 @@ const ContactContainer = (props) => {
   useEffect(() => {getAllContacts();}, [currencyRecipientCode]);
 
   const setAllContacts = (json) => {
-    console.log("WalletOn = " + walletOn)
+    // console.log("WalletOn = " + walletOn)
     if (!walletOn) setContacts(json);
-    console.log(json);
+    // console.log(json);
   }
 
   const [contactID, setContactID] = useState("");

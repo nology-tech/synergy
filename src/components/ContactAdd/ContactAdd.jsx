@@ -8,11 +8,21 @@ import ContactListPage from "../ContactListPage/ContactListPage";
 import apiurl from "../../config/url";
 
 const ContactAdd = (props) => {
-  const {username,userID} = props; 
+  const { username, userID } = props;
   // handle navigation
   const [workflowStage, setWorkflowStage] = useState("contactContainer");
-  console.log (username);
-  console.log(workflowStage);
+  // console.log (username);
+  // console.log(userID);
+  // console.log(workflowStage);
+
+  //Add and Confirm Recepient props
+  const [recipientName, setRecipientName] = useState("");
+  const [accountTypeRecipient, setAccountTypeRecipient] = useState();
+  const [accountNumRecipient, setAccountNumRecipient] = useState();
+  const [currencyRecipient, setCurrencyRecipient] = useState();
+  const [bankRecipient, setBankRecipient] = useState("");
+  const [bankDefaultRecipient, setBankDefaultRecipient] = useState();
+  const [sortCodeRecipient, setSortCodeRecipient] = useState("");
 
   //Contact page to Add button clicked function
   const handleAddContact = (event) => {
@@ -21,16 +31,47 @@ const ContactAdd = (props) => {
     setAccountTypeRecipient("");
     setAccountNumRecipient("");
     setSortCodeRecipient("");
+    setBankDefaultRecipient("");
+    setBankRecipient("");
+    setCurrencyRecipient();
   };
 
-  console.log(setWorkflowStage);
-  
+  const [contactID, setContactID] = useState("");
+  const postCreateAccount = () => {
+    fetch(`${apiurl}/users/${userID}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userID: "",
+        firstName: recipientName.split(" ", 2)[0],
+        lastName: recipientName.split(" ", 2)[1],
+        contactFlag: 1,
+        email: "unknown@test.com",
+        sortCode: sortCodeRecipient,
+        accountType: accountTypeRecipient,
+        currencyID: currencyRecipient.split(" ", 2)[0],
+      }),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data.userID);
+        setContactID(data.userID);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  //Navigation between new recipient details and Contact list
+
   //From Add recipient to Confirm Details press continue
   const handleContinueButton = (event) => {
     setWorkflowStage("addRecipientConfirmed");
   };
 
-  //go back button 
+  //go back button for Confirm Recipient to Add
   const handleGoBack = (event) => {
     setWorkflowStage("addRecipient");
   };
@@ -38,85 +79,44 @@ const ContactAdd = (props) => {
   // From Submit to go back to the contact page
   const handleSubmit = (event) => {
     setWorkflowStage("contactContainer");
-    postCreateAccount();
+    // postCreateAccount(); - should be uncommented to save the contact
   };
 
-  const [contactID, setContactID] = useState("");
-    const postCreateAccount=()=>{
-
-      fetch(`${apiurl}/users/${userID}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          userID: "",
-          firstName:recipientName.split(" ",2)[0],
-          lastName:recipientName.split(" ",2)[1],
-          contactFlag: 1,
-          email: "unknown@test.com",
-          sortCode: bankRecipient.sortCode,
-          accountType: accountTypeRecipient,
-          currencyID:currencyRecipient.split(" ",2)[0]
-        })
-      })
-      .then((res) => {return res.json()})
-      .then((data => {
-        console.log(data.userID)
-        setContactID(data.userID)
-      }))
-      .catch(err => console.log(err))
-  }
-
-
-  const handleCancel = (event) => {
+  //Handle black cross
+  const handleCloseWindow = (event) => {
     setWorkflowStage("contactContainer");
+    setRecipientName("");
+    setAccountTypeRecipient("");
+    setAccountNumRecipient("");
+    setSortCodeRecipient("");
+    setBankDefaultRecipient("");
+    setBankRecipient("");
+    setCurrencyRecipient();
   };
 
-    //Handle black cross
-    const handleCloseWindow = (event) => {
-      setWorkflowStage("contactContainer");
-      setRecipientName("");
-      setAccountTypeRecipient("");
-      setAccountNumRecipient("");
-      setSortCodeRecipient("");
-    };
+  const [banks, setBanks] = useState([
+    {
+      bankName: "",
+      bankLogo: "",
+      sortCode: "",
+    },
+  ]);
 
-    //Add Recepient
-    const [recipientName, setRecipientName] = useState("");
-    const [accountTypeRecipient, setAccountTypeRecipient] = useState();
-    const [accountNumRecipient, setAccountNumRecipient] = useState();
-    const [currencyRecipient, setCurrencyRecipient] = useState();
-    const [bankRecipient, setBankRecipient] = useState();
-    const [sortCodeRecipient, setSortCodeRecipient] = useState("");
-
-    const [banks, setBanks] = useState(
-      [
-      {
-        bankName: "",
-        bankLogo: "",
-        sortCode: "",
+  const getBanks = () => {
+    //e.preventDefault();
+    fetch(`${apiurl}/banks`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
       },
-    ]
-    );
-  
-    const getBanks = () => {
-      
-      //e.preventDefault();
-      fetch(`${apiurl}/banks`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-       
-      })
-        .then((response) => response.json())
-        .then((json) => setBanks(json))
-        .catch((err) => console.log(err));
-      //e.target.reset();
-    };
-  
-   useEffect (() => getBanks(),[]);
+    })
+      .then((response) => response.json())
+      .then((json) => setBanks(json))
+      .catch((err) => console.log(err));
+    //e.target.reset();
+  };
+
+  useEffect(() => getBanks(), []);
 
   // Handling the recipeint name input field change
   const handleRecipientName = (e) => {
@@ -136,61 +136,64 @@ const ContactAdd = (props) => {
     setAccountNumRecipient(e.target.value);
   };
 
-  // Handling the sort code input field change
-  const handleSortCodeRecipient = (e) => {
-    e.preventDefault();
-    setSortCodeRecipient(e.target.value.toString());
-  };
-
-   // Handling the account currency input field change
-   const handleCurrencyRecipient = (e) => {
+  // Handling the account currency input field change
+  const handleCurrencyRecipient = (e) => {
     e.preventDefault();
     setCurrencyRecipient(e.target.value);
   };
 
-   // Handling the bank input field change
-   const handleBankRecipient = (value) => {
-    console.log(value);
-    setBankRecipient(value);
-    
+  // Handling the bank input field change
+  const handleBankRecipient = (value) => {
+    setBankRecipient(value.bankName);
+    setSortCodeRecipient(value.sortCode);
+    setBankDefaultRecipient(value);
   };
 
   //function to display different stages of adding contact
   const displayCurrentView = () => {
     if (workflowStage === "contactContainer") {
-      return <ContactListPage handleAddContact={handleAddContact} username={username} userID={userID}/>;
+      return (
+        <ContactListPage
+          handleAddContact={handleAddContact}
+          username={username}
+          userID={userID}
+        />
+      );
     } else if (workflowStage === "addRecipient") {
       return (
         <>
-          <ContactListPage handleAddContact={handleAddContact} username={username} userID={userID}/>
+          <ContactListPage
+            handleAddContact={handleAddContact}
+            username={username}
+            userID={userID}
+          />
           <TransferAddRecipient
-          recipientName={recipientName}
-          accountTypeRecipient={accountTypeRecipient}
-          accountNumRecipient={accountNumRecipient}
-          sortCodeRecipient={sortCodeRecipient}
-          currencyRecipient={currencyRecipient}
-          bankRecipient={bankRecipient}
-          banks={banks}
-          handleCurrencyRecipient={handleCurrencyRecipient}
-          handleBankRecipient={handleBankRecipient}         
+            handleCurrencyRecipient={handleCurrencyRecipient}
             handleContinueButton={handleContinueButton}
-            handleGoBack={handleGoBack}
             handleRecipientName={handleRecipientName}
             handleAccountTypeRecipient={handleAccountTypeRecipient}
             handleAccountNumRecipient={handleAccountNumRecipient}
-            handleSortCodeRecipient={handleSortCodeRecipient}
+            handleBankRecipient={handleBankRecipient}
             handleCloseWindow={handleCloseWindow}
-            
-            
-            
-            
+            recipientName={recipientName}
+            accountTypeRecipient={accountTypeRecipient}
+            accountNumRecipient={accountNumRecipient}
+            currencyRecipient={currencyRecipient}
+            bankRecipient={bankRecipient}
+            bankDefaultRecipient={bankDefaultRecipient}
+            banks={banks}
+            sortCodeRecipient={sortCodeRecipient}
           />
         </>
       );
     } else if (workflowStage === "addRecipientConfirmed") {
       return (
         <>
-          <ContactListPage handleAddContact={handleAddContact} username={username} userID={userID}/>
+          <ContactListPage
+            handleAddContact={handleAddContact}
+            username={username}
+            userID={userID}
+          />
           <TransferConfirmRecipient
             recipientName={recipientName}
             accountTypeRecipient={accountTypeRecipient}

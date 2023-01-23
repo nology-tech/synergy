@@ -128,7 +128,7 @@ const TransferMakeTransfer = (props) => {
   };
 
   const postCreateAccount=()=>{
-
+    
     fetch(`${apiurl}/users/${userID}`, {
       method: 'POST',
       headers: {
@@ -140,7 +140,7 @@ const TransferMakeTransfer = (props) => {
         lastName:recipientName.split(" ",2)[1],
         contactFlag: 1,
         email: "unknown@test.com",
-        sortCode: bankRecipient.sortCode,
+        sortCode: sortCodeRecipient,
         accountType: accountTypeRecipient,
         currencyID:currencyRecipient
       })
