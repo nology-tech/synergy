@@ -17,7 +17,7 @@ const Wallet = (props) => {
 
   // From Choose Recipient from existing contact
   const [contact, setContact] = useState({account:"", firstName:"", lastName:"", accountType:"", sortCode:"", bankName:"", accountCurrency:""});
-  console.log(`Contact to: ${contact.account} ${contact.firstName} ${contact.lastName} ${contact.accountType} ${contact.sortCode}`);
+  // console.log(`Contact to: ${contact.account} ${contact.firstName} ${contact.lastName} ${contact.accountType} ${contact.sortCode}`);
 
   // these items are place holders for future work; currently not in use for onclick on contact details
   const onContactClick = (contact) => {
