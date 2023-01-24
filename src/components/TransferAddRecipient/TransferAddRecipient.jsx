@@ -69,7 +69,7 @@ const TransferAddRecipient = (props) => {
             className="input"
             defaultValue={accountTypeRecipient}
           />
-          <h3>Account Number</h3>
+          <h3>Account Number (IBAN)</h3>
           <input
             onInput={handleAccountNumRecipient}
             className="input"
