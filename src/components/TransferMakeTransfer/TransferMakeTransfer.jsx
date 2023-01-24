@@ -141,6 +141,7 @@ const TransferMakeTransfer = (props) => {
         contactFlag: 1,
         email: "unknown@test.com",
         sortCode: sortCodeRecipient,
+        iban: accountNumRecipient,
         accountType: accountTypeRecipient,
         currencyID:currencyRecipient.split(" ", 2)[0],
       })
