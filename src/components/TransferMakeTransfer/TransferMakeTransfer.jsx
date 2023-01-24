@@ -142,7 +142,7 @@ const TransferMakeTransfer = (props) => {
         email: "unknown@test.com",
         sortCode: sortCodeRecipient,
         accountType: accountTypeRecipient,
-        currencyID:currencyRecipient
+        currencyID:currencyRecipient.split(" ", 2)[0],
       })
     })
     .then((res) => {return res.json()})
