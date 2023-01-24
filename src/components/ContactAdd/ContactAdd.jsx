@@ -58,8 +58,8 @@ const ContactAdd = (props) => {
         return res.json();
       })
       .then((data) => {
-        console.log(data.userID);
-        setContactID(data.userID);
+        console.log(data);
+        setContactID(data.userID); //not valid when there is an error
       })
       .catch((err) => console.log(err));
   };
@@ -79,7 +79,7 @@ const ContactAdd = (props) => {
   // From Submit to go back to the contact page
   const handleSubmit = (event) => {
     setWorkflowStage("contactContainer");
-    // postCreateAccount(); - should be uncommented to save the contact
+    postCreateAccount(); 
   };
 
   //Handle black cross
