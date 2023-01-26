@@ -7,7 +7,7 @@ import ContactContainer from "../../containers/ContactContainer/ContactContainer
 const TransferChooseRecipient = (props) => {
 
   const {handleCloseWindow, 
-  selectContact, currencyRecipientCode, contactTo, setContactTo, userID} = props;
+  selectContact, currencyRecipientCode, contactTo, setContactTo, userID, accountIbanRecipient} = props;
   const [walletOn, setWalletOn] = useState(true);
   
   return (
@@ -17,7 +17,7 @@ const TransferChooseRecipient = (props) => {
         <img src={blackCross} alt="Close menu" className="blackcross" onClick={handleCloseWindow}/>
       
       <h1>Choose Recipient</h1>
-      <ContactContainer walletOn={walletOn} currencyRecipientCode={currencyRecipientCode} onContactClick={selectContact} contact={contactTo} setContact={setContactTo} userID={userID}/> 
+      <ContactContainer walletOn={walletOn} currencyRecipientCode={currencyRecipientCode} onContactClick={selectContact} contact={contactTo} setContact={setContactTo} userID={userID} accountIbanRecipient={accountIbanRecipient}/> 
       </div>
       </>
   );

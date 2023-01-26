@@ -10,7 +10,7 @@ const TransferAddRecipient = (props) => {
   const {
     recipientName,
     accountTypeRecipient,
-    accountNumRecipient,
+    accountIbanRecipient,
     currencyRecipient,
     bankRecipient,
     bankDefaultRecipient,
@@ -20,21 +20,10 @@ const TransferAddRecipient = (props) => {
     handleCloseWindow,
     handleRecipientName,
     handleAccountTypeRecipient,
-    handleAccountNumRecipient,
+    handleAccountIbanRecipient,
     handleCurrencyRecipient,
     handleBankRecipient
   } = props;
-
-  // const [contact, setContact] = useState({
-  //   firstName: recipientName,
-  //   lastName: "",
-  //   email:"",
-  //   address_houseNum:"",
-  //   address_streetName:"",
-  //   address_city:"",
-  //   address_postCode:"",
-  //   contactFlag:1
-  // })
 
   const currencyJSX = currency.map((currency) => (
     <option name={currency.code}>
@@ -71,9 +60,9 @@ const TransferAddRecipient = (props) => {
           />
           <h3>Account Number (IBAN)</h3>
           <input
-            onInput={handleAccountNumRecipient}
+            onInput={handleAccountIbanRecipient}
             className="input"
-            defaultValue={accountNumRecipient}
+            defaultValue={accountIbanRecipient}
           />
           <h3>Account Currency</h3>
           

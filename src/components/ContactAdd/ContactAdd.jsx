@@ -11,14 +11,13 @@ const ContactAdd = (props) => {
   const { username, userID } = props;
   // handle navigation
   const [workflowStage, setWorkflowStage] = useState("contactContainer");
-  // console.log (username);
-  // console.log(userID);
-  // console.log(workflowStage);
+
 
   //Add and Confirm Recepient props
   const [recipientName, setRecipientName] = useState("");
   const [accountTypeRecipient, setAccountTypeRecipient] = useState();
   const [accountNumRecipient, setAccountNumRecipient] = useState();
+  const [accountIbanRecipient, setAccountIbanRecipient] = useState();
   const [currencyRecipient, setCurrencyRecipient] = useState();
   const [bankRecipient, setBankRecipient] = useState("");
   const [bankDefaultRecipient, setBankDefaultRecipient] = useState();
@@ -30,13 +29,14 @@ const ContactAdd = (props) => {
     setRecipientName("");
     setAccountTypeRecipient("");
     setAccountNumRecipient("");
+    setAccountIbanRecipient("");
     setSortCodeRecipient("");
     setBankDefaultRecipient("");
     setBankRecipient("");
     setCurrencyRecipient();
   };
 
-  const [contactID, setContactID] = useState("");
+  // const [contactID, setContactID] = useState("");
   const postCreateAccount = () => {
     fetch(`${apiurl}/users/${userID}`, {
       method: "POST",
@@ -50,7 +50,7 @@ const ContactAdd = (props) => {
         contactFlag: 1,
         email: "unknown@test.com",
         sortCode: sortCodeRecipient,
-        iban: accountNumRecipient,
+        iban: accountIbanRecipient,
         accountType: accountTypeRecipient,
         currencyID: currencyRecipient.split(" ", 2)[0],
       }),
@@ -59,12 +59,12 @@ const ContactAdd = (props) => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
-        setContactID(data.userID); //not valid when there is an error
+        // setContactID(data.userID); 
+        setAccountNumRecipient(data.accountID)//not valid when there is an error
       })
       .catch((err) => console.log(err));
   };
-
+  
   //Navigation between new recipient details and Contact list
 
   //From Add recipient to Confirm Details press continue
@@ -89,6 +89,7 @@ const ContactAdd = (props) => {
     setRecipientName("");
     setAccountTypeRecipient("");
     setAccountNumRecipient("");
+    setAccountIbanRecipient("");
     setSortCodeRecipient("");
     setBankDefaultRecipient("");
     setBankRecipient("");
@@ -137,6 +138,12 @@ const ContactAdd = (props) => {
     setAccountNumRecipient(e.target.value);
   };
 
+   // Handling the account IBAN input field change
+  const handleAccountIbanRecipient = (e) => {
+    e.preventDefault();
+    setAccountIbanRecipient(e.target.value);
+  };
+
   // Handling the account currency input field change
   const handleCurrencyRecipient = (e) => {
     e.preventDefault();
@@ -174,11 +181,13 @@ const ContactAdd = (props) => {
             handleRecipientName={handleRecipientName}
             handleAccountTypeRecipient={handleAccountTypeRecipient}
             handleAccountNumRecipient={handleAccountNumRecipient}
+            handleAccountIbanRecipient={handleAccountIbanRecipient}
             handleBankRecipient={handleBankRecipient}
             handleCloseWindow={handleCloseWindow}
             recipientName={recipientName}
             accountTypeRecipient={accountTypeRecipient}
             accountNumRecipient={accountNumRecipient}
+            accountIbanRecipient={accountIbanRecipient}
             currencyRecipient={currencyRecipient}
             bankRecipient={bankRecipient}
             bankDefaultRecipient={bankDefaultRecipient}
@@ -199,6 +208,7 @@ const ContactAdd = (props) => {
             recipientName={recipientName}
             accountTypeRecipient={accountTypeRecipient}
             accountNumRecipient={accountNumRecipient}
+            accountIbanRecipient={accountIbanRecipient}
             currencyRecipient={currencyRecipient}
             bankRecipient={bankRecipient}
             sortCodeRecipient={sortCodeRecipient}
