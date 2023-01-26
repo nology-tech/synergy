@@ -68,6 +68,7 @@ const TransferMakeTransfer = (props) => {
   const currencyToSymbol = currencyTo.symbol;
   const currencyRecipient = currencyTo.code + " - "+ currencyTo.symbol;
   
+  
 
   const accountFormTypes = true;
 
@@ -85,6 +86,7 @@ const TransferMakeTransfer = (props) => {
     setRecipientName(contactTo.firstName+" "+contactTo.lastName);
     setAccountTypeRecipient(contactTo.accountType);
     setAccountNumRecipient(contactTo.account);
+    setAccountIbanRecipient(contactTo.iban);
     setBankRecipient(contactTo.bankName);
     setSortCodeRecipient(contactTo.sortCode);
     setWorkflowStage("selectContactConfirmed");
@@ -141,14 +143,15 @@ const TransferMakeTransfer = (props) => {
         contactFlag: 1,
         email: "unknown@test.com",
         sortCode: sortCodeRecipient,
-        iban: accountNumRecipient,
+        iban: accountIbanRecipient,
         accountType: accountTypeRecipient,
         currencyID:currencyRecipient.split(" ", 2)[0],
       })
     })
     .then((res) => {return res.json()})
     .then((data => {
-      console.log(data.userID)
+      setAccountNumRecipient(data.accountID)
+      
     }))
     .catch(err => console.log(err))
 }
@@ -192,6 +195,7 @@ const TransferMakeTransfer = (props) => {
     setRecipientName("");
     setAccountTypeRecipient("");
     setAccountNumRecipient("");
+    setAccountIbanRecipient("");
     setBankRecipient("");
     setBankDefaultRecipient("");
     setSortCodeRecipient("");
@@ -201,6 +205,7 @@ const TransferMakeTransfer = (props) => {
   const [recipientName, setRecipientName] = useState("");
   const [accountTypeRecipient, setAccountTypeRecipient] = useState();
   const [accountNumRecipient, setAccountNumRecipient] = useState();
+  const [accountIbanRecipient, setAccountIbanRecipient] = useState();
   const [bankRecipient, setBankRecipient] = useState("");
   const [bankDefaultRecipient, setBankDefaultRecipient] = useState();
   const [sortCodeRecipient, setSortCodeRecipient] = useState("");
@@ -223,6 +228,12 @@ const TransferMakeTransfer = (props) => {
     setAccountNumRecipient(e.target.value);
     
   };
+
+     // Handling the account IBAN input field change
+     const handleAccountIbanRecipient = (e) => {
+      e.preventDefault();
+      setAccountIbanRecipient(e.target.value);
+    };
   
   // Handling the bank input field change
   const handleBankRecipient = (value) => {
@@ -271,11 +282,13 @@ const TransferMakeTransfer = (props) => {
             handleRecipientName={handleRecipientName}
             handleAccountTypeRecipient={handleAccountTypeRecipient}
             handleAccountNumRecipient={handleAccountNumRecipient}
+            handleAccountIbanRecipient={handleAccountIbanRecipient}
             handleBankRecipient={handleBankRecipient}
             handleCloseWindow={handleCloseWindow}
             recipientName={recipientName}
             accountTypeRecipient={accountTypeRecipient}
             accountNumRecipient={accountNumRecipient}
+            accountIbanRecipient={accountIbanRecipient}
             currencyRecipient={currencyRecipient}
             bankRecipient={bankRecipient}
             bankDefaultRecipient={bankDefaultRecipient}
@@ -302,6 +315,7 @@ const TransferMakeTransfer = (props) => {
             recipientName={recipientName}
             accountTypeRecipient={accountTypeRecipient}
             accountNumRecipient={accountNumRecipient}
+            accountIbanRecipient={accountIbanRecipient}
             currencyRecipient={currencyRecipient}
             bankRecipient={bankRecipient}
             sortCodeRecipient={sortCodeRecipient}
@@ -331,6 +345,7 @@ const TransferMakeTransfer = (props) => {
             workflowStage={workflowStage}
             currencyRecipientCode={currencyRecipientCode}
             contactTo={contactTo}
+            accountIbanRecipient={accountIbanRecipient}
             setContactTo={setContactTo}
             userID={userID}
           />
@@ -352,6 +367,7 @@ const TransferMakeTransfer = (props) => {
             recipientName={recipientName}
             accountTypeRecipient={accountTypeRecipient}
             accountNumRecipient={accountNumRecipient}
+            accountIbanRecipient={accountIbanRecipient}
             currencyRecipient={currencyRecipient}
             bankRecipient={bankRecipient}
             sortCodeRecipient={sortCodeRecipient}       

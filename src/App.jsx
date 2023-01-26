@@ -35,7 +35,7 @@ const App = () => {
   const [username, setUserName] = useState("Samantha Brooks"); //shall be replaced by a function on login
   const [accountNum, setAccountNum] = useState("123456789"); // shall be replaced by a function on login
   const [sortCode, setSortCode] = useState("012345"); // shall be replaced by a function on login
-  const [accountBalance, setAccountBalance] = useState(4750000); // shall be replaced by a function on login
+  const [accountBalance, setAccountBalance] = useState(10000); // shall be replaced by a function on login
   
   //Details of the  transfer
   const [baseCurrency, setBaseCurrency] = useState("");
