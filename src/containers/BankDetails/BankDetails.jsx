@@ -52,7 +52,7 @@ const BankDetails = (props) => {
             <form className="bankDetailsForm">
               {/* Labels and inputs for form data */}
               <div className="bankDetailsForm__div">
-                <label>Account Name</label>
+                <label>Account First and Last Name(s)</label>
                 <input
                   onChange={handleAccountName}
                   className="input"
